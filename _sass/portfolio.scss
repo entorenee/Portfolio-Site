@@ -1,0 +1,16 @@
+#portfolio {
+  margin-left: $sectionLeftMargin;
+}
+
+.portfolio-belt {
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.portfolio-image {
+  display: block;
+  margin: auto;
+}

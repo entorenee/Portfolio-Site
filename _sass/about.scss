@@ -1,0 +1,24 @@
+#about {
+  margin-top: 66px;
+  margin-left: $sectionLeftMargin;
+}
+h1 {
+  padding-top: 7px;
+}
+.about-belt {
+  max-width: 85%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  .blurb {
+    max-width: 50%;
+  }
+}
+#profile-picture {
+  border-radius: 50%;
+  max-width: 200px;
+  display: block;
+  margin: auto;
+}

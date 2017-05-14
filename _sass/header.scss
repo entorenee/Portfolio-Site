@@ -1,0 +1,18 @@
+
+#navbar {
+  background-color: $baseColor;
+  a {
+    color: $lightAccent;
+    &:hover {
+      color: $mediumAccent;
+    }
+  }
+}
+.navbar-name {
+  font-family: Tangerine, cursive, Helvetica;
+  font-size: 140%;
+}
+h1 {
+  font-family: Tangerine, cursive, Helvetica;
+  font-size: 300%;
+}
