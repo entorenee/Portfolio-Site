@@ -1,33 +1,9 @@
 <div id="portfolio">
   <h1>Portfolio</h1>
-  <!-- <div class="row">
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-  </div>
-  <br><br>
-  <div class="row">
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-    <div class="col-lg-4">
-    <img src="http://placehold.it/250x250" class="img-responsive portfolio-image" alt="Project example placeholder">
-    </div>
-  </div> -->
-
   <div class="portfolio-belt">
     {% for project in site.data.settings.projects %}
     <div class="portfolio-thumb">
-      <img src="/assets/img/{{project.folder}}/thumb-small.jpg" alt="{{project.name}}" />
+      <a href="/{{project.folder}}/" target="_blank"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" alt="{{project.name}}" /></a>
     </div>
     {% endfor %}
   </div>
