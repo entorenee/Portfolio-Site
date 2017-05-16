@@ -1,0 +1,33 @@
+html, body, .flex { height: 100% }
+
+body {
+  background-image: url("/random-quote-generator/assets/img/flourished-paper-small.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.center {
+  max-width: 50%;
+}
+
+.buttons {
+  margin-top: 15px;
+}
+
+#tweet {
+  float:right;
+  padding-right:15%;
+}
+
+#newQuote {
+  margin-left:15%;
+}

@@ -1,0 +1,31 @@
+---
+title: Random Quote Generator
+permalink: /random-quote-generator/
+---
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/random-quote-generator/assets/css/main.css">
+  </head>
+  <body>
+
+    <div class="flex">
+      <div class="center">
+        <blockquote id="quote">Quote goes here.</blockquote>
+        <span>~<sm id="attribution">Attribution goes here</sm></span><br>
+        <div class="buttons">
+          <button class="btn btn-primary" id="newQuote">Get New Quote</button>
+          <a href="" id="tweet" alt="Tweet this" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/random-quote-generator/assets/js/generator.js"></script>
+  </body>
+</html>
