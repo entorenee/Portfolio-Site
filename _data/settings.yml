@@ -1,0 +1,5 @@
+#-------------------------------
+# Portfolio Section
+
+projects:
+- {name: Random Quote Generator, folder: "random-quote-generator", file: ""}

@@ -3,11 +3,16 @@
 }
 
 .portfolio-belt {
-  max-width: 85%;
+  //max-width: 85%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
+
+  .portfolio-thumb {
+    max-width: 45%;
+    margin-top: 25px;
+  }
 }
 
 .portfolio-image {
