@@ -11,7 +11,8 @@ function smoothScroll (duration) {
 	    if( target.length ) {
 	        event.preventDefault();
 	        $('html, body').animate({
-	            scrollTop: target.offset(-75).top
+	            scrollTop: target.offset().top - 75
 	        }, duration);
 	    }
 	});
+}
