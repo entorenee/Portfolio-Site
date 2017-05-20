@@ -6,4 +6,5 @@ blurb: "<p><strong>Daniel Lemay, is an aspiring self-taught front end developer 
 # Portfolio Section
 
 projects:
-- {name: Random Quote Generator, folder: "random-quote-generator", file: ""}
+- {name: "Random Quote Generator", folder: "random-quote-generator"}
+- {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
