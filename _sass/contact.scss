@@ -5,3 +5,26 @@
 .social-icon {
   margin-right: 5px;
 }
+
+form {
+  display: block;
+  max-width: 400px;
+  margin-bottom: 20px;
+
+  input {
+    margin-bottom: 10px;
+
+    &:focus {
+      border-color: $baseColor !important;
+    }
+  }
+
+  textarea:focus {
+    border-color: $baseColor !important;
+  }
+
+  .submit-button {
+    background-color: $baseColor;
+    color: $lightAccent;
+  }
+}

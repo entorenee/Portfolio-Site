@@ -1,5 +1,14 @@
 <div id="contact">
   <h1>Contact</h1>
+  <form action="https://formspree.io/{{site.email}}" method="POST">
+    <div class="form-group">
+      <input type="text" class="form-control" name="name" placeholder="Your name">
+      <input type="email" class="form-control" name="_replyto" placeholder="Your e-mail">
+      <input type="hidden" name="_subject" value="New contact form submission">
+      <textarea rows="6" name="message" class="form-control" placeholder="Your message"></textarea>
+    </div>
+    <button type="submit" class="submit-button">Submit</button>
+  </form>
   <a href="http://twitter.com/dslemay" class="social-icon" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
   <a href="https://www.freecodecamp.com/dslemay" class="social-icon" target="_blank"><i class="fa fa-free-code-camp fa-2x"></i></a>
   <a href="https://github.com/dslemay" class="social-icon" target="_blank"><i class="fa fa-github fa-2x"></i></a>
