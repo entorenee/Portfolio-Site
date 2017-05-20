@@ -3,7 +3,6 @@
 }
 
 .portfolio-belt {
-  //max-width: 85%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -18,4 +17,16 @@
 .portfolio-image {
   display: block;
   margin: auto;
+}
+
+@media screen and (max-width: $screenBreak) {
+  .portfolio-belt {
+    flex-direction: column;
+    align-items: center;
+
+    .portfolio-thumb {
+      max-width: 90%;
+      margin-top: 15px;
+    }
+  }
 }
