@@ -12,6 +12,15 @@ h1 {
   justify-content: space-around;
   align-items: center;
 
+  @media screen and (max-width: $screenBreak) {
+    max-width: 100%;
+    flex-direction: column;
+
+    .blurb {order: 1}
+
+    #profile-picture {margin-bottom: 10px}
+  }
+
   .blurb {
     max-width: 50%;
   }
