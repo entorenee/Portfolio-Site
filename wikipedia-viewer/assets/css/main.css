@@ -1,0 +1,55 @@
+body {
+  background: #bdc3c7;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.search {
+  background: pink;
+  display: inline;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 35px;
+  margin-left: -25px;
+}
+
+.random {
+  padding: 3px 25px;
+}
+
+.button {
+  background: #3498db;
+}
+
+#wiki-viewer {
+  margin-right: 15%;
+  margin-left: 15%;
+}
+
+.wiki-article {
+  background: #ecf0f1;
+  border-radius: 15px;
+  margin-bottom: 35px;
+  padding: 5px 15px 5px 15px;
+}
+
+a:link, a:visited {
+  color: #3498db;
+}
+
+a:hover {
+  color: #2980b9;
+}
+
+.div-link {
+  color: black !important;
+  text-decoration: none;
+}
