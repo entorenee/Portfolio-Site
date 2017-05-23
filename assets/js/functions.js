@@ -1,5 +1,6 @@
 $(document).ready(function () {
   smoothScroll(300);
+  navbarToggle();
 });
 
 
@@ -15,4 +16,10 @@ function smoothScroll (duration) {
 	        }, duration);
 	    }
 	});
+}
+
+function navbarToggle() {
+  $('.nav-link').on('click', function() {
+    $('.navbar-toggler').click(); //Closes navbar before scrolling to section.
+  });
 }
