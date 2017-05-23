@@ -4,6 +4,14 @@
 
 .social-icon {
   margin-right: 5px;
+
+  i {
+    color: $mediumAccent;
+
+    &:hover {
+      color: $baseColor;
+    }
+  }
 }
 
 form {
