@@ -1,0 +1,12 @@
+footer {
+  background-color: $baseColor;
+  margin-left: -$sectionLeftMargin;
+  margin-top: 15px;
+}
+
+#copyright {
+  text-align: center;
+  font-family: Tangerine, cursive, Helvetica;
+  font-size: 125%;
+  color: $lightAccent;
+}
