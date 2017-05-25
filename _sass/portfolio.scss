@@ -43,6 +43,12 @@
   height: 100%;
   overflow: auto;
   background-color: rgba($lightAccent, 0.7);
+  animation: {
+    name: animateTop;
+    duration: 800ms;
+    timing-function: ease-in-out;
+    fill-mode: forwards;
+  }
 
   .modal-content {
     margin: 10% auto;
@@ -73,5 +79,15 @@
   #project-large-thumb {
     max-width: 800px;
     margin: 0 auto;
+  }
+}
+@keyframes animateTop {
+  from {
+    top: -600px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
   }
 }
