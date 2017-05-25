@@ -1,0 +1,14 @@
+{
+  "random-quote-generator": {
+    "title": "Random Quote Generator",
+    "thumbSource": "/assets/img/random-quote-generator/thumb-large.jpg",
+    "description": "",
+    "projectLink": "/random-quote-generator"
+  },
+  "wikipedia-viewer": {
+    "title": "Wikipedia Viewer",
+    "thumbSource": "{{site.url}}/assets/img/wikipedia-viewer/thumb-large.jpg",
+    "description": "",
+    "projectLink": "{{site.url}}/wikipedia-viewer"
+  }
+}
