@@ -3,8 +3,23 @@
   <div class="portfolio-belt">
     {% for project in site.data.settings.projects %}
     <div class="portfolio-thumb">
-      <a href="/{{project.folder}}/" target="_blank"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
+      <!-- <a href="/{{project.folder}}/" id="{{project.folder}}" target="_blank"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a> -->
+      <a href="/{{project.folder}}/" id="{{project.folder}}"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
     </div>
     {% endfor %}
+  </div>
+
+  <!-- Modal dialog box for displaying larger images and information about each project -->
+  <div id="portfolio-modal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <h2 id="project-name"></h2>
+      </div>
+      <img id="project-large-thumb" src="" class="img-fluid" />
+      <p id="project-description"></p>
+      <a id="project-link" href="" target="_blank">Check out the full project</a>
+
+    </div>
   </div>
 <hr>
