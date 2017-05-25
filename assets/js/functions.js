@@ -26,12 +26,24 @@ function navbarToggle() {
   });
 }
 
-//Functions for showing and hiding the modal dialog box in portfolio section
+/* Functions for showing and hiding the modal dialog box in portfolio section
+ * openModal function selects which portfolio item is clicked on, and uses the id
+ * of that element to get the appropriate values from the projects.json file.
+ * The subsequent jQuery commands populate the skeleton HTML elements of the modal
+ * and then make it visible.
+*/
 
 function closeModal() {
   $('.close').on('click', function() {
-    $('.modal').css('display','none');
+    closeAnimation();
   });
+}
+
+function closeAnimation() {
+  var modal = $('.modal').addClass('hide-dialog'); // Temporarily adds class with closing animation
+  setTimeout(function() { // Provides a delay before resetting the modal to a ready state to be re-opened.
+    modal.removeClass('hide-dialog').css('display','none');
+  }, 1000); // Delay must be the same as the CSS minimizeDialog animation.
 }
 
 function openModal() {
