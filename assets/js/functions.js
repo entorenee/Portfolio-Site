@@ -37,6 +37,12 @@ function closeModal() {
   $('.close').on('click', function() {
     closeAnimation();
   });
+  $('#portfolio-modal').children().on('click', function(e) {
+    e.stopPropagation();
+  });
+  $('#portfolio-modal').on('click', function() {
+    closeAnimation();
+  });
 }
 
 function closeAnimation() {
