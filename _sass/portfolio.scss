@@ -52,6 +52,8 @@
 
   .modal-content {
     margin: 10% auto;
+    width: 85%;
+    padding: 20px;
   }
 
   .modal-header {
@@ -76,9 +78,20 @@
       }
     }
   }
+
   #project-large-thumb {
-    max-width: 800px;
+    max-width: 100%;
     margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  #project-link {
+    color: $mediumAccent;
+
+    &:hover {
+      color: $baseColor;
+    }
   }
 }
 
