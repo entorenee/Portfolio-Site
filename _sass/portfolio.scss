@@ -30,3 +30,105 @@
     }
   }
 }
+
+/*Styling for modal dialog with information on each project */
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba($lightAccent, 0.7);
+  animation: {
+    name: animateTop;
+    duration: 800ms;
+    timing-function: ease-in-out;
+    fill-mode: forwards;
+  }
+
+  .modal-content {
+    margin: 10% auto;
+    width: 85%;
+    padding: 20px;
+    border-color: $baseColor;
+    border-width: 2px;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-family: Tangerine, cursive, Helvetica;
+      font-size: 50px;
+      color: $darkAccent;
+    }
+
+    .close {
+      color: $mediumAccent;
+      font-size: 35px;
+      font-weight: bold;
+      order: 1;
+
+      &:hover {
+        color: $baseColor;
+      }
+    }
+  }
+
+  #project-large-thumb {
+    max-width: 100%;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  #project-link {
+    color: $mediumAccent;
+
+    &:hover {
+      color: $baseColor;
+    }
+  }
+}
+
+.hide-dialog {
+  animation: {
+    name: minimizeDialog;
+    duration: 1000ms;
+    timing-function: ease;
+    fill-mode: forwards;
+  }
+}
+
+@keyframes animateTop {
+  from {
+    top: -600px;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes minimizeDialog {
+  0% {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+  }
+  65% {
+    opacity: 0.7;
+  }
+  100% {
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+  }
+}

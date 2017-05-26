@@ -1,0 +1,14 @@
+{
+  "random-quote-generator": {
+    "title": "Random Quote Generator",
+    "thumbSource": "/assets/img/random-quote-generator/thumb-large.jpg",
+    "description": "<p>This project utilizes a Javascript object containing quotes and attributions. A random number generator dynamically updates the maximum value to the number of quotes in the object. The number generated fetches the data for the new quote.</p><p>Users can generate a new random quote with a button and can also tweet out the quote by clicking on the Tweet button. Upon clicking the tweet button, scripting first verifies that the quote and attribution are less than 140 characters combined, truncating the quote if necessary, and opens up a window with the tweet pre-filled.</p>",
+    "projectLink": "/random-quote-generator"
+  },
+  "wikipedia-viewer": {
+    "title": "Wikipedia Viewer",
+    "thumbSource": "/assets/img/wikipedia-viewer/thumb-large.jpg",
+    "description": "<p>This lightweight Wikipedia viewer alllows the user to fetch a random article or to search for a particular topic, returning up to the top 10 results. Each result contains the title of the Wikipedia entry and an excerpt of the entry. The user may click on any entry to open the full article on Wikipedia's website.</p>",
+    "projectLink": "/wikipedia-viewer"
+  }
+}
