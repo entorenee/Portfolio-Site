@@ -15,18 +15,19 @@
   <body>
     {% include header.html %}
     <div class="post-content">
+      <a href="{{ site.url }}/blog/" id="blog-back"><i class="fa fa-long-arrow-left"></i> Back to Blog Index</a>
       <h1>{{ page.title }}</h1>
       {{ content }}
     </div>
     <div class="other-post-nav">
       {% if page.previous %}
           <span class="previous-link">
-            <a rel="prev" href="{{ page.previous.url }}"><i class="fa fa-chevron-left"></i> Previous Entry</a>
+            <a rel="prev" href="{{ page.previous.url }}"><i class="fa fa-chevron-left"></i> {{ page.previous.title }}</a>
           </span>
         {% endif %}
         {% if page.next %}
           <span class="next-link">
-            <a rel="next" href="{{ page.next.url }}">Next Entry <i class="fa fa-chevron-right"></i></a>
+            <a rel="next" href="{{ page.next.url }}">{{ page.next.title }} <i class="fa fa-chevron-right"></i></a>
           </span>
         {% endif %}
     </div>
