@@ -9,8 +9,9 @@ layout: "default"
     <span class="date">{{ post.date }}</span>
   </p>
   <div class="content">
-    {{ post.content }}
+    {{ post.excerpt }}
   </div>
+  <a href="{{ post.url }}" class="read-more">Read More <i class="fa fa-chevron-right"></i></a>
   <hr>
 {% endfor %}
 
