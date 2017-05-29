@@ -16,7 +16,7 @@ function updateNavbar() {
 function stylizeDate() {
   var dateSelection = $('.date');
   var regExp = /([0-9]{4})-([0-9]{2})-([0-9]{2})/;
-  var months = {01:"January",02:"February",03:"March",04:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"};
+  var months = {1:"January",2:"February",3:"March",4:"April",5:"May",6:"June",7:"July",8:"August",9:"September",10:"October",11:"November",12:"December"};
   for (var i = 0; i < dateSelection.length; i++) {
     var date = dateSelection[i].innerHTML;
     var matchedDate = date.match(regExp);
