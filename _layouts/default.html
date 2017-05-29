@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{ site.bootstrap-css }}
+    {{ site.font-awesome }}
     <link rel="stylesheet" href="/blog/assets/css/main.css">
 
     {% include analytics.html %}
@@ -20,8 +20,8 @@
 
     {% include footer.html %}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+    {{ site.jquery }}
+    {{ site.bootstrap-js }}
     <script src="/assets/js/functions.js"></script>
     <script src="/blog/assets/js/blog.js"></script>
   </body>
