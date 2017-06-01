@@ -2,8 +2,19 @@ h1 {
   text-align: center;
 }
 
+.pagination {
+  a {margin-right: 10px;}
+  span {margin-right: 10px;}
+}
+
+.rss-button {
+  display: block;
+  text-align: right;
+  margin-right: 20px;
+}
+
 .post-content {
-  margin-top: 75px;
+  margin-top: 80px;
   margin-left: 25px;
   margin-right: 25px;
 
@@ -12,6 +23,18 @@ h1 {
     text-decoration: underline;
 
     &:hover {color:$baseColor;}
+  }
+}
+
+.post-controls {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (max-width: $screenBreak) {
+    width: 100%;
+    margin-bottom: 15px;
   }
 }
 
@@ -25,6 +48,11 @@ h1 {
   text-decoration: none !important;
   display: block;
   font-size: 16px;
+}
+
+.social-share {
+  margin-left: 30px;
+  margin-bottom: 15px;
 }
 
 .other-post-nav {

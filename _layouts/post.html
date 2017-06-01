@@ -15,10 +15,26 @@
   <body>
     {% include header.html %}
     <div class="post-content">
-      <a href="{{ site.url }}/blog/" id="blog-back"><i class="fa fa-long-arrow-left"></i> Back to Blog Index</a>
+      <div class="post-controls">
+        <a href="{{ site.url }}/blog/" id="blog-back"><i class="fa fa-long-arrow-left" aria-hidden="true"></i> Back to Blog Index</a>
+        <a href="{{ site.url}}/feed.xml"><i class="fa fa-rss fa-2x" aria-hidden="true"></i></a>
+      </div>
       <h1>{{ page.title }}</h1>
       {{ content }}
     </div>
+
+    <!-- AddToAny BEGIN -->
+    <div class="a2a_kit a2a_kit_size_32 a2a_default_style social-share">
+      <a class="a2a_button_twitter"></a>
+      <a class="a2a_button_facebook"></a>
+      <a class="a2a_button_google_plus"></a>
+      <a class="a2a_button_sms"></a>
+      <a class="a2a_button_email"></a>
+      <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+    </div>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+    <!-- AddToAny END -->
+
     <div class="other-post-nav">
       {% if page.previous %}
           <span class="previous-link">
