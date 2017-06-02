@@ -1,22 +1,10 @@
 h1 {
   text-align: center;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
-
-.pagination {
-  a {margin-right: 10px;}
-  span {margin-right: 10px;}
-}
-
-.rss-button {
-  display: block;
-  text-align: right;
-  margin-right: 20px;
-}
-
 .post-content {
-  margin-top: 80px;
-  margin-left: 25px;
-  margin-right: 25px;
+  margin: 80px 25px 0 25px;
 
   a {
     color: $mediumAccent;
@@ -24,8 +12,15 @@ h1 {
 
     &:hover {color:$baseColor;}
   }
-}
 
+  img {
+    width: 600px;
+    max-width: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+}
 .post-controls {
   width: 70%;
   margin: 0 auto;
@@ -40,12 +35,6 @@ h1 {
 
 #blog-back {
   text-decoration: none;
-  display: block;
-  font-size: 16px;
-}
-
-.read-more {
-  text-decoration: none !important;
   display: block;
   font-size: 16px;
 }

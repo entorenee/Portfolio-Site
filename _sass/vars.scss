@@ -20,6 +20,10 @@ h1 {
   font-family: Tangerine, cursive, Helvetica;
   font-size: 300%;
   color: $darkAccent;
+  
+  @media screen and (max-width: $screenBreak) {
+    font-size: 200%;
+  }
 }
 
 h2 {
