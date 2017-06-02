@@ -9,3 +9,29 @@ $darkAccent: #485FCC;
 
 $sectionLeftMargin: 15px;
 $screenBreak: 600px;
+
+// Sitewide styling
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+h1 {
+  font-family: Tangerine, cursive, Helvetica;
+  font-size: 300%;
+  color: $darkAccent;
+  
+  @media screen and (max-width: $screenBreak) {
+    font-size: 200%;
+  }
+}
+
+h2 {
+  font-family: Tangerine, cursive, Helvetica;
+  font-size: 40px;
+  color: $darkAccent;
+}
+
+hr {
+  border-color: $mediumAccent;
+}

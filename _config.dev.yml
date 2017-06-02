@@ -1,0 +1,4 @@
+bootstrap-css: <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+bootstrap-js: <script src="/assets/js/bootstrap.min.js"></script>
+font-awesome: <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+jquery: <script src="/assets/js/jquery-3.2.1.min.js"></script>

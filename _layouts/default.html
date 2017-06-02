@@ -1,34 +1,28 @@
----
----
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ site.title }}</title>
+    <title>{{ page.title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
     {{ site.bootstrap-css }}
     {{ site.font-awesome }}
-    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/blog/assets/css/blog-index.css">
 
     {% include analytics.html %}
   </head>
   <body>
     {% include header.html %}
-
-    {% include about.html %}
-
-    {% include portfolio.html %}
-
-    {% include contact.html %}
+    <div class="post-content">
+      {{ content }}
+    </div>
 
     {% include footer.html %}
-
 
     {{ site.jquery }}
     {{ site.bootstrap-js }}
     <script src="/assets/js/functions.js"></script>
+    <script src="/blog/assets/js/blog.js"></script>
   </body>
 </html>
