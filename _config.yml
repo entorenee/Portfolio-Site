@@ -4,11 +4,72 @@ description: > # this means to ignore newlines until "baseurl:"
 url: "http://dslemay.com"
 timezone: America/Los_Angeles
 
+# CSS and Scripts
+
+bootstrap-css: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+bootstrap-js: <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+font-awesome: <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+jquery: <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+# Blog settings
+
+author: Daniel Lemay
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      permalink: /blog/:year/:month/:day/:title/
+      excerpt_separator: <!--more-->
+
+paginate: 5
+paginate_path: "/blog/page:num/"
+
 # Build settings
 markdown: kramdown
 theme: minima
 gems:
   - jekyll-feed
+  - jekyll-paginate
 exclude:
   - Gemfile
   - Gemfile.lock
+
+kramdown:
+  smart_quotes : lsquo,rsquo,ldquo,rdquo
+
+# Prose settings
+
+prose:
+  rooturl: "/blog/_posts"
+  siteurl: "http://dslemay.com"
+  media: "/blog/assets/img"
+  metadata:
+    blog/_posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+      - name: "title"
+        field:
+          element: "text"
+          label: "Post title"
+          placeholder: "Post Title"
+      - name: "categories"
+        field:
+          element: "multiselect"
+          label: "Add Categories"
+          placeholder: "Add Categories"
+          alterable: true
+      - name: "tags"
+        field:
+          element: "multiselect"
+          label: "Add Tags"
+          placeholder: "Add Tags"
+          alterable: true
+      - name: "excerpt_separator"
+        field:
+            element: "hidden"
+            value: "<!--more-->"
