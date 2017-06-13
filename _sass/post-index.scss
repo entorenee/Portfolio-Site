@@ -12,6 +12,7 @@
     width: 300px;
     max-width: 100%;
     float: left;
+    margin-right: 5px;
 
     @media screen and (max-width: $screenBreak) {
       width: 400px;
