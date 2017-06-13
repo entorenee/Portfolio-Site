@@ -8,3 +8,4 @@ blurb: "<p><strong>Daniel Lemay, is a self-taught front end developer from Portl
 projects:
 - {name: "Random Quote Generator", folder: "random-quote-generator"}
 - {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
+- {name: "Twitch Viewer", folder: "twitch-viewer"}
