@@ -13,4 +13,4 @@ I continue to be amazed and excited that I couldn’t write a single line of cod
 
 The next steps in my development journey are working on the intermediate and advanced algorithms over at [Free Code Camp](https://www.freecodecamp.com) as I continue their front end developer certification. I have 21 of those left to crank through before moving onto their final four advanced projects. Once those are completed, I will receive my front-end developer certification. I’m hoping to have it all completed in the Fall and then see where this journey leads me to next.
 
-Thank you for checking out this post and the project that just went live. You connect with me on [here]({{ site.url}}/#contact) or on Twitter [@dslemay](http://twitter.com/dslemay). You can find the source code and commit history for this project on my [Github](https://www.github.com/dslemay/twitch-viewer).
+Thank you for checking out this post and the project that just went live. You connect with me [here]({{ site.url}}/#contact) or on Twitter [@dslemay](http://twitter.com/dslemay). You can find the source code and commit history for this project on my [Github](https://www.github.com/dslemay/twitch-viewer).
