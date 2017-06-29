@@ -1,0 +1,220 @@
+$avatarSize: 100px;
+$baseColor: #6441A4;
+$accentColor: #0E9DD9;
+$hoverColor: lighten($baseColor, 10%);
+
+body {
+  background-color: #DDD;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 0px !important;
+  padding-bottom: 20px;
+  background-color: $accentColor;
+  color: #000 !important;
+}
+
+.twitch-viewer {
+  margin: 0 auto;
+  max-width: 60%;
+  background-color: $baseColor;
+  color: #FFF;
+  position: relative;
+
+  @media screen and (max-width: 600px) {
+    max-width: 100%;
+  }
+}
+
+#refresh-data {
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+}
+
+.rotate-refresh {
+  animation-name: spin;
+  animation-duration: 2s;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(720deg);
+  }
+}
+
+.menubar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: $accentColor;
+
+  a {
+    flex-shrink: 3;
+    text-decoration: none !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #000;
+    transition: background-color 350ms;
+
+    &:hover {
+      background-color: $hoverColor;
+    }
+  }
+
+  .active {
+    background-color: lighten($baseColor, 10%);
+  }
+}
+
+.add-user-wrapper {
+  width: 50px;
+  margin-right: 3px;
+  transition: width 800ms;
+
+  .addbox {
+    position: relative;
+    flex-grow: 1;
+    min-width: 25px;
+    width: 0%;
+    background-color: $accentColor;
+    height: 25px;
+    float: right;
+    overflow: hidden;
+    transition: width 800ms;
+
+    .add-input {
+      top: 0;
+      right: 0;
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 25px;
+      margin: 0;
+      padding: 0px 25px 0px 20px;
+      font-size: 14px;
+      color: #000;
+      background-color: $accentColor;
+
+      &::-webkit-input-placeholder {color: #000;}
+      &::-moz-placeholder {color: #000;}
+      &:-ms-input-placeholder {color: #000;}
+      &:-moz-placeholder {color: #000;}
+    }
+
+    .add-submit, .add-icon {
+      display: block;
+      position: absolute;
+      color: #000;
+      top: 25%;
+      right: 5px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+    }
+  }
+
+  .addbox-open {
+    width: 100%;
+  }
+
+}
+
+.twitch-user {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-top: 15px;
+
+  .twitch-avatar-container {
+    width: $avatarSize;
+    height: $avatarSize;
+    margin-left: 25px;
+
+    @media screen and (max-width: 600px) {
+      width: 75px;
+      height: 75px;
+    }
+
+    .twitch-avatar {
+      border-radius: 50%;
+      max-width: $avatarSize;
+      max-height: $avatarSize;
+
+      @media screen and (max-width: 600px) {
+        max-width: 75px;
+        max-height: 75px;
+      }
+    }
+  }
+}
+
+.remove-user-btn {
+  /* There are properties that use flex box in this class because when the Javascript
+   * fades in the item it will set the CSS display as flex. Using opacity was creating bugs.*/
+  cursor: pointer;
+  background-color: $accentColor;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  color: #FFF;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  display: none;
+}
+
+.twitch-username {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+
+  @media screen and (max-width: 600px) {font-size: 16px;}
+}
+
+.twitch-game {
+  font-style: italic;
+  font-size: 18px;
+  text-align: center;
+
+  @media screen and (max-width: 600px) {font-size: 14px;}
+}
+
+.icons {
+  margin-right: 35px;
+
+  .online-icon {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 25px;
+  }
+
+  a {
+    color: #DDD;
+    transition: color 350ms;
+
+    &:visited {
+      color: #DDD;
+    }
+
+    &:hover {
+      color: $accentColor;
+    }
+  }
+}
+
+.img-placeholder {
+  display: block;
+  visibility: hidden;
+}

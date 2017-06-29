@@ -1,7 +1,7 @@
 html, body, .flex { height: 100% }
 
 body {
-  background-image: url("/random-quote-generator/assets/img/flourished-paper-small.jpg");
+  background-image: url("../img/flourished-paper-small.jpg");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;

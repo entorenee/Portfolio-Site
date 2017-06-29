@@ -1,0 +1,214 @@
+body {
+  background-color: #DDD; }
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  margin-bottom: 0px !important;
+  padding-bottom: 20px;
+  background-color: #0E9DD9;
+  color: #000 !important; }
+
+.twitch-viewer {
+  margin: 0 auto;
+  max-width: 60%;
+  background-color: #6441A4;
+  color: #FFF;
+  position: relative; }
+  @media screen and (max-width: 600px) {
+    .twitch-viewer {
+      max-width: 100%; } }
+
+#refresh-data {
+  cursor: pointer;
+  color: #000;
+  position: absolute;
+  top: 7px;
+  right: 7px; }
+
+.rotate-refresh {
+  -webkit-animation-name: spin;
+  animation-name: spin;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s; }
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(720deg);
+    transform: rotate(720deg); } }
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(720deg);
+    transform: rotate(720deg); } }
+
+.menubar {
+  width: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  background-color: #0E9DD9; }
+  .menubar a {
+    -webkit-flex-shrink: 3;
+    -ms-flex-negative: 3;
+    flex-shrink: 3;
+    text-decoration: none !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: #000;
+    -webkit-transition: background-color 350ms;
+    -o-transition: background-color 350ms;
+    transition: background-color 350ms; }
+    .menubar a:hover {
+      background-color: #7d5abe; }
+  .menubar .active {
+    background-color: #7d5abe; }
+
+.add-user-wrapper {
+  width: 50px;
+  margin-right: 3px;
+  -webkit-transition: width 800ms;
+  -o-transition: width 800ms;
+  transition: width 800ms; }
+  .add-user-wrapper .addbox {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    min-width: 25px;
+    width: 0%;
+    background-color: #0E9DD9;
+    height: 25px;
+    float: right;
+    overflow: hidden;
+    -webkit-transition: width 800ms;
+    -o-transition: width 800ms;
+    transition: width 800ms; }
+    .add-user-wrapper .addbox .add-input {
+      top: 0;
+      right: 0;
+      border: none;
+      outline: none;
+      width: 100%;
+      height: 25px;
+      margin: 0;
+      padding: 0px 25px 0px 20px;
+      font-size: 14px;
+      color: #000;
+      background-color: #0E9DD9; }
+      .add-user-wrapper .addbox .add-input::-webkit-input-placeholder {
+        color: #000; }
+      .add-user-wrapper .addbox .add-input::-moz-placeholder {
+        color: #000; }
+      .add-user-wrapper .addbox .add-input:-ms-input-placeholder {
+        color: #000; }
+      .add-user-wrapper .addbox .add-input:-moz-placeholder {
+        color: #000; }
+    .add-user-wrapper .addbox .add-submit, .add-user-wrapper .addbox .add-icon {
+      display: block;
+      position: absolute;
+      color: #000;
+      top: 25%;
+      right: 5px;
+      padding: 0;
+      margin: 0;
+      cursor: pointer; }
+  .add-user-wrapper .addbox-open {
+    width: 100%; }
+
+.twitch-user {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 15px; }
+  .twitch-user .twitch-avatar-container {
+    width: 100px;
+    height: 100px;
+    margin-left: 25px; }
+    @media screen and (max-width: 600px) {
+      .twitch-user .twitch-avatar-container {
+        width: 75px;
+        height: 75px; } }
+    .twitch-user .twitch-avatar-container .twitch-avatar {
+      border-radius: 50%;
+      max-width: 100px;
+      max-height: 100px; }
+      @media screen and (max-width: 600px) {
+        .twitch-user .twitch-avatar-container .twitch-avatar {
+          max-width: 75px;
+          max-height: 75px; } }
+
+.remove-user-btn {
+  /* There are properties that use flex box in this class because when the Javascript
+   * fades in the item it will set the CSS display as flex. Using opacity was creating bugs.*/
+  cursor: pointer;
+  background-color: #0E9DD9;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
+  color: #FFF;
+  border-radius: 50%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: 8px;
+  display: none; }
+
+.twitch-username {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center; }
+  @media screen and (max-width: 600px) {
+    .twitch-username {
+      font-size: 16px; } }
+
+.twitch-game {
+  font-style: italic;
+  font-size: 18px;
+  text-align: center; }
+  @media screen and (max-width: 600px) {
+    .twitch-game {
+      font-size: 14px; } }
+
+.icons {
+  margin-right: 35px; }
+  .icons .online-icon {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-width: 25px; }
+  .icons a {
+    color: #DDD;
+    -webkit-transition: color 350ms;
+    -o-transition: color 350ms;
+    transition: color 350ms; }
+    .icons a:visited {
+      color: #DDD; }
+    .icons a:hover {
+      color: #0E9DD9; }
+
+.img-placeholder {
+  display: block;
+  visibility: hidden; }

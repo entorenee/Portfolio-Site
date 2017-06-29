@@ -1,0 +1,33 @@
+---
+permalink: /projects/twitch-viewer/
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Twitch TV viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="twitch-viewer">
+      <i id="refresh-data" class="fa fa-refresh" aria-hidden="true"></i>
+      <h1>Twitch Viewer</h1>
+      <div class="menubar">
+        <a href="#" id="all" class="active">All</a>
+        <a href="#" id="online">Online</a>
+        <a href="#" id="offline">Offline</a>
+        <div class="add-user-wrapper">
+          <form class="addbox">
+            <input type="text" class="add-input" placeholder="Enter user(s)..." />
+            <i class="fa fa-lg fa-plus-circle add-icon"></i>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="assets/js/functions.js"></script>
+  </body>
+</html>
