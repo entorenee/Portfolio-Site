@@ -82,11 +82,17 @@
     margin-bottom: 15px;
   }
 
-  #project-link {
-    color: $mediumAccent;
+  .project-links-wrapper {
+    display: flex;
+    justify-content: space-between;
 
-    &:hover {
-      color: $baseColor;
+    #project-link #github-link {
+      color: $mediumAccent;
+      display: block;
+
+      &:hover {
+        color: $baseColor;
+      }
     }
   }
 }

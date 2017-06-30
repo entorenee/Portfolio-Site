@@ -61,6 +61,7 @@ function openModal() {
       $('#project-large-thumb').attr('src', data[project].thumbSource);
       $('#project-description').html(data[project].description);
       $('#project-link').attr('href', data[project].projectLink);
+      $('#github-link').attr('href', data[project].githubLink);
       $('.modal').css('display','block');
     });
   });
