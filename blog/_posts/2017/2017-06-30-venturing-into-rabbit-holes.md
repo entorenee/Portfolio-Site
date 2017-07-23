@@ -4,7 +4,7 @@ date: 2017-06-30 06:30:00 -0700
 categories: [web development]
 tags: [journal, projects]
 ---
-![Twitch.tv viewer v1.1]({{ site.url }}/blog/assets/img/2017-06-twitch-v1-1.jpg)
+![Twitch.tv viewer v1.1]({{ site.url }}/blog/assets/img/dist/2017/2017-06-twitch-v1-1.jpg)
 It has been an exciting two weeks in my web development journey. I've made a serious dent in the algorithm challenges since completing my Twitch viewer project. So far I have completed 18 challenges, leaving three advanced algorithm challenges between me and starting my advanced front end projects. These last few algorithms are kicking my butt though, as the difficulty between the intermediate and advanced challenges jumped up the parabolic curve. So far my strategy of stepping away from one challenge and moving to another when I get too frustrated has been paying off. Distance and time has led to some of my best breakthrough moments. Forcing it only pisses me off more, as well as weird looks when I mutter expletives at my computer on public transit.
 
 I also finally made it back to a coding meet up which was long overdue from various scheduling conflicts. These have been so crucial to my growth as a growing developer, and I recommend them to others who are learning as well. Yes that includes even the introverts. I'm far down the introverted spectrum, but pushing past this barrier has paid back many dividends. Some of the many benefits for me are having other people to talk to, bounce ideas of problems and potential solutions off on, and helping out people where I am more knowledgeable--each one has an impact on the learning process deeper than initial appearances.
