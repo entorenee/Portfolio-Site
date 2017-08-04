@@ -3,8 +3,7 @@
   <div class="portfolio-belt">
     {% for project in site.data.settings.projects %}
     <div class="portfolio-thumb">
-      <!-- <a href="/{{project.folder}}/" id="{{project.folder}}" target="_blank"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a> -->
-      <a href="/projects/{{project.folder}}/" id="{{project.folder}}"><img src="/assets/img/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
+      <a href="/projects/{{project.folder}}/" id="{{project.folder}}"><img src="/assets/img/dist/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
     </div>
     {% endfor %}
   </div>

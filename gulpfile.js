@@ -19,8 +19,9 @@ gulp.task('jpg', function(){
       .pipe(clean({read: false}))
 });
 
-gulp.task('blog-imagemin', function(){
+gulp.task('imagemin', function(){
   gulp.src('./blog/assets/img/src/**/*')
+    .pipe(changed('./blog/assets/img/dist'))
     .pipe(imagemin([
       imageminJpegRecompress({
         loops:4,
@@ -33,4 +34,18 @@ gulp.task('blog-imagemin', function(){
       imagemin.svgo()
     ]))
     .pipe(gulp.dest('./blog/assets/img/dist'))
+  gulp.src('./assets/img/src/**/*')
+    .pipe(changed('./assets/img/dist'))
+    .pipe(imagemin([
+      imageminJpegRecompress({
+        loops:4,
+        min:50,
+        max:75,
+        quality: "medium",
+        progressive:true
+      }),
+      imagemin.optipng(),
+      imagemin.svgo()
+    ]))
+    .pipe(gulp.dest('./assets/img/dist'))
 });

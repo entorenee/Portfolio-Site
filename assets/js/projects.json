@@ -1,21 +1,21 @@
 {
   "random-quote-generator": {
     "title": "Random Quote Generator",
-    "thumbSource": "/assets/img/random-quote-generator/thumb-large.jpg",
+    "thumbSource": "/assets/img/dist/random-quote-generator/thumb-large.jpg",
     "description": "<p>This project utilizes a Javascript object containing quotes and attributions. A random number generator dynamically updates the maximum value to the number of quotes in the object. The number generated fetches the data for the new quote.</p><p>Users can generate a new random quote with a button and can also tweet out the quote by clicking on the Tweet button. Upon clicking the tweet button, scripting first verifies that the quote and attribution are less than 140 characters combined, truncating the quote if necessary, and opens up a window with the tweet pre-filled.</p>",
     "projectLink": "/projects/random-quote-generator",
     "githubLink": "https://github.com/dslemay/random-quote-generator"
   },
   "wikipedia-viewer": {
     "title": "Wikipedia Viewer",
-    "thumbSource": "/assets/img/wikipedia-viewer/thumb-large.jpg",
+    "thumbSource": "/assets/img/dist/wikipedia-viewer/thumb-large.jpg",
     "description": "<p>This lightweight Wikipedia viewer alllows the user to fetch a random article or to search for a particular topic, returning up to the top 10 results. Each result contains the title of the Wikipedia entry and an excerpt of the entry. The user may click on any entry to open the full article on Wikipedia's website.</p>",
     "projectLink": "/projects/wikipedia-viewer",
     "githubLink": "https://github.com/dslemay/wikipedia-viewer"
   },
   "twitch-viewer": {
     "title": "Twitch Viewer",
-    "thumbSource": "/assets/img/twitch-viewer/thumb-large.jpg",
+    "thumbSource": "/assets/img/dist/twitch-viewer/thumb-large.jpg",
     "description": "<p>This project allows for a number of Twitch users to be entered, and have various pieces of information displayed for each one: account logo, username, game they are currently playing if applicable, online status, and a link to their account. The viewer will also be able to identify if a particular user account does not exist or is unavailable for some reason. The user is able to filter the results by all users, online users, or offline users. Lastly, once the data is loaded, the API will be polled every 5 minutes to refresh the online status and game variables for each user; at any time the user may also click the refresh icon to manually poll the API.</p><p>This web app also utilizes local storage to allow the end user to customize which Twitch users they want to follow. Upon loading, if nothing is stored in local storage, a default initial users array will populate and display that data. Users can be both removed and added from the display which will be saved to local storage for the next time that the user visits the page. Users are added by clicking the plus icon in the menu bar which will accept single users or a group of users seperated by commas or spaces. Upon hovering over each user in the viewer, a X will appear in the top right corner; when clicked it will remove the user from the display and local storage.</p><p>This project uses multiple data verification functions to properly display information and maintain visual flow. The display of user data also adjusts the dynamic HTML creation for each user based off of values polled from the API. As in the case of a user not having a logo uploaded, the img element is left blank but assigned another CSS class to maintain the dimensions of the space and properly align the user with users which have a logo associated with the account.</p>",
     "projectLink": "/projects/twitch-viewer",
     "githubLink": "https://github.com/dslemay/twitch-viewer"
