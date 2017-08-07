@@ -1,12 +1,13 @@
 #portfolio {
   margin-left: $sectionLeftMargin;
+  margin-right: 15px;
 }
 
 .portfolio-belt {
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
   .portfolio-thumb {
     max-width: 45%;
