@@ -9,3 +9,4 @@ projects:
 - {name: "Random Quote Generator", folder: "random-quote-generator"}
 - {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
 - {name: "Twitch Viewer", folder: "twitch-viewer"}
+- {name: "JavaScript Calculator", folder: "javascript-calculator"}
