@@ -10,3 +10,4 @@ projects:
 - {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
 - {name: "Twitch Viewer", folder: "twitch-viewer"}
 - {name: "JavaScript Calculator", folder: "javascript-calculator"}
+- {name: "Pomodoro Timer", folder: "pomodoro-timer"}
