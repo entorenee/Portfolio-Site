@@ -12,3 +12,4 @@ projects:
 - {name: "JavaScript Calculator", folder: "javascript-calculator"}
 - {name: "Pomodoro Timer", folder: "pomodoro-timer"}
 - {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
+- {name: "Simon Game", folder: "simon-game"}
