@@ -1,0 +1,12 @@
+---
+title: "#100DaysOfCode Week 2 & 3"
+date: 2017-08-29 08:30:00 -0700
+categories: [web development]
+tags: [journal, "#100DaysOfCode"]
+---
+It has been an exciting couple of weeks since my last 100 Days of Code checkin. During that time I completed the last two projects in my front-end certification: a [Tic Tac Toe game]({{ site.url }}/projects/tic-tac-toe/), and a [Simon Game]({{ site.url }}/projects/simon-game/). I built both using the React framework, and feel quite comfortable with the framework after completing these projects. After completing my Simon game this past Saturday I was able to claim my front-end development [certificate]({{ site.url }}/assets/img/dist/2017-08-26-front-end-cert.jpg) on the 150th day since I started my development journey and the 20th day of this challenge. It's fun looking back just two weeks ago where I thought I would get done before October 1st, and I finished a month before then. I still had it in my mind that the last two projects were going to be of a difficulty that I had never encountered. Apart from the mental hurdle in starting the Tic Tac Toe AI which I detailed [here]({{ site.url }}/blog/2017/08/22/tic-tac-toe-game/), everything moved along at a steady pace.
+<!--more-->
+
+I attribute a lot of the forward progress to the mindset of breaking the project into small, digestible problems. The Tic Tac Toe project really drove this point home thanks to a conversation I had with a more experienced developer at a local meetup. I had been continuing to hit my head against the wall trying to grasp how to program the AI component for the game. I was so focused on how to make everything work perfectly in the big picture that I completely glossed over making rudimentary baby steps and improving from there. Once I overcame that block, everything started flowing again in that project and the one that followed.
+
+The importance of community and helping other developers cannot be emphasized enough. There is so much to be gained by spending time with other developers, sharing each other's challenges, and assisting where applicable and requested. Struggling is good and part of growth, but too much can be detrimental. Even something as small as hearing positive feedback on one's progress or project, can have significant effects to motivation and self-perception. I know that it has helped me along the way. I try to look through the 100 Days of Code hashtag for 15 minutes each day and encourage people, offer help where I can, and celebrate accomplishments with people.
