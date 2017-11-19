@@ -6,10 +6,10 @@ blurb: "<p><strong>Daniel Lemay, is a self-taught front end developer from Portl
 # Portfolio Section
 
 projects:
-- {name: "Random Quote Generator", folder: "random-quote-generator"}
-- {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
-- {name: "Twitch Viewer", folder: "twitch-viewer"}
-- {name: "JavaScript Calculator", folder: "javascript-calculator"}
-- {name: "Pomodoro Timer", folder: "pomodoro-timer"}
-- {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
 - {name: "Simon Game", folder: "simon-game"}
+- {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
+- {name: "Pomodoro Timer", folder: "pomodoro-timer"}
+- {name: "JavaScript Calculator", folder: "javascript-calculator"}
+- {name: "Twitch Viewer", folder: "twitch-viewer"}
+- {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
+- {name: "Random Quote Generator", folder: "random-quote-generator"}
