@@ -6,6 +6,7 @@ blurb: "<p><strong>Daniel Lemay, is a self-taught front end developer from Portl
 # Portfolio Section
 
 projects:
+- {name: "Wanderful", folder: "wanderful"}
 - {name: "Simon Game", folder: "simon-game"}
 - {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
 - {name: "Pomodoro Timer", folder: "pomodoro-timer"}

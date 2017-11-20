@@ -47,5 +47,12 @@
     "description": "<p>The Simon Game is built using ReactJS. The user takes turns playing a randomly generated pattern that the computer displays. If the player can successfully complete 20 turns, they win. If the user makes a mistake in the pattern, a buzzer noise will sound. If strict mode is not active, the computer will play the pattern for the user again. If strict mode is enabled, the current pattern will be erased and the game will start over. The game is also responsive on smaller devices.</p>",
     "projectLink": "/projects/simon-game",
     "githubLink": "https://github.com/dslemay/simon-game/"
+  },
+  "wanderful": {
+    "title": "Wanderful",
+    "thumbSource": "/assets/img/dist/wanderful/thumb-large.jpg",
+    "description": "<p>Wanderful is a web app to connect users with fun, randomized destinations and things to do when they get there. Upon visiting the site, users are able to click on a button and be directed to a destination details page for a randomly generated location from the database. Here users can view a brief description of the location and details such as hotels, restaurants, and entertainment available at the location. Additionally, users can get flight information to the destination's nearest airport. Users are also able to create an account which allows them to save their favorite destinations and points of interest for later retrieval on the user's dashboard.</p><p>Wanderful is built on the MERN stack, and also includes judicious use of Redux to handle the data management from backend to frontend. Wanderful was built by myself and two other developers as part of a learning cohort. I completed most of the backend as well as established the structure and actions for the Redux store. I also assisted with creating and refactoring some React components for better flow or reusability.</p>",
+    "projectLink": "http://www.wanderful-travel.com",
+    "githubLink": "https://github.com/chingu-coders/Voyage2-Bears-11"
   }
 }
