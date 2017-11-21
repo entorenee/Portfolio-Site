@@ -1,0 +1,48 @@
+---
+---
+
+@import "vars";
+
+body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.paper {
+  padding: 20px;
+  border: 3px solid $baseColor;
+  box-shadow: 7px 7px 5px grey;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  i {
+    color: $baseColor;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  hr {
+    width: 100%;
+  }
+}
+
+.button {
+  text-decoration-line: none;
+  text-align: center;
+  color: $darkAccent;
+  border: 2px solid $mediumAccent;
+  padding: 5px 8px;
+  transition: color 800ms, border 800ms;
+
+  &:hover {
+    color: $baseColor;
+    border: 2px solid $baseColor;
+  }
+}

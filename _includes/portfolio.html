@@ -3,9 +3,10 @@
   <div class="portfolio-belt">
     {% for project in site.data.settings.projects %}
     <div class="portfolio-thumb">
-      <a href="/projects/{{project.folder}}/" id="{{project.folder}}"><img src="/assets/img/dist/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
+      <a href="" id="{{project.folder}}"><img src="/assets/img/dist/{{project.folder}}/thumb-small.jpg" class="img-fluid" alt="{{project.name}}" /></a>
     </div>
     {% endfor %}
+    <div class="portfolio-thumb filler-space"></div>
   </div>
 
   <!-- Modal dialog box for displaying larger images and information about each project -->

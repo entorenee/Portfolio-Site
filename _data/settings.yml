@@ -1,15 +1,16 @@
 
 email: daniel@dslemay.com
-blurb: "<p><strong>Daniel Lemay, is a self-taught front end developer from Portland, Oregon.</strong> He has completed the <a href='/assets/img/dist/2017-08-26-front-end-cert.jpg' target='_blank'>front-end certification</a> from Free Code Camp. He specializes in working in React, but also works in Vanilla JavaScript. He has non-technology experience working in large organizations and leading large teams. He is very organized, a quick learner, and loves to try new things. When not working or coding he loves to enjoy the fantastic coffee and nature scenes of the Pacific Northwest.</p>"
+blurb: "<p><strong>My name is Daniel Lemay, and I am a full stack JavaScript developer who specializes in dynamic and responsive applications.</strong> I love pursuing solutions to complex problems and helping people advance their skills. I pay attention to the details and work well with numerous stakeholders circumventing competing priorities. Take a look at some of my projects and to contact me about available opportunities.</p>"
 
 #-------------------------------
 # Portfolio Section
 
 projects:
-- {name: "Random Quote Generator", folder: "random-quote-generator"}
-- {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
-- {name: "Twitch Viewer", folder: "twitch-viewer"}
-- {name: "JavaScript Calculator", folder: "javascript-calculator"}
-- {name: "Pomodoro Timer", folder: "pomodoro-timer"}
-- {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
+- {name: "Wanderful", folder: "wanderful"}
 - {name: "Simon Game", folder: "simon-game"}
+- {name: "Tic Tac Toe Game", folder: "tic-tac-toe"}
+- {name: "Pomodoro Timer", folder: "pomodoro-timer"}
+- {name: "JavaScript Calculator", folder: "javascript-calculator"}
+- {name: "Twitch Viewer", folder: "twitch-viewer"}
+- {name: "Wikipedia Viewer", folder: "wikipedia-viewer"}
+- {name: "Random Quote Generator", folder: "random-quote-generator"}
