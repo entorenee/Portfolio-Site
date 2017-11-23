@@ -6,11 +6,13 @@
   "dependencies": {
     "emotion": "^8.0.10",
     "emotion-server": "^8.0.10",
+    "emotion-theming": "^8.0.10",
     "gatsby": "^1.9.119",
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-emotion": "^1.1.8",
     "gatsby-plugin-react-helmet": "^1.0.8",
-    "react-emotion": "^8.0.10"
+    "react-emotion": "^8.0.10",
+    "theming": "^1.2.1"
   },
   "keywords": [
     "gatsby"
