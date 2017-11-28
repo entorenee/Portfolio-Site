@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Link from 'gatsby-link';
-import { css } from 'emotion';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
 import MenuIcon from './MenuIcon';
@@ -47,7 +46,15 @@ class Header extends Component {
 
   render() {
     return (
-      <div style={{ position: 'relative' }}>
+      <div
+        style={{
+          position: 'absolute',
+          width: '100%',
+          top: 0,
+          left: 0,
+          zIndex: 10
+        }}
+      >
         <HeaderWrapper>
           <Link to="/">
             <Logo src={logo} />
