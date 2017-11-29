@@ -11,6 +11,7 @@
     "gatsby-link": "^1.6.28",
     "gatsby-plugin-emotion": "^1.1.8",
     "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-plugin-react-next": "^1.0.5",
     "react-emotion": "^8.0.10",
     "react-icons": "^2.2.7",
     "theming": "^1.2.1"
