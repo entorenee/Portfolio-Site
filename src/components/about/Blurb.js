@@ -6,6 +6,7 @@ import headshot from '../../assets/img/headshot.jpg';
 const BlurbContainer = styled.div`
   background-color: ${props => props.theme.mediumAccent};
   padding: 1.5rem 0;
+  margin-bottom: 1.5rem;
 `;
 
 const BlurbFlex = styled.div`
