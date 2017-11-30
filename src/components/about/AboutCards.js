@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
-import Card from './Card';
+import Card from '../Card';
 import { FaLightbulbO, FaCode } from 'react-icons/lib/fa';
 
 const CardContainer = styled.div`

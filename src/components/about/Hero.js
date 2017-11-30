@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 
-import heroImg from '../assets/img/hero-image.jpg';
+import heroImg from '../../assets/img/hero-image.jpg';
 
 const Image = styled.div`
   background-image: url(${heroImg});

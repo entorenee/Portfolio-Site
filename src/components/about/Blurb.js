@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 
-import headshot from '../assets/img/headshot.jpg';
+import headshot from '../../assets/img/headshot.jpg';
 
 const BlurbContainer = styled.div`
   background-color: ${props => props.theme.mediumAccent};
