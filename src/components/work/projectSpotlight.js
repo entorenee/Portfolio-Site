@@ -1,4 +1,8 @@
 import wanderfulThumb from '../../assets/img/projects/wanderful-thumb.jpg';
+import simonThumb from '../../assets/img/projects/simon-thumb.jpg';
+import ticTacToeThumb from '../../assets/img/projects/tic-tac-toe-thumb.jpg';
+import pomodoroThumb from '../../assets/img/projects/pomodoro-thumb.jpg';
+import calculatorThumb from '../../assets/img/projects/calculator-thumb.jpg';
 
 const projectSpotlight = [
   {
@@ -11,7 +15,7 @@ const projectSpotlight = [
   },
   {
     title: 'Simon Game',
-    image: '',
+    image: simonThumb,
     projectLink: '/projects/simon-game',
     githubLink: 'https://github.com/dslemay/simon-game/',
     description:
@@ -19,7 +23,7 @@ const projectSpotlight = [
   },
   {
     title: 'Tic Tac Toe Game',
-    image: '',
+    image: ticTacToeThumb,
     projectLink: '/projects/tic-tac-toe',
     githubLink: 'https://github.com/dslemay/tic-tac-toe/',
     description:
