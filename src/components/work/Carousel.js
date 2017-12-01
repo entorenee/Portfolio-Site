@@ -65,7 +65,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const project = projectSpotlight[0];
+    const project = projectSpotlight[this.state.currIndex];
 
     return (
       <CarouselContainer>
