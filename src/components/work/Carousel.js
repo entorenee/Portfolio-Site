@@ -38,6 +38,7 @@ const ControlsContainer = styled.div`
     opacity: 0;
     transition: opacity 800ms;
     color: ${props => props.theme.baseColor}
+    cursor: pointer;
     z-index: 4;
   }
 
@@ -61,9 +62,9 @@ const ControlsFlex = styled.div`
 const CarouselControls = props => (
   <ControlsContainer>
     <ControlsFlex>
-      <FaAngleLeft size={75} />
+      <FaAngleLeft size={75} onClick={() => props.updateProject('previous')} />
       <FaPauseCircleO size={60} />
-      <FaAngleRight size={75} />
+      <FaAngleRight size={75} onClick={() => props.updateProject('next')} />
     </ControlsFlex>
   </ControlsContainer>
 );
@@ -82,21 +83,50 @@ const ProjectLinks = styled.div`
 `;
 
 class Carousel extends Component {
+  constructor() {
+    super();
+    this.state = {
+      currIndex: 0,
+      isPlaying: false
+    };
+
+    this.updateProject = this.updateProject.bind(this);
+  }
+
+  updateProject(direction) {
+    const projectTotal = projectSpotlight.length;
+    const newState = { ...this.state };
+
+    if (direction === 'next') {
+      this.state.currIndex < projectTotal - 1
+        ? newState.currIndex++
+        : (newState.currIndex = 0);
+    }
+
+    if (direction === 'previous') {
+      this.state.currIndex > 0
+        ? newState.currIndex--
+        : (newState.currIndex = projectTotal - 1);
+    }
+
+    this.setState({ ...newState });
+  }
+
   render() {
-    const test = projectSpotlight[0];
+    const project = projectSpotlight[0];
 
     return (
       <CarouselContainer>
-        <Title>{test.title}</Title>
+        <Title>{project.title}</Title>
         <div style={{ position: 'relative' }}>
-          <FocusImage src={test.image} />
-          <CarouselControls />
+          <FocusImage src={project.image} />
+          <CarouselControls updateProject={this.updateProject} />
         </div>
         <Description>
-          <div dangerouslySetInnerHTML={{ __html: test.description }} />
+          <div dangerouslySetInnerHTML={{ __html: project.description }} />
           <ProjectLinks>
-            <a href={test.projectLink}>Link to Live project</a>
-            <a href={test.githubLink}>Link to GitHub Repository</a>
+            <a href={project.projectLink}>Link to Live project</a>
+            <a href={project.githubLink}>Link to GitHub Repository</a>
           </ProjectLinks>
         </Description>
       </CarouselContainer>
