@@ -49,7 +49,7 @@ const CarouselControls = props => (
   </ControlsContainer>
 );
 
-CarouselControls.PropTypes = {
+CarouselControls.propTypes = {
   updateProject: PropTypes.func
 };
 
