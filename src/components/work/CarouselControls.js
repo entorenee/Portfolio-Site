@@ -1,7 +1,12 @@
 import React from 'react';
 import styled from 'react-emotion';
 import PropTypes from 'prop-types';
-import { FaAngleLeft, FaAngleRight, FaPauseCircleO } from 'react-icons/lib/fa';
+import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaPauseCircleO,
+  FaPlayCircleO
+} from 'react-icons/lib/fa';
 
 const ControlsContainer = styled.div`
   position: absolute;
@@ -43,14 +48,19 @@ const CarouselControls = props => (
   <ControlsContainer>
     <ControlsFlex>
       <FaAngleLeft size={75} onClick={() => props.updateProject('previous')} />
-      <FaPauseCircleO size={60} />
+      {props.isPlaying ? (
+        <FaPauseCircleO size={60} />
+      ) : (
+        <FaPlayCircleO size={60} />
+      )}
       <FaAngleRight size={75} onClick={() => props.updateProject('next')} />
     </ControlsFlex>
   </ControlsContainer>
 );
 
 CarouselControls.propTypes = {
-  updateProject: PropTypes.func
+  updateProject: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool
 };
 
 export default CarouselControls;
