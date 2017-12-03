@@ -41,6 +41,20 @@ describe('Carousel', () => {
       expect(carousel().state().currIndex).toBe(projectLength);
     });
   });
+
+  describe('updateIsPlaying method', () => {
+    it('toggles the `isPlaying` state when called', () => {
+      carousel()
+        .instance()
+        .updateIsPlaying();
+      expect(carousel().state().isPlaying).toBe(true);
+
+      carousel()
+        .instance()
+        .updateIsPlaying();
+      expect(carousel().state().isPlaying).toBe(false);
+    });
+  });
 });
 
 describe('projectSpotlight', () => {

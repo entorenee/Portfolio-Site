@@ -43,6 +43,7 @@ class Carousel extends Component {
     };
 
     this.updateProject = this.updateProject.bind(this);
+    this.updateIsPlaying = this.updateIsPlaying.bind(this);
   }
 
   updateProject(direction) {
@@ -61,6 +62,12 @@ class Carousel extends Component {
         : (newState.currIndex = projectTotal - 1);
     }
 
+    this.setState({ ...newState });
+  }
+
+  updateIsPlaying() {
+    const newState = { ...this.state };
+    newState.isPlaying = !this.state.isPlaying;
     this.setState({ ...newState });
   }
 
