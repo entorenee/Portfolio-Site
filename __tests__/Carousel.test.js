@@ -24,6 +24,23 @@ describe('Carousel', () => {
   it('should have a default `isPlaying` state of false', () => {
     expect(carousel().state().isPlaying).toBe(false);
   });
+
+  describe('updateProject method', () => {
+    it('increments the `currIndex` state when passed the `next` argument', () => {
+      carousel()
+        .instance()
+        .updateProject('next');
+      expect(carousel().state().currIndex).toBe(1);
+    });
+
+    it('decrements the `currIndex` state when passed the `previous` argument', () => {
+      const projectLength = projectSpotlight.length - 1;
+      carousel()
+        .instance()
+        .updateProject('previous');
+      expect(carousel().state().currIndex).toBe(projectLength);
+    });
+  });
 });
 
 describe('projectSpotlight', () => {
