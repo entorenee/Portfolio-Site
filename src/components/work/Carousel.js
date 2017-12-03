@@ -72,7 +72,10 @@ class Carousel extends Component {
         <Title>{project.title}</Title>
         <div style={{ position: 'relative' }}>
           <FocusImage src={project.image} />
-          <CarouselControls updateProject={this.updateProject} />
+          <CarouselControls
+            updateProject={this.updateProject}
+            isPlaying={this.state.isPlaying}
+          />
         </div>
         <Description>
           <div dangerouslySetInnerHTML={{ __html: project.description }} />
