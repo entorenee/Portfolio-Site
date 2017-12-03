@@ -18,15 +18,14 @@
     "theming": "^1.2.1",
     "typography-theme-lincoln": "^0.15.11"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "format":
+      "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "jest"
   },
   "devDependencies": {
@@ -43,6 +42,11 @@
     "react-test-renderer": "^15.6.2"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>src/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/testUtils/setupTests.js",
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
+        "<rootDir>/testUtils/assetsTransformer.js",
+      "\\.(css|less)$": "<rootDir>/testUtils/assetsTransformer.js"
+    }
   }
 }
