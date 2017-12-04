@@ -49,9 +49,9 @@ const CarouselControls = props => (
     <ControlsFlex>
       <FaAngleLeft size={75} onClick={() => props.updateProject('previous')} />
       {props.isPlaying ? (
-        <FaPauseCircleO size={60} />
+        <FaPauseCircleO size={60} onClick={() => props.updateIsPlaying()} />
       ) : (
-        <FaPlayCircleO size={60} />
+        <FaPlayCircleO size={60} onClick={() => props.updateIsPlaying()} />
       )}
       <FaAngleRight size={75} onClick={() => props.updateProject('next')} />
     </ControlsFlex>
@@ -60,7 +60,8 @@ const CarouselControls = props => (
 
 CarouselControls.propTypes = {
   updateProject: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool
+  isPlaying: PropTypes.bool.isRequired,
+  updateIsPlaying: PropTypes.func.isRequired
 };
 
 export default CarouselControls;

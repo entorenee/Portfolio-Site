@@ -22,7 +22,8 @@ describe('CarouselControls', () => {
   beforeEach(() => {
     props = {
       updateProject: jest.fn(),
-      isPlaying: undefined
+      isPlaying: false,
+      updateIsPlaying: jest.fn()
     };
     mountedCarouselControls = undefined;
   });
@@ -52,10 +53,18 @@ describe('CarouselControls', () => {
   describe('when `isPlaying` is false', () => {
     beforeEach(() => {
       props.isPlaying = false;
+      props.updateIsPlaying = jest.fn();
     });
 
     it('renders the play icon', () => {
       expect(carouselControls().find(FaPlayCircleO).length).toBe(1);
+    });
+
+    it('calls updateIsPlaying function when clicking the play button', () => {
+      carouselControls()
+        .find(FaPlayCircleO)
+        .simulate('click');
+      expect(carouselControls().props().updateIsPlaying).toBeCalled();
     });
   });
 
@@ -66,6 +75,13 @@ describe('CarouselControls', () => {
 
     it('renders the pause icon', () => {
       expect(carouselControls().find(FaPauseCircleO).length).toBe(1);
+    });
+
+    it('calls updateIsPlaying function when clicking the pause button', () => {
+      carouselControls()
+        .find(FaPauseCircleO)
+        .simulate('click');
+      expect(carouselControls().props().updateIsPlaying).toBeCalled();
     });
   });
 });

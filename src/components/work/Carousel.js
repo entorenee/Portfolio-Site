@@ -91,6 +91,7 @@ class Carousel extends Component {
           <CarouselControls
             updateProject={this.updateProject}
             isPlaying={this.state.isPlaying}
+            updateIsPlaying={this.updateIsPlaying}
           />
         </div>
         <Description>
