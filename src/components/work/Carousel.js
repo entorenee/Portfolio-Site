@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'react-emotion';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
+import { clearInterval } from 'timers';
 
 const { Fragment } = React;
 
@@ -39,7 +40,8 @@ class Carousel extends Component {
     super();
     this.state = {
       currIndex: 0,
-      isPlaying: false
+      isPlaying: false,
+      intervalId: undefined
     };
 
     this.updateProject = this.updateProject.bind(this);
@@ -68,6 +70,13 @@ class Carousel extends Component {
   updateIsPlaying() {
     const newState = { ...this.state };
     newState.isPlaying = !this.state.isPlaying;
+
+    if (newState.isPlaying) {
+      newState.intervalId = setInterval(() => this.updateProject('next'), 5000);
+    } else {
+      newState.intervalId = window.clearInterval(this.state.intervalId);
+    }
+
     this.setState({ ...newState });
   }
 

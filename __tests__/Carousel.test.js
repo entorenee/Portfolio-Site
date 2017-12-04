@@ -43,16 +43,23 @@ describe('Carousel', () => {
   });
 
   describe('updateIsPlaying method', () => {
-    it('toggles the `isPlaying` state when called', () => {
+    it('sets `isPlaying` state to true and intervalId to be defined when prevState is false', () => {
       carousel()
         .instance()
         .updateIsPlaying();
       expect(carousel().state().isPlaying).toBe(true);
+      expect(carousel().state().intervalId).toBeDefined();
+    });
 
+    it('sets `isPlaying` state to false and intervalId to be undefined when prevState is true', () => {
+      carousel()
+        .instance()
+        .setState({ isPlaying: true, intervalId: 423345 });
       carousel()
         .instance()
         .updateIsPlaying();
       expect(carousel().state().isPlaying).toBe(false);
+      expect(carousel().state().intervalId).toBeUndefined();
     });
   });
 });
