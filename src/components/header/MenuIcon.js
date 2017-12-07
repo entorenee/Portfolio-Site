@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 
@@ -68,5 +69,10 @@ const MenuIcon = props => (
     </Icon>
   </MenuContainer>
 );
+
+MenuIcon.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  toggleOpen: PropTypes.func.isRequired
+};
 
 export default MenuIcon;

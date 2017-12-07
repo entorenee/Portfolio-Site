@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { css } from 'emotion';
@@ -76,5 +77,10 @@ const NavigationLinks = props => (
     <NavLink to="/blog" text="Blog" mobile={props.mobile} />
   </LinksContainer>
 );
+
+NavigationLinks.propTypes = {
+  mobile: PropTypes.bool,
+  isOpen: PropTypes.bool
+};
 
 export default NavigationLinks;
