@@ -1,6 +1,6 @@
 ---
 title: "A Week in Review: #100DaysOfCode Round 2, Week 1"
-date: 2017-12-06 08:30:00 -0700
+date: 2017-12-07 06:30:00 -0700
 categories: [web development]
 tags: [journal, "#100DaysOfCode"]
 ---
