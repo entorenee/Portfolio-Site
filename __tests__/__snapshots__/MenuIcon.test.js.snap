@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuIcon renders correctly 1`] = `
+<div
+  className="css-5eaigi"
+  onClick={[Function]}
+>
+  <div
+    className="css-m56tt4"
+  >
+    <span
+      className="css-190cys6"
+    />
+    <span
+      className="css-1nmu6z9"
+    />
+    <span
+      className="css-g78e9d"
+    />
+  </div>
+</div>
+`;
