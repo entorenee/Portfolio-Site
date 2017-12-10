@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavigationControls renders properly 1`] = `
+<div
+  className="css-gdfr0c css-hn1q840"
+>
+  <MockedLink
+    className="css-14xxsjd"
+    to="/about"
+  >
+    About
+  </MockedLink>
+  <MockedLink
+    className="css-14xxsjd"
+    to="/work"
+  >
+    Work
+  </MockedLink>
+  <MockedLink
+    className="css-14xxsjd"
+    to="/contact"
+  >
+    Contact
+  </MockedLink>
+  <MockedLink
+    className="css-14xxsjd"
+    to="/blog"
+  >
+    Blog
+  </MockedLink>
+</div>
+`;
