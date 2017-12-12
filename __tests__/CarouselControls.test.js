@@ -36,18 +36,24 @@ describe('CarouselControls', () => {
     expect(carouselControls().find(FaAngleRight).length).toBe(1);
   });
 
-  it('should call updateProject with `previous` when clicking the left arrow', () => {
+  it('should call updateProject with `previous` and `true` when clicking the left arrow', () => {
     carouselControls()
       .find(FaAngleLeft)
       .simulate('click');
-    expect(carouselControls().props().updateProject).toBeCalledWith('previous');
+    expect(carouselControls().props().updateProject).toBeCalledWith(
+      'previous',
+      true
+    );
   });
 
-  it('should call updateProject with `next` when clicking the right arrow', () => {
+  it('should call updateProject with `next` and `true` when clicking the right arrow', () => {
     carouselControls()
       .find(FaAngleRight)
       .simulate('click');
-    expect(carouselControls().props().updateProject).toBeCalledWith('next');
+    expect(carouselControls().props().updateProject).toBeCalledWith(
+      'next',
+      true
+    );
   });
 
   describe('when `isPlaying` is false', () => {
