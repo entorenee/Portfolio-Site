@@ -21,8 +21,8 @@ describe('Carousel', () => {
     expect(carousel().state().currIndex).toBe(0);
   });
 
-  it('should have a default `isPlaying` state of false', () => {
-    expect(carousel().state().isPlaying).toBe(false);
+  it('should have a default `isPlaying` state of true', () => {
+    expect(carousel().state().isPlaying).toBe(true);
   });
 
   describe('updateProject method', () => {
@@ -46,15 +46,15 @@ describe('Carousel', () => {
     it('sets `isPlaying` state to true and intervalId to be defined when prevState is false', () => {
       carousel()
         .instance()
+        .setState({ isPlaying: false, intervalId: undefined });
+      carousel()
+        .instance()
         .updateIsPlaying();
       expect(carousel().state().isPlaying).toBe(true);
       expect(carousel().state().intervalId).toBeDefined();
     });
 
     it('sets `isPlaying` state to false and intervalId to be undefined when prevState is true', () => {
-      carousel()
-        .instance()
-        .setState({ isPlaying: true, intervalId: 423345 });
       carousel()
         .instance()
         .updateIsPlaying();

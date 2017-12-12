@@ -48,6 +48,10 @@ class Carousel extends Component {
     this.updateIsPlaying = this.updateIsPlaying.bind(this);
   }
 
+  componentDidMount() {
+    this.updateIsPlaying();
+  }
+
   updateProject(direction) {
     const projectTotal = projectSpotlight.length;
     const newState = { ...this.state };
