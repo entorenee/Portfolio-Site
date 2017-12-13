@@ -52,23 +52,23 @@ class Carousel extends Component {
     this.updateIsPlaying();
   }
 
-  updateProject(direction) {
+  updateProject(direction, reset = false) {
     const projectTotal = projectSpotlight.length;
-    const newState = { ...this.state };
+    let { currIndex: newIndex } = this.state;
 
     if (direction === 'next') {
-      this.state.currIndex < projectTotal - 1
-        ? newState.currIndex++
-        : (newState.currIndex = 0);
+      this.state.currIndex < projectTotal - 1 ? newIndex++ : (newIndex = 0);
     }
 
     if (direction === 'previous') {
-      this.state.currIndex > 0
-        ? newState.currIndex--
-        : (newState.currIndex = projectTotal - 1);
+      this.state.currIndex > 0 ? newIndex-- : (newIndex = projectTotal - 1);
     }
 
-    this.setState({ ...newState });
+    if (this.state.isPlaying && reset) {
+      this.resetIntervalTimer();
+    }
+
+    this.setState({ currIndex: newIndex });
   }
 
   updateIsPlaying() {
@@ -82,6 +82,12 @@ class Carousel extends Component {
     }
 
     this.setState({ ...newState });
+  }
+
+  resetIntervalTimer() {
+    window.clearInterval(this.state.intervalId);
+    const intervalId = setInterval(() => this.updateProject('next'), 5000);
+    this.setState({ intervalId });
   }
 
   render() {

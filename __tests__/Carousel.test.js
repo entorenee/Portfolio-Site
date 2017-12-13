@@ -62,6 +62,58 @@ describe('Carousel', () => {
       expect(carousel().state().intervalId).toBeUndefined();
     });
   });
+
+  describe('resetIntervalTimer method', () => {
+    it('is called when isPlaying is `true` and the user clicks the right arrow', () => {
+      const resetIntervalTimer = jest.genMockFunction();
+      carousel().instance().resetIntervalTimer = resetIntervalTimer;
+      carousel()
+        .instance()
+        .updateProject('next', true);
+      expect(resetIntervalTimer).toBeCalled();
+    });
+
+    it('is called when isPlaying is `true` and the user clicks the left arrow', () => {
+      const resetIntervalTimer = jest.genMockFunction();
+      carousel().instance().resetIntervalTimer = resetIntervalTimer;
+      carousel()
+        .instance()
+        .updateProject('previous', true);
+      expect(resetIntervalTimer).toBeCalled();
+    });
+
+    it('resets the setInterval and ID for carousel progression upon being called', () => {
+      const oldIntervalId = carousel().state().intervalId;
+      carousel()
+        .instance()
+        .resetIntervalTimer();
+      expect(carousel().state().intervalId).not.toBe(oldIntervalId);
+    });
+
+    it('is not called when isPlaying is `false` and the user clicks the right arrow', () => {
+      const resetIntervalTimer = jest.genMockFunction();
+      carousel().instance().resetIntervalTimer = resetIntervalTimer;
+      carousel()
+        .instance()
+        .setState({ isPlaying: false, intervalId: undefined });
+      carousel()
+        .instance()
+        .updateProject('next', true);
+      expect(resetIntervalTimer).not.toBeCalled();
+    });
+
+    it('is not called when isPlaying is `false` and the user clicks the left arrow', () => {
+      const resetIntervalTimer = jest.genMockFunction();
+      carousel().instance().resetIntervalTimer = resetIntervalTimer;
+      carousel()
+        .instance()
+        .setState({ isPlaying: false, intervalId: undefined });
+      carousel()
+        .instance()
+        .updateProject('previous', true);
+      expect(resetIntervalTimer).not.toBeCalled();
+    });
+  });
 });
 
 describe('projectSpotlight', () => {

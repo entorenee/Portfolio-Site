@@ -47,13 +47,19 @@ const ControlsFlex = styled.div`
 const CarouselControls = props => (
   <ControlsContainer>
     <ControlsFlex>
-      <FaAngleLeft size={75} onClick={() => props.updateProject('previous')} />
+      <FaAngleLeft
+        size={75}
+        onClick={() => props.updateProject('previous', true)}
+      />
       {props.isPlaying ? (
         <FaPauseCircleO size={60} onClick={() => props.updateIsPlaying()} />
       ) : (
         <FaPlayCircleO size={60} onClick={() => props.updateIsPlaying()} />
       )}
-      <FaAngleRight size={75} onClick={() => props.updateProject('next')} />
+      <FaAngleRight
+        size={75}
+        onClick={() => props.updateProject('next', true)}
+      />
     </ControlsFlex>
   </ControlsContainer>
 );
