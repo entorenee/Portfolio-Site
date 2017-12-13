@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
-import { clearInterval } from 'timers';
 
 const { Fragment } = React;
 
@@ -43,6 +43,7 @@ class Carousel extends Component {
       isPlaying: false,
       intervalId: undefined
     };
+    this.intervalLength = 5000;
 
     this.updateProject = this.updateProject.bind(this);
     this.updateIsPlaying = this.updateIsPlaying.bind(this);
@@ -73,20 +74,28 @@ class Carousel extends Component {
 
   updateIsPlaying() {
     const newState = { ...this.state };
+    const { timerLength } = this.props;
     newState.isPlaying = !this.state.isPlaying;
 
     if (newState.isPlaying) {
-      newState.intervalId = setInterval(() => this.updateProject('next'), 5000);
+      newState.intervalId = setInterval(
+        () => this.updateProject('next'),
+        timerLength
+      );
     } else {
-      newState.intervalId = window.clearInterval(this.state.intervalId);
+      newState.intervalId = clearInterval(this.state.intervalId);
     }
 
     this.setState({ ...newState });
   }
 
   resetIntervalTimer() {
-    window.clearInterval(this.state.intervalId);
-    const intervalId = setInterval(() => this.updateProject('next'), 5000);
+    const { timerLength } = this.props;
+    clearInterval(this.state.intervalId);
+    const intervalId = setInterval(
+      () => this.updateProject('next'),
+      timerLength
+    );
     this.setState({ intervalId });
   }
 
@@ -115,5 +124,13 @@ class Carousel extends Component {
     );
   }
 }
+
+Carousel.defaultProps = {
+  timerLength: 5000
+};
+
+Carousel.propTypes = {
+  timerLength: PropTypes.number.isRequired
+};
 
 export default Carousel;
