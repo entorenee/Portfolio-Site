@@ -43,7 +43,6 @@ class Carousel extends Component {
       isPlaying: false,
       intervalId: undefined
     };
-    this.intervalLength = 5000;
 
     this.updateProject = this.updateProject.bind(this);
     this.updateIsPlaying = this.updateIsPlaying.bind(this);
