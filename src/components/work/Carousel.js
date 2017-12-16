@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
+import Button from '../Button.js';
 
 const { Fragment } = React;
 
@@ -115,8 +116,8 @@ class Carousel extends Component {
         <Description>
           <div dangerouslySetInnerHTML={{ __html: project.description }} />
           <ProjectLinks>
-            <a href={project.projectLink}>Link to Live project</a>
-            <a href={project.githubLink}>Link to GitHub Repository</a>
+            <Button href={project.projectLink}>Link to Live Project</Button>
+            <Button href={project.githubLink}>Link to GitHub Repository</Button>
           </ProjectLinks>
         </Description>
       </CarouselContainer>
