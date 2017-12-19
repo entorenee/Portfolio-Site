@@ -29,11 +29,21 @@ const Description = styled.div`
 
 const Title = styled.h1`
   text-align: center;
+  margin-bottom: 0.6rem;
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+
+  @media (max-width: 450px) {
+    justify-content: center;
+
+    a:first-child {
+      margin-bottom: 0.75rem;
+    }
+  }
 `;
 
 class Carousel extends Component {
