@@ -32,7 +32,7 @@ const CardText = styled.p`
 
 const AboutCards = props => (
   <CardContainer>
-    <Card>
+    <Card maxWidth={'400px'}>
       <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
       <Divider />
       <CardText>
@@ -41,7 +41,7 @@ const AboutCards = props => (
         specialize on the MERN stack.
       </CardText>
     </Card>
-    <Card>
+    <Card maxWidth={'400px'}>
       <FaLightbulbO
         size={80}
         color={props.theme.baseColor}
