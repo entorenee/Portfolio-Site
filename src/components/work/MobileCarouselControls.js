@@ -8,6 +8,7 @@ const ControlsContainer = styled.div`
   display: flex;
   max-width: 50%;
   margin: auto;
+  margin-top: 0.3rem;
   justify-content: space-between;
   align-items: center;
 `;
@@ -30,7 +31,11 @@ const MobileCarouselControls = props => (
       onClick={() => props.updateProject('previous', true)}
     />
     {props.projects.map((project, i) => (
-      <SelectorBox className={props.currIndex === i ? selected : ''} key={i} />
+      <SelectorBox
+        className={props.currIndex === i ? selected : ''}
+        onClick={() => props.updateProject(i, true)}
+        key={i}
+      />
     ))}
     <FaAngleRight size={25} onClick={() => props.updateProject('next', true)} />
   </ControlsContainer>
