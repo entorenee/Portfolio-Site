@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
+import MobileCarouselControls from './MobileCarouselControls';
 import Button from '../Button.js';
 
 const { Fragment } = React;
@@ -75,6 +76,10 @@ class Carousel extends Component {
       this.state.currIndex > 0 ? newIndex-- : (newIndex = projectTotal - 1);
     }
 
+    if (typeof direction === 'number') {
+      newIndex = direction;
+    }
+
     if (this.state.isPlaying && reset) {
       this.resetIntervalTimer();
     }
@@ -123,6 +128,12 @@ class Carousel extends Component {
             updateIsPlaying={this.updateIsPlaying}
           />
         </div>
+        <MobileCarouselControls
+          updateProject={this.updateProject}
+          isPlaying={this.state.isPlaying}
+          currIndex={this.state.currIndex}
+          projects={projectSpotlight}
+        />
         <Description>
           <div dangerouslySetInnerHTML={{ __html: project.description }} />
           <ProjectLinks>

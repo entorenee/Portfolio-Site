@@ -40,6 +40,13 @@ describe('Carousel', () => {
         .updateProject('previous');
       expect(carousel().state().currIndex).toBe(projectLength);
     });
+
+    it('sets the `currIndex` state to a specific number when `direction` is a number', () => {
+      carousel()
+        .instance()
+        .updateProject(2);
+      expect(carousel().state().currIndex).toBe(2);
+    });
   });
 
   describe('updateIsPlaying method', () => {
