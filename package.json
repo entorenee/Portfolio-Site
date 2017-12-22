@@ -13,6 +13,7 @@
     "gatsby-plugin-react-helmet": "^1.0.8",
     "gatsby-plugin-react-next": "^1.0.5",
     "gatsby-plugin-typography": "^1.7.10",
+    "hammerjs": "^2.0.8",
     "react-emotion": "^8.0.12",
     "react-icons": "^2.2.7",
     "theming": "^1.2.1",
@@ -37,7 +38,6 @@
     "babel-preset-react": "^6.24.1",
     "enzyme": "^3.2.0",
     "enzyme-adapter-react-15": "^1.0.5",
-    "enzyme-adapter-react-16": "^1.1.0",
     "jest": "^21.2.1",
     "prettier": "^1.9.1",
     "react-test-renderer": "^15.6.2"
