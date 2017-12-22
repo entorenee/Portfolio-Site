@@ -18,6 +18,7 @@ describe('MobileCarouselControls', () => {
     props = {
       updateProject: jest.fn(),
       isPlaying: true,
+      updateIsPlaying: jest.fn(),
       currIndex: 0,
       projects: ['project1', 'project2']
     };
