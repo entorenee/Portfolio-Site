@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import Hammer from 'hammerjs';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import MobileCarouselControls from './MobileCarouselControls';
@@ -62,6 +63,21 @@ class Carousel extends Component {
 
   componentDidMount() {
     this.updateIsPlaying();
+
+    const carousel = document.getElementById('project-carousel');
+    const hammer = new Hammer(carousel);
+    hammer.on('swipe', evt => {
+      switch (evt.offsetDirection) {
+        case 2:
+          this.updateProject('next', true);
+          break;
+        case 4:
+          this.updateProject('previous', true);
+          break;
+        default:
+          return;
+      }
+    });
   }
 
   updateProject(direction, reset = false) {
@@ -118,7 +134,14 @@ class Carousel extends Component {
     const project = projectSpotlight[this.state.currIndex];
 
     return (
-      <CarouselContainer>
+      <CarouselContainer id="project-carousel">
+        <MobileCarouselControls
+          updateProject={this.updateProject}
+          isPlaying={this.state.isPlaying}
+          updateIsPlaying={this.updateIsPlaying}
+          currIndex={this.state.currIndex}
+          projects={projectSpotlight}
+        />
         <Title>{project.title}</Title>
         <div style={{ position: 'relative' }}>
           <FocusImage src={project.image} />
@@ -128,12 +151,6 @@ class Carousel extends Component {
             updateIsPlaying={this.updateIsPlaying}
           />
         </div>
-        <MobileCarouselControls
-          updateProject={this.updateProject}
-          isPlaying={this.state.isPlaying}
-          currIndex={this.state.currIndex}
-          projects={projectSpotlight}
-        />
         <Description>
           <div dangerouslySetInnerHTML={{ __html: project.description }} />
           <ProjectLinks>
