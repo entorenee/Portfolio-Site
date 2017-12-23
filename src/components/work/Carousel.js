@@ -4,7 +4,6 @@ import styled from 'react-emotion';
 import Hammer from 'hammerjs';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
-import MobileCarouselControls from './MobileCarouselControls';
 import Button from '../Button.js';
 
 const { Fragment } = React;
@@ -64,8 +63,7 @@ class Carousel extends Component {
   componentDidMount() {
     this.updateIsPlaying();
 
-    const carousel = document.getElementById('project-carousel');
-    const hammer = new Hammer(carousel);
+    const hammer = Hammer(this.projectCarousel);
     hammer.on('swipe', evt => {
       switch (evt.offsetDirection) {
         case 2:
@@ -77,6 +75,9 @@ class Carousel extends Component {
         default:
           return;
       }
+    });
+    hammer.on('tap', evt => {
+      this.updateIsPlaying();
     });
   }
 
@@ -134,31 +135,28 @@ class Carousel extends Component {
     const project = projectSpotlight[this.state.currIndex];
 
     return (
-      <CarouselContainer id="project-carousel">
-        <MobileCarouselControls
-          updateProject={this.updateProject}
-          isPlaying={this.state.isPlaying}
-          updateIsPlaying={this.updateIsPlaying}
-          currIndex={this.state.currIndex}
-          projects={projectSpotlight}
-        />
-        <Title>{project.title}</Title>
-        <div style={{ position: 'relative' }}>
-          <FocusImage src={project.image} />
+      <div ref={input => (this.projectCarousel = input)}>
+        <CarouselContainer>
           <CarouselControls
             updateProject={this.updateProject}
             isPlaying={this.state.isPlaying}
             updateIsPlaying={this.updateIsPlaying}
+            currIndex={this.state.currIndex}
+            projects={projectSpotlight}
           />
-        </div>
-        <Description>
-          <div dangerouslySetInnerHTML={{ __html: project.description }} />
-          <ProjectLinks>
-            <Button href={project.projectLink}>Link to Live Project</Button>
-            <Button href={project.githubLink}>Link to GitHub Repository</Button>
-          </ProjectLinks>
-        </Description>
-      </CarouselContainer>
+          <Title>{project.title}</Title>
+          <FocusImage src={project.image} />
+          <Description>
+            <div dangerouslySetInnerHTML={{ __html: project.description }} />
+            <ProjectLinks>
+              <Button href={project.projectLink}>Link to Live Project</Button>
+              <Button href={project.githubLink}>
+                Link to GitHub Repository
+              </Button>
+            </ProjectLinks>
+          </Description>
+        </CarouselContainer>
+      </div>
     );
   }
 }

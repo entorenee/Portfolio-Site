@@ -1,11 +1,11 @@
 import React from 'react';
 import CarouselControls from '../src/components/work/CarouselControls';
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import {
   FaAngleLeft,
   FaAngleRight,
-  FaPauseCircleO,
-  FaPlayCircleO
+  FaPlayCircleO,
+  FaPauseCircleO
 } from 'react-icons/lib/fa';
 
 describe('CarouselControls', () => {
@@ -22,8 +22,10 @@ describe('CarouselControls', () => {
   beforeEach(() => {
     props = {
       updateProject: jest.fn(),
-      isPlaying: false,
-      updateIsPlaying: jest.fn()
+      isPlaying: true,
+      updateIsPlaying: jest.fn(),
+      currIndex: 0,
+      projects: ['project1', 'project2']
     };
     mountedCarouselControls = undefined;
   });
