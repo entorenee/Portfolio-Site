@@ -14,6 +14,10 @@ const HeaderWrapper = styled.div`
   font-size: 1.25rem;
   background-color: ${props => props.theme.baseColor};
   z-index: 10;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
 `;
 
 const Logo = styled.img`
@@ -46,22 +50,12 @@ class Header extends Component {
 
   render() {
     return (
-      <div
-        style={{
-          position: 'absolute',
-          width: '100%',
-          top: 0,
-          left: 0,
-          zIndex: 10
-        }}
-      >
-        <HeaderWrapper>
-          <Link to="/">
-            <Logo src={logo} />
-          </Link>
-          {this.state.mobile ? <MobileNavigation /> : <NavigationLinks />}
-        </HeaderWrapper>
-      </div>
+      <HeaderWrapper>
+        <Link to="/">
+          <Logo src={logo} />
+        </Link>
+        {this.state.mobile ? <MobileNavigation /> : <NavigationLinks />}
+      </HeaderWrapper>
     );
   }
 }

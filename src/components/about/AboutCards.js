@@ -31,7 +31,7 @@ const CardText = styled.p`
 `;
 
 const AboutCards = props => (
-  <CardContainer>
+  <CardContainer id="about">
     <Card maxWidth={'400px'}>
       <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
       <Divider />

@@ -135,7 +135,7 @@ class Carousel extends Component {
     const project = projectSpotlight[this.state.currIndex];
 
     return (
-      <div ref={input => (this.projectCarousel = input)}>
+      <div ref={input => (this.projectCarousel = input)} id="work">
         <CarouselContainer>
           <CarouselControls
             updateProject={this.updateProject}
