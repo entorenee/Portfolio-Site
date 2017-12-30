@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import Hammer from 'hammerjs';
+import withSlideshow from '../withSlideshow';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button.js';
@@ -48,102 +49,39 @@ const ProjectLinks = styled.div`
 `;
 
 class Carousel extends Component {
-  constructor() {
-    super();
-    this.state = {
-      currIndex: 0,
-      isPlaying: false,
-      intervalId: undefined
-    };
-
-    this.updateProject = this.updateProject.bind(this);
-    this.updateIsPlaying = this.updateIsPlaying.bind(this);
-  }
 
   componentDidMount() {
-    this.updateIsPlaying();
-
     const hammer = Hammer(this.projectCarousel);
     hammer.on('swipe', evt => {
       switch (evt.offsetDirection) {
         case 2:
-          this.updateProject('next', true);
+          this.props.updateProject('next', true);
           break;
         case 4:
-          this.updateProject('previous', true);
+          this.props.updateProject('previous', true);
           break;
         default:
           return;
       }
     });
     hammer.on('tap', evt => {
-      this.updateIsPlaying();
+      this.props.updateIsPlaying();
     });
   }
 
-  updateProject(direction, reset = false) {
-    const projectTotal = projectSpotlight.length;
-    let { currIndex: newIndex } = this.state;
-
-    if (direction === 'next') {
-      this.state.currIndex < projectTotal - 1 ? newIndex++ : (newIndex = 0);
-    }
-
-    if (direction === 'previous') {
-      this.state.currIndex > 0 ? newIndex-- : (newIndex = projectTotal - 1);
-    }
-
-    if (typeof direction === 'number') {
-      newIndex = direction;
-    }
-
-    if (this.state.isPlaying && reset) {
-      this.resetIntervalTimer();
-    }
-
-    this.setState({ currIndex: newIndex });
-  }
-
-  updateIsPlaying() {
-    const newState = { ...this.state };
-    const { timerLength } = this.props;
-    newState.isPlaying = !this.state.isPlaying;
-
-    if (newState.isPlaying) {
-      newState.intervalId = setInterval(
-        () => this.updateProject('next'),
-        timerLength
-      );
-    } else {
-      newState.intervalId = clearInterval(this.state.intervalId);
-    }
-
-    this.setState({ ...newState });
-  }
-
-  resetIntervalTimer() {
-    const { timerLength } = this.props;
-    clearInterval(this.state.intervalId);
-    const intervalId = setInterval(
-      () => this.updateProject('next'),
-      timerLength
-    );
-    this.setState({ intervalId });
-  }
-
   render() {
-    const project = projectSpotlight[this.state.currIndex];
+    const project = projectSpotlight[this.props.currIndex];
 
     return (
-      <div ref={input => (this.projectCarousel = input)} id="work">
-        <CarouselContainer>
-          <CarouselControls
-            updateProject={this.updateProject}
-            isPlaying={this.state.isPlaying}
-            updateIsPlaying={this.updateIsPlaying}
-            currIndex={this.state.currIndex}
-            projects={projectSpotlight}
-          />
+      <CarouselContainer>
+        <CarouselControls
+          updateProject={this.props.updateProject}
+          isPlaying={this.props.isPlaying}
+          updateIsPlaying={this.props.updateIsPlaying}
+          currIndex={this.props.currIndex}
+          projects={projectSpotlight}
+        />
+        <div ref={input => (this.projectCarousel = input)}>
           <Title>{project.title}</Title>
           <FocusImage src={project.image} />
           <Description>
@@ -155,18 +93,18 @@ class Carousel extends Component {
               </Button>
             </ProjectLinks>
           </Description>
-        </CarouselContainer>
-      </div>
+        </div>
+      </CarouselContainer>
     );
   }
 }
 
-Carousel.defaultProps = {
-  timerLength: 5000
-};
-
 Carousel.propTypes = {
-  timerLength: PropTypes.number.isRequired
+  currIndex: PropTypes.number.isRequired,
+  isPlaying: PropTypes.bool.isRequired,
+  intervalId: PropTypes.number,
+  updateProject: PropTypes.func.isRequired,
+  updateProject: PropTypes.func.isRequired
 };
 
-export default Carousel;
+export default withSlideshow(Carousel, projectSpotlight);
