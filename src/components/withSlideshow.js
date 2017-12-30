@@ -69,6 +69,7 @@ function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
     render() {
       return <WrappedComponent
         currIndex={this.state.currIndex}
+        slideData={arr[this.state.currIndex]}
         isPlaying={this.state.isPlaying}
         intervalId={this.state.intervalId}
         updateProject={this.updateProject}
