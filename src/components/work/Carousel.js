@@ -7,8 +7,6 @@ import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button.js';
 
-const { Fragment } = React;
-
 const CarouselContainer = styled.div`
   ${props => props.theme.margins};
   position: relative;
@@ -70,7 +68,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const project = projectSpotlight[this.props.currIndex];
+    const {slideData: project} = this.props;
 
     return (
       <CarouselContainer>
@@ -101,6 +99,13 @@ class Carousel extends Component {
 
 Carousel.propTypes = {
   currIndex: PropTypes.number.isRequired,
+  slideData: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+    description: PropTypes.string.isRequired,
+    projectLink: PropTypes.string.isRequired,
+    githubLink: PropTypes.string.isRequired,
+  }),
   isPlaying: PropTypes.bool.isRequired,
   intervalId: PropTypes.number,
   updateProject: PropTypes.func.isRequired,
