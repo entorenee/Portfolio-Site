@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { withTheme } from 'emotion-theming';
-import Card from '../Card';
 import { FaLightbulbO, FaCode } from 'react-icons/lib/fa';
+import Card from '../Card';
 
 const CardContainer = styled.div`
   ${props => props.theme.margins};
@@ -32,7 +33,7 @@ const CardText = styled.p`
 
 const AboutCards = props => (
   <CardContainer id="about">
-    <Card maxWidth={'400px'}>
+    <Card maxWidth="400px">
       <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
       <Divider />
       <CardText>
@@ -41,7 +42,7 @@ const AboutCards = props => (
         specialize on the MERN stack.
       </CardText>
     </Card>
-    <Card maxWidth={'400px'}>
+    <Card maxWidth="400px">
       <FaLightbulbO
         size={80}
         color={props.theme.baseColor}
@@ -56,5 +57,11 @@ const AboutCards = props => (
     </Card>
   </CardContainer>
 );
+
+AboutCards.propTypes = {
+  theme: PropTypes.shape({
+    baseColor: PropTypes.string.isRequired
+  }).isRequired
+};
 
 export default withTheme(AboutCards);
