@@ -2,7 +2,8 @@ module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
-    es6: true
+    es6: true,
+    'jest/globals': true
   },
   settings: {
     ecmascript: 6,
@@ -17,7 +18,7 @@ module.exports = {
     },
     sourceType: 'module'
   },
-  plugins: ['react'],
+  plugins: ['react', 'jest'],
   extends: 'airbnb',
   rules: {
     'react/jsx-filename-extension': 0,
