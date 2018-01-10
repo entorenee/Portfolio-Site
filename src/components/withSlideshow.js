@@ -1,6 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
+function getDisplayName(WrappedComponent) {
+  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
+function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
   class WithSlideshow extends Component {
     constructor() {
       super();
@@ -9,7 +13,7 @@ function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
         isPlaying: false,
         intervalId: undefined
       };
-  
+
       this.updateProject = this.updateProject.bind(this);
       this.updateIsPlaying = this.updateIsPlaying.bind(this);
     }
@@ -21,30 +25,34 @@ function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
     updateProject(direction, reset = false) {
       const projectTotal = arr.length;
       let { currIndex: newIndex } = this.state;
-  
+
       if (direction === 'next') {
-        this.state.currIndex < projectTotal - 1 ? newIndex++ : (newIndex = 0);
+        this.state.currIndex < projectTotal - 1 // eslint-disable-line no-unused-expressions
+          ? (newIndex += 1)
+          : (newIndex = 0);
       }
-  
+
       if (direction === 'previous') {
-        this.state.currIndex > 0 ? newIndex-- : (newIndex = projectTotal - 1);
+        this.state.currIndex > 0 // eslint-disable-line no-unused-expressions
+          ? (newIndex -= 1)
+          : (newIndex = projectTotal - 1);
       }
-  
+
       if (typeof direction === 'number') {
         newIndex = direction;
       }
-  
+
       if (this.state.isPlaying && reset) {
         this.resetIntervalTimer();
       }
-  
+
       this.setState({ currIndex: newIndex });
     }
-  
+
     updateIsPlaying() {
       const newState = { ...this.state };
       newState.isPlaying = !this.state.isPlaying;
-  
+
       if (newState.isPlaying) {
         newState.intervalId = setInterval(
           () => this.updateProject('next'),
@@ -53,10 +61,10 @@ function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
       } else {
         newState.intervalId = clearInterval(this.state.intervalId);
       }
-  
+
       this.setState({ ...newState });
     }
-  
+
     resetIntervalTimer() {
       clearInterval(this.state.intervalId);
       const intervalId = setInterval(
@@ -67,24 +75,22 @@ function withSlideshow (WrappedComponent, arr, timerLength = 5000) {
     }
 
     render() {
-      return <WrappedComponent
-        currIndex={this.state.currIndex}
-        slideData={arr[this.state.currIndex]}
-        isPlaying={this.state.isPlaying}
-        intervalId={this.state.intervalId}
-        updateProject={this.updateProject}
-        updateIsPlaying={this.updateIsPlaying}
-        {...this.props}
+      return (
+        <WrappedComponent
+          currIndex={this.state.currIndex}
+          slideData={arr[this.state.currIndex]}
+          isPlaying={this.state.isPlaying}
+          intervalId={this.state.intervalId}
+          updateProject={this.updateProject}
+          updateIsPlaying={this.updateIsPlaying}
+          {...this.props}
         />
+      );
     }
   }
 
-  WithSlideshow.displayName = `WithSlideShow(${getDisplayName(WrappedComponent)})`;
+  WithSlideshow.displayName = `WithSlideShow(${getDisplayName(WrappedComponent)})`; // eslint-disable-line prettier/prettier
   return WithSlideshow;
-}
-
-function getDisplayName(WrappedComponent) {
-  return WrappedComponent.displayName || WrappedComponent.name || 'Component';
 }
 
 export default withSlideshow;

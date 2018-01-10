@@ -58,7 +58,7 @@ const CarouselControls = props => (
         <SelectorBox
           className={props.currIndex === i ? selected : ''}
           onClick={() => props.updateProject(i, true)}
-          key={i}
+          key={project.title}
         />
       ))}
       <FaAngleRight
@@ -74,7 +74,7 @@ CarouselControls.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   updateIsPlaying: PropTypes.func.isRequired,
   currIndex: PropTypes.number.isRequired,
-  projects: PropTypes.array.isRequired
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default CarouselControls;

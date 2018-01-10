@@ -5,7 +5,7 @@ import Hammer from 'hammerjs';
 import withSlideshow from '../withSlideshow';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
-import Button from '../Button.js';
+import Button from '../Button';
 
 const CarouselContainer = styled.div`
   ${props => props.theme.margins};
@@ -47,7 +47,6 @@ const ProjectLinks = styled.div`
 `;
 
 class Carousel extends Component {
-
   componentDidMount() {
     const hammer = Hammer(this.projectCarousel);
     hammer.on('swipe', evt => {
@@ -59,16 +58,15 @@ class Carousel extends Component {
           this.props.updateProject('previous', true);
           break;
         default:
-          return;
       }
     });
-    hammer.on('tap', evt => {
+    hammer.on('tap', () => {
       this.props.updateIsPlaying();
     });
   }
 
   render() {
-    const {slideData: project} = this.props;
+    const { slideData: project } = this.props;
 
     return (
       <CarouselContainer>
@@ -79,11 +77,15 @@ class Carousel extends Component {
           currIndex={this.props.currIndex}
           projects={projectSpotlight}
         />
-        <div ref={input => (this.projectCarousel = input)}>
+        <div
+          ref={input => (this.projectCarousel = input)} // eslint-disable-line no-return-assign
+        >
           <Title>{project.title}</Title>
           <FocusImage src={project.image} />
           <Description>
-            <div dangerouslySetInnerHTML={{ __html: project.description }} />
+            <div
+              dangerouslySetInnerHTML={{ __html: project.description }} // eslint-disable-line react/no-danger, max-len
+            />
             <ProjectLinks>
               <Button href={project.projectLink}>Link to Live Project</Button>
               <Button href={project.githubLink}>
@@ -104,12 +106,11 @@ Carousel.propTypes = {
     image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     description: PropTypes.string.isRequired,
     projectLink: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired,
-  }),
+    githubLink: PropTypes.string.isRequired
+  }).isRequired,
   isPlaying: PropTypes.bool.isRequired,
-  intervalId: PropTypes.number,
   updateProject: PropTypes.func.isRequired,
-  updateProject: PropTypes.func.isRequired
+  updateIsPlaying: PropTypes.func.isRequired
 };
 
 export default withSlideshow(Carousel, projectSpotlight);

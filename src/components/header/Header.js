@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
-import MenuIcon from './MenuIcon';
 import MobileNavigation from './MobileNavigation';
 
 import logo from '../../assets/img/logo.png';
@@ -34,7 +33,7 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    var mql = window.matchMedia('(max-width: 450px)');
+    const mql = window.matchMedia('(max-width: 450px)');
     mql.addListener(this.handleSizeChange);
     this.handleSizeChange(mql);
   }

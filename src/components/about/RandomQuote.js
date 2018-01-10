@@ -17,7 +17,6 @@ const QuoteContainer = styled.div`
     font-size: 4rem;
     color: ${props => props.theme.baseColor};
     position: absolute;
-    top: -1.4rem;
     left: 0.1rem;
   }
 
@@ -28,7 +27,6 @@ const QuoteContainer = styled.div`
     font-size: 4rem;
     color: ${props => props.theme.baseColor};
     position: absolute;
-    bottom: -3.6rem;
     right: 0.1rem;
   }
 `;
@@ -37,13 +35,20 @@ const RandomQuote = props => {
   const { slideData: quote } = props;
 
   return (
-    <Card maxWidth="50%">
+    <Card>
       <QuoteContainer>
         <div>{quote.quote}</div>
         <div>{quote.attribution}</div>
       </QuoteContainer>
     </Card>
   );
+};
+
+RandomQuote.propTypes = {
+  slideData: PropTypes.shape({
+    quote: PropTypes.string.isRequired,
+    attribution: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default withSlideshow(RandomQuote, quotesData);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'react-emotion';
 import MenuIcon from './MenuIcon';
 import NavigationLinks from './NavigationLinks';
 
