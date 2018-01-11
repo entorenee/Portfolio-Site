@@ -88,9 +88,7 @@ class Carousel extends Component {
             />
             <ProjectLinks>
               <Button href={project.projectLink}>Link to Live Project</Button>
-              <Button href={project.githubLink}>
-                Link to GitHub Repository
-              </Button>
+              <Button href={project.githubLink}>Link to GitHub Repository</Button>
             </ProjectLinks>
           </Description>
         </div>

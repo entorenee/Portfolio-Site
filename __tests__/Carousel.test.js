@@ -1,7 +1,8 @@
+/* eslint-disable array-callback-return */
 import React from 'react';
+import { mount } from 'enzyme';
 import Carousel from '../src/components/work/Carousel';
 import projectSpotlight from '../src/components/work/projectSpotlight';
-import { mount } from 'enzyme';
 
 describe('Carousel', () => {
   let mountedCarousel;
@@ -140,34 +141,34 @@ describe('projectSpotlight', () => {
 
   it('should contain a defined title key', () => {
     projectSpotlight.map(project => {
-      expect(project.hasOwnProperty('title')).toBe(true);
+      expect(Object.prototype.hasOwnProperty.call(project, 'title')).toBe(true);
       expect(project.title).toBeTruthy();
     });
   });
 
   it('should contain a defined image key', () => {
     projectSpotlight.map(project => {
-      expect(project.hasOwnProperty('image')).toBe(true);
+      expect(Object.prototype.hasOwnProperty.call(project, 'image')).toBe(true);
       expect(project.image).toBeTruthy();
     });
   });
 
   it('should contain a defined projectLink key', () => {
     projectSpotlight.map(project => {
-      expect(project.hasOwnProperty('projectLink')).toBe(true);
+      expect(Object.prototype.hasOwnProperty.call(project, 'projectLink')).toBe(true);
       expect(project.projectLink).toBeTruthy();
     });
   });
 
   it('should contain a defined githubLink key', () => {
     projectSpotlight.map(project => {
-      expect(project.hasOwnProperty('githubLink')).toBe(true);
+      expect(Object.prototype.hasOwnProperty.call(project, 'githubLink')).toBe(true);
       expect(project.githubLink).toBeTruthy();
     });
   });
   it('should contain a defined description key', () => {
     projectSpotlight.map(project => {
-      expect(project.hasOwnProperty('description')).toBe(true);
+      expect(Object.prototype.hasOwnProperty.call(project, 'description')).toBe(true);
       expect(project.description).toBeTruthy();
     });
   });

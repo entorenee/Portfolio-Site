@@ -1,7 +1,7 @@
 import React from 'react';
-import MenuIcon from '../src/components/header/MenuIcon';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import MenuIcon from '../src/components/header/MenuIcon';
 
 describe('MenuIcon', () => {
   let props;

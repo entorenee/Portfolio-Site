@@ -1,7 +1,7 @@
 import React from 'react';
-import NavigationLinks from '../src/components/header/NavigationLinks';
 import { MemoryRouter } from 'react-router';
 import renderer from 'react-test-renderer';
+import NavigationLinks from '../src/components/header/NavigationLinks';
 
 describe('NavigationControls', () => {
   it('renders properly', () => {

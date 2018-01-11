@@ -2,12 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaPlayCircleO,
-  FaPauseCircleO
-} from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
 
 const ControlsFlex = styled.div`
   display: flex;
@@ -50,10 +45,7 @@ const CarouselControls = props => (
       <FaPlayCircleO size={30} onClick={() => props.updateIsPlaying()} />
     )}
     <ControlsContainer>
-      <FaAngleLeft
-        size={25}
-        onClick={() => props.updateProject('previous', true)}
-      />
+      <FaAngleLeft size={25} onClick={() => props.updateProject('previous', true)} />
       {props.projects.map((project, i) => (
         <SelectorBox
           className={props.currIndex === i ? selected : ''}
@@ -61,10 +53,7 @@ const CarouselControls = props => (
           key={project.title}
         />
       ))}
-      <FaAngleRight
-        size={25}
-        onClick={() => props.updateProject('next', true)}
-      />
+      <FaAngleRight size={25} onClick={() => props.updateProject('next', true)} />
     </ControlsContainer>
   </ControlsFlex>
 );

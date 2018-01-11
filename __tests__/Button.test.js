@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../src/components/Button';
 import { mount } from 'enzyme';
 import renderer from 'react-test-renderer';
+import Button from '../src/components/Button';
 
 describe('Button', () => {
   it('should render an anchor element if passed an href property', () => {

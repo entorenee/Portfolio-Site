@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import quotes from '../src/assets/js/quotesData';
 
 describe('Quotes Data', () => {
@@ -10,20 +11,20 @@ describe('Quotes Data', () => {
   });
 
   it('each index in the array is an object', () => {
-    quotes.forEach(quote => {
+    quotes.map(quote => {
       expect(typeof quote).toBe('object');
     });
   });
 
   it('should have a truthy `quote` key', () => {
-    quotes.forEach(quote => {
+    quotes.map(quote => {
       expect(Object.prototype.hasOwnProperty.call(quote, 'quote')).toBe(true);
       expect(quote.quote).toBeTruthy();
     });
   });
 
   it('should have a truthy `attribution` key', () => {
-    quotes.forEach(quote => {
+    quotes.map(quote => {
       expect(Object.prototype.hasOwnProperty.call(quote, 'attribution')).toBe(true);
       expect(quote.attribution).toBeTruthy();
     });

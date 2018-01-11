@@ -1,12 +1,7 @@
 import React from 'react';
-import CarouselControls from '../src/components/work/CarouselControls';
 import { mount } from 'enzyme';
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaPlayCircleO,
-  FaPauseCircleO
-} from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import CarouselControls from '../src/components/work/CarouselControls';
 
 describe('CarouselControls', () => {
   let props;
@@ -25,7 +20,15 @@ describe('CarouselControls', () => {
       isPlaying: true,
       updateIsPlaying: jest.fn(),
       currIndex: 0,
-      projects: ['project1', 'project2']
+      projects: [
+        {
+          title: 'Sample Project',
+          image: 'project image',
+          description: 'Hello I am the description',
+          projectLink: 'http://dslemay.com',
+          githubLink: 'https://github.com/dslemay'
+        }
+      ]
     };
     mountedCarouselControls = undefined;
   });
@@ -42,20 +45,14 @@ describe('CarouselControls', () => {
     carouselControls()
       .find(FaAngleLeft)
       .simulate('click');
-    expect(carouselControls().props().updateProject).toBeCalledWith(
-      'previous',
-      true
-    );
+    expect(carouselControls().props().updateProject).toBeCalledWith('previous', true);
   });
 
   it('should call updateProject with `next` and `true` when clicking the right arrow', () => {
     carouselControls()
       .find(FaAngleRight)
       .simulate('click');
-    expect(carouselControls().props().updateProject).toBeCalledWith(
-      'next',
-      true
-    );
+    expect(carouselControls().props().updateProject).toBeCalledWith('next', true);
   });
 
   describe('when `isPlaying` is false', () => {
