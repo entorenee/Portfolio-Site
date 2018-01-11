@@ -8,7 +8,7 @@ module.exports = {
   settings: {
     ecmascript: 6,
     jsx: true,
-    'import/core-modules': ['react', 'prop-types']
+    'import/core-modules': ['react', 'prop-types', 'react-router']
   },
   parserOptions: {
     ecmaVersion: 2017,
@@ -24,6 +24,7 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],
+    'function-paren-newline': 0,
     'comma-dangle': 0,
     'jsx-a11y/anchor-is-valid': [
       'error',
