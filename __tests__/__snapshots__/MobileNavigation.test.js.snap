@@ -10,20 +10,20 @@ exports[`MobileNavigation renders properly 1`] = `
   }
 >
   <div
-    className="css-5eaigi css-1e60agf0"
+    className="css-5eaigi css-183znxx0"
     onClick={[Function]}
   >
     <div
-      className="css-m56tt4 css-1e60agf1"
+      className="css-m56tt4 css-183znxx1"
     >
       <span
-        className="css-190cys6 css-1e60agf2"
+        className="css-190cys6 css-183znxx2"
       />
       <span
-        className="css-1nmu6z9 css-1e60agf3"
+        className="css-1nmu6z9 css-183znxx3"
       />
       <span
-        className="css-g78e9d css-1e60agf4"
+        className="css-g78e9d css-183znxx4"
       />
     </div>
   </div>
