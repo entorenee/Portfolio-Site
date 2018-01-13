@@ -17,6 +17,7 @@ const QuoteContainer = styled.div`
     font-size: 4rem;
     color: ${props => props.theme.baseColor};
     position: absolute;
+    top: -1.4rem;
     left: 0.1rem;
   }
 
@@ -27,7 +28,20 @@ const QuoteContainer = styled.div`
     font-size: 4rem;
     color: ${props => props.theme.baseColor};
     position: absolute;
+    bottom: -3.6rem;
     right: 0.1rem;
+  }
+`;
+
+const GridStyling = styled.div`
+  grid-area: 3 / 1 / 4 / -1;
+
+  @media (min-width: 700px) {
+    grid-column: 2 / span 4;
+  }
+
+  @media (min-width: 1000px) {
+    grid-area: 2 / 3 / 3 / 5;
   }
 `;
 
@@ -35,12 +49,14 @@ const RandomQuote = props => {
   const { slideData: quote } = props;
 
   return (
-    <Card>
-      <QuoteContainer>
-        <div>{quote.quote}</div>
-        <div>{quote.attribution}</div>
-      </QuoteContainer>
-    </Card>
+    <GridStyling>
+      <Card>
+        <QuoteContainer>
+          <div>{quote.quote}</div>
+          <div>{quote.attribution}</div>
+        </QuoteContainer>
+      </Card>
+    </GridStyling>
   );
 };
 
