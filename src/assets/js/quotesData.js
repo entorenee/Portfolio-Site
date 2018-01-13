@@ -1,13 +1,7 @@
 module.exports = [
   {
-    quote:
-      '"One option is no option. Two options is a dilemma. Three options is a choice."',
+    quote: '"One option is no option. Two options is a dilemma. Three options is a choice."',
     attribution: 'Anthony Robbins'
-  },
-  {
-    quote:
-      '"Far better is it to dare mighty things, to win glorious triumphs, even though checkered by failure… than to rank with those poor spirits who neither enjoy nor suffer much, because they live in a gray twilight that knows not victory nor defeat."',
-    attribution: 'Theodore Roosevelt'
   },
   {
     quote: '"Just when the caterpillar thought the world was over, it became a butterfly."',
