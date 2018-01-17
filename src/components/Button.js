@@ -11,6 +11,7 @@ const ButtonStyles = props => css`
   padding: 0.2rem 1.3rem;
   border-radius: 20px;
   text-decoration: none;
+  cursor: pointer;
 `;
 
 const AnchorTag = styled.a`
