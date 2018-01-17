@@ -56,10 +56,7 @@ const LinkStyleMobile = css`
 `;
 
 const NavLink = props => (
-  <Link
-    to={props.to}
-    className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
-  >
+  <Link to={props.to} className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
     {props.text}
   </Link>
 );
@@ -73,7 +70,7 @@ const NavigationLinks = props => (
   <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
     <NavLink to="#about" text="About" mobile={props.mobile} />
     <NavLink to="#work" text="Work" mobile={props.mobile} />
-    <NavLink to="/contact" text="Contact" mobile={props.mobile} />
+    <NavLink to="#contact" text="Contact" mobile={props.mobile} />
     <NavLink to="/blog" text="Blog" mobile={props.mobile} />
   </LinksContainer>
 );
