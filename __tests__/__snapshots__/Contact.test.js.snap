@@ -2,7 +2,7 @@
 
 exports[`Contact renders correctly 1`] = `
 <section
-  className="css-1ys06ef css-1r1entd0"
+  className="css-ccc19b css-h085ru0"
   id="contact"
 >
   <h1>
@@ -18,7 +18,7 @@ exports[`Contact renders correctly 1`] = `
     >
       <div>
         <label
-          className="css-jgpgok css-1r1entd1"
+          className="css-jgpgok css-h085ru1"
           htmlFor="name"
         >
           <span>
@@ -31,7 +31,7 @@ exports[`Contact renders correctly 1`] = `
           />
         </label>
         <label
-          className="css-jgpgok css-1r1entd1"
+          className="css-jgpgok css-h085ru1"
           htmlFor="email"
         >
           <span>
@@ -44,7 +44,7 @@ exports[`Contact renders correctly 1`] = `
           />
         </label>
         <label
-          className="css-jgpgok css-1r1entd1"
+          className="css-jgpgok css-h085ru1"
           htmlFor="message"
         >
           <span>
@@ -71,7 +71,7 @@ exports[`Contact renders correctly 1`] = `
     </form>
   </div>
   <a
-    className="css-n47xk7 css-1r1entd2"
+    className="css-n47xk7 css-h085ru2"
     href="https://twitter.com/dslemay"
   >
     <svg
@@ -95,7 +95,7 @@ exports[`Contact renders correctly 1`] = `
     </svg>
   </a>
   <a
-    className="css-n47xk7 css-1r1entd2"
+    className="css-n47xk7 css-h085ru2"
     href="https://www.linkedin.com/in/dslemay"
   >
     <svg
@@ -119,7 +119,7 @@ exports[`Contact renders correctly 1`] = `
     </svg>
   </a>
   <a
-    className="css-n47xk7 css-1r1entd2"
+    className="css-n47xk7 css-h085ru2"
     href="https://github.com/dslemay"
   >
     <svg

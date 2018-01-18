@@ -7,6 +7,7 @@ import Button from './Button';
 
 const ContactSection = styled.section`
   ${props => props.theme.margins};
+  margin-bottom: 1rem;
 
   form {
     margin: 0.2rem 0.4rem;
