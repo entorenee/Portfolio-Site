@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
 import Card from './Card';
@@ -36,6 +37,41 @@ const FormLabel = styled.label`
   }
 `;
 
+const SocialLink = styled.a`
+  color: ${props => props.theme.mediumAccent};
+  margin-right: 0.5rem;
+  transition: color 800ms;
+
+  &:hover {
+    color: ${props => props.theme.baseColor};
+  }
+`;
+
+const SocialIcon = props => <SocialLink href={props.link}>{props.component}</SocialLink>;
+
+SocialIcon.propTypes = {
+  link: PropTypes.string.isRequired,
+  component: PropTypes.node.isRequired
+};
+
+const socialData = [
+  {
+    service: 'twitter',
+    link: 'https://twitter.com/dslemay',
+    component: <FaTwitter size={30} />
+  },
+  {
+    service: 'linkedin',
+    link: 'https://www.linkedin.com/in/dslemay',
+    component: <FaLinkedin size={30} />
+  },
+  {
+    service: 'github',
+    link: 'https://github.com/dslemay',
+    component: <FaGithub size={30} />
+  }
+];
+
 const Contact = () => (
   <ContactSection id="contact">
     <h1>Contact</h1>
@@ -63,6 +99,9 @@ const Contact = () => (
         <Button type="submit">Submit</Button>
       </form>
     </Card>
+    {socialData.map(social => (
+      <SocialIcon key={social.service} link={social.link} component={social.component} />
+    ))}
   </ContactSection>
 );
 
