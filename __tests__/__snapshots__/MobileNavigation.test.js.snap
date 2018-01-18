@@ -28,7 +28,7 @@ exports[`MobileNavigation renders properly 1`] = `
     </div>
   </div>
   <div
-    className="css-1xxfl7e css-11ymm0i0"
+    className="css-1xxfl7e css-i38m170"
   >
     <MockedLink
       className="css-hur3c3"
@@ -44,7 +44,7 @@ exports[`MobileNavigation renders properly 1`] = `
     </MockedLink>
     <MockedLink
       className="css-hur3c3"
-      to="/contact"
+      to="#contact"
     >
       Contact
     </MockedLink>

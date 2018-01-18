@@ -2,7 +2,7 @@
 
 exports[`NavigationControls renders properly 1`] = `
 <div
-  className="css-gdfr0c css-11ymm0i0"
+  className="css-gdfr0c css-i38m170"
 >
   <MockedLink
     className="css-14xxsjd"
@@ -18,7 +18,7 @@ exports[`NavigationControls renders properly 1`] = `
   </MockedLink>
   <MockedLink
     className="css-14xxsjd"
-    to="/contact"
+    to="#contact"
   >
     Contact
   </MockedLink>
