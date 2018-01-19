@@ -61,6 +61,16 @@ const NavLink = props => (
   </Link>
 );
 
+NavLink.propTypes = {
+  to: PropTypes.string.isRequired,
+  mobile: PropTypes.bool,
+  text: PropTypes.string.isRequired
+};
+
+NavLink.defaultProps = {
+  mobile: false
+};
+
 function renderLinksLayout(mobile, isOpen) {
   if (!mobile) return '';
   return mobile && isOpen ? MobileLinksOpen : MobileLinksClosed;
@@ -78,6 +88,11 @@ const NavigationLinks = props => (
 NavigationLinks.propTypes = {
   mobile: PropTypes.bool,
   isOpen: PropTypes.bool
+};
+
+NavigationLinks.defaultProps = {
+  mobile: false,
+  isOpen: false
 };
 
 export default NavigationLinks;
