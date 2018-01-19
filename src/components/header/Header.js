@@ -13,7 +13,7 @@ const HeaderWrapper = styled.div`
   font-size: 1.25rem;
   background-color: ${props => props.theme.baseColor};
   z-index: 10;
-  position: absolute;
+  position: fixed;
   width: 100%;
   top: 0;
   left: 0;
