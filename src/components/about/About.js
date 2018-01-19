@@ -7,8 +7,6 @@ import RandomQuote from './RandomQuote';
 
 import headshot from '../../assets/img/headshot.jpg';
 
-const { Fragment } = React;
-
 const AboutGridContainer = styled.div`
   ${props => props.theme.margins};
   margin-top: 2rem;
@@ -58,7 +56,7 @@ const AboutHeader = styled.h1`
 `;
 
 const About = () => (
-  <Fragment>
+  <section id="about">
     <Hero />
     <AboutGridContainer>
       <ProfilePic src={headshot} />
@@ -67,7 +65,7 @@ const About = () => (
       <Skills />
       <Blurb />
     </AboutGridContainer>
-  </Fragment>
+  </section>
 );
 
 export default About;
