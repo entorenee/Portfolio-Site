@@ -24,26 +24,47 @@ const GridStyling = styled.div`
   }
 `;
 
+const HeaderFlexContainer = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  svg,
+  h1 {
+    margin: 0;
+  }
+`;
+
 const Divider = styled.hr`
   height: 0.2rem;
-  margin: 0;
+  margin-bottom: 0.7rem;
   background-color: ${props => props.theme.darkAccent};
 `;
 
-const CardText = styled.p`
+const SkillsList = styled.ul`
   padding: 0 2rem;
-  font-size: 1.3rem;
+
+  li {
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
 `;
 
 const Skills = props => (
   <GridStyling>
     <Card maxWidth="400px">
-      <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
+      <HeaderFlexContainer>
+        <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
+        <h1>Skills</h1>
+      </HeaderFlexContainer>
       <Divider />
-      <CardText>
-        I build innovative JavaScript applications with cutting edge technologies. I work
-        comfortably on the frontend and backend, and specialize on the MERN stack.
-      </CardText>
+      <SkillsList>
+        <li>Responsive Web Design</li>
+        <li>Cutting edge web technologies including React, Redux, CSS Grid</li>
+        <li>Backend experience with APIs, Node, Express, and MongoDB</li>
+        <li>Experience working in large and diverse teams</li>
+        <li>Clear Communication and direction to reach end goals</li>
+      </SkillsList>
     </Card>
   </GridStyling>
 );
