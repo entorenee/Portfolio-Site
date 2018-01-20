@@ -111,4 +111,4 @@ Carousel.propTypes = {
   updateIsPlaying: PropTypes.func.isRequired
 };
 
-export default withSlideshow(Carousel, projectSpotlight);
+export default withSlideshow(Carousel, projectSpotlight, 8000);

@@ -21,7 +21,7 @@ const ControlsFlex = styled.div`
 
 const ControlsContainer = styled.div`
   display: flex;
-  width: 10rem;
+  width: 13rem;
   justify-content: space-between;
   align-items: center;
 `;
