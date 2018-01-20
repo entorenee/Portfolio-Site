@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'react-scroll';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 
@@ -9,8 +9,14 @@ const LinksContainer = styled.div`
   margin-right: 0;
   background-color: ${props => props.theme.baseColor};
 
-  a {
+  a:not([href]) {
     color: ${props => props.theme.lightAccent};
+    cursor: pointer;
+    transition: color 500ms;
+
+    &:hover {
+      color: pink;
+    }
 
     &:visited {
       color: ${props => props.theme.lightAccent};
@@ -56,7 +62,13 @@ const LinkStyleMobile = css`
 `;
 
 const NavLink = props => (
-  <Link to={props.to} className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
+  <Link
+    to={props.to}
+    className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
+    smooth
+    offset={-80}
+    duration={1000}
+  >
     {props.text}
   </Link>
 );
@@ -78,9 +90,9 @@ function renderLinksLayout(mobile, isOpen) {
 
 const NavigationLinks = props => (
   <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
-    <NavLink to="#about" text="About" mobile={props.mobile} />
-    <NavLink to="#work" text="Work" mobile={props.mobile} />
-    <NavLink to="#contact" text="Contact" mobile={props.mobile} />
+    <NavLink to="about" text="About" mobile={props.mobile} />
+    <NavLink to="work" text="Work" mobile={props.mobile} />
+    <NavLink to="contact" text="Contact" mobile={props.mobile} />
     <NavLink to="/blog" text="Blog" mobile={props.mobile} />
   </LinksContainer>
 );
