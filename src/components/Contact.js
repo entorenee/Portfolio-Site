@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { Element } from 'react-scroll';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
 import Card from './Card';
 import Button from './Button';
@@ -75,6 +76,7 @@ const socialData = [
 
 const Contact = () => (
   <ContactSection id="contact">
+    <Element name="contact" />
     <h1>Contact</h1>
     <Card maxWidth="300px">
       <form action="https://formspree.io/daniel@dslemay.com" method="POST">

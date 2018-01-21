@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
+import { Element } from 'react-scroll';
 import Hero from './Hero';
 import Skills from './Skills';
 import Blurb from './Blurb';
@@ -58,6 +59,7 @@ const AboutHeader = styled.h1`
 const About = () => (
   <section id="about">
     <Hero />
+    <Element name="about" />
     <AboutGridContainer>
       <ProfilePic src={headshot} />
       <AboutHeader>About</AboutHeader>

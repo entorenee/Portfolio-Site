@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Link from 'gatsby-link';
+import { animateScroll as scroll } from 'react-scroll';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
 import MobileNavigation from './MobileNavigation';
@@ -15,6 +15,7 @@ const HeaderWrapper = styled.div`
   z-index: 10;
   position: fixed;
   width: 100%;
+  height: 65px;
   top: 0;
   left: 0;
 `;
@@ -50,9 +51,15 @@ class Header extends Component {
   render() {
     return (
       <HeaderWrapper>
-        <Link to="/">
+        <a
+          href="/"
+          onClick={e => {
+            e.preventDefault();
+            scroll.scrollToTop();
+          }}
+        >
           <Logo src={logo} />
-        </Link>
+        </a>
         {this.state.mobile ? <MobileNavigation /> : <NavigationLinks />}
       </HeaderWrapper>
     );
