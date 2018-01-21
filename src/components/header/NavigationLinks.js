@@ -1,25 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-scroll';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import Link from '../ScrollLink';
 
 const LinksContainer = styled.div`
   margin-bottom: 0;
   margin-right: 0;
   background-color: ${props => props.theme.baseColor};
 
-  a:not([href]) {
+  a {
     color: ${props => props.theme.lightAccent};
     cursor: pointer;
     transition: color 500ms;
 
-    &:hover {
-      color: pink;
-    }
-
     &:visited {
       color: ${props => props.theme.lightAccent};
+    }
+
+    &:hover {
+      color: ${props => props.theme.mediumAccent};
     }
   }
 `;
@@ -64,6 +64,7 @@ const LinkStyleMobile = css`
 const NavLink = props => (
   <Link
     to={props.to}
+    href={`#${props.to}`} // Needed for accessibility of react-scroll implementation
     className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
     smooth
     offset={-80}
@@ -93,7 +94,9 @@ const NavigationLinks = props => (
     <NavLink to="about" text="About" mobile={props.mobile} />
     <NavLink to="work" text="Work" mobile={props.mobile} />
     <NavLink to="contact" text="Contact" mobile={props.mobile} />
-    <NavLink to="/blog" text="Blog" mobile={props.mobile} />
+    <a href="/blog" className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
+      Blog
+    </a>
   </LinksContainer>
 );
 
