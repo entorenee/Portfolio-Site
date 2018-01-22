@@ -38,7 +38,7 @@ const HeaderFlexContainer = styled.div`
 const Divider = styled.hr`
   height: 0.2rem;
   margin-bottom: 0.7rem;
-  background-color: ${props => props.theme.darkAccent};
+  background-color: ${props => props.theme.complementaryLight};
 `;
 
 const SkillsList = styled.ul`

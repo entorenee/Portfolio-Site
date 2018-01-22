@@ -7,7 +7,7 @@ const CardWrapper = styled.div`
   margin-bottom: 1.5rem;
   border: 1px solid #ccc
   padding: 0.5rem 0.25rem;
-  box-shadow: 5px 5px 5px ${props => props.theme.darkAccent};
+  box-shadow: 3px 3px 5px ${props => props.theme.mediumAccent};
   ${props => props.style};
 `;
 

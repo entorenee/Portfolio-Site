@@ -20,23 +20,35 @@ const FormLabel = styled.label`
 
   input,
   textarea {
+    width: 100%;
     outline: none;
     display: block;
     margin-bottom: 0.5rem;
     padding: 0.2rem 1rem;
     box-sizing: border-box;
     border-radius: 5px;
-    border: ${props => props.theme.mediumAccent} solid 2px;
+    border: ${props => props.theme.lightAccent} solid 2px;
     transition: border 800ms;
 
     &:focus {
-      border: ${props => props.theme.baseColor} solid 2px;
+      border: ${props => props.theme.complementaryDark} solid 2px;
     }
+  }
+
+  textarea {
+    resize: vertical;
   }
 
   span {
     font-style: italic;
   }
+`;
+
+const ButtonContainer = styled.div`
+  padding-right: 1rem;
+  padding-top: 0.3rem;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const SocialLink = styled.a`
@@ -45,7 +57,7 @@ const SocialLink = styled.a`
   transition: color 800ms;
 
   &:hover {
-    color: ${props => props.theme.baseColor};
+    color: ${props => props.theme.complementaryDark};
   }
 `;
 
@@ -78,28 +90,28 @@ const Contact = () => (
   <ContactSection id="contact">
     <Element name="contact" />
     <h1>Contact</h1>
-    <Card maxWidth="300px">
+    <Card maxWidth="350px">
       <form action="https://formspree.io/daniel@dslemay.com" method="POST">
-        <div>
-          <FormLabel htmlFor="name">
-            <span>Name:</span>
-            <input type="text" name="name" placeholder="Your name" />
-          </FormLabel>
-          <FormLabel htmlFor="email">
-            <span>Email:</span>
-            <input type="email" name="_replyto" placeholder="Your e-mail" />
-          </FormLabel>
-          <FormLabel htmlFor="message">
-            <span>Message:</span>
-            <textarea rows="6" name="message" placeholder="Your message" />
-          </FormLabel>
-          <input type="hidden" name="_subject" value="New contact form submission" />
-          {/*
+        <FormLabel htmlFor="name">
+          <span>Name:</span>
+          <input type="text" name="name" placeholder="Your name" />
+        </FormLabel>
+        <FormLabel htmlFor="email">
+          <span>Email:</span>
+          <input type="email" name="_replyto" placeholder="Your e-mail" />
+        </FormLabel>
+        <FormLabel htmlFor="message">
+          <span>Message:</span>
+          <textarea rows="6" name="message" placeholder="Your message" />
+        </FormLabel>
+        <input type="hidden" name="_subject" value="New contact form submission" />
+        {/*
         TODO: Create and add Thank you redirect page
         <input type="hidden" name="_next" value="{{ site.url}}/thanks.html" />
         */}
-        </div>
-        <Button type="submit">Submit</Button>
+        <ButtonContainer>
+          <Button type="submit">Submit</Button>
+        </ButtonContainer>
       </form>
     </Card>
     {socialData.map(social => (

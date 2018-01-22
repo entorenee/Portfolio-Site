@@ -19,7 +19,7 @@ const LinksContainer = styled.div`
     }
 
     &:hover {
-      color: ${props => props.theme.mediumAccent};
+      color: ${props => props.theme.complementaryDark};
     }
   }
 `;

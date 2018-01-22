@@ -15,7 +15,7 @@ const ControlsFlex = styled.div`
   }
 
   svg {
-    color: ${props => props.theme.baseColor};
+    color: ${props => props.theme.complementaryDark};
   }
 `;
 
@@ -29,12 +29,12 @@ const ControlsContainer = styled.div`
 const SelectorBox = styled.span`
   width: 1.5rem;
   height: 0.8rem;
-  border: 1px solid ${props => props.theme.baseColor};
+  border: 1px solid ${props => props.theme.complementaryDark};
   transition: 500ms background-color;
 `;
 
 const selected = css`
-  background-color: #2d3b7f;
+  background-color: #9a8956;
 `;
 
 const CarouselControls = props => (

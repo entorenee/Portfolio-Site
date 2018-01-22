@@ -45,6 +45,7 @@ const AboutHeader = styled.h1`
   justify-self: center;
   align-self: center;
   grid-area: 1 / 4 / 2 / span 3;
+  color: ${props => props.theme.baseColor};
 
   @media (min-width: 700px) {
     grid-column: 5 / span 2;

@@ -15,7 +15,7 @@ const QuoteContainer = styled.div`
     font-family: Georgia;
     font-style: bold;
     font-size: 4rem;
-    color: ${props => props.theme.baseColor};
+    color: ${props => props.theme.complementaryDark};
     position: absolute;
     top: -1.4rem;
     left: 0.1rem;
@@ -26,7 +26,7 @@ const QuoteContainer = styled.div`
     font-family: Georgia;
     font-style: bold;
     font-size: 4rem;
-    color: ${props => props.theme.baseColor};
+    color: ${props => props.theme.complementaryDark};
     position: absolute;
     bottom: -3.6rem;
     right: 0.1rem;
