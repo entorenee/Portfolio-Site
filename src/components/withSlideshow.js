@@ -54,10 +54,7 @@ function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
       newState.isPlaying = !this.state.isPlaying;
 
       if (newState.isPlaying) {
-        newState.intervalId = setInterval(
-          () => this.updateProject('next'),
-          timerLength
-        );
+        newState.intervalId = setInterval(() => this.updateProject('next'), timerLength);
       } else {
         newState.intervalId = clearInterval(this.state.intervalId);
       }
@@ -67,10 +64,7 @@ function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
 
     resetIntervalTimer() {
       clearInterval(this.state.intervalId);
-      const intervalId = setInterval(
-        () => this.updateProject('next'),
-        timerLength
-      );
+      const intervalId = setInterval(() => this.updateProject('next'), timerLength);
       this.setState({ intervalId });
     }
 

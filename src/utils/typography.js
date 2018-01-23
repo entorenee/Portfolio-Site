@@ -1,7 +1,7 @@
 import Typography from 'typography';
 import lincolnTheme from 'typography-theme-lincoln';
 
-lincolnTheme.overrideStyles = ({ rhythm }, options) => ({
+lincolnTheme.overrideStyles = () => ({
   a: {
     textShadow: ''
   }

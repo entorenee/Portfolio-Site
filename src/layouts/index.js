@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
 import Helmet from 'react-helmet';
 import { ThemeProvider } from 'emotion-theming';
 import { injectGlobal } from 'emotion';
 import Header from '../components/header/Header';
 
-// import './index.css';
 import theme from './emotionTheme';
 
 // eslint-disable-next-line no-unused-expressions
@@ -33,7 +31,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.func.isRequired
 };
 
 export default TemplateWrapper;
