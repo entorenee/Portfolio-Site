@@ -37,10 +37,10 @@ const ProjectLinks = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
 
-  @media (max-width: 450px) {
+  @media (max-width: 700px) {
     justify-content: center;
 
-    a:first-child {
+    a {
       margin-bottom: 0.75rem;
     }
   }
