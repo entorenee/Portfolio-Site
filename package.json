@@ -31,7 +31,7 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint src"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
