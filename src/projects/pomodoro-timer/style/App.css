@@ -1,4 +1,5 @@
-.app-container {
+@import url("https://fonts.googleapis.com/css?family=Lato:700|Roboto:400i");
+.pomodoro-app {
   background-color: #10222B;
   height: 100vh;
   width: 100vw;

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { keyboardHandler } from '../helpers';
 import '../style/Counter.css';
 
-class Counter extends React.Component {
+class Counter extends Component {
   shouldComponentUpdate(nextProps) {
     if (this.props.timerTotal !== nextProps.timerTotal) {
       return true;
@@ -11,31 +12,42 @@ class Counter extends React.Component {
   }
 
   render() {
+    const { name, adjustTimers, timerTotal } = this.props;
     let timerName;
-    if (this.props.name === 'sessionTime') {
+    if (name === 'sessionTime') {
       timerName = 'Session Length';
     }
-    if (this.props.name === 'breakTime') {
+    if (name === 'breakTime') {
       timerName = 'Break Length';
     }
 
     return (
-      <div id={`${this.props.name}-timer-controls`} className="timer-controls">
+      <div id={`${name}-timer-controls`} className="timer-controls">
         <p className="timer-control-name">{timerName}</p>
         <div className="controls">
-          <button
+          <div
             className="adjust-time"
-            onClick={() => this.props.adjustTimers(this.props.name, '-')}
+            onClick={() => adjustTimers(name, '-')}
+            onKeyPress={e => {
+              if (keyboardHandler(e)) adjustTimers(name, '-');
+            }}
+            role="button"
+            tabIndex={0}
           >
             -
-          </button>
-          <div className="timerTotal">{this.props.timerTotal}</div>
-          <button
+          </div>
+          <div className="timerTotal">{timerTotal}</div>
+          <div
             className="adjust-time"
-            onClick={() => this.props.adjustTimers(this.props.name, '+')}
+            onClick={() => adjustTimers(name, '+')}
+            onKeyPress={e => {
+              if (keyboardHandler(e)) adjustTimers(name, '+');
+            }}
+            role="button"
+            tabIndex={0}
           >
             +
-          </button>
+          </div>
         </div>
       </div>
     );

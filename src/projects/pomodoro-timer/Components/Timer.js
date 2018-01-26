@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { keyboardHandler } from '../helpers';
 import '../style/Timer.css';
 import play from '../img/play.png';
 import pause from '../img/pause.png';
 
-class Timer extends React.Component {
+class Timer extends Component {
   constructor(props) {
     super(props);
     this.countdownTimer = this.countdownTimer.bind(this);
@@ -90,19 +91,28 @@ class Timer extends React.Component {
   }
 
   render() {
+    const { currTimer, sessionCountdown, breakCountdown } = this.state;
+    const { toggleTimer } = this.props;
     let seconds;
-    const countdown =
-      this.state.currTimer === 'Session' ? this.state.sessionCountdown : this.state.breakCountdown;
+    const countdown = currTimer === 'Session' ? sessionCountdown : breakCountdown;
     const minutes = Math.floor((countdown / 60000) % 60);
     seconds = Math.floor((countdown / 1000) % 60);
     if (seconds < 10) {
       seconds = `0${String(seconds)}`;
     }
-    const title = `${minutes}:${seconds} Pomodoro ${this.state.currTimer}`;
+    const title = `${minutes}:${seconds} Pomodoro ${currTimer}`;
     document.title = title;
     return (
-      <button className="timer-countdown" onClick={() => this.props.toggleTimer()}>
-        <h2>{this.state.currTimer}</h2>
+      <div
+        className="timer-countdown"
+        onClick={() => toggleTimer()}
+        onKeyPress={e => {
+          if (keyboardHandler(e)) toggleTimer();
+        }}
+        role="button"
+        tabIndex={0}
+      >
+        <h2>{currTimer}</h2>
         <span>
           {minutes} : {seconds}
         </span>
@@ -110,9 +120,11 @@ class Timer extends React.Component {
           className="play-pause-btn"
           src={play}
           alt="Play pause button"
-          ref={input => (this.playBtn = input)} // eslint-disable-line no-return-assign
+          ref={input => {
+            this.playBtn = input;
+          }}
         />
-      </button>
+      </div>
     );
   }
 }

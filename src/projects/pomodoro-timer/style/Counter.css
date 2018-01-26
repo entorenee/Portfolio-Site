@@ -1,6 +1,6 @@
 #sessionTime-timer-controls {
   margin-right: 100px; }
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 425px) {
     #sessionTime-timer-controls {
       margin-right: 30px; } }
 
