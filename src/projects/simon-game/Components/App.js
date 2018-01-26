@@ -166,7 +166,7 @@ class App extends Component {
   render() {
     const { isPlayersTurn, gameOn, moveCount, strict } = this.state; // eslint-disable-line
     return (
-      <div className="app-container">
+      <div className="simon-app">
         <div className="game">
           <ColorPlayButtons
             id="0"
