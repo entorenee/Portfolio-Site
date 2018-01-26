@@ -1,0 +1,27 @@
+.strict-button-wrapper {
+  width: 65px;
+  height: 65px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; }
+  @media screen and (max-width: 575px) {
+    .strict-button-wrapper {
+      width: 40px;
+      height: 40px; } }
+
+.strict-mode-light {
+  width: 15%;
+  padding-bottom: 12%;
+  background-color: black;
+  border-radius: 50%;
+  border: solid 1px #333;
+  transition: background-color 800ms; }
+
+.strict-mode-button {
+  width: 35%;
+  padding-bottom: 25%;
+  background-color: yellow;
+  border-radius: 50%;
+  border: solid 3px #333;
+  cursor: pointer; }
