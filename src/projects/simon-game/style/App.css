@@ -17,7 +17,7 @@
     .game {
       max-width: 375px; } }
 
-.test {
+.game-control-container {
   position: absolute;
   width: 100%;
   display: flex;

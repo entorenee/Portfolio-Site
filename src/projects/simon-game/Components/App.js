@@ -200,7 +200,7 @@ class App extends Component {
             isPlayersTurn={isPlayersTurn}
             gameOn={gameOn}
           />
-          <div className="test">
+          <div className="game-control-container">
             <div className="game-control-wrapper">
               <h1>Simon</h1>
               <div className="game-controls">
