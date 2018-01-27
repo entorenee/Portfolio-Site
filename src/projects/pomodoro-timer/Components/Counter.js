@@ -24,7 +24,7 @@ class Counter extends Component {
     return (
       <div id={`${name}-timer-controls`} className="timer-controls">
         <p className="timer-control-name">{timerName}</p>
-        <div className="controls">
+        <div className="counter-controls">
           <div
             className="adjust-time"
             onClick={() => adjustTimers(name, '-')}

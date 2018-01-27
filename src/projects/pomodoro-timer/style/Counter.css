@@ -12,7 +12,7 @@
     .timer-control-name {
       text-align: center; } }
 
-.controls {
+.counter-controls {
   display: flex;
   justify-content: space-around;
   align-items: center; }
