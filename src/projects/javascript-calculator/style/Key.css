@@ -1,0 +1,21 @@
+.numKey {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  max-width: 50%;
+  height: 35px;
+  border: 1px solid #b0d1f1;
+  border-radius: 10px;
+  background-color: #1f4973;
+  color: #b0d1f1;
+  margin: 7px 7px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.8s, color 0.8s; }
+
+.numKey-active {
+  background-color: #4575a5;
+  color: #001429; }
+
+#btn-0 {
+  flex-grow: 0.75; }
