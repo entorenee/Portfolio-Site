@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import { keyboardHandler } from '../../utils/helpers';
 
 const ControlsFlex = styled.div`
   display: flex;
@@ -40,20 +41,57 @@ const selected = css`
 const CarouselControls = props => (
   <ControlsFlex>
     {props.isPlaying ? (
-      <FaPauseCircleO size={30} onClick={() => props.updateIsPlaying()} />
+      <FaPauseCircleO
+        size={30}
+        onClick={() => props.updateIsPlaying()}
+        onKeyPress={e => {
+          if (keyboardHandler(e)) props.updateIsPlaying();
+        }}
+        role="button"
+        tabIndex={0}
+      />
     ) : (
-      <FaPlayCircleO size={30} onClick={() => props.updateIsPlaying()} />
+      <FaPlayCircleO
+        size={30}
+        onClick={() => props.updateIsPlaying()}
+        onKeyPress={e => {
+          if (keyboardHandler(e)) props.updateIsPlaying();
+        }}
+        role="button"
+        tabIndex={0}
+      />
     )}
     <ControlsContainer>
-      <FaAngleLeft size={25} onClick={() => props.updateProject('previous', true)} />
+      <FaAngleLeft
+        size={25}
+        onClick={() => props.updateProject('previous', true)}
+        onKeyPress={e => {
+          if (keyboardHandler(e)) props.updateProject('previous', true);
+        }}
+        role="button"
+        tabIndex={0}
+      />
       {props.projects.map((project, i) => (
         <SelectorBox
           className={props.currIndex === i ? selected : ''}
           onClick={() => props.updateProject(i, true)}
+          onKeyPress={e => {
+            if (keyboardHandler(e)) props.updateProject(i, true);
+          }}
+          role="button"
+          tabIndex={0}
           key={project.title}
         />
       ))}
-      <FaAngleRight size={25} onClick={() => props.updateProject('next', true)} />
+      <FaAngleRight
+        size={25}
+        onClick={() => props.updateProject('next', true)}
+        onKeyPress={e => {
+          if (keyboardHandler(e)) props.updateProject('next', true);
+        }}
+        role="button"
+        tabIndex={0}
+      />
     </ControlsContainer>
   </ControlsFlex>
 );
