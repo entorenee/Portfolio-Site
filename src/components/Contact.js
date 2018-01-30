@@ -105,10 +105,7 @@ const Contact = () => (
           <textarea rows="6" name="message" placeholder="Your message" />
         </FormLabel>
         <input type="hidden" name="_subject" value="New contact form submission" />
-        {/*
-        TODO: Create and add Thank you redirect page
-        <input type="hidden" name="_next" value="{{ site.url}}/thanks.html" />
-        */}
+        <input type="hidden" name="_next" value="/thanks" />
         <ButtonContainer>
           <Button type="submit">Submit</Button>
         </ButtonContainer>
