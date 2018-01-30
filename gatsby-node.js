@@ -1,5 +1,5 @@
-const slugify = require('slugify');
 const path = require('path');
+const { postSlug } = require('./src/utils/helpers');
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
@@ -24,21 +24,18 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         }
 
         result.data.allContentfulBlogPost.edges.forEach(edge => {
-          const titleSlug = slugify(edge.node.title, {
-            remove: /[^A-Za-z0-9\s]+/,
-            lower: true
-          });
-          const slug = `blog/${edge.node.postDate}/${titleSlug}`;
+          const { title, postDate } = edge.node;
+          const slug = postSlug(postDate, title);
           createPage({
             path: slug,
             component: blogPostTemplate,
             context: {
               id: edge.node.id
             }
-          }); // end createPage
-        }); // end forEach
-      }) // end then
-    ); // end resolve
+          });
+        });
+      })
+    );
   });
 };
 
