@@ -2,76 +2,86 @@
 
 exports[`Contact renders correctly 1`] = `
 <section
-  className="css-ccc19b css-h085ru0"
+  className="css-ccc19b css-kvlo880"
   id="contact"
 >
+  <div
+    name="contact"
+  />
   <h1>
     Contact
   </h1>
   <div
-    className="css-q607lw css-7es3tl0"
+    className="css-1gzzvp9 css-1ovgzpt0"
     style={Object {}}
   >
     <form
       action="https://formspree.io/daniel@dslemay.com"
       method="POST"
     >
-      <div>
-        <label
-          className="css-jgpgok css-h085ru1"
-          htmlFor="name"
-        >
-          <span>
-            Name:
-          </span>
-          <input
-            name="name"
-            placeholder="Your name"
-            type="text"
-          />
-        </label>
-        <label
-          className="css-jgpgok css-h085ru1"
-          htmlFor="email"
-        >
-          <span>
-            Email:
-          </span>
-          <input
-            name="_replyto"
-            placeholder="Your e-mail"
-            type="email"
-          />
-        </label>
-        <label
-          className="css-jgpgok css-h085ru1"
-          htmlFor="message"
-        >
-          <span>
-            Message:
-          </span>
-          <textarea
-            name="message"
-            placeholder="Your message"
-            rows="6"
-          />
-        </label>
-        <input
-          name="_subject"
-          type="hidden"
-          value="New contact form submission"
-        />
-      </div>
-      <button
-        className="css-jgwz1p css-eyx03v2"
-        type="submit"
+      <label
+        className="css-puhevz css-kvlo881"
+        htmlFor="name"
       >
-        Submit
-      </button>
+        <span>
+          Name:
+        </span>
+        <input
+          name="name"
+          placeholder="Your name"
+          type="text"
+        />
+      </label>
+      <label
+        className="css-puhevz css-kvlo881"
+        htmlFor="email"
+      >
+        <span>
+          Email:
+        </span>
+        <input
+          name="_replyto"
+          placeholder="Your e-mail"
+          type="email"
+        />
+      </label>
+      <label
+        className="css-puhevz css-kvlo881"
+        htmlFor="message"
+      >
+        <span>
+          Message:
+        </span>
+        <textarea
+          name="message"
+          placeholder="Your message"
+          rows="6"
+        />
+      </label>
+      <input
+        name="_subject"
+        type="hidden"
+        value="New contact form submission"
+      />
+      <input
+        name="_next"
+        type="hidden"
+        value="/thanks"
+      />
+      <div
+        className="css-1qkirhf css-kvlo882"
+      >
+        <button
+          className="css-c41gc8 css-80bxg22"
+          type="submit"
+        >
+          Submit
+        </button>
+      </div>
     </form>
   </div>
   <a
-    className="css-n47xk7 css-h085ru2"
+    className="css-n47xk7 css-kvlo883"
     href="https://twitter.com/dslemay"
   >
     <svg
@@ -95,7 +105,7 @@ exports[`Contact renders correctly 1`] = `
     </svg>
   </a>
   <a
-    className="css-n47xk7 css-h085ru2"
+    className="css-n47xk7 css-kvlo883"
     href="https://www.linkedin.com/in/dslemay"
   >
     <svg
@@ -119,7 +129,7 @@ exports[`Contact renders correctly 1`] = `
     </svg>
   </a>
   <a
-    className="css-n47xk7 css-h085ru2"
+    className="css-n47xk7 css-kvlo883"
     href="https://github.com/dslemay"
   >
     <svg

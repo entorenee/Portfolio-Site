@@ -2,31 +2,34 @@
 
 exports[`NavigationControls renders properly 1`] = `
 <div
-  className="css-gdfr0c css-i38m170"
+  className="css-jrq1xv css-1wy1rve0"
 >
-  <MockedLink
+  <a
     className="css-14xxsjd"
-    to="#about"
+    href="#about"
+    onClick={[Function]}
   >
     About
-  </MockedLink>
-  <MockedLink
+  </a>
+  <a
     className="css-14xxsjd"
-    to="#work"
+    href="#work"
+    onClick={[Function]}
   >
     Work
-  </MockedLink>
-  <MockedLink
+  </a>
+  <a
     className="css-14xxsjd"
-    to="#contact"
+    href="#contact"
+    onClick={[Function]}
   >
     Contact
-  </MockedLink>
-  <MockedLink
+  </a>
+  <a
     className="css-14xxsjd"
-    to="/blog"
+    href="/blog"
   >
     Blog
-  </MockedLink>
+  </a>
 </div>
 `;

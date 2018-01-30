@@ -28,32 +28,35 @@ exports[`MobileNavigation renders properly 1`] = `
     </div>
   </div>
   <div
-    className="css-1xxfl7e css-i38m170"
+    className="css-awngyr css-1wy1rve0"
   >
-    <MockedLink
+    <a
       className="css-hur3c3"
-      to="#about"
+      href="#about"
+      onClick={[Function]}
     >
       About
-    </MockedLink>
-    <MockedLink
+    </a>
+    <a
       className="css-hur3c3"
-      to="#work"
+      href="#work"
+      onClick={[Function]}
     >
       Work
-    </MockedLink>
-    <MockedLink
+    </a>
+    <a
       className="css-hur3c3"
-      to="#contact"
+      href="#contact"
+      onClick={[Function]}
     >
       Contact
-    </MockedLink>
-    <MockedLink
+    </a>
+    <a
       className="css-hur3c3"
-      to="/blog"
+      href="/blog"
     >
       Blog
-    </MockedLink>
+    </a>
   </div>
 </div>
 `;
