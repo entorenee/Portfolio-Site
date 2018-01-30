@@ -19,6 +19,7 @@
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
     "react-scroll": "^1.7.6",
+    "slugify": "^1.2.9",
     "theming": "^1.3.0",
     "typography-theme-lincoln": "^0.15.11"
   },
