@@ -5,7 +5,6 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 
 const ButtonStyles = props => css`
-  display: block;
   background-color: ${props.theme.complementaryLight};
   color: ${props.theme.baseColor};
   padding: 0.2rem 1.3rem;
