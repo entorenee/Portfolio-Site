@@ -2,36 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import withSlideshow from '../withSlideshow';
-import Card from '../Card';
+import QuoteCard from '../QuoteCard';
 
 import quotesData from '../../assets/js/quotesData';
-
-const QuoteContainer = styled.div`
-  position: relative;
-  padding: 1rem 1rem 0rem 2rem;
-
-  &::before {
-    content: '\\201C';
-    font-family: Georgia;
-    font-style: bold;
-    font-size: 4rem;
-    color: ${props => props.theme.complementaryDark};
-    position: absolute;
-    top: -1.4rem;
-    left: 0.1rem;
-  }
-
-  &::after {
-    content: '\\201D';
-    font-family: Georgia;
-    font-style: bold;
-    font-size: 4rem;
-    color: ${props => props.theme.complementaryDark};
-    position: absolute;
-    bottom: -3.6rem;
-    right: 0.1rem;
-  }
-`;
 
 const GridStyling = styled.div`
   grid-area: 3 / 1 / 4 / -1;
@@ -50,12 +23,10 @@ const RandomQuote = props => {
 
   return (
     <GridStyling>
-      <Card>
-        <QuoteContainer>
-          <div>{quote.quote}</div>
-          <div>{quote.attribution}</div>
-        </QuoteContainer>
-      </Card>
+      <QuoteCard>
+        <div>{quote.quote}</div>
+        <div>{quote.attribution}</div>
+      </QuoteCard>
     </GridStyling>
   );
 };
