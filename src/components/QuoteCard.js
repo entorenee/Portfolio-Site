@@ -30,10 +30,14 @@ const QuoteContainer = styled.div`
   }
 `;
 
-const quoteCard = props => (
+const QuoteCard = props => (
   <Card>
     <QuoteContainer>{props.children}</QuoteContainer>
   </Card>
 );
 
-export default quoteCard;
+QuoteCard.propTypes = {
+  children: PropTypes.node.isRequired
+};
+
+export default QuoteCard;
