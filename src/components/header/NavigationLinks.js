@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import Link from '../ScrollLink';
+import Link from 'gatsby-link';
+import ScrollLink from '../ScrollLink';
 
 const LinksContainer = styled.div`
   margin-bottom: 0;
@@ -61,18 +62,31 @@ const LinkStyleMobile = css`
   display: block;
 `;
 
-const NavLink = props => (
-  <Link
-    to={props.to}
-    href={`#${props.to}`} // Needed for accessibility of react-scroll implementation
-    className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
-    smooth
-    offset={-80}
-    duration={1000}
-  >
-    {props.text}
-  </Link>
-);
+const NavLink = props => {
+  if (props.homePage) {
+    return (
+      <ScrollLink
+        to={props.to}
+        href={`#${props.to}`} // Needed for accessibility of react-scroll implementation
+        className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
+        smooth
+        offset={-80}
+        duration={1000}
+      >
+        {props.text}
+      </ScrollLink>
+    );
+  }
+  return (
+    <Link to={`/#${props.to}`} className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
+      {props.text}
+    </Link>
+  );
+};
+
+NavLink.propTypes = {
+  homePage: PropTypes.bool.isRequired
+};
 
 NavLink.propTypes = {
   to: PropTypes.string.isRequired,
@@ -89,16 +103,19 @@ function renderLinksLayout(mobile, isOpen) {
   return mobile && isOpen ? MobileLinksOpen : MobileLinksClosed;
 }
 
-const NavigationLinks = props => (
-  <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
-    <NavLink to="about" text="About" mobile={props.mobile} />
-    <NavLink to="work" text="Work" mobile={props.mobile} />
-    <NavLink to="contact" text="Contact" mobile={props.mobile} />
-    <a href="/blog" className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
-      Blog
-    </a>
-  </LinksContainer>
-);
+const NavigationLinks = props => {
+  const home = window.location.pathname === '/';
+  return (
+    <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
+      <NavLink to="about" text="About" mobile={props.mobile} homePage={home} />
+      <NavLink to="work" text="Work" mobile={props.mobile} homePage={home} />
+      <NavLink to="contact" text="Contact" mobile={props.mobile} homePage={home} />
+      <Link to="/blog" className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
+        Blog
+      </Link>
+    </LinksContainer>
+  );
+};
 
 NavigationLinks.propTypes = {
   mobile: PropTypes.bool,

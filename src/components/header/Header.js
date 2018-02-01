@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Link from 'gatsby-link';
 import { animateScroll as scroll } from 'react-scroll';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
@@ -49,17 +50,21 @@ class Header extends Component {
   }
 
   render() {
+    const home = window.location.pathname === '/';
+
     return (
       <HeaderWrapper>
-        <a
-          href="/"
+        <Link
+          to="/"
           onClick={e => {
-            e.preventDefault();
-            scroll.scrollToTop();
+            if (home) {
+              e.preventDefault();
+              scroll.scrollToTop();
+            }
           }}
         >
           <Logo src={logo} />
-        </a>
+        </Link>
         {this.state.mobile ? <MobileNavigation /> : <NavigationLinks />}
       </HeaderWrapper>
     );
