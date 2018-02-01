@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import About from '../components/about/About';
 import Work from '../components/work/Work';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
 
 const { Fragment } = React;
 
@@ -44,7 +43,6 @@ class IndexPage extends Component {
             this.contact = el;
           }}
         />
-        <Footer />
       </Fragment>
     );
   }

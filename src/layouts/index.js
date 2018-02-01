@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import { ThemeProvider } from 'emotion-theming';
 import { injectGlobal } from 'emotion';
 import Header from '../components/header/Header';
+import Footer from '../components/Footer';
 
 import theme from './emotionTheme';
 
@@ -26,6 +27,7 @@ const TemplateWrapper = ({ children }) => (
       />
       <Header />
       <div>{children()}</div>
+      <Footer />
     </div>
   </ThemeProvider>
 );
