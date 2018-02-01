@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Element } from 'react-scroll';
 import Hero from './Hero';
@@ -57,8 +58,8 @@ const AboutHeader = styled.h1`
   }
 `;
 
-const About = () => (
-  <section id="about">
+const About = props => (
+  <section id="about" ref={props.inputRef}>
     <Hero />
     <Element name="about" />
     <AboutGridContainer>
@@ -70,5 +71,9 @@ const About = () => (
     </AboutGridContainer>
   </section>
 );
+
+About.propTypes = {
+  inputRef: PropTypes.func.isRequired
+};
 
 export default About;

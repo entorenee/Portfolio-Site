@@ -86,35 +86,41 @@ const socialData = [
   }
 ];
 
-const Contact = () => (
+const Contact = props => (
   <ContactSection id="contact">
-    <Element name="contact" />
-    <h1>Contact</h1>
-    <Card maxWidth="350px">
-      <form action="https://formspree.io/daniel@dslemay.com" method="POST">
-        <FormLabel htmlFor="name">
-          <span>Name:</span>
-          <input type="text" name="name" placeholder="Your name" />
-        </FormLabel>
-        <FormLabel htmlFor="email">
-          <span>Email:</span>
-          <input type="email" name="_replyto" placeholder="Your e-mail" />
-        </FormLabel>
-        <FormLabel htmlFor="message">
-          <span>Message:</span>
-          <textarea rows="6" name="message" placeholder="Your message" />
-        </FormLabel>
-        <input type="hidden" name="_subject" value="New contact form submission" />
-        <input type="hidden" name="_next" value="/thanks" />
-        <ButtonContainer>
-          <Button type="submit">Submit</Button>
-        </ButtonContainer>
-      </form>
-    </Card>
-    {socialData.map(social => (
-      <SocialIcon key={social.service} link={social.link} component={social.component} />
-    ))}
+    <div ref={props.inputRef}>
+      <Element name="contact" />
+      <h1>Contact</h1>
+      <Card maxWidth="350px">
+        <form action="https://formspree.io/daniel@dslemay.com" method="POST">
+          <FormLabel htmlFor="name">
+            <span>Name:</span>
+            <input type="text" name="name" placeholder="Your name" />
+          </FormLabel>
+          <FormLabel htmlFor="email">
+            <span>Email:</span>
+            <input type="email" name="_replyto" placeholder="Your e-mail" />
+          </FormLabel>
+          <FormLabel htmlFor="message">
+            <span>Message:</span>
+            <textarea rows="6" name="message" placeholder="Your message" />
+          </FormLabel>
+          <input type="hidden" name="_subject" value="New contact form submission" />
+          <input type="hidden" name="_next" value="/thanks" />
+          <ButtonContainer>
+            <Button type="submit">Submit</Button>
+          </ButtonContainer>
+        </form>
+      </Card>
+      {socialData.map(social => (
+        <SocialIcon key={social.service} link={social.link} component={social.component} />
+      ))}
+    </div>
   </ContactSection>
 );
+
+Contact.propTypes = {
+  inputRef: PropTypes.func.isRequired
+};
 
 export default Contact;
