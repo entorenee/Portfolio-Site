@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import '../style/App.css';
 import Key from './Key';
 import Display from './Display';
@@ -288,6 +289,7 @@ class App extends React.Component {
 
     return (
       <div className="calculator-app-container">
+        <Helmet title="JavaScript Calculator | Daniel Lemay" />
         <div className="calculator">
           <Display display={this.state.display} />
           <div className="calculator-buttons">

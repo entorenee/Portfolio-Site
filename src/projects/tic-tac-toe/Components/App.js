@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import Cell from './Cell';
 import MarkerSelector from './MarkerSelector';
 import '../style/App.css';
@@ -178,6 +179,7 @@ class App extends Component {
     const { cellValues } = this.state;
     return (
       <div className="ttt-game-wrapper">
+        <Helmet title="Tic Tac Toe Game | Daniel Lemay" />
         <MarkerSelector playerSelectMarker={this.playerSelectMarker} />
         <div
           ref={input => {

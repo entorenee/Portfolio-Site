@@ -19,10 +19,18 @@ const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <div>
       <Helmet
-        title="Gatsby Default Starter"
+        title="Daniel Lemay | Full Stack JavaScript Developer"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' }
+          {
+            name: 'description',
+            content:
+              'Daniel Lemay is a full stack JavaScript developer, based out of Portland Oregon, specializing in responsive web applications using cutting edge technologies.'
+          },
+          {
+            name: 'keywords',
+            content:
+              'javascript, web development, developer, Portland, Oregon, front-end, full stack, back-end, react'
+          }
         ]}
       />
       <Header />

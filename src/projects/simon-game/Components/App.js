@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import ColorPlayButtons from './ColorPlayButtons';
 import Counter from './Counter';
 import Start from './Start';
@@ -167,6 +168,7 @@ class App extends Component {
     const { isPlayersTurn, gameOn, moveCount, strict } = this.state; // eslint-disable-line
     return (
       <div className="simon-app">
+        <Helmet title="Simon Game | Daniel Lemay" />
         <div className="game">
           <ColorPlayButtons
             id="0"
