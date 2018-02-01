@@ -22,6 +22,10 @@ function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
       this.updateIsPlaying();
     }
 
+    componentWillUnmount() {
+      clearInterval(this.state.intervalId);
+    }
+
     updateProject(direction, reset = false) {
       const projectTotal = arr.length;
       let { currIndex: newIndex } = this.state;
