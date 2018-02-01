@@ -40,10 +40,6 @@ const BlogBodyContainer = styled.div`
     color: ${props => props.theme.mediumAccent};
     transition: color 800ms;
 
-    &:visited {
-      color: ${props => props.theme.lightAccent};
-    }
-
     &:hover {
       color: ${props => props.theme.complementaryDark};
     }
