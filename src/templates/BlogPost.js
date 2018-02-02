@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { FaAngleLeft } from 'react-icons/lib/fa';
@@ -71,12 +72,17 @@ const BlogPost = props => {
     ? null
     : props.data.contentfulBlogPost.headlineImage.file.url;
 
+  const headlineAltText = headlineImage
+    ? props.data.contentfulBlogPost.headlineImage.description
+    : null;
+
   const keyQuote = !props.data.contentfulBlogPost.keyQuote
     ? null
     : props.data.contentfulBlogPost.keyQuote.keyQuote;
 
   return (
     <PostContainer>
+      <Helmet title={`${title} - Daniel Lemay`} />
       <BlogIndex />
       <PostHeaderContainer>
         {keyQuote && (
@@ -86,7 +92,7 @@ const BlogPost = props => {
             </QuoteCard>
           </div>
         )}
-        {headlineImage && <img src={headlineImage} />}
+        {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
       </PostHeaderContainer>
       <BlogBodyContainer>
         <BlogTitle>{title}</BlogTitle>
@@ -108,6 +114,7 @@ BlogPost.propTypes = {
         }).isRequired
       }).isRequired,
       headlineImage: PropTypes.shape({
+        description: PropTypes.string,
         file: PropTypes.shape({
           url: PropTypes.string
         })
@@ -134,6 +141,7 @@ export const pageQuery = graphql`
         keyQuote
       }
       headlineImage {
+        description
         file {
           url
         }

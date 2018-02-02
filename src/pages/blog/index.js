@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import Link from 'gatsby-link';
@@ -120,7 +121,12 @@ BlogPostExcerpt.propTypes = {
 const BlogIndex = ({ data: { allContentfulBlogPost: { edges } } }) => {
   const Posts = edges.map(edge => <BlogPostExcerpt key={edge.node.id} node={edge.node} />);
 
-  return <BlogIndexContainer>{Posts}</BlogIndexContainer>;
+  return (
+    <BlogIndexContainer>
+      <Helmet title="Blog | Daniel Lemay" />
+      {Posts}
+    </BlogIndexContainer>
+  );
 };
 
 BlogIndex.propTypes = {
