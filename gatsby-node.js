@@ -1,4 +1,5 @@
 const path = require('path');
+const createPaginatedPages = require('gatsby-paginate');
 const { postSlug } = require('./src/utils/helpers');
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
@@ -8,12 +9,23 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(`
         {
-          allContentfulBlogPost(limit: 100) {
+          allContentfulBlogPost(limit: 500, sort: { fields: [postDate], order: DESC }) {
             edges {
               node {
+                id
                 title
                 postDate(formatString: "YYYY/MM/DD")
-                id
+                body {
+                  childMarkdownRemark {
+                    html
+                  }
+                }
+                headlineImage {
+                  description
+                  file {
+                    url
+                  }
+                }
               }
             }
           }
@@ -33,6 +45,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
               id: edge.node.id
             }
           });
+        });
+
+        createPaginatedPages({
+          edges: result.data.allContentfulBlogPost.edges,
+          createPage,
+          pageTemplate: 'src/templates/BlogIndex.js',
+          pageLength: 5,
+          pathPrefix: 'blog',
+          // eslint-disable-next-line no-confusing-arrow
+          buildPath: (index, pathPrefix) =>
+            index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`
         });
       })
     );

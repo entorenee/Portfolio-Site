@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import Link from 'gatsby-link';
 import { FaChevronRight } from 'react-icons/lib/fa';
-import { postSlug } from '../../utils/helpers';
+import themeUtils from '../components/themeUtils';
+import { postSlug } from '../utils/helpers';
 
 // Converts YYYY-MM-DD to Month Day, Year
 const longDateFormat = date => {
@@ -39,18 +39,13 @@ const createPostExcerpt = post => {
     .join('');
 };
 
-const BlogIndexContainer = styled.div`
-  ${props => props.theme.margins};
-  margin-top: 65px;
-  padding-top: 1rem;
-`;
-
-const postHeaderDetails = css`
+const postHeaderTitle = css`
   margin-bottom: 0.7rem;
+  text-align: center;
 `;
 
 const postHeaderDate = css`
-  ${postHeaderDetails};
+  margin-bottom: 0.7rem;
   display: flex;
   justify-content: flex-end;
   margin-right: 2rem;
@@ -76,7 +71,7 @@ const readMore = css`
 const PostDivider = styled.hr`
   margin: 0.7rem 0 1.5rem 0;
   height: 3px;
-  background-color: ${props => props.theme.complementaryDark};
+  background-color: ${themeUtils.complementaryDark};
 `;
 
 const BlogPostExcerpt = ({ node }) => {
@@ -89,7 +84,7 @@ const BlogPostExcerpt = ({ node }) => {
 
   return (
     <div>
-      <h1 className={postHeaderDetails}>{title}</h1>
+      <h1 className={postHeaderTitle}>{title}</h1>
       <div className={postHeaderDate}>{longDateFormat(postDate)}</div>
       {headlineImage && <PostImage src={headlineImage} alt={headlineAltText} />}
       <div
@@ -118,67 +113,4 @@ BlogPostExcerpt.propTypes = {
   }).isRequired
 };
 
-const BlogIndex = ({ data: { allContentfulBlogPost: { edges } } }) => {
-  const Posts = edges.map(edge => <BlogPostExcerpt key={edge.node.id} node={edge.node} />);
-
-  return (
-    <BlogIndexContainer>
-      <Helmet title="Blog | Daniel Lemay" />
-      {Posts}
-    </BlogIndexContainer>
-  );
-};
-
-BlogIndex.propTypes = {
-  data: PropTypes.shape({
-    allContentfulBlogPost: PropTypes.shape({
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            title: PropTypes.string.isRequired,
-            postDate: PropTypes.string.isRequired,
-            body: PropTypes.shape({
-              childMarkdownRemark: PropTypes.shape({
-                html: PropTypes.string.isRequired
-              }).isRequired
-            }).isRequired,
-            headlineImage: PropTypes.shape({
-              description: PropTypes.string,
-              file: PropTypes.shape({
-                url: PropTypes.string
-              })
-            })
-          }).isRequired
-        })
-      ).isRequired
-    }).isRequired
-  }).isRequired
-};
-
-export default BlogIndex;
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    allContentfulBlogPost(sort: { fields: [postDate], order: DESC }) {
-      edges {
-        node {
-          id
-          title
-          postDate(formatString: "YYYY/MM/DD")
-          body {
-            childMarkdownRemark {
-              html
-            }
-          }
-          headlineImage {
-            description
-            file {
-              url
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+export default BlogPostExcerpt;
