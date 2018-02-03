@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { FaCopyright } from 'react-icons/lib/fa';
+import themeUtils from './themeUtils';
 
 const FooterWrapper = styled.div`
   padding: 0.4rem 0;
@@ -8,8 +9,8 @@ const FooterWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 0.8rem;
-  background-color: ${props => props.theme.baseColor};
-  color: ${props => props.theme.lightAccent};
+  background-color: ${themeUtils.baseColor};
+  color: ${themeUtils.lightAccent};
 `;
 
 const getCurrentYear = () => {

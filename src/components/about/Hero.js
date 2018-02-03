@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-
+import themeUtils from '../themeUtils';
 import heroImg from '../../assets/img/hero-image.jpg';
 
 const Image = styled.div`
@@ -43,7 +43,7 @@ const HeroText = styled.div`
   }
 
   hr {
-    background-color: ${props => props.theme.baseColor};
+    background-color: ${themeUtils.baseColor};
     margin-bottom: 0.6rem;
     height: 4px;
     border-radius: 5px;

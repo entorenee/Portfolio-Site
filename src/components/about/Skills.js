@@ -1,9 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { withTheme } from 'emotion-theming';
 import { FaCode } from 'react-icons/lib/fa';
+import themeUtils from '../themeUtils';
 import Card from '../Card';
 
 const IconStyles = css`
@@ -38,7 +37,7 @@ const HeaderFlexContainer = styled.div`
 const Divider = styled.hr`
   height: 0.2rem;
   margin-bottom: 0.7rem;
-  background-color: ${props => props.theme.complementaryLight};
+  background-color: ${themeUtils.complementaryLight};
 `;
 
 const SkillsList = styled.ul`
@@ -50,11 +49,11 @@ const SkillsList = styled.ul`
   }
 `;
 
-const Skills = props => (
+const Skills = () => (
   <GridStyling>
     <Card maxWidth="400px">
       <HeaderFlexContainer>
-        <FaCode size={80} color={props.theme.baseColor} className={IconStyles} />
+        <FaCode size={80} color={themeUtils.baseColor} className={IconStyles} />
         <h1>Skills</h1>
       </HeaderFlexContainer>
       <Divider />
@@ -69,10 +68,4 @@ const Skills = props => (
   </GridStyling>
 );
 
-Skills.propTypes = {
-  theme: PropTypes.shape({
-    baseColor: PropTypes.string.isRequired
-  }).isRequired
-};
-
-export default withTheme(Skills);
+export default Skills;

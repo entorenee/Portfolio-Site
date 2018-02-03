@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Element } from 'react-scroll';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
+import themeUtils from './themeUtils';
 import Card from './Card';
 import Button from './Button';
 
 const ContactSection = styled.section`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
   margin-bottom: 1rem;
 
   form {
@@ -27,11 +28,11 @@ const FormLabel = styled.label`
     padding: 0.2rem 1rem;
     box-sizing: border-box;
     border-radius: 5px;
-    border: ${props => props.theme.lightAccent} solid 2px;
+    border: ${themeUtils.lightAccent} solid 2px;
     transition: border 800ms;
 
     &:focus {
-      border: ${props => props.theme.complementaryDark} solid 2px;
+      border: ${themeUtils.complementaryDark} solid 2px;
     }
   }
 
@@ -52,12 +53,12 @@ const ButtonContainer = styled.div`
 `;
 
 const SocialLink = styled.a`
-  color: ${props => props.theme.mediumAccent};
+  color: ${themeUtils.mediumAccent};
   margin-right: 0.5rem;
   transition: color 800ms;
 
   &:hover {
-    color: ${props => props.theme.complementaryDark};
+    color: ${themeUtils.complementaryDark};
   }
 `;
 

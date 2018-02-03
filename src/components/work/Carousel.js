@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import Hammer from 'hammerjs';
+import themeUtils from '../themeUtils';
 import withSlideshow from '../withSlideshow';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button';
 
 const CarouselContainer = styled.div`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
   position: relative;
   margin-bottom: 1.5rem;
   border: 1px solid #ccc
   padding: 0.5rem 0.25rem;
-  box-shadow: 3px 3px 5px ${props => props.theme.mediumAccent};
+  box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
 `;
 
 const FocusImage = styled.img`

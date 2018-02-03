@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import themeUtils from '../themeUtils';
 import { keyboardHandler } from '../../utils/helpers';
 
 const ControlsFlex = styled.div`
@@ -16,7 +17,7 @@ const ControlsFlex = styled.div`
   }
 
   svg {
-    color: ${props => props.theme.complementaryDark};
+    color: ${themeUtils.complementaryDark};
   }
 `;
 
@@ -30,7 +31,7 @@ const ControlsContainer = styled.div`
 const SelectorBox = styled.span`
   width: 1.5rem;
   height: 0.8rem;
-  border: 1px solid ${props => props.theme.complementaryDark};
+  border: 1px solid ${themeUtils.complementaryDark};
   transition: 500ms background-color;
 `;
 

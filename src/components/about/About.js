@@ -6,11 +6,12 @@ import Hero from './Hero';
 import Skills from './Skills';
 import Blurb from './Blurb';
 import RandomQuote from './RandomQuote';
+import themeUtils from '../themeUtils';
 
 import headshot from '../../assets/img/headshot.jpg';
 
 const AboutGridContainer = styled.div`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
   margin-top: 2rem;
   margin-bottom: 2rem;
   display: grid;
@@ -46,7 +47,7 @@ const AboutHeader = styled.h1`
   justify-self: center;
   align-self: center;
   grid-area: 1 / 4 / 2 / span 3;
-  color: ${props => props.theme.baseColor};
+  color: ${themeUtils.baseColor};
 
   @media (min-width: 700px) {
     grid-column: 5 / span 2;

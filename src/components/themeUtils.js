@@ -1,6 +1,6 @@
 import { css } from 'emotion';
 
-const theme = {
+const themeUtils = {
   baseColor: '#2D3B7F',
   lightAccent: '#AFB8E6',
   mediumAccent: '#656E9A',
@@ -16,4 +16,4 @@ const theme = {
   `
 };
 
-export default theme;
+export default themeUtils;

@@ -4,23 +4,24 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import Link from 'gatsby-link';
 import ScrollLink from '../ScrollLink';
+import themeUtils from '../themeUtils';
 
 const LinksContainer = styled.div`
   margin-bottom: 0;
   margin-right: 0;
-  background-color: ${props => props.theme.baseColor};
+  background-color: ${themeUtils.baseColor};
 
   a {
-    color: ${props => props.theme.lightAccent};
+    color: ${themeUtils.lightAccent};
     cursor: pointer;
     transition: color 500ms;
 
     &:visited {
-      color: ${props => props.theme.lightAccent};
+      color: ${themeUtils.lightAccent};
     }
 
     &:hover {
-      color: ${props => props.theme.complementaryDark};
+      color: ${themeUtils.complementaryDark};
     }
   }
 `;

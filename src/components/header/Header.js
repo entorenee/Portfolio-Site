@@ -4,7 +4,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
 import MobileNavigation from './MobileNavigation';
-
+import themeUtils from '../themeUtils';
 import logo from '../../assets/img/logo.png';
 
 const HeaderWrapper = styled.div`
@@ -12,7 +12,7 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 1.25rem;
-  background-color: ${props => props.theme.baseColor};
+  background-color: ${themeUtils.baseColor};
   z-index: 10;
   position: fixed;
   width: 100%;

@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import themeUtils from './themeUtils';
 
-const ButtonStyles = props => css`
-  background-color: ${props.theme.complementaryLight};
-  color: ${props.theme.baseColor};
+const ButtonStyles = css`
+  background-color: ${themeUtils.complementaryLight};
+  color: ${themeUtils.baseColor};
   padding: 0.2rem 1.3rem;
   border-radius: 20px;
   text-decoration: none;

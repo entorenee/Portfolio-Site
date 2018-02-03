@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import themeUtils from '../themeUtils';
 
 const MenuContainer = styled.div`
   position: relative;
@@ -21,8 +22,8 @@ const Icon = styled.div`
   z-index: 10;
 `;
 
-const MenuLine = props => css`
-  background-color: ${props.theme.lightAccent};
+const MenuLine = css`
+  background-color: ${themeUtils.lightAccent};
   height: 3px;
   width: 100%;
   border-radius: 2px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import themeUtils from './themeUtils';
 import Card from './Card';
 
 const QuoteContainer = styled.div`
@@ -12,7 +13,7 @@ const QuoteContainer = styled.div`
     font-family: Georgia;
     font-style: bold;
     font-size: 4rem;
-    color: ${props => props.theme.complementaryDark};
+    color: ${themeUtils.complementaryDark};
     position: absolute;
     top: -1.4rem;
     left: 0.1rem;
@@ -23,7 +24,7 @@ const QuoteContainer = styled.div`
     font-family: Georgia;
     font-style: bold;
     font-size: 4rem;
-    color: ${props => props.theme.complementaryDark};
+    color: ${themeUtils.complementaryDark};
     position: absolute;
     bottom: -3.6rem;
     right: 0.1rem;
