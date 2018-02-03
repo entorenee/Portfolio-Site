@@ -4,6 +4,7 @@ import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { FaAngleLeft } from 'react-icons/lib/fa';
+import themeUtils from '../components/themeUtils';
 import QuoteCard from '../components/QuoteCard';
 
 const PostContainer = styled.div`
@@ -12,7 +13,7 @@ const PostContainer = styled.div`
 `;
 
 const BlogIndexLink = styled.div`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
   margin-bottom: 0.7rem;
 
   a {
@@ -31,18 +32,18 @@ const PostHeaderContainer = styled.div`
 `;
 
 const BlogBodyContainer = styled.div`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
 
   h2 {
-    color: ${props => props.theme.baseColor};
+    color: ${themeUtils.baseColor};
   }
 
   a {
-    color: ${props => props.theme.mediumAccent};
+    color: ${themeUtils.mediumAccent};
     transition: color 800ms;
 
     &:hover {
-      color: ${props => props.theme.complementaryDark};
+      color: ${themeUtils.complementaryDark};
     }
   }
 

@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import themeUtils from '../components/themeUtils';
 import Card from '../components/Card';
 import Button from '../components/Button';
 
 const ThanksContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${props => props.theme.complementaryLight};
+  background-color: ${themeUtils.complementaryLight};
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const CardWrapper = styled.div`
-  ${props => props.theme.margins};
+  ${themeUtils.margins};
   display: flex;
   justify-content: center;
 `;
