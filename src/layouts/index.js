@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import { injectGlobal } from 'emotion';
 import Header from '../components/header/Header';
 import Footer from '../components/Footer';
 
-// eslint-disable-next-line no-unused-expressions
-injectGlobal`
-  h1 {
-    color: #2D3B7F;
-  }
-`;
+import './index.css';
 
 const TemplateWrapper = ({ children }) => (
   <div>

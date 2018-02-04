@@ -1,0 +1,13 @@
+h1 {
+  color: #2d3b7f;
+}
+
+a {
+  color: #656e9a;
+  transition: color 800ms;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #9a8956;
+}
