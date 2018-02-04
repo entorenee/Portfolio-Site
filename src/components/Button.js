@@ -12,6 +12,10 @@ const ButtonStyles = css`
   border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    color: ${themeUtils.baseColor};
+  }
 `;
 
 const AnchorTag = styled.a`
