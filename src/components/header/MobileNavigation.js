@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MenuIcon from './MenuIcon';
 import NavigationLinks from './NavigationLinks';
 
@@ -22,10 +23,14 @@ class MobileNavigation extends Component {
     return (
       <div style={{ position: 'relative', height: '65px' }}>
         <MenuIcon isOpen={this.state.isOpen} toggleOpen={this.toggleOpen} />
-        <NavigationLinks mobile isOpen={this.state.isOpen} />
+        <NavigationLinks mobile isOpen={this.state.isOpen} home={this.props.home} />
       </div>
     );
   }
 }
+
+MobileNavigation.propTypes = {
+  home: PropTypes.bool.isRequired
+};
 
 export default MobileNavigation;

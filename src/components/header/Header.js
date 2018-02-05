@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'gatsby-link';
 import { animateScroll as scroll } from 'react-scroll';
 import styled from 'react-emotion';
@@ -50,7 +51,7 @@ class Header extends Component {
   }
 
   render() {
-    const home = window.location.pathname === '/';
+    const home = this.props.path === '/';
 
     return (
       <HeaderWrapper>
@@ -65,10 +66,14 @@ class Header extends Component {
         >
           <Logo src={logo} />
         </Link>
-        {this.state.mobile ? <MobileNavigation /> : <NavigationLinks />}
+        {this.state.mobile ? <MobileNavigation home={home} /> : <NavigationLinks home={home} />}
       </HeaderWrapper>
     );
   }
 }
+
+Header.propTypes = {
+  path: PropTypes.string.isRequired
+};
 
 export default Header;

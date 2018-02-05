@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 
 import './index.css';
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, history }) => (
   <div>
     <Helmet
       title="Daniel Lemay | Full Stack JavaScript Developer"
@@ -23,14 +23,19 @@ const TemplateWrapper = ({ children }) => (
         }
       ]}
     />
-    <Header />
+    <Header path={history.location.pathname} />
     <div>{children()}</div>
     <Footer />
   </div>
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    location: PropTypes.shape({
+      pathname: PropTypes.string
+    })
+  }).isRequired
 };
 
 export default TemplateWrapper;

@@ -105,7 +105,7 @@ function renderLinksLayout(mobile, isOpen) {
 }
 
 const NavigationLinks = props => {
-  const home = window.location.pathname === '/';
+  const { home } = props;
   return (
     <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
       <NavLink to="about" text="About" mobile={props.mobile} homePage={home} />
@@ -120,7 +120,8 @@ const NavigationLinks = props => {
 
 NavigationLinks.propTypes = {
   mobile: PropTypes.bool,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  home: PropTypes.bool.isRequired
 };
 
 NavigationLinks.defaultProps = {
