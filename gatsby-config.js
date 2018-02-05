@@ -34,7 +34,7 @@ module.exports = {
               siteMetadata {
                 title
                 description
-                siteUrel
+                siteUrl
               }
             }
           }
@@ -43,13 +43,14 @@ module.exports = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
               allContentfulBlogPost.edges.map(edge => {
-                const { title, postDate } = edge;
-                const { html } = edge.body.childMarkdownRemark;
+                const { title, postDate } = edge.node;
+                const { html } = edge.node.body.childMarkdownRemark;
                 return Object.assign(
                   {},
                   {
-                    url: `${site.siteMetadata.siteUrl}/${postSlug(title, postDate)}`,
-                    guid: `${site.siteMetadata.siteUrl}/${postSlug(title, postDate)}`,
+                    title,
+                    url: `${site.siteMetadata.siteUrl}/${postSlug(postDate, title)}`,
+                    guid: `${site.siteMetadata.siteUrl}/${postSlug(postDate, title)}`,
                     custom_elements: [{ 'content-encoded': html }]
                   }
                 );
