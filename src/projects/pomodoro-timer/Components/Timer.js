@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 import { keyboardHandler } from '../helpers';
 import '../style/Timer.css';
 import play from '../img/play.png';
 import pause from '../img/pause.png';
+import bell from '../bell.mp3';
 
 class Timer extends Component {
   constructor(props) {
@@ -17,6 +19,10 @@ class Timer extends Component {
       breakCountdown: props.breakTime * 60000,
       currTimer: 'Session'
     };
+  }
+
+  componentDidMount() {
+    this.bell = new Audio(bell);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,7 +55,7 @@ class Timer extends Component {
   componentDidUpdate() {
     if (this.state.sessionCountdown === 0) {
       this.pauseTimer(this.state.intervalId);
-      this.props.sound.play();
+      this.bell.play();
       const states = {
         currTimer: 'Break',
         breakCountdown: this.props.breakTime * 60000,
@@ -61,7 +67,7 @@ class Timer extends Component {
     }
     if (this.state.breakCountdown === 0) {
       this.pauseTimer(this.state.intervalId);
-      this.props.sound.play();
+      this.bell.play();
       const states = {
         currTimer: 'Session',
         breakCountdown: this.props.breakTime * 60000,
@@ -101,7 +107,6 @@ class Timer extends Component {
       seconds = `0${String(seconds)}`;
     }
     const title = `${minutes}:${seconds} Pomodoro ${currTimer}`;
-    document.title = title;
     return (
       <div
         className="timer-countdown"
@@ -112,6 +117,7 @@ class Timer extends Component {
         role="button"
         tabIndex={0}
       >
+        <Helmet title={title} />
         <h2>{currTimer}</h2>
         <span>
           {minutes} : {seconds}
@@ -133,10 +139,7 @@ Timer.propTypes = {
   sessionTime: PropTypes.number.isRequired,
   breakTime: PropTypes.number.isRequired,
   isRunning: PropTypes.bool.isRequired,
-  toggleTimer: PropTypes.func.isRequired,
-  sound: PropTypes.shape({
-    play: PropTypes.func.isRequired
-  }).isRequired
+  toggleTimer: PropTypes.func.isRequired
 };
 
 export default Timer;

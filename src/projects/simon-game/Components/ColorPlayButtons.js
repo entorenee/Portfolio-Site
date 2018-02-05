@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import simonSound0 from '../sounds/simonSound0.mp3';
+import simonSound1 from '../sounds/simonSound1.mp3';
+import simonSound2 from '../sounds/simonSound2.mp3';
+import simonSound3 from '../sounds/simonSound3.mp3';
 import { keyboardHandler } from '../helpers';
 import '../style/ColorPlayButtons.css';
 
@@ -10,9 +14,18 @@ class ColorPlayButtons extends Component {
     this.clickButton = this.clickButton.bind(this);
   }
 
+  componentDidMount() {
+    this.buttonSounds = [
+      new Audio(simonSound0),
+      new Audio(simonSound1),
+      new Audio(simonSound2),
+      new Audio(simonSound3)
+    ];
+  }
+
   addActiveClass() {
     const button = document.getElementById(`btn-${this.props.id}`);
-    this.props.sound.play();
+    this.buttonSounds[this.props.id].play();
     button.classList.add(this.props.activeClass);
   }
 
@@ -55,7 +68,6 @@ class ColorPlayButtons extends Component {
 ColorPlayButtons.propTypes = {
   id: PropTypes.string.isRequired,
   activeClass: PropTypes.string.isRequired,
-  sound: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   isPlayersTurn: PropTypes.bool.isRequired,
   playerSelectButton: PropTypes.func.isRequired,
   gameOn: PropTypes.bool.isRequired

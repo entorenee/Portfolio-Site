@@ -33,6 +33,16 @@ class App extends Component {
     this.playerSelectButton = this.playerSelectButton.bind(this);
   }
 
+  componentDidMount() {
+    this.buzzerSound = new Audio(buzzer);
+    this.buttonSounds = [
+      new Audio(simonSound0),
+      new Audio(simonSound1),
+      new Audio(simonSound2),
+      new Audio(simonSound3)
+    ];
+  }
+
   toggleGamePower() {
     let powerState = { gameOn: this.state.gameOn };
     if (this.state.gameOn === false) {
@@ -93,28 +103,11 @@ class App extends Component {
     const activeColors = ['active-green', 'active-red', 'active-yellow', 'active-blue'];
     const pattern = this.state.buttonPattern;
     const id = pattern[counter];
-    let sound;
-    switch (id) {
-      case 0:
-        sound = new Audio(simonSound0);
-        break;
-      case 1:
-        sound = new Audio(simonSound1);
-        break;
-      case 2:
-        sound = new Audio(simonSound2);
-        break;
-      case 3:
-        sound = new Audio(simonSound3);
-        break;
-      default:
-        console.warn('Invalid sound id passed!');
-    }
 
     const el = document.getElementById(`btn-${id}`);
     if (this.state.gameOn) {
       el.classList.add(activeColors[id]);
-      sound.play();
+      this.buttonSounds[id].play();
       setTimeout(() => {
         el.classList.remove(activeColors[id]);
         if (counter < pattern.length - 1) {
@@ -148,14 +141,13 @@ class App extends Component {
       this.setState({ ...states });
     } else {
       // This block handles if an incorrect button is pushed.
-      const buzzerSound = new Audio(buzzer);
       if (!this.state.strict) {
-        buzzerSound.play();
+        this.buzzerSound.play();
         setTimeout(() => {
           this.computerPlayButtonPattern();
         }, 2000);
       } else {
-        buzzerSound.play();
+        this.buzzerSound.play();
         this.randomButtonGenerator(true);
       }
       this.setState({
@@ -173,7 +165,6 @@ class App extends Component {
           <ColorPlayButtons
             id="0"
             activeClass="active-green"
-            sound={new Audio(simonSound0)}
             playerSelectButton={this.playerSelectButton}
             isPlayersTurn={isPlayersTurn}
             gameOn={gameOn}
@@ -181,7 +172,6 @@ class App extends Component {
           <ColorPlayButtons
             id="1"
             activeClass="active-red"
-            sound={new Audio(simonSound1)}
             playerSelectButton={this.playerSelectButton}
             isPlayersTurn={isPlayersTurn}
             gameOn={gameOn}
@@ -189,7 +179,6 @@ class App extends Component {
           <ColorPlayButtons
             id="2"
             activeClass="active-yellow"
-            sound={new Audio(simonSound2)}
             playerSelectButton={this.playerSelectButton}
             isPlayersTurn={isPlayersTurn}
             gameOn={gameOn}
@@ -197,7 +186,6 @@ class App extends Component {
           <ColorPlayButtons
             id="3"
             activeClass="active-blue"
-            sound={new Audio(simonSound3)}
             playerSelectButton={this.playerSelectButton}
             isPlayersTurn={isPlayersTurn}
             gameOn={gameOn}
