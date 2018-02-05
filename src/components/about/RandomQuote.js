@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
+import { css } from 'emotion';
 import withSlideshow from '../withSlideshow';
 import QuoteCard from '../QuoteCard';
 
@@ -18,6 +19,10 @@ const GridStyling = styled.div`
   }
 `;
 
+const attribution = css`
+  margin-left: 1rem;
+`;
+
 const RandomQuote = props => {
   const { slideData: quote } = props;
 
@@ -25,7 +30,7 @@ const RandomQuote = props => {
     <GridStyling>
       <QuoteCard>
         <div>{quote.quote}</div>
-        <div>{quote.attribution}</div>
+        <div className={attribution}>{`~${quote.attribution}`}</div>
       </QuoteCard>
     </GridStyling>
   );

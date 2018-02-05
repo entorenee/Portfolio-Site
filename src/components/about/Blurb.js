@@ -22,7 +22,7 @@ const Blurb = () => (
       </strong>{' '}
       I love pursuing solutions to complex problems and helping people advance their skills. I pay
       attention to the details and work well with numerous stakeholders circumventing competing
-      priorities. Take a look at some of my projects and to contact me about available
+      priorities. Take a look at some of my projects below and to contact me about available
       opportunities.
     </p>
   </BlurbContainer>
