@@ -29,6 +29,16 @@ const PostHeaderContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
+  max-width: 90%;
+  margin: 0 auto;
+`;
+
+const QuoteContainer = styled.div`
+  margin-right: 0.5rem;
+
+  @media (min-width: 1000px) {
+    max-width: 50%;
+  }
 `;
 
 const BlogBodyContainer = styled.div`
@@ -49,7 +59,55 @@ const BlogBodyContainer = styled.div`
 
   li {
     margin-bottom: 0.4rem;
-    line-height: 1.3;
+    line-height: 1.5;
+  }
+
+  pre {
+    background-color: #faf8f0;
+    padding: 1rem;
+
+    code {
+      color: black;
+    }
+  }
+
+  code {
+    padding: 0.2rem;
+    font-family: Monaco, monospace;
+    background-color: #faf8f0;
+    color: red;
+  }
+
+  p > img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  blockquote {
+    position: relative;
+    padding: 1rem 1rem 0rem 2rem;
+
+    &::before {
+      content: '\\201C';
+      font-family: Georgia;
+      font-style: bold;
+      font-size: 4rem;
+      color: ${themeUtils.complementaryDark};
+      position: absolute;
+      top: -1.4rem;
+      left: 0.1rem;
+    }
+
+    &::after {
+      content: '\\201D';
+      font-family: Georgia;
+      font-style: bold;
+      font-size: 4rem;
+      color: ${themeUtils.complementaryDark};
+      position: absolute;
+      bottom: -3.6rem;
+      right: 0.1rem;
+    }
   }
 `;
 
@@ -87,11 +145,11 @@ const BlogPost = props => {
       <BlogIndex />
       <PostHeaderContainer>
         {keyQuote && (
-          <div style={{ maxWidth: '50%' }}>
+          <QuoteContainer>
             <QuoteCard>
               <p>{keyQuote}</p>
             </QuoteCard>
-          </div>
+          </QuoteContainer>
         )}
         {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
       </PostHeaderContainer>

@@ -54,6 +54,7 @@ const postHeaderDate = css`
 
 const PostImage = styled.img`
   float: left;
+  margin-right: 0.6rem;
 
   @media (min-width: 700px) {
     max-width: 300px;
@@ -90,7 +91,7 @@ const BlogPostExcerpt = ({ node }) => {
       <div
         dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
       />
-      <Link to={slug}>
+      <Link to={`/${slug}`}>
         <span className={readMore}>Read More</span>
         <FaChevronRight size={15} />
       </Link>
