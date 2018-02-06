@@ -24,6 +24,12 @@ const deadLink = css`
   user-select: none;
 `;
 
+const RSSContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 2rem;
+`;
+
 const NavLink = props => {
   if (!props.test) {
     return <Link to={props.url}>{props.text}</Link>;
@@ -50,6 +56,9 @@ const BlogIndex = ({ pathContext }) => {
   return (
     <BlogIndexContainer>
       <Helmet title="Blog | Daniel Lemay" />
+      <RSSContainer>
+        <Link to="/rss.xml">Subscribe to RSS</Link>
+      </RSSContainer>
       {Posts}
       <PageNavigationLinks>
         <NavLink test={first} url={previousUrl} text="Go to Previous Page" />
