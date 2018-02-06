@@ -26,6 +26,12 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: 'UA-99838315-1'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
