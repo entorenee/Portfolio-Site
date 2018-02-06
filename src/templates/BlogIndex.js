@@ -57,7 +57,7 @@ const BlogIndex = ({ pathContext }) => {
     <BlogIndexContainer>
       <Helmet title="Blog | Daniel Lemay" />
       <RSSContainer>
-        <Link to="/rss.xml">Subscribe to RSS</Link>
+        <Link to="/feed.xml">Subscribe to RSS</Link>
       </RSSContainer>
       {Posts}
       <PageNavigationLinks>
