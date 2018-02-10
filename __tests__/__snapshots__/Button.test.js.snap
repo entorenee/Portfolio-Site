@@ -2,15 +2,19 @@
 
 exports[`Button renders properly when passed a to property 1`] = `
 <MockedLink
-  className="css-c41gc8 css-80bxg21"
+  className="css-6n7fwa css-z5loqp1"
   to="http://dslemay.com"
-/>
+>
+  Homepage
+</MockedLink>
 `;
 
 exports[`Button renders properly when passed an href property 1`] = `
 <a
-  className="css-c41gc8 css-80bxg20"
+  className="css-6n7fwa css-z5loqp0"
   href="http://dslemay.com"
   target="_blank"
-/>
+>
+  Homepage
+</a>
 `;

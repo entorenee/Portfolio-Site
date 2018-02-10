@@ -8,7 +8,7 @@ describe('NavigationControls', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <NavigationLinks />
+          <NavigationLinks home />
         </MemoryRouter>
       )
       .toJSON();

@@ -9,7 +9,7 @@ describe('MobileNavigation', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <MobileNavigation />
+          <MobileNavigation home />
         </MemoryRouter>
       )
       .toJSON();
@@ -18,7 +18,7 @@ describe('MobileNavigation', () => {
   });
 
   it('toggleOpen method toggles isOpen boolean state', () => {
-    const wrapper = mount(<MobileNavigation />);
+    const wrapper = mount(<MobileNavigation home />);
     wrapper.instance().toggleOpen();
     expect(wrapper.state().isOpen).toBe(true);
     wrapper.instance().toggleOpen();

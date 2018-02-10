@@ -2,7 +2,7 @@
 
 exports[`NavigationControls renders properly 1`] = `
 <div
-  className="css-jrq1xv css-1wy1rve0"
+  className="css-16v8nlu css-1t1h7p90"
 >
   <a
     className="css-14xxsjd"
@@ -25,11 +25,11 @@ exports[`NavigationControls renders properly 1`] = `
   >
     Contact
   </a>
-  <a
+  <MockedLink
     className="css-14xxsjd"
-    href="/blog"
+    to="/blog"
   >
     Blog
-  </a>
+  </MockedLink>
 </div>
 `;

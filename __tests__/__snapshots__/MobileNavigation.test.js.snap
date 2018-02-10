@@ -10,25 +10,25 @@ exports[`MobileNavigation renders properly 1`] = `
   }
 >
   <div
-    className="css-5eaigi css-183znxx0"
+    className="css-5eaigi css-gy1dqx0"
     onClick={[Function]}
   >
     <div
-      className="css-m56tt4 css-183znxx1"
+      className="css-m56tt4 css-gy1dqx1"
     >
       <span
-        className="css-190cys6 css-183znxx2"
+        className="css-l2kihn css-gy1dqx2"
       />
       <span
-        className="css-1nmu6z9 css-183znxx3"
+        className="css-1pdkle css-gy1dqx3"
       />
       <span
-        className="css-g78e9d css-183znxx4"
+        className="css-1ecbd3c css-gy1dqx4"
       />
     </div>
   </div>
   <div
-    className="css-awngyr css-1wy1rve0"
+    className="css-ci170n css-1t1h7p90"
   >
     <a
       className="css-hur3c3"
@@ -51,12 +51,12 @@ exports[`MobileNavigation renders properly 1`] = `
     >
       Contact
     </a>
-    <a
+    <MockedLink
       className="css-hur3c3"
-      href="/blog"
+      to="/blog"
     >
       Blog
-    </a>
+    </MockedLink>
   </div>
 </div>
 `;

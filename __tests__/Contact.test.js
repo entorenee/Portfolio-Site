@@ -8,7 +8,7 @@ describe('Contact', () => {
 
   const contact = () => {
     if (!shallowContact) {
-      shallowContact = shallow(<Contact />);
+      shallowContact = shallow(<Contact inputRef={jest.fn()} />);
     }
     return shallowContact;
   };
@@ -22,7 +22,7 @@ describe('Contact', () => {
   });
 
   it('renders correctly', () => {
-    const tree = renderer.create(<Contact />).toJSON();
+    const tree = renderer.create(<Contact inputRef={jest.fn()} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });
