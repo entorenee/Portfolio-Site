@@ -137,7 +137,7 @@ const BlogPost = props => {
 
   const keyQuote = !props.data.contentfulBlogPost.keyQuote
     ? null
-    : props.data.contentfulBlogPost.keyQuote.keyQuote;
+    : props.data.contentfulBlogPost.keyQuote.childMarkdownRemark.html;
 
   return (
     <PostContainer>
@@ -147,7 +147,9 @@ const BlogPost = props => {
         {keyQuote && (
           <QuoteContainer>
             <QuoteCard>
-              <p>{keyQuote}</p>
+              <div
+                dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
+              />
             </QuoteCard>
           </QuoteContainer>
         )}
@@ -179,7 +181,9 @@ BlogPost.propTypes = {
         })
       }),
       keyQuote: PropTypes.shape({
-        keyQuote: PropTypes.string
+        childMarkdownRemark: PropTypes.shape({
+          html: PropTypes.string
+        })
       })
     }).isRequired
   }).isRequired
@@ -197,7 +201,9 @@ export const pageQuery = graphql`
         }
       }
       keyQuote {
-        keyQuote
+        childMarkdownRemark {
+          html
+        }
       }
       headlineImage {
         description
