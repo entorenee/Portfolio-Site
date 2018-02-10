@@ -147,7 +147,7 @@ class App extends Component {
           this.computerPlayButtonPattern();
         }, 2000);
       } else {
-        this.buzzerSound.play();
+        buzzerSound.play();
         this.randomButtonGenerator(true);
       }
       this.setState({
@@ -160,7 +160,10 @@ class App extends Component {
     const { isPlayersTurn, gameOn, moveCount, strict } = this.state; // eslint-disable-line
     return (
       <div className="simon-app">
-        <Helmet title="Simon Game | Daniel Lemay" />
+        <Helmet>
+          <title>Simon Game | Daniel Lemay</title>
+          <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet" />
+        </Helmet>
         <div className="game">
           <ColorPlayButtons
             id="0"

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import Counter from './Counter';
 import Timer from './Timer';
 import '../style/App.css';
@@ -35,6 +36,12 @@ class App extends Component {
   render() {
     return (
       <div className="pomodoro-app">
+        <Helmet>
+          <link
+            href="https://fonts.googleapis.com/css?family=Lato:700|Roboto:400i"
+            rel="stylesheet"
+          />
+        </Helmet>
         <h1 id="title">Pomodoro Timer</h1>
         <div id="counter-control-wrapper">
           <Counter

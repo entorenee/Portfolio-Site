@@ -179,7 +179,13 @@ class App extends Component {
     const { cellValues } = this.state;
     return (
       <div className="ttt-game-wrapper">
-        <Helmet title="Tic Tac Toe Game | Daniel Lemay" />
+        <Helmet>
+          <title>Tic Tac Toe Game | Daniel Lemay</title>
+          <link
+            href="https://fonts.googleapis.com/css?family=Bitter:400i|Indie+Flower"
+            rel="stylesheet"
+          />
+        </Helmet>
         <MarkerSelector playerSelectMarker={this.playerSelectMarker} />
         <div
           ref={input => {
