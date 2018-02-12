@@ -7,7 +7,7 @@ module.exports = {
   settings: {
     ecmascript: 6,
     jsx: true,
-    'import/core-modules': ['react', 'prop-types', 'react-router', 'typography']
+    'import/core-modules': ['react', 'prop-types', 'react-router', 'typography', 'prismjs']
   },
   parserOptions: {
     ecmaVersion: 2017,
