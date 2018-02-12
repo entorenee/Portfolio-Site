@@ -4,8 +4,10 @@ import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
 import { FaAngleLeft } from 'react-icons/lib/fa';
+import 'prismjs/themes/prism.css';
 import themeUtils from '../components/themeUtils';
 import QuoteCard from '../components/QuoteCard';
+import './BlogPost.css';
 
 const PostContainer = styled.div`
   margin-top: 65px;
@@ -60,22 +62,6 @@ const BlogBodyContainer = styled.div`
   li {
     margin-bottom: 0.4rem;
     line-height: 1.5;
-  }
-
-  pre {
-    background-color: #faf8f0;
-    padding: 1rem;
-
-    code {
-      color: black;
-    }
-  }
-
-  code {
-    padding: 0.2rem;
-    font-family: Monaco, monospace;
-    background-color: #faf8f0;
-    color: red;
   }
 
   p > img {
