@@ -5,12 +5,14 @@ module.exports = {
     title: 'Daniel Lemay Blog',
     description:
       'Daniel Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
-    siteUrl: 'http://dslemay.com'
+    siteUrl: 'https://www.dslemay.com'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-react-next',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
