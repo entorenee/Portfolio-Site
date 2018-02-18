@@ -13,7 +13,7 @@ const themeUtils = {
     @media (max-width: 450px) {
       width: 90%;
     }
-  `
+  `,
 };
 
 export default themeUtils;

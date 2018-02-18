@@ -11,7 +11,7 @@ function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
       this.state = {
         currIndex: 0,
         isPlaying: false,
-        intervalId: undefined
+        intervalId: undefined,
       };
 
       this.updateProject = this.updateProject.bind(this);

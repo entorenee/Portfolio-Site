@@ -70,7 +70,7 @@ NumKey.propTypes = {
   clearDisplay: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   display: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired
+  value: PropTypes.string.isRequired,
 };
 
 export default NumKey;

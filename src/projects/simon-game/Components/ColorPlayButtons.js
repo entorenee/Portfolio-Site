@@ -19,7 +19,7 @@ class ColorPlayButtons extends Component {
       new Audio(simonSound0),
       new Audio(simonSound1),
       new Audio(simonSound2),
-      new Audio(simonSound3)
+      new Audio(simonSound3),
     ];
   }
 
@@ -70,7 +70,7 @@ ColorPlayButtons.propTypes = {
   activeClass: PropTypes.string.isRequired,
   isPlayersTurn: PropTypes.bool.isRequired,
   playerSelectButton: PropTypes.func.isRequired,
-  gameOn: PropTypes.bool.isRequired
+  gameOn: PropTypes.bool.isRequired,
 };
 
 export default ColorPlayButtons;

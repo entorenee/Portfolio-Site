@@ -26,7 +26,7 @@ const longDateFormat = date => {
     'September',
     'October',
     'November',
-    'December'
+    'December',
   ];
   return `${monthArr[monthNum]} ${dayNum}, ${dateArr[0]}`;
 };
@@ -108,10 +108,10 @@ BlogPostExcerpt.propTypes = {
     headlineImage: PropTypes.shape({
       description: PropTypes.string,
       file: PropTypes.shape({
-        url: PropTypes.string
-      })
-    })
-  }).isRequired
+        url: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default BlogPostExcerpt;

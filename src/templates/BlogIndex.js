@@ -40,13 +40,13 @@ const NavLink = props => {
 NavLink.propTypes = {
   test: PropTypes.bool.isRequired,
   url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 const BlogIndex = ({ pathContext }) => {
   // eslint-disable-next-line prettier/prettier
   const {
-    group, index, first, last
+    group, index, first, last,
   } = pathContext;
   const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
   const nextUrl = `/blog/page/${(index + 1).toString()}`;
@@ -78,19 +78,19 @@ BlogIndex.propTypes = {
           postDate: PropTypes.string.isRequired,
           body: PropTypes.shape({
             childMarkdownRemark: PropTypes.shape({
-              html: PropTypes.string.isRequired
-            }).isRequired
+              html: PropTypes.string.isRequired,
+            }).isRequired,
           }).isRequired,
           headlineImage: PropTypes.shape({
             description: PropTypes.string,
             file: PropTypes.shape({
-              url: PropTypes.string
-            })
-          })
-        })
-      })
-    )
-  }).isRequired
+              url: PropTypes.string,
+            }),
+          }),
+        }),
+      }),
+    ),
+  }).isRequired,
 };
 
 export default BlogIndex;

@@ -19,7 +19,7 @@ const Work = props => (
 );
 
 Work.propTypes = {
-  inputRef: PropTypes.func.isRequired
+  inputRef: PropTypes.func.isRequired,
 };
 
 export default Work;

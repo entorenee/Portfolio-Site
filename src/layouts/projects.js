@@ -8,7 +8,7 @@ const TemplateWrapper = ({ children }) => (
       title="Gatsby Default Starter"
       meta={[
         { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' }
+        { name: 'keywords', content: 'sample, something' },
       ]}
     />
     <div>{children()}</div>
@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children }) => (
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired
+  children: PropTypes.func.isRequired,
 };
 
 export default TemplateWrapper;

@@ -22,7 +22,7 @@ const CardWrapper = styled.div`
 
 const cardStyles = {
   padding: '1rem',
-  backgroundColor: '#FFF'
+  backgroundColor: '#FFF',
 };
 
 const centerText = css`
@@ -38,7 +38,7 @@ class Thanks extends Component {
   constructor() {
     super();
     this.state = {
-      timer: 7000
+      timer: 7000,
     };
 
     this.timerCountdown = this.timerCountdown.bind(this);

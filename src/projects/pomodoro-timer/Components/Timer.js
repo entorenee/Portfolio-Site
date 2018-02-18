@@ -17,7 +17,7 @@ class Timer extends Component {
       manipulated by the timer method. */
       sessionCountdown: props.sessionTime * 60000,
       breakCountdown: props.breakTime * 60000,
-      currTimer: 'Session'
+      currTimer: 'Session',
     };
   }
 
@@ -59,7 +59,7 @@ class Timer extends Component {
       const states = {
         currTimer: 'Break',
         breakCountdown: this.props.breakTime * 60000,
-        sessionCountdown: this.props.sessionTime * 60000
+        sessionCountdown: this.props.sessionTime * 60000,
       };
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ ...states });
@@ -71,7 +71,7 @@ class Timer extends Component {
       const states = {
         currTimer: 'Session',
         breakCountdown: this.props.breakTime * 60000,
-        sessionCountdown: this.props.sessionTime * 60000
+        sessionCountdown: this.props.sessionTime * 60000,
       };
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ ...states });
@@ -139,7 +139,7 @@ Timer.propTypes = {
   sessionTime: PropTypes.number.isRequired,
   breakTime: PropTypes.number.isRequired,
   isRunning: PropTypes.bool.isRequired,
-  toggleTimer: PropTypes.func.isRequired
+  toggleTimer: PropTypes.func.isRequired,
 };
 
 export default Timer;

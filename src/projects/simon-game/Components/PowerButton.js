@@ -49,7 +49,7 @@ class PowerButton extends Component {
 
 PowerButton.propTypes = {
   toggleGamePower: PropTypes.func.isRequired,
-  gameOn: PropTypes.bool.isRequired
+  gameOn: PropTypes.bool.isRequired,
 };
 
 export default PowerButton;

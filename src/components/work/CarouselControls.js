@@ -102,7 +102,7 @@ CarouselControls.propTypes = {
   isPlaying: PropTypes.bool.isRequired,
   updateIsPlaying: PropTypes.func.isRequired,
   currIndex: PropTypes.number.isRequired,
-  projects: PropTypes.arrayOf(PropTypes.object).isRequired
+  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default CarouselControls;

@@ -10,7 +10,7 @@ const Link = props => (
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default ScrollLink(Link);

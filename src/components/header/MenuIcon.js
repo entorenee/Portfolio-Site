@@ -73,7 +73,7 @@ const MenuIcon = props => (
 
 MenuIcon.propTypes = {
   isOpen: PropTypes.bool.isRequired,
-  toggleOpen: PropTypes.func.isRequired
+  toggleOpen: PropTypes.func.isRequired,
 };
 
 export default MenuIcon;

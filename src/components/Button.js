@@ -49,14 +49,14 @@ const Button = props => {
 Button.defaultProps = {
   type: 'button',
   href: undefined,
-  to: undefined
+  to: undefined,
 };
 
 Button.propTypes = {
   href: PropTypes.string,
   to: PropTypes.string,
   type: PropTypes.oneOf(['button', 'submit']),
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default Button;

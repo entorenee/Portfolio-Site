@@ -32,9 +32,9 @@ TemplateWrapper.propTypes = {
   children: PropTypes.func.isRequired,
   history: PropTypes.shape({
     location: PropTypes.shape({
-      pathname: PropTypes.string
-    })
-  }).isRequired
+      pathname: PropTypes.string,
+    }),
+  }).isRequired,
 };
 
 export default TemplateWrapper;

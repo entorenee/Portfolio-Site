@@ -3,8 +3,8 @@ import lincolnTheme from 'typography-theme-lincoln';
 
 lincolnTheme.overrideStyles = () => ({
   a: {
-    textShadow: ''
-  }
+    textShadow: '',
+  },
 });
 
 const typography = new Typography(lincolnTheme);

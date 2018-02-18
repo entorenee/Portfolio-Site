@@ -57,7 +57,7 @@ class Counter extends Component {
 Counter.propTypes = {
   name: PropTypes.string.isRequired,
   adjustTimers: PropTypes.func.isRequired,
-  timerTotal: PropTypes.number.isRequired
+  timerTotal: PropTypes.number.isRequired,
 };
 
 export default Counter;

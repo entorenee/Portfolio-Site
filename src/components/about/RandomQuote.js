@@ -39,8 +39,8 @@ const RandomQuote = props => {
 RandomQuote.propTypes = {
   slideData: PropTypes.shape({
     quote: PropTypes.string.isRequired,
-    attribution: PropTypes.string.isRequired
-  }).isRequired
+    attribution: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default withSlideshow(RandomQuote, quotesData);

@@ -28,7 +28,7 @@ class Start extends Component {
 }
 
 Start.propTypes = {
-  startGame: PropTypes.func.isRequired
+  startGame: PropTypes.func.isRequired,
 };
 
 export default Start;

@@ -21,12 +21,12 @@ const Card = props => (
 Card.propTypes = {
   maxWidth: PropTypes.string,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 Card.defaultProps = {
   maxWidth: '',
-  style: {}
+  style: {},
 };
 
 export default Card;

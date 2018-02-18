@@ -21,7 +21,7 @@ class App extends React.Component {
       prevVal: null,
       currVal: null,
       display: '0',
-      operator: null
+      operator: null,
     };
   }
 
@@ -39,7 +39,7 @@ class App extends React.Component {
         prevVal: null,
         currVal: null,
         display: '0',
-        operator: null
+        operator: null,
       };
     }
     if (this.state.display !== '0') {
@@ -51,7 +51,7 @@ class App extends React.Component {
         prevVal: null,
         currVal: null,
         display: '0',
-        operator: null
+        operator: null,
       };
     }
     this.setState({ ...states });
@@ -163,7 +163,7 @@ class App extends React.Component {
           result = operation(this.state.prevVal, operator, this.state.currVal);
           states = {
             currVal: result,
-            display: result
+            display: result,
           };
           break;
         case '=':
@@ -172,7 +172,7 @@ class App extends React.Component {
             operator: null,
             currVal: null,
             display: result,
-            prevVal: result
+            prevVal: result,
           };
           activeOperator = document.getElementById(`btn-${this.state.operator}`);
           if (activeOperator !== null) {
@@ -186,7 +186,7 @@ class App extends React.Component {
             operator,
             currVal: null,
             display: result,
-            prevVal: result
+            prevVal: result,
           };
           break;
       }
@@ -215,7 +215,7 @@ class App extends React.Component {
           // Scientific notation for number ending in zero(s).
           states.display = scientificNotation(
             states.display.slice(0, resultLength - trailingZeroCount),
-            exponents
+            exponents,
           );
         } else {
           // Scientific notation for number not neding in a zero.
@@ -284,7 +284,7 @@ class App extends React.Component {
       { type: 'math', value: '+' },
       { type: 'number', value: '0' },
       { type: 'number', value: '.' },
-      { type: 'math', value: '=' }
+      { type: 'math', value: '=' },
     ];
 
     return (

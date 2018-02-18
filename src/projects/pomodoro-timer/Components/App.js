@@ -13,7 +13,7 @@ class App extends Component {
     this.state = {
       sessionTime: 25,
       breakTime: 5,
-      isRunning: false
+      isRunning: false,
     };
   }
 

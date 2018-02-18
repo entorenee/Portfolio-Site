@@ -39,7 +39,7 @@ const MarkerSelector = props => {
 };
 
 MarkerSelector.propTypes = {
-  playerSelectMarker: PropTypes.func.isRequired
+  playerSelectMarker: PropTypes.func.isRequired,
 };
 
 export default MarkerSelector;

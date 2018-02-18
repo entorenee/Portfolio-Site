@@ -6,7 +6,7 @@ exports.keyboardHandler = e => e.which === 13 || e.which === 32;
 exports.postSlug = (date, title) => {
   const titleSlug = slugify(title, {
     remove: /[^A-Za-z0-9\s]+/,
-    lower: true
+    lower: true,
   });
   return `blog/${date}/${titleSlug}`;
 };

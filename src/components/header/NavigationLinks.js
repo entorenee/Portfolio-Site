@@ -86,17 +86,17 @@ const NavLink = props => {
 };
 
 NavLink.propTypes = {
-  homePage: PropTypes.bool.isRequired
+  homePage: PropTypes.bool.isRequired,
 };
 
 NavLink.propTypes = {
   to: PropTypes.string.isRequired,
   mobile: PropTypes.bool,
-  text: PropTypes.string.isRequired
+  text: PropTypes.string.isRequired,
 };
 
 NavLink.defaultProps = {
-  mobile: false
+  mobile: false,
 };
 
 function renderLinksLayout(mobile, isOpen) {
@@ -121,12 +121,12 @@ const NavigationLinks = props => {
 NavigationLinks.propTypes = {
   mobile: PropTypes.bool,
   isOpen: PropTypes.bool,
-  home: PropTypes.bool.isRequired
+  home: PropTypes.bool.isRequired,
 };
 
 NavigationLinks.defaultProps = {
   mobile: false,
-  isOpen: false
+  isOpen: false,
 };
 
 export default NavigationLinks;

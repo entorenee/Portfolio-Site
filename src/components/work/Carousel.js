@@ -105,11 +105,11 @@ Carousel.propTypes = {
     image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
     description: PropTypes.string.isRequired,
     projectLink: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired
+    githubLink: PropTypes.string.isRequired,
   }).isRequired,
   isPlaying: PropTypes.bool.isRequired,
   updateProject: PropTypes.func.isRequired,
-  updateIsPlaying: PropTypes.func.isRequired
+  updateIsPlaying: PropTypes.func.isRequired,
 };
 
 export default withSlideshow(Carousel, projectSpotlight, 8000);

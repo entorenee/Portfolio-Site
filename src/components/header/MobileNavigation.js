@@ -8,7 +8,7 @@ class MobileNavigation extends Component {
     super();
 
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
 
     this.toggleOpen = this.toggleOpen.bind(this);
@@ -30,7 +30,7 @@ class MobileNavigation extends Component {
 }
 
 MobileNavigation.propTypes = {
-  home: PropTypes.bool.isRequired
+  home: PropTypes.bool.isRequired,
 };
 
 export default MobileNavigation;

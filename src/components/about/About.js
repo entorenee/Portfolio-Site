@@ -74,7 +74,7 @@ const About = props => (
 );
 
 About.propTypes = {
-  inputRef: PropTypes.func.isRequired
+  inputRef: PropTypes.func.isRequired,
 };
 
 export default About;

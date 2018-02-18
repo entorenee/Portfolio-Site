@@ -30,7 +30,7 @@ class Header extends Component {
   constructor() {
     super();
     this.state = {
-      mobile: true
+      mobile: true,
     };
     this.handleSizeChange = this.handleSizeChange.bind(this);
   }
@@ -73,7 +73,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
 export default Header;

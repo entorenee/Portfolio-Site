@@ -66,25 +66,25 @@ const SocialIcon = props => <SocialLink href={props.link}>{props.component}</Soc
 
 SocialIcon.propTypes = {
   link: PropTypes.string.isRequired,
-  component: PropTypes.node.isRequired
+  component: PropTypes.node.isRequired,
 };
 
 const socialData = [
   {
     service: 'twitter',
     link: 'https://twitter.com/dslemay',
-    component: <FaTwitter size={30} />
+    component: <FaTwitter size={30} />,
   },
   {
     service: 'linkedin',
     link: 'https://www.linkedin.com/in/dslemay',
-    component: <FaLinkedin size={30} />
+    component: <FaLinkedin size={30} />,
   },
   {
     service: 'github',
     link: 'https://github.com/dslemay',
-    component: <FaGithub size={30} />
-  }
+    component: <FaGithub size={30} />,
+  },
 ];
 
 const Contact = props => (
@@ -121,7 +121,7 @@ const Contact = props => (
 );
 
 Contact.propTypes = {
-  inputRef: PropTypes.func.isRequired
+  inputRef: PropTypes.func.isRequired,
 };
 
 export default Contact;

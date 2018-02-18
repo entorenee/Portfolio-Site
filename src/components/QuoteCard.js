@@ -38,7 +38,7 @@ const QuoteCard = props => (
 );
 
 QuoteCard.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 export default QuoteCard;

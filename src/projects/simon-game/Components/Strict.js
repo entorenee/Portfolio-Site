@@ -47,7 +47,7 @@ class Strict extends Component {
 
 Strict.propTypes = {
   toggleStrict: PropTypes.func.isRequired,
-  isStrict: PropTypes.bool.isRequired
+  isStrict: PropTypes.bool.isRequired,
 };
 
 export default Strict;

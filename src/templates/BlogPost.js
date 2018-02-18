@@ -157,22 +157,22 @@ BlogPost.propTypes = {
       title: PropTypes.string.isRequired,
       body: PropTypes.shape({
         childMarkdownRemark: PropTypes.shape({
-          html: PropTypes.string.isRequired
-        }).isRequired
+          html: PropTypes.string.isRequired,
+        }).isRequired,
       }).isRequired,
       headlineImage: PropTypes.shape({
         description: PropTypes.string,
         file: PropTypes.shape({
-          url: PropTypes.string
-        })
+          url: PropTypes.string,
+        }),
       }),
       keyQuote: PropTypes.shape({
         childMarkdownRemark: PropTypes.shape({
-          html: PropTypes.string
-        })
-      })
-    }).isRequired
-  }).isRequired
+          html: PropTypes.string,
+        }),
+      }),
+    }).isRequired,
+  }).isRequired,
 };
 
 export default BlogPost;
