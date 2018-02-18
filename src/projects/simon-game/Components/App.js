@@ -147,7 +147,7 @@ class App extends Component {
           this.computerPlayButtonPattern();
         }, 2000);
       } else {
-        buzzerSound.play();
+        this.buzzerSound.play();
         this.randomButtonGenerator(true);
       }
       this.setState({
