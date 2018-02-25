@@ -17,13 +17,12 @@ const Blurb = () => (
   <BlurbContainer>
     <p>
       <strong>
-        My name is Daniel Lemay, and I am a full stack JavaScript developer who specializes in
-        dynamic and responsive applications.
+        My name is Daniel Lemay, and I am a full stack JavaScript developer specializing in React.
       </strong>{' '}
-      I love pursuing solutions to complex problems and helping people advance their skills. I pay
-      attention to the details and work well with numerous stakeholders circumventing competing
-      priorities. Take a look at some of my projects below and to contact me about available
-      opportunities.
+      I focus on building responsive and accessible front end applications using modern web
+      technologies that are a pleasure to use. I pay attention to the details and work well with
+      numerous stakeholders to complete projects. Take a look at some of my projects below and to
+      contact me about available opportunities.
     </p>
   </BlurbContainer>
 );
