@@ -8,12 +8,6 @@ import { keyboardHandler } from '../helpers';
 import '../style/ColorPlayButtons.css';
 
 class ColorPlayButtons extends Component {
-  constructor() {
-    super();
-    this.addActiveClass = this.addActiveClass.bind(this);
-    this.clickButton = this.clickButton.bind(this);
-  }
-
   componentDidMount() {
     this.buttonSounds = [
       new Audio(simonSound0),
@@ -23,17 +17,19 @@ class ColorPlayButtons extends Component {
     ];
   }
 
-  addActiveClass() {
-    const button = document.getElementById(`btn-${this.props.id}`);
-    this.buttonSounds[this.props.id].play();
-    button.classList.add(this.props.activeClass);
-  }
+  addActiveClass = () => {
+    const { activeClass, id } = this.props;
+    const button = document.getElementById(`btn-${id}`);
+    this.buttonSounds[id].play();
+    button.classList.add(activeClass);
+  };
 
-  clickButton() {
-    const button = document.getElementById(`btn-${this.props.id}`);
-    button.classList.remove(this.props.activeClass);
-    this.props.playerSelectButton(Number(this.props.id));
-  }
+  clickButton = () => {
+    const { activeClass, id, playerSelectButton } = this.props;
+    const button = document.getElementById(`btn-${id}`);
+    button.classList.remove(activeClass);
+    playerSelectButton(Number(id));
+  };
 
   render() {
     const { isPlayersTurn, gameOn, id } = this.props;
