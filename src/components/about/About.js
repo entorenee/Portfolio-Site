@@ -59,19 +59,23 @@ const AboutHeader = styled.h1`
   }
 `;
 
-const About = props => (
-  <section id="about" ref={props.inputRef}>
-    <Hero />
-    <Element name="about" />
-    <AboutGridContainer>
-      <ProfilePic src={headshot} />
-      <AboutHeader>About</AboutHeader>
-      <RandomQuote />
-      <Skills />
-      <Blurb />
-    </AboutGridContainer>
-  </section>
-);
+const About = props => {
+  const { inputRef } = props;
+
+  return (
+    <section id="about" ref={inputRef}>
+      <Hero />
+      <Element name="about" />
+      <AboutGridContainer>
+        <ProfilePic src={headshot} />
+        <AboutHeader>About</AboutHeader>
+        <RandomQuote />
+        <Skills />
+        <Blurb />
+      </AboutGridContainer>
+    </section>
+  );
+};
 
 About.propTypes = {
   inputRef: PropTypes.func.isRequired,

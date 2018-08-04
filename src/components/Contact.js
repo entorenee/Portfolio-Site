@@ -62,7 +62,7 @@ const SocialLink = styled.a`
   }
 `;
 
-const SocialIcon = props => <SocialLink href={props.link}>{props.component}</SocialLink>;
+const SocialIcon = ({ component, link }) => <SocialLink href={link}>{component}</SocialLink>;
 
 SocialIcon.propTypes = {
   link: PropTypes.string.isRequired,
@@ -87,9 +87,9 @@ const socialData = [
   },
 ];
 
-const Contact = props => (
+const Contact = ({ inputRef }) => (
   <ContactSection id="contact">
-    <div ref={props.inputRef}>
+    <div ref={inputRef}>
       <Element name="contact" />
       <h1>Contact</h1>
       <Card maxWidth="350px">

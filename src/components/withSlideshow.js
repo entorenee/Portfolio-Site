@@ -23,7 +23,8 @@ function withSlideshow(WrappedComponent, arr, timerLength = 5000) {
     }
 
     componentWillUnmount() {
-      clearInterval(this.state.intervalId);
+      const { intervalId } = this.state;
+      clearInterval(intervalId);
     }
 
     updateProject(direction, reset = false) {

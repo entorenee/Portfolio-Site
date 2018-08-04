@@ -12,9 +12,9 @@ const CardWrapper = styled.div`
   ${props => props.style};
 `;
 
-const Card = props => (
-  <CardWrapper style={props.style} maxWidth={props.maxWidth}>
-    {props.children}
+const Card = ({ children, maxWidth, style }) => (
+  <CardWrapper style={style} maxWidth={maxWidth}>
+    {children}
   </CardWrapper>
 );
 

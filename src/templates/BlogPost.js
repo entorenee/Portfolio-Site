@@ -104,26 +104,25 @@ const BlogTitle = styled.h1`
 const BlogIndex = () => (
   <BlogIndexLink>
     <Link to="/blog">
-      <FaAngleLeft size={20} />Return to Blog Index
+      <FaAngleLeft size={20} />
+      Return to Blog Index
     </Link>
   </BlogIndexLink>
 );
 
-const BlogPost = props => {
-  const { title } = props.data.contentfulBlogPost;
-  const { html: body } = props.data.contentfulBlogPost.body.childMarkdownRemark;
+const BlogPost = ({ data: { contentfulBlogPost } }) => {
+  const { title } = contentfulBlogPost;
+  const { html: body } = contentfulBlogPost.body.childMarkdownRemark;
 
-  const headlineImage = !props.data.contentfulBlogPost.headlineImage
+  const headlineImage = !contentfulBlogPost.headlineImage
     ? null
-    : props.data.contentfulBlogPost.headlineImage.file.url;
+    : contentfulBlogPost.headlineImage.file.url;
 
-  const headlineAltText = headlineImage
-    ? props.data.contentfulBlogPost.headlineImage.description
-    : null;
+  const headlineAltText = headlineImage ? contentfulBlogPost.headlineImage.description : null;
 
-  const keyQuote = !props.data.contentfulBlogPost.keyQuote
+  const keyQuote = !contentfulBlogPost.keyQuote
     ? null
-    : props.data.contentfulBlogPost.keyQuote.childMarkdownRemark.html;
+    : contentfulBlogPost.keyQuote.childMarkdownRemark.html;
 
   return (
     <PostContainer>

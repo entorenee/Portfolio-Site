@@ -42,16 +42,21 @@ class Header extends Component {
   }
 
   handleSizeChange(evt) {
-    if (evt.matches && !this.state.mobile) {
+    const { mobile } = this.state;
+
+    if (evt.matches && !mobile) {
       this.setState({ mobile: true });
     }
-    if (!evt.matches && this.state.mobile) {
+    if (!evt.matches && mobile) {
       this.setState({ mobile: false });
     }
   }
 
   render() {
-    const home = this.props.path === '/';
+    const { path } = this.props;
+    const { mobile } = this.state;
+
+    const home = path === '/';
 
     return (
       <HeaderWrapper>
@@ -66,7 +71,7 @@ class Header extends Component {
         >
           <Logo src={logo} />
         </Link>
-        {this.state.mobile ? <MobileNavigation home={home} /> : <NavigationLinks home={home} />}
+        {mobile ? <MobileNavigation home={home} /> : <NavigationLinks home={home} />}
       </HeaderWrapper>
     );
   }

@@ -49,33 +49,34 @@ const ProjectLinks = styled.div`
 
 class Carousel extends Component {
   componentDidMount() {
+    const { updateIsPlaying, updateProject } = this.props;
     const hammer = Hammer(this.projectCarousel);
     hammer.on('swipe', evt => {
       switch (evt.offsetDirection) {
         case 2:
-          this.props.updateProject('next', true);
+          updateProject('next', true);
           break;
         case 4:
-          this.props.updateProject('previous', true);
+          updateProject('previous', true);
           break;
         default:
       }
     });
     hammer.on('tap', () => {
-      this.props.updateIsPlaying();
+      updateIsPlaying();
     });
   }
 
   render() {
-    const { slideData: project } = this.props;
+    const { currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject } = this.props;
 
     return (
       <CarouselContainer>
         <CarouselControls
-          updateProject={this.props.updateProject}
-          isPlaying={this.props.isPlaying}
-          updateIsPlaying={this.props.updateIsPlaying}
-          currIndex={this.props.currIndex}
+          updateProject={updateProject}
+          isPlaying={isPlaying}
+          updateIsPlaying={updateIsPlaying}
+          currIndex={currIndex}
           projects={projectSpotlight}
         />
         <div

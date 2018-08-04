@@ -10,8 +10,8 @@ const WorkHeader = styled.h1`
   margin-bottom: 1.6rem;
 `;
 
-const Work = props => (
-  <section id="work" ref={props.inputRef}>
+const Work = ({ inputRef }) => (
+  <section id="work" ref={inputRef}>
     <Element name="work" />
     <WorkHeader>Work</WorkHeader>
     <Carousel />
