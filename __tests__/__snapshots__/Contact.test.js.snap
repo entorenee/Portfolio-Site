@@ -2,7 +2,7 @@
 
 exports[`Contact renders correctly 1`] = `
 <section
-  className="css-1akvmkq css-qzqho20"
+  className="css-1akvmkq e1a8f63d0"
   id="contact"
 >
   <div>
@@ -13,7 +13,7 @@ exports[`Contact renders correctly 1`] = `
       Contact
     </h1>
     <div
-      className="css-hz3q29 css-13knjw70"
+      className="css-toghen e2un48u0"
       style={Object {}}
     >
       <form
@@ -21,7 +21,7 @@ exports[`Contact renders correctly 1`] = `
         method="POST"
       >
         <label
-          className="css-1wt4qp8 css-qzqho21"
+          className="css-1wt4qp8 e1a8f63d1"
           htmlFor="name"
         >
           <span>
@@ -34,7 +34,7 @@ exports[`Contact renders correctly 1`] = `
           />
         </label>
         <label
-          className="css-1wt4qp8 css-qzqho21"
+          className="css-1wt4qp8 e1a8f63d1"
           htmlFor="email"
         >
           <span>
@@ -47,7 +47,7 @@ exports[`Contact renders correctly 1`] = `
           />
         </label>
         <label
-          className="css-1wt4qp8 css-qzqho21"
+          className="css-1wt4qp8 e1a8f63d1"
           htmlFor="message"
         >
           <span>
@@ -70,10 +70,10 @@ exports[`Contact renders correctly 1`] = `
           value="/thanks"
         />
         <div
-          className="css-1qkirhf css-qzqho22"
+          className="css-1qkirhf e1a8f63d2"
         >
           <button
-            className="css-6n7fwa css-z5loqp2"
+            className="css-6n7fwa edrwwrs2"
             type="submit"
           >
             Submit
@@ -82,7 +82,7 @@ exports[`Contact renders correctly 1`] = `
       </form>
     </div>
     <a
-      className="css-1b5kyej css-qzqho23"
+      className="css-1b5kyej e1a8f63d3"
       href="https://twitter.com/dslemay"
     >
       <svg
@@ -106,7 +106,7 @@ exports[`Contact renders correctly 1`] = `
       </svg>
     </a>
     <a
-      className="css-1b5kyej css-qzqho23"
+      className="css-1b5kyej e1a8f63d3"
       href="https://www.linkedin.com/in/dslemay"
     >
       <svg
@@ -130,7 +130,7 @@ exports[`Contact renders correctly 1`] = `
       </svg>
     </a>
     <a
-      className="css-1b5kyej css-qzqho23"
+      className="css-1b5kyej e1a8f63d3"
       href="https://github.com/dslemay"
     >
       <svg
