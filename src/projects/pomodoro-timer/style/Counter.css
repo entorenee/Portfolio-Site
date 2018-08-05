@@ -24,12 +24,7 @@
 
 .adjust-time {
   cursor: pointer;
-  width: 30px;
-  height: 30px;
   font-size: 24px;
   background-color: #10222B;
   border: 0;
-  color: #95AB63;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
+  color: #95AB63; }
