@@ -24,24 +24,21 @@ class App extends Component {
   }
 
   componentDidUpdate() {
+    const { cellValues, computer, currPlayer, gameOver } = this.state;
     const winnerInfo = this.gameWinner;
     // Necessary to change to previous player as state has already changed to new player
-    const player = this.state.currPlayer === 'X' ? 'O' : 'X';
-    if (this.checkWinningCombos(this.state.cellValues, player) && this.state.gameOver === false) {
+    const player = currPlayer === 'X' ? 'O' : 'X';
+    if (this.checkWinningCombos(cellValues, player) && gameOver === false) {
       winnerInfo.innerHTML = `${player} WON!`;
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ gameOver: true });
       this.clearBoard();
-    } else if (this.state.cellValues.indexOf('E') === -1 && this.state.gameOver === false) {
+    } else if (cellValues.indexOf('E') === -1 && gameOver === false) {
       winnerInfo.innerHTML = "IT'S A TIE!";
       // eslint-disable-next-line react/no-did-update-set-state
       this.setState({ gameOver: true });
       this.clearBoard();
-    } else if (
-      this.state.currPlayer === this.state.computer &&
-      this.state.cellValues.indexOf('E') > -1 &&
-      this.state.gameOver === false
-    ) {
+    } else if (currPlayer === computer && cellValues.indexOf('E') > -1 && gameOver === false) {
       this.computerSelectCell();
     }
   }
@@ -73,21 +70,21 @@ class App extends Component {
   }
 
   playerSelectCell(cellValue, cellId) {
-    if (
-      cellValue === 'E' &&
-      this.state.currPlayer === this.state.player &&
-      this.state.gameOver === false
-    ) {
+    const { computer, currPlayer, gameOver, player } = this.state;
+
+    if (cellValue === 'E' && currPlayer === player && gameOver === false) {
       const states = { ...this.state };
-      states.cellValues[cellId] = this.state.currPlayer;
-      states.currPlayer = this.state.computer;
+      states.cellValues[cellId] = currPlayer;
+      states.currPlayer = computer;
 
       this.setState({ ...states });
     }
   }
 
   computerSelectCell() {
-    function checkForPotentialWinOrBlock(cellValues, player) {
+    const { cellValues, computer, player } = this.state;
+
+    function checkForPotentialWinOrBlock(cells, playerToken) {
       const winningCombos = [
         ['0', '1', '2'],
         ['3', '4', '5'],
@@ -104,7 +101,7 @@ class App extends Component {
         let trueCount = 0;
         for (let j = 0; j < 3; j += 1) {
           const value = winningCombos[i][j];
-          if (cellValues[value] === player) {
+          if (cells[value] === playerToken) {
             controlled.push(true);
             trueCount += 1;
           } else {
@@ -112,20 +109,20 @@ class App extends Component {
           }
         } // End winningCombos subarray for loop
         const index = controlled.indexOf(false);
-        if (trueCount === 2 && cellValues[winningCombos[i][index]] === 'E') {
+        if (trueCount === 2 && cells[winningCombos[i][index]] === 'E') {
           return winningCombos[i][index];
         }
       } // End winningCombos for loop
       return null;
     }
 
-    function randomCell(cellValues) {
+    function randomCell(cells) {
       let cell;
       let blankCell = false;
 
       while (!blankCell) {
         cell = Math.floor(Math.random() * 8);
-        if (cellValues[cell] === 'E') {
+        if (cells[cell] === 'E') {
           blankCell = true;
         }
       }
@@ -133,18 +130,18 @@ class App extends Component {
     }
 
     const states = { ...this.state };
-    const selectWin = checkForPotentialWinOrBlock(this.state.cellValues, this.state.computer);
-    const blockWin = checkForPotentialWinOrBlock(this.state.cellValues, this.state.player);
+    const selectWin = checkForPotentialWinOrBlock(cellValues, computer);
+    const blockWin = checkForPotentialWinOrBlock(cellValues, player);
     if (typeof selectWin === 'string') {
-      states.cellValues[selectWin] = this.state.computer;
-      states.currPlayer = this.state.player;
+      states.cellValues[selectWin] = computer;
+      states.currPlayer = player;
     } else if (typeof blockWin === 'string') {
-      states.cellValues[blockWin] = this.state.computer;
-      states.currPlayer = this.state.player;
+      states.cellValues[blockWin] = computer;
+      states.currPlayer = player;
     } else {
-      const emptyCell = randomCell(this.state.cellValues);
-      states.cellValues[emptyCell] = this.state.computer;
-      states.currPlayer = this.state.player;
+      const emptyCell = randomCell(cellValues);
+      states.cellValues[emptyCell] = computer;
+      states.currPlayer = player;
     }
 
     this.setState({ ...states });
