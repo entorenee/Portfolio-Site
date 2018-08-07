@@ -1,5 +1,4 @@
 import React from 'react';
-import Helmet from 'react-helmet';
 import '../style/App.css';
 import Key from './Key';
 import Display from './Display';
@@ -7,135 +6,122 @@ import Display from './Display';
 import { operation, percentageToDecimal, scientificNotation } from '../helpers';
 
 class App extends React.Component {
-  constructor() {
-    super();
-    this.addNum = this.addNum.bind(this);
-    this.operations = this.operations.bind(this);
-    this.clearDisplay = this.clearDisplay.bind(this);
-    this.handleKeypress = this.handleKeypress.bind(this);
-    this.handleKeydown = this.handleKeydown.bind(this);
-
-    // Set initial state
-
-    this.state = {
-      prevVal: null,
-      currVal: null,
-      display: '0',
-      operator: null,
-    };
-  }
+  state = {
+    prevVal: null,
+    currVal: null,
+    display: '0',
+    operator: null,
+  };
 
   componentDidMount() {
     window.addEventListener('keypress', this.handleKeypress);
     window.addEventListener('keydown', this.handleKeydown);
   }
 
-  clearDisplay() {
-    // This method is called when the C/AC button is clicked.
-    let states = { ...this.state };
-    if (this.state.currVal === null && this.state.operator === null) {
-      // Clear button resets to initial state if clicked after pressing equals.
-      states = {
-        prevVal: null,
-        currVal: null,
-        display: '0',
-        operator: null,
-      };
-    }
-    if (this.state.display !== '0') {
-      states.display = '0';
-      states.currVal = '0';
-    }
-    if (this.state.display === '0') {
-      states = {
-        prevVal: null,
-        currVal: null,
-        display: '0',
-        operator: null,
-      };
-    }
-    this.setState({ ...states });
-    const activeOperator = document.querySelector('div.active');
-    if (this.state.operator !== null) {
-      document.getElementById(`btn-${this.state.operator}`).classList.add('active');
-    }
-    if (states.operator === null && activeOperator !== null) {
-      activeOperator.classList.remove('active');
+  componentDidUpdate(prevProps, prevState) {
+    const { operator: currOperator } = this.state;
+    const { operator: prevOperator } = prevState;
+    const operator = document.getElementById(`btn-${currOperator}`);
+    if (prevOperator !== currOperator && operator) {
+      operator.classList.add('numKey--active');
     }
   }
 
-  addNum(number) {
+  clearDisplay = () => {
+    // This method is called when the C/AC button is clicked.
+    const initialState = {
+      prevVal: null,
+      currVal: null,
+      display: '0',
+      operator: null,
+    };
+
+    this.setState(state => {
+      const { currVal, display, operator } = state;
+      if (currVal === null && operator === null) {
+        return initialState;
+      }
+      if (display !== '0') {
+        return {
+          display: '0',
+          currVal: '0',
+        };
+      }
+      return initialState;
+    });
+  };
+
+  addNum = number => {
     // Tests for initial operations or immediately after pressing operator
+    const { currVal, display, operator, prevVal } = this.state;
     const states = { ...this.state };
     if (number === '\u00B1') {
       // This code block addresses changing the state when the plus/minus key is selected.
-      if (this.state.currVal !== null) {
+      if (currVal !== null) {
         // Update display if currently manipulating currVal state.
-        if (this.state.currVal.slice(0, 1) === '-') {
-          states.currVal = this.state.currVal.slice(1);
-          states.display = this.state.currVal.slice(1);
+        if (currVal.slice(0, 1) === '-') {
+          states.currVal = currVal.slice(1);
+          states.display = currVal.slice(1);
         } else {
-          states.currVal = `-${this.state.currVal}`;
-          states.display = `-${this.state.currVal}`;
+          states.currVal = `-${currVal}`;
+          states.display = `-${currVal}`;
         }
       } else {
         // Update display if currently manipulating prevVal state (ie after using equals operation)
         // eslint-disable-next-line no-lonely-if
-        if (this.state.prevVal !== null && this.state.display === this.state.prevVal) {
-          if (this.state.prevVal.slice(0, 1) === '-') {
-            states.prevVal = this.state.prevVal.slice(1);
-            states.display = this.state.prevVal.slice(1);
+        if (prevVal !== null && display === prevVal) {
+          if (prevVal.slice(0, 1) === '-') {
+            states.prevVal = prevVal.slice(1);
+            states.display = prevVal.slice(1);
           } else {
-            states.prevVal = `-${this.state.prevVal}`;
-            states.display = `-${this.state.prevVal}`;
+            states.prevVal = `-${prevVal}`;
+            states.display = `-${prevVal}`;
           }
         }
       }
     } else {
       // This code block addresses actual numbers and the decimal point excluding the plus/minus key
       // This 1st conditional serves as a reset if a number is pressed immediately following "=".
-      if (
-        this.state.currVal === null &&
-        this.state.operator === null &&
-        this.state.prevVal !== null
-      ) {
+      if (currVal === null && operator === null && prevVal !== null) {
         states.currVal = number;
         states.display = number;
         states.prevVal = null;
       }
 
-      if (this.state.currVal === null || this.state.currVal === '0') {
+      if (currVal === null || currVal === '0') {
         states.currVal = number;
         states.display = number;
-      } else if (this.state.currVal.length < 14) {
+      } else if (currVal.length < 14) {
         // Keeps the user from overflowing the display
         states.currVal = states.currVal.concat(number);
-        states.display = states.currVal.concat(number);
+        states.display = states.display.concat(number);
       }
     }
     this.setState({ ...states });
     // Test if there is an active MathKey. If so, remove active class.
-    const activeOperator = document.querySelector('div.active');
+    const activeOperator = document.querySelector('div.numKey--active');
     if (activeOperator !== null) {
-      activeOperator.classList.remove('active');
+      activeOperator.classList.remove('numKey--active');
     }
-  }
+  };
 
-  operations(operator) {
+  operations = operator => {
     let states = { ...this.state };
     // Tests for first operation of a chain.
-    if (this.state.prevVal === null) {
+    const { currVal, prevVal, operator: operatorState } = this.state;
+
+    if (prevVal === null) {
       if (operator !== '=' && operator !== '%') {
-        document.getElementById(`btn-${operator}`).classList.add('active'); // Equals sign is excluded from active class
+        document.getElementById(`btn-${operator}`).classList.add('numKey--active'); // Equals sign is excluded from active class
       }
       if (operator !== '%') {
         // Percentage performs different types of operations and stores states differently.
         states.operator = operator;
-        states.prevVal = this.state.currVal;
+        states.prevVal = currVal;
         states.currVal = null;
       } else {
-        states.prevVal = percentageToDecimal(this.state.currVal);
-        states.display = percentageToDecimal(this.state.currVal);
+        states.prevVal = percentageToDecimal(currVal);
+        states.display = percentageToDecimal(currVal);
         states.currVal = null;
       }
       this.setState({ ...states });
@@ -143,45 +129,45 @@ class App extends React.Component {
 
     /* Checks if no numbers have been clicked since last call
     of operations method to change operator used. */
-    if (this.state.currVal === null) {
-      const el = document.getElementById(`btn-${this.state.operator}`);
+    if (currVal === null) {
+      const el = document.getElementById(`btn-${operatorState}`);
       if (el !== null) {
-        el.classList.remove('active');
+        el.classList.remove('numKey--active');
       }
       if (operator !== '=' && operator !== '%') {
-        document.getElementById(`btn-${operator}`).classList.add('active');
+        document.getElementById(`btn-${operator}`).classList.add('numKey--active');
       }
       this.setState({ operator });
     }
 
     // Perform operations
     let result;
-    if (this.state.prevVal && this.state.currVal !== null) {
+    if (prevVal && currVal !== null) {
       let activeOperator;
       switch (operator) {
         case '%':
-          result = operation(this.state.prevVal, operator, this.state.currVal);
+          result = operation(prevVal, operator, currVal);
           states = {
             currVal: result,
             display: result,
           };
           break;
         case '=':
-          result = operation(this.state.prevVal, this.state.operator, this.state.currVal);
+          result = operation(prevVal, operatorState, currVal);
           states = {
             operator: null,
             currVal: null,
             display: result,
             prevVal: result,
           };
-          activeOperator = document.getElementById(`btn-${this.state.operator}`);
+          activeOperator = document.getElementById(`btn-${operatorState}`);
           if (activeOperator !== null) {
-            activeOperator.classList.remove('active');
+            activeOperator.classList.remove('numKey--active');
           }
           break;
         default:
-          document.getElementById(`btn-${operator}`).classList.add('active');
-          result = operation(this.state.prevVal, this.state.operator, this.state.currVal);
+          document.getElementById(`btn-${operator}`).classList.add('numKey--active');
+          result = operation(prevVal, operatorState, currVal);
           states = {
             operator,
             currVal: null,
@@ -224,9 +210,9 @@ class App extends React.Component {
       }
       this.setState({ ...states });
     } // End complete calculations conditional
-  } // End operations method
+  }; // End operations method
 
-  handleKeypress(e) {
+  handleKeypress = e => {
     const { key } = e;
     const numOptions = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
     const mathOptions = ['%', '-', '+', '='];
@@ -247,24 +233,25 @@ class App extends React.Component {
         this.operations(key);
         break;
       default:
-        console.log('Not a valid keypress');
+        break;
     }
-  }
+  };
 
   /* The handleKeydown method is necessary for logging the escape and delete keys specifically.
    * Not all of the keys can be run through this method, because keydown does not account
    * for different values a key may produce when shift is pressed. Since some of the math
    * operators are on the number keys this would create bugs.
    */
-  handleKeydown(e) {
+  handleKeydown = e => {
     const { key } = e;
     const clearKeys = ['Escape', 'Delete', 'Backspace'];
     if (clearKeys.indexOf(key) > -1) {
       this.clearDisplay();
     }
-  }
+  };
 
   render() {
+    const { display } = this.state;
     const keys = [
       { type: 'clear', value: 'clear' },
       { type: 'number', value: '\u00B1' },
@@ -289,9 +276,8 @@ class App extends React.Component {
 
     return (
       <div className="calculator-app-container">
-        <Helmet title="JavaScript Calculator | Daniel Lemay" />
         <div className="calculator">
-          <Display display={this.state.display} />
+          <Display display={display} />
           <div className="calculator-buttons">
             {keys.map(key => (
               <Key
@@ -301,7 +287,7 @@ class App extends React.Component {
                 addNum={this.addNum}
                 operations={this.operations}
                 clearDisplay={this.clearDisplay}
-                display={this.state.display}
+                display={display}
               />
             ))}
           </div>
