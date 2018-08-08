@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
-import { FaAngleLeft } from 'react-icons/lib/fa';
+import { FaAngleLeft } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 import themeUtils from '../components/themeUtils';
 import QuoteCard from '../components/QuoteCard';
@@ -176,6 +176,7 @@ BlogPost.propTypes = {
 
 export default BlogPost;
 
+// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query blogPostQuery($id: String!) {
     contentfulBlogPost(id: { eq: $id }) {

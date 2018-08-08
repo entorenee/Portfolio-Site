@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 import themeUtils from '../themeUtils';
 import { keyboardHandler } from '../../utils/helpers';
 
@@ -42,7 +42,7 @@ const selected = css`
 const CarouselControls = ({ currIndex, isPlaying, projects, updateIsPlaying, updateProject }) => (
   <ControlsFlex>
     {isPlaying ? (
-      <FaPauseCircleO
+      <FaPauseCircle
         size={30}
         onClick={() => updateIsPlaying()}
         onKeyPress={e => {
@@ -52,7 +52,7 @@ const CarouselControls = ({ currIndex, isPlaying, projects, updateIsPlaying, upd
         tabIndex={0}
       />
     ) : (
-      <FaPlayCircleO
+      <FaPlayCircle
         size={30}
         onClick={() => updateIsPlaying()}
         onKeyPress={e => {
