@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import Link from 'gatsby-link';
-import { FaChevronRight } from 'react-icons/fa';
+import { FaChevronRight } from 'react-icons/lib/fa';
 import themeUtils from '../components/themeUtils';
 import { postSlug } from '../utils/helpers';
 

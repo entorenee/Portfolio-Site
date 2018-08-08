@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import { FaCopyright } from 'react-icons/fa';
+import { FaCopyright } from 'react-icons/lib/fa';
 import themeUtils from './themeUtils';
 
 const FooterWrapper = styled.div`

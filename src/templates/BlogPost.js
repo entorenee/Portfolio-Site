@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
 import styled from 'react-emotion';
-import { FaAngleLeft } from 'react-icons/fa';
+import { FaAngleLeft } from 'react-icons/lib/fa';
 import 'prismjs/themes/prism.css';
 import themeUtils from '../components/themeUtils';
 import QuoteCard from '../components/QuoteCard';

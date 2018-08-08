@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Element } from 'react-scroll';
-import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
 import themeUtils from './themeUtils';
 import Card from './Card';
 import Button from './Button';
