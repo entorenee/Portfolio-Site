@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'react-emotion';
-import Hammer from 'hammerjs';
 import themeUtils from '../themeUtils';
-import withSlideshow from '../withSlideshow';
+import Slideshow from '../Slideshow';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button';
@@ -47,30 +45,9 @@ const ProjectLinks = styled.div`
   }
 `;
 
-class Carousel extends Component {
-  componentDidMount() {
-    const { updateIsPlaying, updateProject } = this.props;
-    const hammer = Hammer(this.projectCarousel);
-    hammer.on('swipe', evt => {
-      switch (evt.offsetDirection) {
-        case 2:
-          updateProject('next', true);
-          break;
-        case 4:
-          updateProject('previous', true);
-          break;
-        default:
-      }
-    });
-    hammer.on('tap', () => {
-      updateIsPlaying();
-    });
-  }
-
-  render() {
-    const { currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject } = this.props;
-
-    return (
+const Carousel = () => (
+  <Slideshow slides={projectSpotlight}>
+    {({ currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject }) => (
       <CarouselContainer>
         <CarouselControls
           updateProject={updateProject}
@@ -79,9 +56,7 @@ class Carousel extends Component {
           currIndex={currIndex}
           projects={projectSpotlight}
         />
-        <div
-          ref={input => (this.projectCarousel = input)} // eslint-disable-line no-return-assign
-        >
+        <div>
           <Title>{project.title}</Title>
           <FocusImage src={project.image} />
           <Description>
@@ -95,22 +70,8 @@ class Carousel extends Component {
           </Description>
         </div>
       </CarouselContainer>
-    );
-  }
-}
+    )}
+  </Slideshow>
+);
 
-Carousel.propTypes = {
-  currIndex: PropTypes.number.isRequired,
-  slideData: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    description: PropTypes.string.isRequired,
-    projectLink: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired,
-  }).isRequired,
-  isPlaying: PropTypes.bool.isRequired,
-  updateProject: PropTypes.func.isRequired,
-  updateIsPlaying: PropTypes.func.isRequired,
-};
-
-export default withSlideshow(Carousel, projectSpotlight, 8000);
+export default Carousel;
