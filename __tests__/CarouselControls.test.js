@@ -1,6 +1,6 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 import CarouselControls from '../src/components/work/CarouselControls';
 
 describe('CarouselControls', () => {
@@ -26,9 +26,9 @@ describe('CarouselControls', () => {
           image: 'project image',
           description: 'Hello I am the description',
           projectLink: 'http://dslemay.com',
-          githubLink: 'https://github.com/dslemay'
-        }
-      ]
+          githubLink: 'https://github.com/dslemay',
+        },
+      ],
     };
     mountedCarouselControls = undefined;
   });
@@ -62,12 +62,12 @@ describe('CarouselControls', () => {
     });
 
     it('renders the play icon', () => {
-      expect(carouselControls().find(FaPlayCircleO).length).toBe(1);
+      expect(carouselControls().find(FaPlayCircle).length).toBe(1);
     });
 
     it('calls updateIsPlaying function when clicking the play button', () => {
       carouselControls()
-        .find(FaPlayCircleO)
+        .find(FaPlayCircle)
         .simulate('click');
       expect(carouselControls().props().updateIsPlaying).toBeCalled();
     });
@@ -79,12 +79,12 @@ describe('CarouselControls', () => {
     });
 
     it('renders the pause icon', () => {
-      expect(carouselControls().find(FaPauseCircleO).length).toBe(1);
+      expect(carouselControls().find(FaPauseCircle).length).toBe(1);
     });
 
     it('calls updateIsPlaying function when clicking the pause button', () => {
       carouselControls()
-        .find(FaPauseCircleO)
+        .find(FaPauseCircle)
         .simulate('click');
       expect(carouselControls().props().updateIsPlaying).toBeCalled();
     });

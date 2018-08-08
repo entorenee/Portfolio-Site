@@ -17,7 +17,7 @@ describe('MenuIcon', () => {
   beforeEach(() => {
     props = {
       toggleOpen: jest.fn(),
-      isOpen: false
+      isOpen: false,
     };
 
     mountedMenuIcon = undefined;
