@@ -10,8 +10,6 @@ import bell from '../bell.mp3';
 class Timer extends Component {
   constructor(props) {
     super(props);
-    this.countdownTimer = this.countdownTimer.bind(this);
-    this.pauseTimer = this.pauseTimer.bind(this);
     this.state = {
       /* countdown timers are stored in state in ms as they are directly
       manipulated by the timer method. */
@@ -26,79 +24,65 @@ class Timer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.sessionTime !== nextProps.sessionTime) {
-      const states = { sessionCountdown: nextProps.sessionTime * 60000 };
-      if (this.state.currTimer === 'Session') {
-        states.minutes = nextProps.sessionTime;
-        states.seconds = '00';
-      }
-      this.setState({ ...states });
+    const { breakTime, isRunning, sessionTime } = this.props;
+    const { currTimer } = this.state;
+
+    if (sessionTime !== nextProps.sessionTime) {
+      this.setState({ sessionCountdown: nextProps.sessionTime * 60000 });
     }
-    if (this.props.breakTime !== nextProps.breakTime) {
-      const states = { breakCountdown: nextProps.breakTime * 60000 };
-      if (this.state.currTimer === 'Break') {
-        states.minutes = nextProps.breakTime;
-        states.seconds = '00';
-      }
-      this.setState({ ...states });
+    if (breakTime !== nextProps.breakTime) {
+      this.setState({ breakCountdown: nextProps.breakTime * 60000 });
     }
-    if (this.props.isRunning === false && nextProps.isRunning === true) {
-      this.countdownTimer(this.state.currTimer);
-      this.playBtn.src = pause;
+    if (isRunning === false && nextProps.isRunning === true) {
+      this.countdownTimer(currTimer);
     }
-    if (this.props.isRunning === true && nextProps.isRunning === false) {
+    if (isRunning === true && nextProps.isRunning === false) {
       this.pauseTimer();
-      this.playBtn.src = play;
     }
   }
 
   componentDidUpdate() {
-    if (this.state.sessionCountdown === 0) {
-      this.pauseTimer(this.state.intervalId);
-      this.bell.play();
-      const states = {
-        currTimer: 'Break',
-        breakCountdown: this.props.breakTime * 60000,
-        sessionCountdown: this.props.sessionTime * 60000,
-      };
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ ...states });
-      this.countdownTimer('Break');
-    }
-    if (this.state.breakCountdown === 0) {
-      this.pauseTimer(this.state.intervalId);
-      this.bell.play();
-      const states = {
-        currTimer: 'Session',
-        breakCountdown: this.props.breakTime * 60000,
-        sessionCountdown: this.props.sessionTime * 60000,
-      };
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ ...states });
-      this.countdownTimer('Session');
+    const { breakCountdown, sessionCountdown } = this.state;
+
+    if (sessionCountdown === 0 || breakCountdown === 0) {
+      this.switchTimer();
     }
   }
 
-  countdownTimer(timerName) {
+  countdownTimer = timerName => {
+    const stateManaged = timerName === 'Session' ? 'sessionCountdown' : 'breakCountdown';
+
     const intervalId = setInterval(() => {
-      const states = {};
-      if (timerName === 'Session') {
-        states.sessionCountdown = this.state.sessionCountdown - 1000;
-      } else {
-        states.breakCountdown = this.state.breakCountdown - 1000;
-      }
-      this.setState({ ...states });
+      this.setState(state => ({
+        [stateManaged]: state[stateManaged] - 1000,
+      }));
     }, 1000);
     this.setState({ intervalId });
-  }
+  };
 
-  pauseTimer() {
-    clearInterval(this.state.intervalId);
-  }
+  pauseTimer = () => {
+    const { intervalId } = this.state;
+
+    clearInterval(intervalId);
+  };
+
+  switchTimer = () => {
+    const { currTimer, intervalId } = this.state;
+    const newTimer = currTimer === 'Session' ? 'Break' : 'Session';
+
+    this.pauseTimer(intervalId);
+    this.bell.play();
+    this.setState((state, props) => ({
+      currTimer: newTimer,
+      breakCountdown: props.breakTime * 60000,
+      sessionCountdown: props.sessionTime * 60000,
+    }));
+    this.countdownTimer(newTimer);
+  };
 
   render() {
     const { currTimer, sessionCountdown, breakCountdown } = this.state;
-    const { toggleTimer } = this.props;
+    const { isRunning, toggleTimer } = this.props;
     let seconds;
     const countdown = currTimer === 'Session' ? sessionCountdown : breakCountdown;
     const minutes = Math.floor((countdown / 60000) % 60);
@@ -124,7 +108,7 @@ class Timer extends Component {
         </span>
         <img
           className="play-pause-btn"
-          src={play}
+          src={isRunning ? pause : play}
           alt="Play pause button"
           ref={input => {
             this.playBtn = input;

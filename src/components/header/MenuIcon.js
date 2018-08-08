@@ -61,12 +61,12 @@ const Line3Open = css`
   transform: translateY(-10px) translateY(50%) rotate(135deg);
 `;
 
-const MenuIcon = props => (
-  <MenuContainer onClick={() => props.toggleOpen()}>
+const MenuIcon = ({ isOpen, toggleOpen }) => (
+  <MenuContainer onClick={() => toggleOpen()}>
     <Icon>
-      <Line1 className={props.isOpen ? Line1Open : ''} />
-      <Line2 className={props.isOpen ? Line2Open : ''} />
-      <Line3 className={props.isOpen ? Line3Open : ''} />
+      <Line1 className={isOpen ? Line1Open : ''} />
+      <Line2 className={isOpen ? Line2Open : ''} />
+      <Line3 className={isOpen ? Line3Open : ''} />
     </Icon>
   </MenuContainer>
 );

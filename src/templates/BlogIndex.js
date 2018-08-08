@@ -30,11 +30,11 @@ const RSSContainer = styled.div`
   margin-right: 2rem;
 `;
 
-const NavLink = props => {
-  if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>;
+const NavLink = ({ test, text, url }) => {
+  if (!test) {
+    return <Link to={url}>{text}</Link>;
   }
-  return <span className={deadLink}>{props.text}</span>;
+  return <span className={deadLink}>{text}</span>;
 };
 
 NavLink.propTypes = {

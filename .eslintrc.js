@@ -1,4 +1,5 @@
 module.exports = {
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
@@ -7,7 +8,13 @@ module.exports = {
   settings: {
     ecmascript: 6,
     jsx: true,
-    'import/core-modules': ['react', 'prop-types', 'react-router', 'typography', 'prismjs'],
+    'import/core-modules': [
+      'react',
+      'prop-types',
+      'react-router',
+      'typography',
+      'prismjs',
+    ],
   },
   parserOptions: {
     ecmaVersion: 2017,
@@ -19,7 +26,7 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', 'jest', 'prettier'],
-  extends: ['airbnb', 'prettier/react'],
+  extends: ['airbnb', 'prettier', 'prettier/react'],
   rules: {
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],

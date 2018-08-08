@@ -10,7 +10,7 @@ describe('MobileNavigation', () => {
       .create(
         <MemoryRouter>
           <MobileNavigation home />
-        </MemoryRouter>
+        </MemoryRouter>,
       )
       .toJSON();
 

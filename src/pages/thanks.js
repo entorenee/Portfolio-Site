@@ -49,7 +49,9 @@ class Thanks extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.timer === 0) {
+    const { timer } = this.state;
+
+    if (timer === 0) {
       window.location.replace('/');
     }
   }
@@ -61,6 +63,8 @@ class Thanks extends Component {
   }
 
   render() {
+    const { timer } = this.state;
+
     return (
       <ThanksContainer>
         <CardWrapper>
@@ -68,8 +72,7 @@ class Thanks extends Component {
             <h1 className={centerText}>Thank you!</h1>
             <p>
               Your form has been submitted successfully. Please click the button below to return to
-              the homepage. You will be automatically redirected in {this.state.timer / 1000}{' '}
-              seconds.
+              the homepage. You will be automatically redirected in {timer / 1000} seconds.
             </p>
             <ButtonWrapper>
               <Button to="/">Return to Homepage</Button>

@@ -20,10 +20,13 @@ class MobileNavigation extends Component {
   }
 
   render() {
+    const { isOpen } = this.state;
+    const { home } = this.props;
+
     return (
       <div style={{ position: 'relative', height: '65px' }}>
-        <MenuIcon isOpen={this.state.isOpen} toggleOpen={this.toggleOpen} />
-        <NavigationLinks mobile isOpen={this.state.isOpen} home={this.props.home} />
+        <MenuIcon isOpen={isOpen} toggleOpen={this.toggleOpen} />
+        <NavigationLinks mobile isOpen={isOpen} home={home} />
       </div>
     );
   }

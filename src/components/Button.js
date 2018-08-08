@@ -30,20 +30,20 @@ const BasicButton = styled.button`
   ${ButtonStyles};
 `;
 
-const Button = props => {
-  if (props.href) {
+const Button = ({ children, href, to, type }) => {
+  if (href) {
     return (
-      <AnchorTag href={props.href} target="_blank">
-        {props.children}
+      <AnchorTag href={href} target="_blank">
+        {children}
       </AnchorTag>
     );
   }
 
-  if (props.to) {
-    return <LinkTag to={props.to}>{props.children}</LinkTag>;
+  if (to) {
+    return <LinkTag to={to}>{children}</LinkTag>;
   }
 
-  return <BasicButton type={props.type}>{props.children}</BasicButton>;
+  return <BasicButton type={type}>{children}</BasicButton>;
 };
 
 Button.defaultProps = {

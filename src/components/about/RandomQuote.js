@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import withSlideshow from '../withSlideshow';
+import Slideshow from '../Slideshow';
 import QuoteCard from '../QuoteCard';
 
 import quotesData from '../../assets/js/quotesData';
@@ -23,24 +22,17 @@ const attribution = css`
   margin-left: 1rem;
 `;
 
-const RandomQuote = props => {
-  const { slideData: quote } = props;
+const RandomQuote = () => (
+  <Slideshow slides={quotesData}>
+    {({ slideData: quote }) => (
+      <GridStyling>
+        <QuoteCard>
+          <div>{quote.quote}</div>
+          <div className={attribution}>{`~${quote.attribution}`}</div>
+        </QuoteCard>
+      </GridStyling>
+    )}
+  </Slideshow>
+);
 
-  return (
-    <GridStyling>
-      <QuoteCard>
-        <div>{quote.quote}</div>
-        <div className={attribution}>{`~${quote.attribution}`}</div>
-      </QuoteCard>
-    </GridStyling>
-  );
-};
-
-RandomQuote.propTypes = {
-  slideData: PropTypes.shape({
-    quote: PropTypes.string.isRequired,
-    attribution: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-export default withSlideshow(RandomQuote, quotesData);
+export default RandomQuote;

@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import styled from 'react-emotion';
-import Hammer from 'hammerjs';
 import themeUtils from '../themeUtils';
-import withSlideshow from '../withSlideshow';
+import Slideshow from '../Slideshow';
 import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button';
@@ -12,7 +10,7 @@ const CarouselContainer = styled.div`
   ${themeUtils.margins};
   position: relative;
   margin-bottom: 1.5rem;
-  border: 1px solid #ccc
+  border: 1px solid #ccc;
   padding: 0.5rem 0.25rem;
   box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
 `;
@@ -47,40 +45,18 @@ const ProjectLinks = styled.div`
   }
 `;
 
-class Carousel extends Component {
-  componentDidMount() {
-    const hammer = Hammer(this.projectCarousel);
-    hammer.on('swipe', evt => {
-      switch (evt.offsetDirection) {
-        case 2:
-          this.props.updateProject('next', true);
-          break;
-        case 4:
-          this.props.updateProject('previous', true);
-          break;
-        default:
-      }
-    });
-    hammer.on('tap', () => {
-      this.props.updateIsPlaying();
-    });
-  }
-
-  render() {
-    const { slideData: project } = this.props;
-
-    return (
+const Carousel = () => (
+  <Slideshow slides={projectSpotlight}>
+    {({ currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject }) => (
       <CarouselContainer>
         <CarouselControls
-          updateProject={this.props.updateProject}
-          isPlaying={this.props.isPlaying}
-          updateIsPlaying={this.props.updateIsPlaying}
-          currIndex={this.props.currIndex}
+          updateProject={updateProject}
+          isPlaying={isPlaying}
+          updateIsPlaying={updateIsPlaying}
+          currIndex={currIndex}
           projects={projectSpotlight}
         />
-        <div
-          ref={input => (this.projectCarousel = input)} // eslint-disable-line no-return-assign
-        >
+        <div>
           <Title>{project.title}</Title>
           <FocusImage src={project.image} />
           <Description>
@@ -94,22 +70,8 @@ class Carousel extends Component {
           </Description>
         </div>
       </CarouselContainer>
-    );
-  }
-}
+    )}
+  </Slideshow>
+);
 
-Carousel.propTypes = {
-  currIndex: PropTypes.number.isRequired,
-  slideData: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    image: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
-    description: PropTypes.string.isRequired,
-    projectLink: PropTypes.string.isRequired,
-    githubLink: PropTypes.string.isRequired,
-  }).isRequired,
-  isPlaying: PropTypes.bool.isRequired,
-  updateProject: PropTypes.func.isRequired,
-  updateIsPlaying: PropTypes.func.isRequired,
-};
-
-export default withSlideshow(Carousel, projectSpotlight, 8000);
+export default Carousel;

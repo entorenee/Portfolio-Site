@@ -5,35 +5,33 @@ import Timer from './Timer';
 import '../style/App.css';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.adjustTimers = this.adjustTimers.bind(this);
-    this.toggleTimer = this.toggleTimer.bind(this);
+  state = {
+    sessionTime: 25,
+    breakTime: 5,
+    isRunning: false,
+  };
 
-    this.state = {
-      sessionTime: 25,
-      breakTime: 5,
-      isRunning: false,
-    };
-  }
+  adjustTimers = (timer, timeDirection) => {
+    this.setState(state => {
+      const { isRunning } = state;
+      if (isRunning === false && timeDirection === '+') {
+        return { [timer]: state[timer] + 1 };
+      }
 
-  adjustTimers(timer, timeDirection) {
-    const states = { ...this.state };
-    if (this.state.isRunning === false && timeDirection === '+') {
-      states[timer] += 1;
-    }
-    if (this.state.isRunning === false && timeDirection === '-' && states[timer] > 1) {
-      states[timer] -= 1;
-    }
-    this.setState({ ...states });
-  }
+      if (isRunning === false && timeDirection === '-' && state[timer] > 1) {
+        return { [timer]: state[timer] - 1 };
+      }
+      return {};
+    });
+  };
 
-  toggleTimer() {
-    const timerBool = !this.state.isRunning;
-    this.setState({ isRunning: timerBool });
-  }
+  toggleTimer = () => {
+    this.setState(state => ({ isRunning: !state.isRunning }));
+  };
 
   render() {
+    const { breakTime, isRunning, sessionTime } = this.state;
+
     return (
       <div className="pomodoro-app">
         <Helmet>
@@ -44,21 +42,13 @@ class App extends Component {
         </Helmet>
         <h1 id="title">Pomodoro Timer</h1>
         <div id="counter-control-wrapper">
-          <Counter
-            name="sessionTime"
-            adjustTimers={this.adjustTimers}
-            timerTotal={this.state.sessionTime}
-          />
-          <Counter
-            name="breakTime"
-            adjustTimers={this.adjustTimers}
-            timerTotal={this.state.breakTime}
-          />
+          <Counter name="sessionTime" adjustTimers={this.adjustTimers} timerTotal={sessionTime} />
+          <Counter name="breakTime" adjustTimers={this.adjustTimers} timerTotal={breakTime} />
         </div>
         <Timer
-          sessionTime={this.state.sessionTime}
-          breakTime={this.state.breakTime}
-          isRunning={this.state.isRunning}
+          sessionTime={sessionTime}
+          breakTime={breakTime}
+          isRunning={isRunning}
           toggleTimer={this.toggleTimer}
         />
       </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { FaAngleLeft, FaAngleRight, FaPlayCircleO, FaPauseCircleO } from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/lib/fa';
 import themeUtils from '../themeUtils';
 import { keyboardHandler } from '../../utils/helpers';
 
@@ -39,24 +39,24 @@ const selected = css`
   background-color: #9a8956;
 `;
 
-const CarouselControls = props => (
+const CarouselControls = ({ currIndex, isPlaying, projects, updateIsPlaying, updateProject }) => (
   <ControlsFlex>
-    {props.isPlaying ? (
-      <FaPauseCircleO
+    {isPlaying ? (
+      <FaPauseCircle
         size={30}
-        onClick={() => props.updateIsPlaying()}
+        onClick={() => updateIsPlaying()}
         onKeyPress={e => {
-          if (keyboardHandler(e)) props.updateIsPlaying();
+          if (keyboardHandler(e)) updateIsPlaying();
         }}
         role="button"
         tabIndex={0}
       />
     ) : (
-      <FaPlayCircleO
+      <FaPlayCircle
         size={30}
-        onClick={() => props.updateIsPlaying()}
+        onClick={() => updateIsPlaying()}
         onKeyPress={e => {
-          if (keyboardHandler(e)) props.updateIsPlaying();
+          if (keyboardHandler(e)) updateIsPlaying();
         }}
         role="button"
         tabIndex={0}
@@ -65,19 +65,19 @@ const CarouselControls = props => (
     <ControlsContainer>
       <FaAngleLeft
         size={25}
-        onClick={() => props.updateProject('previous', true)}
+        onClick={() => updateProject('previous', true)}
         onKeyPress={e => {
-          if (keyboardHandler(e)) props.updateProject('previous', true);
+          if (keyboardHandler(e)) updateProject('previous', true);
         }}
         role="button"
         tabIndex={0}
       />
-      {props.projects.map((project, i) => (
+      {projects.map((project, i) => (
         <SelectorBox
-          className={props.currIndex === i ? selected : ''}
-          onClick={() => props.updateProject(i, true)}
+          className={currIndex === i ? selected : ''}
+          onClick={() => updateProject(i, true)}
           onKeyPress={e => {
-            if (keyboardHandler(e)) props.updateProject(i, true);
+            if (keyboardHandler(e)) updateProject(i, true);
           }}
           role="button"
           tabIndex={0}
@@ -86,9 +86,9 @@ const CarouselControls = props => (
       ))}
       <FaAngleRight
         size={25}
-        onClick={() => props.updateProject('next', true)}
+        onClick={() => updateProject('next', true)}
         onKeyPress={e => {
-          if (keyboardHandler(e)) props.updateProject('next', true);
+          if (keyboardHandler(e)) updateProject('next', true);
         }}
         role="button"
         tabIndex={0}

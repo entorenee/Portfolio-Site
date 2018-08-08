@@ -2,20 +2,20 @@
 
 exports[`MenuIcon renders correctly 1`] = `
 <div
-  className="css-5eaigi css-gy1dqx0"
+  className="css-5eaigi ew845gg0"
   onClick={[Function]}
 >
   <div
-    className="css-m56tt4 css-gy1dqx1"
+    className="css-m56tt4 ew845gg1"
   >
     <span
-      className="css-l2kihn css-gy1dqx2"
+      className="css-l2kihn ew845gg2"
     />
     <span
-      className="css-1pdkle css-gy1dqx3"
+      className="css-1pdkle ew845gg3"
     />
     <span
-      className="css-1ecbd3c css-gy1dqx4"
+      className="css-1ecbd3c ew845gg4"
     />
   </div>
 </div>

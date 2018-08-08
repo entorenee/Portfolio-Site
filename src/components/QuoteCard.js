@@ -31,9 +31,9 @@ const QuoteContainer = styled.div`
   }
 `;
 
-const QuoteCard = props => (
+const QuoteCard = ({ children }) => (
   <Card>
-    <QuoteContainer>{props.children}</QuoteContainer>
+    <QuoteContainer>{children}</QuoteContainer>
   </Card>
 );
 

@@ -9,7 +9,7 @@ describe('NavigationControls', () => {
       .create(
         <MemoryRouter>
           <NavigationLinks home />
-        </MemoryRouter>
+        </MemoryRouter>,
       )
       .toJSON();
 

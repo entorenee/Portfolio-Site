@@ -2,11 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ScrollLink } from 'react-scroll';
 
-const Link = props => (
-  <a href={props.href} {...props}>
-    {props.children}
-  </a>
-);
+const Link = props => {
+  const { children, href, ...rest } = props;
+  return (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  );
+};
 
 Link.propTypes = {
   href: PropTypes.string.isRequired,

@@ -63,24 +63,24 @@ const LinkStyleMobile = css`
   display: block;
 `;
 
-const NavLink = props => {
-  if (props.homePage) {
+const NavLink = ({ homePage, mobile, text, to }) => {
+  if (homePage) {
     return (
       <ScrollLink
-        to={props.to}
-        href={`#${props.to}`} // Needed for accessibility of react-scroll implementation
-        className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}
+        to={to}
+        href={`#${to}`} // Needed for accessibility of react-scroll implementation
+        className={mobile ? LinkStyleMobile : LinkStyleDesktop}
         smooth
         offset={-80}
         duration={1000}
       >
-        {props.text}
+        {text}
       </ScrollLink>
     );
   }
   return (
-    <Link to={`/#${props.to}`} className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
-      {props.text}
+    <Link to={`/#${to}`} className={mobile ? LinkStyleMobile : LinkStyleDesktop}>
+      {text}
     </Link>
   );
 };
@@ -104,19 +104,16 @@ function renderLinksLayout(mobile, isOpen) {
   return mobile && isOpen ? MobileLinksOpen : MobileLinksClosed;
 }
 
-const NavigationLinks = props => {
-  const { home } = props;
-  return (
-    <LinksContainer className={renderLinksLayout(props.mobile, props.isOpen)}>
-      <NavLink to="about" text="About" mobile={props.mobile} homePage={home} />
-      <NavLink to="work" text="Work" mobile={props.mobile} homePage={home} />
-      <NavLink to="contact" text="Contact" mobile={props.mobile} homePage={home} />
-      <Link to="/blog" className={props.mobile ? LinkStyleMobile : LinkStyleDesktop}>
-        Blog
-      </Link>
-    </LinksContainer>
-  );
-};
+const NavigationLinks = ({ home, isOpen, mobile }) => (
+  <LinksContainer className={renderLinksLayout(mobile, isOpen)}>
+    <NavLink to="about" text="About" mobile={mobile} homePage={home} />
+    <NavLink to="work" text="Work" mobile={mobile} homePage={home} />
+    <NavLink to="contact" text="Contact" mobile={mobile} homePage={home} />
+    <Link to="/blog" className={mobile ? LinkStyleMobile : LinkStyleDesktop}>
+      Blog
+    </Link>
+  </LinksContainer>
+);
 
 NavigationLinks.propTypes = {
   mobile: PropTypes.bool,

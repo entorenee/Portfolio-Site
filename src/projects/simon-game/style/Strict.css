@@ -17,6 +17,8 @@
   border-radius: 50%;
   border: solid 1px #333;
   transition: background-color 800ms; }
+  .strict-mode-light.strict {
+    background-color: red; }
 
 .strict-mode-button {
   width: 35%;

@@ -5,7 +5,9 @@ import '../style/Cell.css';
 
 class Cell extends Component {
   shouldComponentUpdate(nextProps) {
-    if (nextProps.cellValue !== this.props.cellValue) {
+    const { cellValue } = this.props;
+
+    if (nextProps.cellValue !== cellValue) {
       return true;
     }
     return false;
@@ -17,7 +19,7 @@ class Cell extends Component {
     if (cellValue === 'X') {
       this.cell.classList.add('x-marker');
     }
-    if (this.props.cellValue === 'O') {
+    if (cellValue === 'O') {
       this.cell.classList.add('o-marker');
     }
     return (

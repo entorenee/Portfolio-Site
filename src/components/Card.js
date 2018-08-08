@@ -4,17 +4,17 @@ import styled from 'react-emotion';
 import themeUtils from './themeUtils';
 
 const CardWrapper = styled.div`
-  max-width: ${props => props.maxWidth};
+  max-width: ${({ maxWidth }) => maxWidth};
   margin-bottom: 1.5rem;
-  border: 1px solid #ccc
+  border: 1px solid #ccc;
   padding: 0.5rem 0.25rem;
   box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
-  ${props => props.style};
+  ${({ style }) => style};
 `;
 
-const Card = props => (
-  <CardWrapper style={props.style} maxWidth={props.maxWidth}>
-    {props.children}
+const Card = ({ children, maxWidth, style }) => (
+  <CardWrapper style={style} maxWidth={maxWidth}>
+    {children}
   </CardWrapper>
 );
 
