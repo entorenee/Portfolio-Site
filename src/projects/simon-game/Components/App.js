@@ -79,8 +79,6 @@ class App extends Component {
       setTimeout(() => {
         this.computerPlayButtonPattern();
       }, 1200);
-    } else {
-      console.log('The parameter passed to randomButtonGenerator must be a boolean.');
     }
   };
 
