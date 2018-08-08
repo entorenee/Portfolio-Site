@@ -22,7 +22,6 @@
     "gatsby-remark-prismjs": "^2.0.5",
     "gatsby-source-contentful": "^1.3.54",
     "gatsby-transformer-remark": "^1.7.44",
-    "hammerjs": "^2.0.8",
     "prismjs": "^1.15.0",
     "react-emotion": "^9.2.6",
     "react-helmet": "^5.2.0",
