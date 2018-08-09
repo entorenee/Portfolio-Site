@@ -2,8 +2,8 @@ const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
 const { postSlug } = require('./src/utils/helpers');
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve('src/templates/BlogPost.js');
     resolve(
@@ -42,8 +42,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             path: slug,
             component: blogPostTemplate,
             context: {
-              id: edge.node.id
-            }
+              id: edge.node.id,
+            },
           });
         });
 
@@ -55,15 +55,15 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           pathPrefix: 'blog',
           // eslint-disable-next-line no-confusing-arrow
           buildPath: (index, pathPrefix) =>
-            index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`
+            index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
         });
-      })
+      }),
     );
   });
 };
 
-exports.onCreatePage = async ({ page, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions;
   const pageExport = page;
 
   return new Promise(resolve => {
@@ -75,13 +75,4 @@ exports.onCreatePage = async ({ page, boundActionCreators }) => {
 
     resolve();
   });
-};
-
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  if (stage === 'build-html') {
-    config.loader('null', {
-      test: /hammerjs/,
-      loader: 'null-loader'
-    });
-  }
 };
