@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { graphql, Link } from 'gatsby';
 import styled from 'react-emotion';
 import { FaAngleLeft } from 'react-icons/lib/fa';
 import 'prismjs/themes/prism.css';
+import Layout from '../layouts/main';
 import themeUtils from '../components/themeUtils';
 import QuoteCard from '../components/QuoteCard';
 import './BlogPost.css';
@@ -125,28 +126,30 @@ const BlogPost = ({ data: { contentfulBlogPost } }) => {
     : contentfulBlogPost.keyQuote.childMarkdownRemark.html;
 
   return (
-    <PostContainer>
-      <Helmet title={`${title} - Daniel Lemay`} />
-      <BlogIndex />
-      <PostHeaderContainer>
-        {keyQuote && (
-          <QuoteContainer>
-            <QuoteCard>
-              <div
-                dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
-              />
-            </QuoteCard>
-          </QuoteContainer>
-        )}
-        {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
-      </PostHeaderContainer>
-      <BlogBodyContainer>
-        <BlogTitle>{title}</BlogTitle>
-        <div
-          dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
-        />
-      </BlogBodyContainer>
-    </PostContainer>
+    <Layout>
+      <PostContainer>
+        <Helmet title={`${title} - Daniel Lemay`} />
+        <BlogIndex />
+        <PostHeaderContainer>
+          {keyQuote && (
+            <QuoteContainer>
+              <QuoteCard>
+                <div
+                  dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
+                />
+              </QuoteCard>
+            </QuoteContainer>
+          )}
+          {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
+        </PostHeaderContainer>
+        <BlogBodyContainer>
+          <BlogTitle>{title}</BlogTitle>
+          <div
+            dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
+          />
+        </BlogBodyContainer>
+      </PostContainer>
+    </Layout>
   );
 };
 
@@ -176,7 +179,6 @@ BlogPost.propTypes = {
 
 export default BlogPost;
 
-// eslint-disable-next-line no-undef
 export const pageQuery = graphql`
   query blogPostQuery($id: String!) {
     contentfulBlogPost(id: { eq: $id }) {
