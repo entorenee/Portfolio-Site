@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import { animateScroll as scroll } from 'react-scroll';
 import styled from 'react-emotion';
 import NavigationLinks from './NavigationLinks';
@@ -39,6 +38,7 @@ class Header extends Component {
     const mql = window.matchMedia('(max-width: 450px)');
     mql.addListener(this.handleSizeChange);
     this.handleSizeChange(mql);
+    this.path = window.location.pathname;
   }
 
   handleSizeChange(evt) {
@@ -53,10 +53,9 @@ class Header extends Component {
   }
 
   render() {
-    const { path } = this.props;
     const { mobile } = this.state;
 
-    const home = path === '/';
+    const home = this.path === '/';
 
     return (
       <HeaderWrapper>
@@ -76,9 +75,5 @@ class Header extends Component {
     );
   }
 }
-
-Header.propTypes = {
-  path: PropTypes.string.isRequired,
-};
 
 export default Header;
