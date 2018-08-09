@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import themeUtils from './themeUtils';

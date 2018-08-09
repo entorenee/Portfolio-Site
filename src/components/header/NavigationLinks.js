@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import ScrollLink from '../ScrollLink';
 import themeUtils from '../themeUtils';
 
