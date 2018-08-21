@@ -5,7 +5,7 @@ import styled from 'react-emotion';
 import themeUtils from '../themeUtils';
 import Carousel from './Carousel';
 
-const WorkHeader = styled.h1`
+const WorkHeader = styled('h1')`
   ${themeUtils.margins};
   margin-bottom: 1.6rem;
 `;

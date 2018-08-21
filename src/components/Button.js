@@ -18,7 +18,7 @@ const ButtonStyles = css`
   }
 `;
 
-const AnchorTag = styled.a`
+const AnchorTag = styled('a')`
   ${ButtonStyles};
 `;
 
@@ -26,7 +26,7 @@ const LinkTag = styled(Link)`
   ${ButtonStyles};
 `;
 
-const BasicButton = styled.button`
+const BasicButton = styled('button')`
   ${ButtonStyles};
 `;
 

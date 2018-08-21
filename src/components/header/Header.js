@@ -7,7 +7,7 @@ import MobileNavigation from './MobileNavigation';
 import themeUtils from '../themeUtils';
 import logo from '../../assets/img/logo.png';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled('div')`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@ const HeaderWrapper = styled.div`
   left: 0;
 `;
 
-const Logo = styled.img`
+const Logo = styled('img')`
   margin: 0.5em 0.5em;
 `;
 

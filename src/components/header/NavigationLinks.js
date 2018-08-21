@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import ScrollLink from '../ScrollLink';
 import themeUtils from '../themeUtils';
 
-const LinksContainer = styled.div`
+const LinksContainer = styled('div')`
   margin-bottom: 0;
   margin-right: 0;
   background-color: ${themeUtils.baseColor};

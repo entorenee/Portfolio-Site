@@ -7,7 +7,7 @@ import themeUtils from './themeUtils';
 import Card from './Card';
 import Button from './Button';
 
-const ContactSection = styled.section`
+const ContactSection = styled('section')`
   ${themeUtils.margins};
   margin-bottom: 1rem;
 
@@ -16,7 +16,7 @@ const ContactSection = styled.section`
   }
 `;
 
-const FormLabel = styled.label`
+const FormLabel = styled('label')`
   display: block;
 
   input,
@@ -45,14 +45,14 @@ const FormLabel = styled.label`
   }
 `;
 
-const ButtonContainer = styled.div`
+const ButtonContainer = styled('div')`
   padding-right: 1rem;
   padding-top: 0.3rem;
   display: flex;
   justify-content: flex-end;
 `;
 
-const SocialLink = styled.a`
+const SocialLink = styled('a')`
   color: ${themeUtils.mediumAccent};
   margin-right: 0.5rem;
   transition: color 800ms;

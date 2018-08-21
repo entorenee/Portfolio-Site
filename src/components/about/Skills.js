@@ -11,7 +11,7 @@ const IconStyles = css`
   display: block;
 `;
 
-const GridStyling = styled.div`
+const GridStyling = styled('div')`
   grid-area: 4 / 1 / 5 / -1;
 
   @media (min-width: 700px) {
@@ -23,7 +23,7 @@ const GridStyling = styled.div`
   }
 `;
 
-const HeaderFlexContainer = styled.div`
+const HeaderFlexContainer = styled('div')`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -34,13 +34,13 @@ const HeaderFlexContainer = styled.div`
   }
 `;
 
-const Divider = styled.hr`
+const Divider = styled('hr')`
   height: 0.2rem;
   margin-bottom: 0.7rem;
   background-color: ${themeUtils.complementaryLight};
 `;
 
-const SkillsList = styled.ul`
+const SkillsList = styled('ul')`
   padding: 0 2rem;
 
   li {

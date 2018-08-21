@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import themeUtils from './themeUtils';
 
-const CardWrapper = styled.div`
+const CardWrapper = styled('div')`
   max-width: ${({ maxWidth }) => maxWidth};
   margin-bottom: 1.5rem;
   border: 1px solid #ccc;

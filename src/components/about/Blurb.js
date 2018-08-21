@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 
-const BlurbContainer = styled.div`
+const BlurbContainer = styled('div')`
   grid-area: 2 / 1 / 3 / -1;
 
   @media (min-width: 700px) {
