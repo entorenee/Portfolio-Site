@@ -6,7 +6,7 @@ import projectSpotlight from './projectSpotlight';
 import CarouselControls from './CarouselControls';
 import Button from '../Button';
 
-const CarouselContainer = styled.div`
+const CarouselContainer = styled('div')`
   ${themeUtils.margins};
   position: relative;
   margin-bottom: 1.5rem;
@@ -15,23 +15,23 @@ const CarouselContainer = styled.div`
   box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
 `;
 
-const FocusImage = styled.img`
+const FocusImage = styled('img')`
   display: block;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
 `;
 
-const Description = styled.div`
+const Description = styled('div')`
   padding: 0.5rem;
 `;
 
-const Title = styled.h1`
+const Title = styled('h1')`
   text-align: center;
   margin-bottom: 0.6rem;
 `;
 
-const ProjectLinks = styled.div`
+const ProjectLinks = styled('div')`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

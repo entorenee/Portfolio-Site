@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import { FaCopyright } from 'react-icons/lib/fa';
 import themeUtils from './themeUtils';
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled('div')`
   padding: 0.4rem 0;
   display: flex;
   justify-content: space-around;

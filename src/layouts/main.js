@@ -7,7 +7,7 @@ import favicon from './favicon-32x32.png';
 
 import './index.css';
 
-const TemplateWrapper = ({ children, history }) => (
+const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet>
       <meta charSet="utf-8" />
@@ -22,19 +22,14 @@ const TemplateWrapper = ({ children, history }) => (
       />
       <link rel="icon" type="image/png" href={favicon} />
     </Helmet>
-    <Header path={history.location.pathname} />
-    <div>{children()}</div>
+    <Header />
+    <div>{children}</div>
     <Footer />
   </div>
 );
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    location: PropTypes.shape({
-      pathname: PropTypes.string,
-    }),
-  }).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
 };
 
 export default TemplateWrapper;

@@ -6,7 +6,7 @@ import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-ic
 import themeUtils from '../themeUtils';
 import { keyboardHandler } from '../../utils/helpers';
 
-const ControlsFlex = styled.div`
+const ControlsFlex = styled('div')`
   display: flex;
   justify-content: space-between;
   margin: 0 0.4rem 0.3rem 0.4rem;
@@ -21,14 +21,14 @@ const ControlsFlex = styled.div`
   }
 `;
 
-const ControlsContainer = styled.div`
+const ControlsContainer = styled('div')`
   display: flex;
   width: 13rem;
   justify-content: space-between;
   align-items: center;
 `;
 
-const SelectorBox = styled.span`
+const SelectorBox = styled('span')`
   width: 1.5rem;
   height: 0.8rem;
   border: 1px solid ${themeUtils.complementaryDark};

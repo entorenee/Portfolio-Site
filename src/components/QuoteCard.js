@@ -4,7 +4,7 @@ import styled from 'react-emotion';
 import themeUtils from './themeUtils';
 import Card from './Card';
 
-const QuoteContainer = styled.div`
+const QuoteContainer = styled('div')`
   position: relative;
   padding: 1rem 1rem 0rem 2rem;
 

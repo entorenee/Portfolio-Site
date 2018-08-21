@@ -4,7 +4,7 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import themeUtils from '../themeUtils';
 
-const MenuContainer = styled.div`
+const MenuContainer = styled('div')`
   position: relative;
   right: 25px;
   top: 0;
@@ -14,7 +14,7 @@ const MenuContainer = styled.div`
   justify-content: center;
 `;
 
-const Icon = styled.div`
+const Icon = styled('div')`
   position: relative;
   height: 20px;
   width: 30px;
@@ -32,7 +32,7 @@ const MenuLine = css`
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 `;
 
-const Line1 = styled.span`
+const Line1 = styled('span')`
   ${MenuLine};
   top: 0;
 `;
@@ -41,7 +41,7 @@ const Line1Open = css`
   transform: translateY(10px) translateY(-50%) rotate(-135deg);
 `;
 
-const Line2 = styled.span`
+const Line2 = styled('span')`
   ${MenuLine};
   top: 0;
   bottom: 0;
@@ -52,7 +52,7 @@ const Line2Open = css`
   opacity: 0;
 `;
 
-const Line3 = styled.span`
+const Line3 = styled('span')`
   ${MenuLine};
   bottom: 0;
 `;

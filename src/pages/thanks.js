@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import themeUtils from '../components/themeUtils';
+import Layout from '../layouts/main';
 import Card from '../components/Card';
 import Button from '../components/Button';
 
@@ -66,20 +67,22 @@ class Thanks extends Component {
     const { timer } = this.state;
 
     return (
-      <ThanksContainer>
-        <CardWrapper>
-          <Card maxWidth="500px" style={cardStyles}>
-            <h1 className={centerText}>Thank you!</h1>
-            <p>
-              Your form has been submitted successfully. Please click the button below to return to
-              the homepage. You will be automatically redirected in {timer / 1000} seconds.
-            </p>
-            <ButtonWrapper>
-              <Button to="/">Return to Homepage</Button>
-            </ButtonWrapper>
-          </Card>
-        </CardWrapper>
-      </ThanksContainer>
+      <Layout>
+        <ThanksContainer>
+          <CardWrapper>
+            <Card maxWidth="500px" style={cardStyles}>
+              <h1 className={centerText}>Thank you!</h1>
+              <p>
+                Your form has been submitted successfully. Please click the button below to return
+                to the homepage. You will be automatically redirected in {timer / 1000} seconds.
+              </p>
+              <ButtonWrapper>
+                <Button to="/">Return to Homepage</Button>
+              </ButtonWrapper>
+            </Card>
+          </CardWrapper>
+        </ThanksContainer>
+      </Layout>
     );
   }
 }

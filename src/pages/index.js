@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
+import Layout from '../layouts/main';
 import About from '../components/about/About';
 import Work from '../components/work/Work';
 import Contact from '../components/Contact';
-
-const { Fragment } = React;
 
 class IndexPage extends Component {
   constructor() {
@@ -27,7 +26,7 @@ class IndexPage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Layout>
         <About
           inputRef={el => {
             this.about = el;
@@ -43,7 +42,7 @@ class IndexPage extends Component {
             this.contact = el;
           }}
         />
-      </Fragment>
+      </Layout>
     );
   }
 }

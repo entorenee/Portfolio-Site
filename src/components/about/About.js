@@ -10,7 +10,7 @@ import themeUtils from '../themeUtils';
 
 import headshot from '../../assets/img/headshot.jpg';
 
-const AboutGridContainer = styled.div`
+const AboutGridContainer = styled('div')`
   ${themeUtils.margins};
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -23,7 +23,7 @@ const AboutGridContainer = styled.div`
   }
 `;
 
-const ProfilePic = styled.img`
+const ProfilePic = styled('img')`
   margin: 0 auto;
   border-radius: 50%;
   max-width: 150px;
@@ -42,7 +42,7 @@ const ProfilePic = styled.img`
   }
 `;
 
-const AboutHeader = styled.h1`
+const AboutHeader = styled('h1')`
   font-size: 3rem;
   justify-self: center;
   align-self: center;

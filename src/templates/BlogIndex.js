@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import themeUtils from '../components/themeUtils';
+import Layout from '../layouts/main';
 import BlogPostExcerpt from './BlogPostExcerpt';
 
 const BlogIndexContainer = styled.div`
@@ -43,33 +44,33 @@ NavLink.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-const BlogIndex = ({ pathContext }) => {
+const BlogIndex = ({ pageContext }) => {
   // eslint-disable-next-line prettier/prettier
-  const {
-    group, index, first, last,
-  } = pathContext;
+  const { group, index, first, last } = pageContext;
   const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
   const nextUrl = `/blog/page/${(index + 1).toString()}`;
 
   const Posts = group.map(({ node }) => <BlogPostExcerpt key={node.id} node={node} />);
 
   return (
-    <BlogIndexContainer>
-      <Helmet title="Blog | Daniel Lemay" />
-      <RSSContainer>
-        <Link to="/feed.xml">Subscribe to RSS</Link>
-      </RSSContainer>
-      {Posts}
-      <PageNavigationLinks>
-        <NavLink test={first} url={previousUrl} text="Go to Previous Page" />
-        <NavLink test={last} url={nextUrl} text="Go to Next Page" />
-      </PageNavigationLinks>
-    </BlogIndexContainer>
+    <Layout>
+      <BlogIndexContainer>
+        <Helmet title="Blog | Daniel Lemay" />
+        <RSSContainer>
+          <Link to="/feed.xml">Subscribe to RSS</Link>
+        </RSSContainer>
+        {Posts}
+        <PageNavigationLinks>
+          <NavLink test={first} url={previousUrl} text="Go to Previous Page" />
+          <NavLink test={last} url={nextUrl} text="Go to Next Page" />
+        </PageNavigationLinks>
+      </BlogIndexContainer>
+    </Layout>
   );
 };
 
 BlogIndex.propTypes = {
-  pathContext: PropTypes.shape({
+  pageContext: PropTypes.shape({
     group: PropTypes.arrayOf(
       PropTypes.shape({
         node: PropTypes.shape({

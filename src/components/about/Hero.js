@@ -3,7 +3,7 @@ import styled from 'react-emotion';
 import themeUtils from '../themeUtils';
 import heroImg from '../../assets/img/hero-image.jpg';
 
-const Image = styled.div`
+const Image = styled('div')`
   background-image: url(${heroImg});
   background-repeat: no-repeat;
   background-position: center center;
@@ -28,7 +28,7 @@ const Image = styled.div`
   }
 `;
 
-const HeroText = styled.div`
+const HeroText = styled('div')`
   width: 50%;
   height: 100%;
   display: flex;

@@ -6,7 +6,7 @@ import QuoteCard from '../QuoteCard';
 
 import quotesData from '../../assets/js/quotesData';
 
-const GridStyling = styled.div`
+const GridStyling = styled('div')`
   grid-area: 3 / 1 / 4 / -1;
 
   @media (min-width: 700px) {
