@@ -10,49 +10,49 @@ exports[`MobileNavigation renders properly 1`] = `
   }
 >
   <div
-    className="css-5eaigi ew845gg0"
+    className="css-1qmd78z"
     onClick={[Function]}
   >
     <div
-      className="css-m56tt4 ew845gg1"
+      className="css-1b73pd2"
     >
       <span
-        className="css-l2kihn ew845gg2"
+        className="css-1b4rsnb"
       />
       <span
-        className="css-1pdkle ew845gg3"
+        className="css-rjep2f"
       />
       <span
-        className="css-1ecbd3c ew845gg4"
+        className="css-1wymppr"
       />
     </div>
   </div>
   <div
-    className="css-ci170n e1mljnxt0"
+    className="css-k4nvfm"
   >
     <a
-      className="css-hur3c3"
+      className="css-1evnab9"
       href="#about"
       onClick={[Function]}
     >
       About
     </a>
     <a
-      className="css-hur3c3"
+      className="css-1evnab9"
       href="#work"
       onClick={[Function]}
     >
       Work
     </a>
     <a
-      className="css-hur3c3"
+      className="css-1evnab9"
       href="#contact"
       onClick={[Function]}
     >
       Contact
     </a>
     <MockedLink
-      className="css-hur3c3"
+      className="css-1evnab9"
       to="/blog"
     >
       Blog
