@@ -65,7 +65,9 @@
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-react": "^7.10.0",
     "jest": "^23.5.0",
+    "jest-emotion": "^9.2.7",
     "prettier": "^1.14.0",
-    "react-test-renderer": "^16.4.2"
+    "react-test-renderer": "^16.4.2",
+    "react-testing-library": "^5.0.0"
   }
 }
