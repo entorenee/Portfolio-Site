@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import styled from 'react-emotion';
-import themeUtils from './themeUtils';
-import Card from './Card';
+import themeUtils from '../../themeUtils';
+import Card from '../card';
 
 const QuoteContainer = styled('div')`
   position: relative;
@@ -31,14 +31,14 @@ const QuoteContainer = styled('div')`
   }
 `;
 
-const QuoteCard = ({ children }) => (
+type Props = {
+  children: React.Node,
+};
+
+const QuoteCard = ({ children }: Props) => (
   <Card>
     <QuoteContainer>{children}</QuoteContainer>
   </Card>
 );
-
-QuoteCard.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default QuoteCard;
