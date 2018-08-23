@@ -1,9 +1,10 @@
+// @flow
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaCode } from 'react-icons/lib/fa';
-import themeUtils from '../themeUtils';
-import Card from '../Card';
+import themeUtils from '../../themeUtils';
+import Card from '../../baseComponents/card';
 
 const IconStyles = css`
   margin: 0 auto;

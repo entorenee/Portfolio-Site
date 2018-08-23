@@ -1,10 +1,11 @@
+// @flow
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import Slideshow from '../Slideshow';
-import QuoteCard from '../QuoteCard';
+import Slideshow from '../../Slideshow';
+import QuoteCard from '../../baseComponents/quoteCard';
 
-import quotesData from '../../assets/js/quotesData';
+import quotesData from '../../../assets/js/quotesData';
 
 const GridStyling = styled('div')`
   grid-area: 3 / 1 / 4 / -1;

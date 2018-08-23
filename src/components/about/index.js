@@ -1,11 +1,11 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { Element } from 'react-scroll';
-import Hero from './Hero';
-import Skills from './Skills';
-import Blurb from './Blurb';
-import RandomQuote from './RandomQuote';
+import Hero from './hero';
+import Skills from './skills';
+import Blurb from './blurb';
+import RandomQuote from './random-quote';
 import themeUtils from '../themeUtils';
 
 import headshot from '../../assets/img/headshot.jpg';
@@ -59,26 +59,22 @@ const AboutHeader = styled('h1')`
   }
 `;
 
-const About = props => {
-  const { inputRef } = props;
-
-  return (
-    <section id="about" ref={inputRef}>
-      <Hero />
-      <Element name="about" />
-      <AboutGridContainer>
-        <ProfilePic src={headshot} />
-        <AboutHeader>About</AboutHeader>
-        <RandomQuote />
-        <Skills />
-        <Blurb />
-      </AboutGridContainer>
-    </section>
-  );
+type Props = {
+  inputRef: () => void,
 };
 
-About.propTypes = {
-  inputRef: PropTypes.func.isRequired,
-};
+const About = ({ inputRef }: Props) => (
+  <section id="about" ref={inputRef}>
+    <Hero />
+    <Element name="about" />
+    <AboutGridContainer>
+      <ProfilePic src={headshot} />
+      <AboutHeader>About</AboutHeader>
+      <RandomQuote />
+      <Skills />
+      <Blurb />
+    </AboutGridContainer>
+  </section>
+);
 
 export default About;
