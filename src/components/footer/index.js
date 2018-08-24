@@ -1,9 +1,11 @@
+// @flow
 import React from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion';
 import { FaCopyright } from 'react-icons/lib/fa';
-import themeUtils from './themeUtils';
 
-const FooterWrapper = styled('div')`
+import themeUtils from '../themeUtils';
+
+const wrapper = css`
   padding: 0.4rem 0;
   display: flex;
   justify-content: space-around;
@@ -20,7 +22,7 @@ const getCurrentYear = () => {
 };
 
 const Footer = () => (
-  <FooterWrapper>
+  <footer className={wrapper}>
     <div>
       <FaCopyright size={18} /> {getCurrentYear()} Daniel Lemay. All Rights Reserved.
     </div>
@@ -31,7 +33,7 @@ const Footer = () => (
         alt="Powered by Contentful"
       />
     </a>
-  </FooterWrapper>
+  </footer>
 );
 
 export default Footer;
