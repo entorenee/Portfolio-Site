@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders a button correctly 1`] = `
+<button
+  class="css-lwkiyc"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`<Button /> renders an anchor link correctly 1`] = `
+<a
+  href="https://github.com/dlsemay"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  My Github
+</a>
+`;
+
+exports[`<Button /> renders an internal link correctly 1`] = `
+<mockedlink
+  class="css-lwkiyc"
+  to="/about"
+>
+  About
+</mockedlink>
+`;
