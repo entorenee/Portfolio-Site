@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+// @flow
+import * as React from 'react';
+import { css } from 'emotion';
 import { Element } from 'react-scroll';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
-import themeUtils from './themeUtils';
-import Card from './Card';
-import Button from './Button';
+import themeUtils from '../themeUtils';
+import Card from '../base-components/card';
+import Button from '../base-components/button';
 
-const ContactSection = styled('section')`
+const contactSection = css`
   ${themeUtils.margins};
   margin-bottom: 1rem;
 
@@ -16,7 +16,7 @@ const ContactSection = styled('section')`
   }
 `;
 
-const FormLabel = styled('label')`
+const formLabel = css`
   display: block;
 
   input,
@@ -45,14 +45,14 @@ const FormLabel = styled('label')`
   }
 `;
 
-const ButtonContainer = styled('div')`
+const buttonContainer = css`
   padding-right: 1rem;
   padding-top: 0.3rem;
   display: flex;
   justify-content: flex-end;
 `;
 
-const SocialLink = styled('a')`
+const socialLink = css`
   color: ${themeUtils.mediumAccent};
   margin-right: 0.5rem;
   transition: color 800ms;
@@ -62,12 +62,16 @@ const SocialLink = styled('a')`
   }
 `;
 
-const SocialIcon = ({ component, link }) => <SocialLink href={link}>{component}</SocialLink>;
-
-SocialIcon.propTypes = {
-  link: PropTypes.string.isRequired,
-  component: PropTypes.node.isRequired,
+type IconProps = {
+  link: string,
+  component: React.Node,
 };
+
+const SocialIcon = ({ component, link }: IconProps) => (
+  <a className={socialLink} href={link}>
+    {component}
+  </a>
+);
 
 const socialData = [
   {
@@ -87,41 +91,41 @@ const socialData = [
   },
 ];
 
-const Contact = ({ inputRef }) => (
-  <ContactSection id="contact">
+type ContactProps = {
+  inputRef: () => void,
+};
+
+const Contact = ({ inputRef }: ContactProps) => (
+  <section className={contactSection} id="contact">
     <div ref={inputRef}>
       <Element name="contact" />
       <h1>Contact</h1>
       <Card maxWidth="350px">
         <form action="https://formspree.io/daniel@dslemay.com" method="POST">
-          <FormLabel htmlFor="name">
+          <label classNamwe={formLabel} htmlFor="name">
             <span>Name:</span>
             <input type="text" name="name" placeholder="Your name" />
-          </FormLabel>
-          <FormLabel htmlFor="email">
+          </label>
+          <label className={formLabel} htmlFor="email">
             <span>Email:</span>
             <input type="email" name="_replyto" placeholder="Your e-mail" />
-          </FormLabel>
-          <FormLabel htmlFor="message">
+          </label>
+          <label className={formLabel} htmlFor="message">
             <span>Message:</span>
             <textarea rows="6" name="message" placeholder="Your message" />
-          </FormLabel>
+          </label>
           <input type="hidden" name="_subject" value="New contact form submission" />
           <input type="hidden" name="_next" value="/thanks" />
-          <ButtonContainer>
+          <div className={buttonContainer}>
             <Button type="submit">Submit</Button>
-          </ButtonContainer>
+          </div>
         </form>
       </Card>
       {socialData.map(social => (
         <SocialIcon key={social.service} link={social.link} component={social.component} />
       ))}
     </div>
-  </ContactSection>
+  </section>
 );
-
-Contact.propTypes = {
-  inputRef: PropTypes.func.isRequired,
-};
 
 export default Contact;
