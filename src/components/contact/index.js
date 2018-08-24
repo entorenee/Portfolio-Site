@@ -102,7 +102,7 @@ const Contact = ({ inputRef }: ContactProps) => (
       <h1>Contact</h1>
       <Card maxWidth="350px">
         <form action="https://formspree.io/daniel@dslemay.com" method="POST">
-          <label classNamwe={formLabel} htmlFor="name">
+          <label className={formLabel} htmlFor="name">
             <span>Name:</span>
             <input type="text" name="name" placeholder="Your name" />
           </label>
