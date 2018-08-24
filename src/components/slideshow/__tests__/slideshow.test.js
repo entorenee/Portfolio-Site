@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
-import Slideshow from '../src/components/Slideshow';
-import projectSpotlight from '../src/components/work/projectSpotlight';
+import Slideshow from '..';
+import projectSpotlight from '../../work/carousel/project-spotlight';
 
 describe('Slideshow', () => {
   let mountedSlideshow;

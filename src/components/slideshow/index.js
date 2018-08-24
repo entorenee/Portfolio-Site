@@ -1,9 +1,28 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 
 import updateSlideshow from './stateUpdaters';
 
-class Slideshow extends React.Component {
+export type Direction = 'previous' | 'next' | number;
+
+export type State = {|
+  currIndex: number,
+  isPlaying: boolean,
+  intervalId?: IntervalID,
+|};
+
+export type Props = {|
+  children: ({
+    ...State,
+    updateProject: (direction: Direction, reset: boolean) => void,
+    updateIsPlaying: () => void,
+    slideData: {},
+  }) => React.Node,
+  slides: Array<{}>,
+  timerLength: number,
+|};
+
+class Slideshow extends React.Component<Props, State> {
   static defaultProps = {
     timerLength: 5000,
   };
@@ -23,7 +42,7 @@ class Slideshow extends React.Component {
     clearInterval(intervalId);
   }
 
-  updateProject = (direction, reset = false) => {
+  updateProject = (direction: Direction, reset: boolean = false) => {
     const { isPlaying } = this.state;
 
     if (isPlaying && reset) {
@@ -71,11 +90,5 @@ class Slideshow extends React.Component {
     });
   }
 }
-
-Slideshow.propTypes = {
-  children: PropTypes.func.isRequired,
-  slides: PropTypes.arrayOf(PropTypes.object).isRequired,
-  timerLength: PropTypes.number,
-};
 
 export default Slideshow;

@@ -2,10 +2,10 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import Button from '../../baseComponents/button';
+import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
 import projectSpotlight from './project-spotlight';
-import Slideshow from '../../Slideshow';
+import Slideshow from '../../slideshow';
 import themeUtils from '../../themeUtils';
 
 const carouselContainer = css`

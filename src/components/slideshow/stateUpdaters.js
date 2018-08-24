@@ -1,4 +1,7 @@
-const updateSlideshow = (prevState, props, direction) => {
+// @flow
+import type { Direction, Props, State } from '.';
+
+const updateSlideshow = (prevState: State, props: Props, direction: Direction) => {
   const { slides } = props;
   const projectTotal = slides.length;
   const { currIndex } = prevState;
