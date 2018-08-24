@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QuoteCard /> renders correctly 1`] = `
+<div>
+  <div
+    class="css-17z98u"
+  >
+    <div
+      class="css-o0u50g"
+    >
+      <p>
+        Inspiring quotes are amazing!
+      </p>
+    </div>
+  </div>
+</div>
+`;
