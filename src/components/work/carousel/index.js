@@ -1,12 +1,14 @@
+// @flow
 import React from 'react';
-import styled from 'react-emotion';
-import themeUtils from '../themeUtils';
-import Slideshow from '../Slideshow';
-import projectSpotlight from './projectSpotlight';
-import CarouselControls from './CarouselControls';
-import Button from '../Button';
+import { css } from 'emotion';
 
-const CarouselContainer = styled('div')`
+import Button from '../../baseComponents/button';
+import CarouselControls from './carousel-controls';
+import projectSpotlight from './project-spotlight';
+import Slideshow from '../../Slideshow';
+import themeUtils from '../../themeUtils';
+
+const carouselContainer = css`
   ${themeUtils.margins};
   position: relative;
   margin-bottom: 1.5rem;
@@ -15,23 +17,23 @@ const CarouselContainer = styled('div')`
   box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
 `;
 
-const FocusImage = styled('img')`
+const focusImage = css`
   display: block;
   max-width: 100%;
   height: auto;
   margin: 0 auto;
 `;
 
-const Description = styled('div')`
+const description = css`
   padding: 0.5rem;
 `;
 
-const Title = styled('h1')`
+const title = css`
   text-align: center;
   margin-bottom: 0.6rem;
 `;
 
-const ProjectLinks = styled('div')`
+const projectLinks = css`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -45,10 +47,18 @@ const ProjectLinks = styled('div')`
   }
 `;
 
+export type Project = {
+  title: string,
+  image: string,
+  projectLink: string,
+  githubLink: string,
+  description: string,
+};
+
 const Carousel = () => (
   <Slideshow slides={projectSpotlight}>
     {({ currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject }) => (
-      <CarouselContainer>
+      <div className={carouselContainer}>
         <CarouselControls
           updateProject={updateProject}
           isPlaying={isPlaying}
@@ -57,19 +67,19 @@ const Carousel = () => (
           projects={projectSpotlight}
         />
         <div>
-          <Title>{project.title}</Title>
-          <FocusImage src={project.image} />
-          <Description>
+          <h1 className={title}>{project.title}</h1>
+          <img className={focusImage} src={project.image} />
+          <div className={description}>
             <div
               dangerouslySetInnerHTML={{ __html: project.description }} // eslint-disable-line react/no-danger, max-len
             />
-            <ProjectLinks>
+            <div className={projectLinks}>
               <Button href={project.projectLink}>Link to Live Project</Button>
               <Button href={project.githubLink}>Link to GitHub Repository</Button>
-            </ProjectLinks>
-          </Description>
+            </div>
+          </div>
         </div>
-      </CarouselContainer>
+      </div>
     )}
   </Slideshow>
 );

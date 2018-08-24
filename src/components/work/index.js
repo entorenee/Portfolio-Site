@@ -2,8 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Element } from 'react-scroll';
 import styled from 'react-emotion';
+
 import themeUtils from '../themeUtils';
-import Carousel from './Carousel';
+import Carousel from './carousel';
 
 const WorkHeader = styled('h1')`
   ${themeUtils.margins};

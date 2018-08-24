@@ -1,10 +1,12 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/lib/fa';
-import themeUtils from '../themeUtils';
-import { keyboardHandler } from '../../utils/helpers';
+
+import type { Project } from '..';
+import themeUtils from '../../../themeUtils';
+import { keyboardHandler } from '../../../../utils/helpers';
 
 const ControlsFlex = styled('div')`
   display: flex;
@@ -39,7 +41,21 @@ const selected = css`
   background-color: #9a8956;
 `;
 
-const CarouselControls = ({ currIndex, isPlaying, projects, updateIsPlaying, updateProject }) => (
+type Props = {
+  currIndex: number,
+  isPlaying: boolean,
+  projects: Array<Project>,
+  updateIsPlaying: () => void,
+  updateProject: (direction: 'previous' | 'next' | number, reset: boolean) => void,
+};
+
+const CarouselControls = ({
+  currIndex,
+  isPlaying,
+  projects,
+  updateIsPlaying,
+  updateProject,
+}: Props) => (
   <ControlsFlex>
     {isPlaying ? (
       <FaPauseCircle
@@ -96,13 +112,5 @@ const CarouselControls = ({ currIndex, isPlaying, projects, updateIsPlaying, upd
     </ControlsContainer>
   </ControlsFlex>
 );
-
-CarouselControls.propTypes = {
-  updateProject: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
-  updateIsPlaying: PropTypes.func.isRequired,
-  currIndex: PropTypes.number.isRequired,
-  projects: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default CarouselControls;

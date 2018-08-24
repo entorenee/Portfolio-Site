@@ -1,8 +1,8 @@
-import wanderfulThumb from '../../assets/img/projects/wanderful-thumb.jpg';
-import simonThumb from '../../assets/img/projects/simon-thumb.jpg';
-import ticTacToeThumb from '../../assets/img/projects/tic-tac-toe-thumb.jpg';
-import pomodoroThumb from '../../assets/img/projects/pomodoro-thumb.jpg';
-import calculatorThumb from '../../assets/img/projects/calculator-thumb.jpg';
+import wanderfulThumb from '../../../assets/img/projects/wanderful-thumb.jpg';
+import simonThumb from '../../../assets/img/projects/simon-thumb.jpg';
+import ticTacToeThumb from '../../../assets/img/projects/tic-tac-toe-thumb.jpg';
+import pomodoroThumb from '../../../assets/img/projects/pomodoro-thumb.jpg';
+import calculatorThumb from '../../../assets/img/projects/calculator-thumb.jpg';
 
 const projectSpotlight = [
   {
