@@ -1,10 +1,10 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import themeUtils from '../themeUtils';
+import themeUtils from '../../../themeUtils';
 
-const MenuContainer = styled('div')`
+const iconContainer = css`
   position: relative;
   right: 25px;
   top: 0;
@@ -14,7 +14,7 @@ const MenuContainer = styled('div')`
   justify-content: center;
 `;
 
-const Icon = styled('div')`
+const icon = css`
   position: relative;
   height: 20px;
   width: 30px;
@@ -61,19 +61,19 @@ const Line3Open = css`
   transform: translateY(-10px) translateY(50%) rotate(135deg);
 `;
 
-const MenuIcon = ({ isOpen, toggleOpen }) => (
-  <MenuContainer onClick={() => toggleOpen()}>
-    <Icon>
+type Props = {
+  isOpen: boolean,
+  toggleOpen: () => void,
+};
+
+const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
+  <div className={iconContainer} onClick={() => toggleOpen()}>
+    <div className={icon}>
       <Line1 className={isOpen ? Line1Open : ''} />
       <Line2 className={isOpen ? Line2Open : ''} />
       <Line3 className={isOpen ? Line3Open : ''} />
-    </Icon>
-  </MenuContainer>
+    </div>
+  </div>
 );
-
-MenuIcon.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  toggleOpen: PropTypes.func.isRequired,
-};
 
 export default MenuIcon;

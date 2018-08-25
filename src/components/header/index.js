@@ -1,13 +1,15 @@
+// @flow
 import React, { Component } from 'react';
 import { Link } from 'gatsby';
 import { animateScroll as scroll } from 'react-scroll';
-import styled from 'react-emotion';
-import NavigationLinks from './NavigationLinks';
-import MobileNavigation from './MobileNavigation';
+import { css } from 'emotion';
+
+import Navigation from './navigation';
+import MobileNavigation from './mobile-navigation';
 import themeUtils from '../themeUtils';
 import logo from '../../assets/img/logo.png';
 
-const HeaderWrapper = styled('div')`
+const wrapper = css`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,18 +23,20 @@ const HeaderWrapper = styled('div')`
   left: 0;
 `;
 
-const Logo = styled('img')`
+const logoStyles = css`
   margin: 0.5em 0.5em;
 `;
 
-class Header extends Component {
-  constructor() {
-    super();
-    this.state = {
-      mobile: true,
-    };
-    this.handleSizeChange = this.handleSizeChange.bind(this);
-  }
+type State = {
+  isMobile: boolean,
+};
+
+class Header extends Component<{}, State> {
+  path: string;
+
+  state = {
+    isMobile: true,
+  };
 
   componentDidMount() {
     const mql = window.matchMedia('(max-width: 450px)');
@@ -41,24 +45,24 @@ class Header extends Component {
     this.path = window.location.pathname;
   }
 
-  handleSizeChange(evt) {
-    const { mobile } = this.state;
+  handleSizeChange = evt => {
+    const { isMobile } = this.state;
 
-    if (evt.matches && !mobile) {
-      this.setState({ mobile: true });
+    if (evt.matches && !isMobile) {
+      this.setState({ isMobile: true });
     }
-    if (!evt.matches && mobile) {
-      this.setState({ mobile: false });
+    if (!evt.matches && isMobile) {
+      this.setState({ isMobile: false });
     }
-  }
+  };
 
   render() {
-    const { mobile } = this.state;
+    const { isMobile } = this.state;
 
     const home = this.path === '/';
 
     return (
-      <HeaderWrapper>
+      <header className={wrapper}>
         <Link
           to="/"
           onClick={e => {
@@ -68,10 +72,10 @@ class Header extends Component {
             }
           }}
         >
-          <Logo src={logo} />
+          <img className={logoStyles} src={logo} alt="Logo" />
         </Link>
-        {mobile ? <MobileNavigation home={home} /> : <NavigationLinks home={home} />}
-      </HeaderWrapper>
+        {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
+      </header>
     );
   }
 }
