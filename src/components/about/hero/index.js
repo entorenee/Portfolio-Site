@@ -1,10 +1,11 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion';
+
 import themeUtils from '../../themeUtils';
 import heroImg from '../../../assets/img/hero-image.jpg';
 
-const Image = styled('div')`
+const bgImage = css`
   background-image: url(${heroImg});
   background-repeat: no-repeat;
   background-position: center center;
@@ -29,7 +30,7 @@ const Image = styled('div')`
   }
 `;
 
-const HeroText = styled('div')`
+const heroText = css`
   width: 50%;
   height: 100%;
   display: flex;
@@ -52,13 +53,13 @@ const HeroText = styled('div')`
 `;
 
 const Hero = () => (
-  <Image>
-    <HeroText>
+  <div className={bgImage}>
+    <div className={heroText}>
       <h1>Daniel Lemay</h1>
       <hr />
       <h1>Full Stack JavaScript Developer</h1>
-    </HeroText>
-  </Image>
+    </div>
+  </div>
 );
 
 export default Hero;

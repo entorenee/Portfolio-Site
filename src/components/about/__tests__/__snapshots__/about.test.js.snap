@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<About /> renders correctly 1`] = `
+<section
+  id="about"
+>
+  <div
+    class="css-brw5bm"
+  >
+    <div
+      class="css-1318ta4"
+    >
+      <h1>
+        Daniel Lemay
+      </h1>
+      <hr />
+      <h1>
+        Full Stack JavaScript Developer
+      </h1>
+    </div>
+  </div>
+  <div
+    name="about"
+  />
+  <div
+    class="css-1ovn8de"
+  >
+    <img
+      alt="Profile image of Daniel Lemay"
+      class="css-yk2am8"
+      src="[object Object]"
+    />
+    <h1
+      class="css-wha65k"
+    >
+      About
+    </h1>
+    <div
+      class="css-1kcnour"
+    >
+      <div
+        class="css-17z98u"
+      >
+        <div
+          class="css-o0u50g"
+        >
+          <div>
+            "One option is no option. Two options is a dilemma. Three options is a choice."
+          </div>
+          <div
+            class="css-1875xqs"
+          >
+            ~Anthony Robbins
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="css-9xmqsy"
+    >
+      <div
+        class="css-17z98u"
+      >
+        <div
+          class="css-benvf6"
+        >
+          <svg
+            class="css-o09bwr"
+            fill="currentColor"
+            height="80"
+            preserveAspectRatio="xMidYMid meet"
+            style="vertical-align: middle; color: rgb(45, 59, 127);"
+            viewBox="0 0 40 40"
+            width="80"
+          >
+            <g>
+              <path
+                d="m12.8 30.4l-1 1.1q-0.2 0.2-0.5 0.2t-0.5-0.2l-9.7-9.7q-0.2-0.2-0.2-0.5t0.2-0.4l9.7-9.7q0.2-0.2 0.5-0.2t0.5 0.2l1 1q0.2 0.2 0.2 0.5t-0.2 0.5l-8.1 8.1 8.1 8.2q0.2 0.2 0.2 0.5t-0.2 0.4z m12.3-22.1l-7.8 26.8q0 0.3-0.3 0.4t-0.5 0.1l-1.3-0.4q-0.2-0.1-0.4-0.3t0-0.5l7.7-26.8q0.1-0.3 0.4-0.4t0.4-0.1l1.3 0.4q0.3 0 0.4 0.3t0.1 0.5z m13.6 13.5l-9.7 9.7q-0.2 0.2-0.4 0.2t-0.5-0.2l-1-1.1q-0.3-0.2-0.3-0.4t0.3-0.5l8.1-8.2-8.1-8.1q-0.3-0.2-0.3-0.5t0.3-0.5l1-1q0.2-0.2 0.5-0.2t0.4 0.2l9.7 9.7q0.2 0.2 0.2 0.4t-0.2 0.5z"
+              />
+            </g>
+          </svg>
+          <h1>
+            Skills
+          </h1>
+        </div>
+        <hr
+          class="css-47nb20"
+        />
+        <ul
+          class="css-86b2o"
+        >
+          <li>
+            Responsive Web Design
+          </li>
+          <li>
+            Cutting edge web technologies including React, Redux, CSS Grid
+          </li>
+          <li>
+            Backend experience with APIs, Node, Express, and MongoDB
+          </li>
+          <li>
+            Experience working in large and diverse teams
+          </li>
+          <li>
+            Clear Communication and direction to reach end goals
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div
+      class="css-oidwxc"
+    >
+      <p>
+        <strong>
+          My name is Daniel Lemay, and I am a full stack JavaScript developer specializing in React.
+        </strong>
+         
+        I focus on building responsive and accessible front end applications using modern web technologies that are a pleasure to use. I pay attention to the details and work well with numerous stakeholders to complete projects. Take a look at some of my projects below and to contact me about available opportunities.
+      </p>
+    </div>
+  </div>
+</section>
+`;

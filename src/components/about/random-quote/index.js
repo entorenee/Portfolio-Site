@@ -1,13 +1,13 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
 import { css } from 'emotion';
-import Slideshow from '../../Slideshow';
-import QuoteCard from '../../baseComponents/quoteCard';
+
+import Slideshow from '../../slideshow';
+import QuoteCard from '../../base-components/quote-card';
 
 import quotesData from '../../../assets/js/quotesData';
 
-const GridStyling = styled('div')`
+const gridStyles = css`
   grid-area: 3 / 1 / 4 / -1;
 
   @media (min-width: 700px) {
@@ -26,12 +26,12 @@ const attribution = css`
 const RandomQuote = () => (
   <Slideshow slides={quotesData}>
     {({ slideData: quote }) => (
-      <GridStyling>
+      <div className={gridStyles}>
         <QuoteCard>
           <div>{quote.quote}</div>
           <div className={attribution}>{`~${quote.attribution}`}</div>
         </QuoteCard>
-      </GridStyling>
+      </div>
     )}
   </Slideshow>
 );

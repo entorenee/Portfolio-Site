@@ -1,16 +1,16 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion';
 import { Element } from 'react-scroll';
+
 import Hero from './hero';
 import Skills from './skills';
 import Blurb from './blurb';
 import RandomQuote from './random-quote';
 import themeUtils from '../themeUtils';
-
 import headshot from '../../assets/img/headshot.jpg';
 
-const AboutGridContainer = styled('div')`
+const wrapper = css`
   ${themeUtils.margins};
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -23,7 +23,7 @@ const AboutGridContainer = styled('div')`
   }
 `;
 
-const ProfilePic = styled('img')`
+const avatar = css`
   margin: 0 auto;
   border-radius: 50%;
   max-width: 150px;
@@ -42,7 +42,7 @@ const ProfilePic = styled('img')`
   }
 `;
 
-const AboutHeader = styled('h1')`
+const header = css`
   font-size: 3rem;
   justify-self: center;
   align-self: center;
@@ -67,13 +67,13 @@ const About = ({ inputRef }: Props) => (
   <section id="about" ref={inputRef}>
     <Hero />
     <Element name="about" />
-    <AboutGridContainer>
-      <ProfilePic src={headshot} />
-      <AboutHeader>About</AboutHeader>
+    <div className={wrapper}>
+      <img className={avatar} src={headshot} alt="Profile image of Daniel Lemay" />
+      <h1 className={header}>About</h1>
       <RandomQuote />
       <Skills />
       <Blurb />
-    </AboutGridContainer>
+    </div>
   </section>
 );
 

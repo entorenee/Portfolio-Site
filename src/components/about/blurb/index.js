@@ -1,8 +1,8 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion';
 
-const BlurbContainer = styled('div')`
+const wrapper = css`
   grid-area: 2 / 1 / 3 / -1;
 
   @media (min-width: 700px) {
@@ -15,7 +15,7 @@ const BlurbContainer = styled('div')`
 `;
 
 const Blurb = () => (
-  <BlurbContainer>
+  <div className={wrapper}>
     <p>
       <strong>
         My name is Daniel Lemay, and I am a full stack JavaScript developer specializing in React.
@@ -25,7 +25,7 @@ const Blurb = () => (
       numerous stakeholders to complete projects. Take a look at some of my projects below and to
       contact me about available opportunities.
     </p>
-  </BlurbContainer>
+  </div>
 );
 
 export default Blurb;
