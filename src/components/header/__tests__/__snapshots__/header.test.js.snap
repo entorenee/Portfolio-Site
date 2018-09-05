@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Navigation /> renders correctly 1`] = `
+<nav
+  class="css-hujuh2"
+>
+  <a
+    class="css-2mmsga"
+    href="#about"
+  >
+    About
+  </a>
+  <a
+    class="css-2mmsga"
+    href="#work"
+  >
+    Work
+  </a>
+  <a
+    class="css-2mmsga"
+    href="#contact"
+  >
+    Contact
+  </a>
+  <mockedlink
+    class="css-2mmsga"
+    to="/blog"
+  >
+    Blog
+  </mockedlink>
+</nav>
+`;
