@@ -1,10 +1,9 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaCode } from 'react-icons/lib/fa';
-import themeUtils from '../../themeUtils';
-import Card from '../../base-components/card';
+import themeUtils from '../themeUtils';
+import Card from '../base-components/card';
 
 const IconStyles = css`
   margin: 0 auto;
@@ -12,7 +11,7 @@ const IconStyles = css`
   display: block;
 `;
 
-const GridStyling = styled('div')`
+const gridStyles = css`
   grid-area: 4 / 1 / 5 / -1;
 
   @media (min-width: 700px) {
@@ -24,7 +23,11 @@ const GridStyling = styled('div')`
   }
 `;
 
-const HeaderFlexContainer = styled('div')`
+const cardStyles = css`
+  max-width: 400px;
+`;
+
+const headerContainer = css`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -35,13 +38,13 @@ const HeaderFlexContainer = styled('div')`
   }
 `;
 
-const Divider = styled('hr')`
+const divider = css`
   height: 0.2rem;
   margin-bottom: 0.7rem;
   background-color: ${themeUtils.complementaryLight};
 `;
 
-const SkillsList = styled('ul')`
+const skillsList = css`
   padding: 0 2rem;
 
   li {
@@ -51,22 +54,22 @@ const SkillsList = styled('ul')`
 `;
 
 const Skills = () => (
-  <GridStyling>
-    <Card maxWidth="400px">
-      <HeaderFlexContainer>
+  <div className={gridStyles}>
+    <Card className={cardStyles}>
+      <div className={headerContainer}>
         <FaCode size={80} color={themeUtils.baseColor} className={IconStyles} />
         <h1>Skills</h1>
-      </HeaderFlexContainer>
-      <Divider />
-      <SkillsList>
+      </div>
+      <hr className={divider} />
+      <ul className={skillsList}>
         <li>Responsive Web Design</li>
         <li>Cutting edge web technologies including React, Redux, CSS Grid</li>
         <li>Backend experience with APIs, Node, Express, and MongoDB</li>
         <li>Experience working in large and diverse teams</li>
         <li>Clear Communication and direction to reach end goals</li>
-      </SkillsList>
+      </ul>
     </Card>
-  </GridStyling>
+  </div>
 );
 
 export default Skills;

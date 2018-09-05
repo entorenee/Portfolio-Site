@@ -68,7 +68,7 @@ const About = ({ inputRef }: Props) => (
     <Hero />
     <Element name="about" />
     <div className={wrapper}>
-      <img className={avatar} src={headshot} alt="Profile image of Daniel Lemay" />
+      <img className={avatar} src={headshot} alt="Profile of Daniel Lemay" />
       <h1 className={header}>About</h1>
       <RandomQuote />
       <Skills />

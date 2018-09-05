@@ -2,8 +2,8 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import themeUtils from '../../themeUtils';
-import heroImg from '../../../assets/img/hero-image.jpg';
+import themeUtils from '../themeUtils';
+import heroImg from '../../assets/img/hero-image.jpg';
 
 const bgImage = css`
   background-image: url(${heroImg});

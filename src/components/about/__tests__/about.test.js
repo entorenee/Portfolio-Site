@@ -3,11 +3,14 @@ import { cleanup, render } from 'react-testing-library';
 
 import About from '..';
 
-describe('<About />', () => {
-  afterEach(cleanup);
+afterEach(cleanup);
 
+describe('<About />', () => {
   it('renders correctly', () => {
-    const { container } = render(<About />);
-    expect(container.firstChild).toMatchSnapshot();
+    const { container, getByTestId, getByText } = render(<About />);
+
+    expect(container).toBeTruthy();
+    expect(getByTestId('random-quote')).toBeTruthy();
+    expect(getByText('Skills')).toBeTruthy();
   });
 });

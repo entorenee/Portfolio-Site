@@ -2,10 +2,10 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import Slideshow from '../../slideshow';
-import QuoteCard from '../../base-components/quote-card';
+import Slideshow from '../slideshow';
+import QuoteCard from '../base-components/quote-card';
 
-import quotesData from '../../../assets/js/quotesData';
+import quotesData from '../../assets/js/quotesData';
 
 const gridStyles = css`
   grid-area: 3 / 1 / 4 / -1;
@@ -26,7 +26,7 @@ const attribution = css`
 const RandomQuote = () => (
   <Slideshow slides={quotesData}>
     {({ slideData: quote }) => (
-      <div className={gridStyles}>
+      <div className={gridStyles} data-testid="random-quote">
         <QuoteCard>
           <div>{quote.quote}</div>
           <div className={attribution}>{`~${quote.attribution}`}</div>
