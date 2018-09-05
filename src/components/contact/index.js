@@ -7,6 +7,7 @@ import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
 import themeUtils from '../themeUtils';
 import Card from '../base-components/card';
 import Button from '../base-components/button';
+import SocialIcon from './social-icon';
 
 const contactSection = css`
   ${themeUtils.margins};
@@ -53,42 +54,25 @@ const buttonContainer = css`
   justify-content: flex-end;
 `;
 
-const socialLink = css`
-  color: ${themeUtils.mediumAccent};
-  margin-right: 0.5rem;
-  transition: color 800ms;
-
-  &:hover {
-    color: ${themeUtils.complementaryDark};
-  }
+const cardStyles = css`
+  max-width: 350px;
 `;
-
-type IconProps = {
-  link: string,
-  component: React.Node,
-};
-
-const SocialIcon = ({ component, link }: IconProps) => (
-  <a className={socialLink} href={link}>
-    {component}
-  </a>
-);
 
 const socialData = [
   {
     service: 'twitter',
     link: 'https://twitter.com/dslemay',
-    component: <FaTwitter size={30} />,
+    component: <FaTwitter aria-label="Twitter" size={30} />,
   },
   {
     service: 'linkedin',
     link: 'https://www.linkedin.com/in/dslemay',
-    component: <FaLinkedin size={30} />,
+    component: <FaLinkedin aria-label="LinkedIn" size={30} />,
   },
   {
     service: 'github',
     link: 'https://github.com/dslemay',
-    component: <FaGithub size={30} />,
+    component: <FaGithub aria-label="Github" size={30} />,
   },
 ];
 
@@ -101,7 +85,7 @@ const Contact = ({ inputRef }: ContactProps) => (
     <div ref={inputRef}>
       <Element name="contact" />
       <h1>Contact</h1>
-      <Card maxWidth="350px">
+      <Card className={cardStyles}>
         <form action="https://formspree.io/daniel@dslemay.com" method="POST">
           <label className={formLabel} htmlFor="name">
             <span>Name:</span>
