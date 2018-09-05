@@ -24,7 +24,8 @@ const getCurrentYear = () => {
 const Footer = () => (
   <footer className={wrapper}>
     <div>
-      <FaCopyright size={18} /> {getCurrentYear()} Daniel Lemay. All Rights Reserved.
+      <FaCopyright aria-label="copyright" size={18} /> {getCurrentYear()} Daniel Lemay. All Rights
+      Reserved.
     </div>
     <a href="https://www.contentful.com/" rel="nofollow noopener noreferrer" target="_blank">
       <img

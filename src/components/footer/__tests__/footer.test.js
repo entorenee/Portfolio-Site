@@ -3,11 +3,11 @@ import { cleanup, render } from 'react-testing-library';
 
 import Footer from '..';
 
-describe('<Footer />', () => {
-  afterEach(cleanup);
+afterEach(cleanup);
 
+describe('<Footer />', () => {
   it('renders correctly', () => {
-    const { container } = render(<Footer />);
-    expect(container.firstChild).toMatchSnapshot();
+    const { getByLabelText } = render(<Footer />);
+    expect(getByLabelText('copyright')).toBeTruthy();
   });
 });
