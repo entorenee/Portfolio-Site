@@ -22,6 +22,8 @@ module.exports = {
   plugins: ['react', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
   extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:flowtype/recommended'],
   rules: {
+    'react/require-default-props': 0,
+    'react/default-props-match-prop-types': 0,
     'flowtype-errors/show-errors': 2,
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],
