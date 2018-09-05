@@ -59,6 +59,7 @@ const CarouselControls = ({
   <ControlsFlex>
     {isPlaying ? (
       <FaPauseCircle
+        aria-label="pause"
         size={30}
         onClick={() => updateIsPlaying()}
         onKeyPress={e => {
@@ -69,6 +70,7 @@ const CarouselControls = ({
       />
     ) : (
       <FaPlayCircle
+        aria-label="play"
         size={30}
         onClick={() => updateIsPlaying()}
         onKeyPress={e => {
@@ -80,6 +82,7 @@ const CarouselControls = ({
     )}
     <ControlsContainer>
       <FaAngleLeft
+        aria-label="previous"
         size={25}
         onClick={() => updateProject('previous', true)}
         onKeyPress={e => {
@@ -101,6 +104,7 @@ const CarouselControls = ({
         />
       ))}
       <FaAngleRight
+        aria-label="next"
         size={25}
         onClick={() => updateProject('next', true)}
         onKeyPress={e => {
