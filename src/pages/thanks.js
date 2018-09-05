@@ -3,8 +3,8 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import themeUtils from '../components/themeUtils';
 import Layout from '../layouts/main';
-import Card from '../components/Card';
-import Button from '../components/Button';
+import Card from '../components/base-components/card';
+import Button from '../components/base-components/button';
 
 const ThanksContainer = styled.div`
   width: 100vw;

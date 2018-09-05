@@ -7,7 +7,7 @@ import { FaAngleLeft } from 'react-icons/lib/fa';
 import 'prismjs/themes/prism.css';
 import Layout from '../layouts/main';
 import themeUtils from '../components/themeUtils';
-import QuoteCard from '../components/QuoteCard';
+import QuoteCard from '../components/base-components/quote-card';
 import './BlogPost.css';
 
 const PostContainer = styled.div`
