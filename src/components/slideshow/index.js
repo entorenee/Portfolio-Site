@@ -16,9 +16,9 @@ export type Props = {|
     ...State,
     updateProject: (direction: Direction, reset: boolean) => void,
     updateIsPlaying: () => void,
-    slideData: {},
+    slideData: Object,
   }) => React.Node,
-  slides: Array<{}>,
+  slides: Array<Object>,
   timerLength: number,
 |};
 
