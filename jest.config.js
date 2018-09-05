@@ -8,6 +8,6 @@ module.exports = {
       '<rootDir>/testUtils/assetsTransformer.js',
     '\\.(css|less)$': '<rootDir>/testUtils/assetsTransformer.js',
   },
-  collectCoverageFrom: ['src/**/*.js'],
+  collectCoverageFrom: ['src/**/*.js', '!src/projects/**/*.js'],
   testURL: 'http://localhost:3000',
 };
