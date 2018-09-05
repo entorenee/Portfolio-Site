@@ -1,8 +1,100 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Contact /> renders correctly 1`] = `
+.emotion-3 {
+  background-color: #E6D8AF;
+  color: #2D3B7F;
+  padding: 0.2rem 1.3rem;
+  border-radius: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.emotion-3:hover {
+  color: #2D3B7F;
+}
+
+.emotion-9 {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+@media (max-width:450px) {
+  .emotion-9 {
+    width: 90%;
+  }
+}
+
+.emotion-9 form {
+  margin: 0.2rem 0.4rem;
+}
+
+.emotion-0 {
+  display: block;
+}
+
+.emotion-0 input,
+.emotion-0 textarea {
+  width: 100%;
+  outline: none;
+  display: block;
+  margin-bottom: 0.5rem;
+  padding: 0.2rem 1rem;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: #AFB8E6 solid 2px;
+  -webkit-transition: border 800ms;
+  transition: border 800ms;
+}
+
+.emotion-0 input:focus,
+.emotion-0 textarea:focus {
+  border: #9A8956 solid 2px;
+}
+
+.emotion-0 textarea {
+  resize: vertical;
+}
+
+.emotion-0 span {
+  font-style: italic;
+}
+
+.emotion-4 {
+  padding-right: 1rem;
+  padding-top: 0.3rem;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.emotion-6 {
+  color: #656E9A;
+  margin-right: 0.5rem;
+  -webkit-transition: color 800ms;
+  transition: color 800ms;
+}
+
+.emotion-6:hover {
+  color: #9A8956;
+}
+
+.emotion-5 {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.25rem;
+  box-shadow: 3px 3px 5px #656E9A;
+}
+
 <section
-  class="css-1mkm3p9"
+  class="emotion-9"
   id="contact"
 >
   <div>
@@ -13,14 +105,14 @@ exports[`<Contact /> renders correctly 1`] = `
       Contact
     </h1>
     <div
-      class="css-17z98u"
+      class="emotion-5"
     >
       <form
         action="https://formspree.io/daniel@dslemay.com"
         method="POST"
       >
         <label
-          classnamwe="css-s2wg0a"
+          class="emotion-0"
           for="name"
         >
           <span>
@@ -33,7 +125,7 @@ exports[`<Contact /> renders correctly 1`] = `
           />
         </label>
         <label
-          class="css-s2wg0a"
+          class="emotion-0"
           for="email"
         >
           <span>
@@ -46,7 +138,7 @@ exports[`<Contact /> renders correctly 1`] = `
           />
         </label>
         <label
-          class="css-s2wg0a"
+          class="emotion-0"
           for="message"
         >
           <span>
@@ -69,10 +161,10 @@ exports[`<Contact /> renders correctly 1`] = `
           value="/thanks"
         />
         <div
-          class="css-1485037"
+          class="emotion-4"
         >
           <button
-            class="css-lwkiyc"
+            class="emotion-3"
             type="submit"
           >
             Submit
@@ -81,7 +173,7 @@ exports[`<Contact /> renders correctly 1`] = `
       </form>
     </div>
     <a
-      class="css-1ibamwu"
+      class="emotion-6"
       href="https://twitter.com/dslemay"
     >
       <svg
@@ -100,7 +192,7 @@ exports[`<Contact /> renders correctly 1`] = `
       </svg>
     </a>
     <a
-      class="css-1ibamwu"
+      class="emotion-6"
       href="https://www.linkedin.com/in/dslemay"
     >
       <svg
@@ -119,7 +211,7 @@ exports[`<Contact /> renders correctly 1`] = `
       </svg>
     </a>
     <a
-      class="css-1ibamwu"
+      class="emotion-6"
       href="https://github.com/dslemay"
     >
       <svg

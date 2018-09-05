@@ -9,5 +9,6 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/testUtils/assetsTransformer.js',
   },
   collectCoverageFrom: ['src/**/*.js', '!src/projects/**/*.js'],
+  snapshotSerializers: ['jest-emotion/serializer'],
   testURL: 'http://localhost:3000',
 };
