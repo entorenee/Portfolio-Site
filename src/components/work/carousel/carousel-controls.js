@@ -4,9 +4,9 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/lib/fa';
 
-import type { Project } from '..';
-import themeUtils from '../../../themeUtils';
-import { keyboardHandler } from '../../../../utils/helpers';
+import type { Project } from '.';
+import themeUtils from '../../themeUtils';
+import { keyboardHandler } from '../../../utils/helpers';
 
 const ControlsFlex = styled('div')`
   display: flex;

@@ -2,7 +2,6 @@ import React from 'react';
 import { cleanup, render } from 'react-testing-library';
 
 import Navigation from '../navigation';
-import MobileNavigation from '../mobile-navigation';
 
 afterEach(cleanup);
 

@@ -45,7 +45,7 @@ class Header extends Component<{}, State> {
     this.path = window.location.pathname;
   }
 
-  handleSizeChange = evt => {
+  handleSizeChange = (evt: MediaQueryListEvent) => {
     const { isMobile } = this.state;
 
     if (evt.matches && !isMobile) {
