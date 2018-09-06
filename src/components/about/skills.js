@@ -2,7 +2,7 @@
 import React from 'react';
 import { css } from 'emotion';
 import { FaCode } from 'react-icons/lib/fa';
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 import Card from '../base-components/card';
 
 const IconStyles = css`

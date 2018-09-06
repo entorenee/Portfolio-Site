@@ -2,7 +2,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { css } from 'emotion';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 
 const cardStyles = css`
   margin-bottom: 1.5rem;

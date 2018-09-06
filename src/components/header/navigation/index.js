@@ -5,7 +5,7 @@ import { css } from 'emotion';
 import { Link } from 'gatsby';
 
 import NavLink, { desktopLinks, mobileLinks } from './nav-link';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 
 const wrapper = css`
   margin-bottom: 0;

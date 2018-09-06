@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
 import { css } from 'emotion';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 
 const ButtonStyles = css`
   background-color: ${themeUtils.complementaryLight};

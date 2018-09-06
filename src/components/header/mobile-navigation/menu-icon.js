@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 
 const iconContainer = css`
   position: relative;

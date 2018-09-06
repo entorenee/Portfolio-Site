@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import themeUtils from '../components/themeUtils';
+import themeUtils from '../components/theme-utils';
 import Layout from '../layouts/main';
 import Card from '../components/base-components/card';
 import Button from '../components/base-components/button';

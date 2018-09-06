@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import styled from 'react-emotion';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 import Card from '../card';
 
 const QuoteContainer = styled('div')`

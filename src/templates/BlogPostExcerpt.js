@@ -4,7 +4,7 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/lib/fa';
-import themeUtils from '../components/themeUtils';
+import themeUtils from '../components/theme-utils';
 import { postSlug } from '../utils/helpers';
 
 // Converts YYYY-MM-DD to Month Day, Year

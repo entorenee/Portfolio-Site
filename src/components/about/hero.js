@@ -2,7 +2,7 @@
 import React from 'react';
 import { css } from 'emotion';
 
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 import heroImg from '../../assets/img/hero-image.jpg';
 
 const bgImage = css`

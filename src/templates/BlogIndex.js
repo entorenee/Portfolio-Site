@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import themeUtils from '../components/themeUtils';
+import themeUtils from '../components/theme-utils';
 import Layout from '../layouts/main';
 import BlogPostExcerpt from './BlogPostExcerpt';
 

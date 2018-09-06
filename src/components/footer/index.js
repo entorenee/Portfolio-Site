@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { FaCopyright } from 'react-icons/lib/fa';
 
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 
 const wrapper = css`
   padding: 0.4rem 0;

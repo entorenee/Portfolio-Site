@@ -6,7 +6,7 @@ import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
 import projectSpotlight from './project-spotlight';
 import Slideshow from '../../slideshow';
-import themeUtils from '../../themeUtils';
+import themeUtils from '../../theme-utils';
 
 const carouselContainer = css`
   ${themeUtils.margins};

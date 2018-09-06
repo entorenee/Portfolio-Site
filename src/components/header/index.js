@@ -6,7 +6,7 @@ import { css } from 'emotion';
 
 import Navigation from './navigation';
 import MobileNavigation from './mobile-navigation';
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 import logo from '../../assets/img/logo.png';
 
 const wrapper = css`

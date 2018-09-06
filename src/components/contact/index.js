@@ -4,7 +4,7 @@ import { css } from 'emotion';
 import { Element } from 'react-scroll';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
 
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 import Card from '../base-components/card';
 import Button from '../base-components/button';
 import SocialIcon from './social-icon';

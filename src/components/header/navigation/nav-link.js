@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { css } from 'emotion';
 
-import ScrollLink from '../../ScrollLink';
+import ScrollLink from './scroll-link';
 
 export const desktopLinks = css`
   margin-right: 1.5em;

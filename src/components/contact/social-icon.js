@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 
 type IconProps = {
   link: string,

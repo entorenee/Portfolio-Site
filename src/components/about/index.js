@@ -7,7 +7,7 @@ import Hero from './hero';
 import Skills from './skills';
 import Blurb from './blurb';
 import RandomQuote from './random-quote';
-import themeUtils from '../themeUtils';
+import themeUtils from '../theme-utils';
 import headshot from '../../assets/img/headshot.jpg';
 
 const wrapper = css`
