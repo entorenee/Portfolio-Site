@@ -27,13 +27,6 @@ const Footer = () => (
       <FaCopyright aria-label="copyright" size={18} /> {getCurrentYear()} Daniel Lemay. All Rights
       Reserved.
     </div>
-    <a href="https://www.contentful.com/" rel="nofollow noopener noreferrer" target="_blank">
-      <img
-        src="https://images.contentful.com/fo9twyrwpveg/7Htleo27dKYua8gio8UEUy/0797152a2d2f8e41db49ecbf1ccffdaa/PoweredByContentful_DarkBackground_MonochromeLogo.svg"
-        style={{ maxWidth: '100px', width: '100px', marginBottom: 0 }}
-        alt="Powered by Contentful"
-      />
-    </a>
   </footer>
 );
 
