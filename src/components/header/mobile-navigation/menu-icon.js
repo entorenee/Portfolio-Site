@@ -58,13 +58,18 @@ type Props = {
 };
 
 const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
-  <div className={iconContainer} onClick={() => toggleOpen()}>
+  <button
+    aria-label="menu-toggle"
+    className={iconContainer}
+    onClick={() => toggleOpen()}
+    type="button"
+  >
     <div className={icon}>
       <Line1 isOpen={isOpen} />
       <Line2 isOpen={isOpen} />
       <Line3 isOpen={isOpen} />
     </div>
-  </div>
+  </button>
 );
 
 export default MenuIcon;

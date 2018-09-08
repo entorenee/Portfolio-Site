@@ -34,7 +34,7 @@ class MobileNavigation extends React.Component<Props, State> {
 
     return (
       <div className={iconContainer}>
-        <MenuIcon aria-label="menu-toggle" isOpen={isOpen} toggleOpen={this.toggleOpen} />
+        <MenuIcon isOpen={isOpen} toggleOpen={this.toggleOpen} />
         <Navigation mobile isOpen={isOpen} home={home} />
       </div>
     );
