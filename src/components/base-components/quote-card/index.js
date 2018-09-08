@@ -1,10 +1,11 @@
 // @flow
 import * as React from 'react';
-import styled from 'react-emotion';
+import { css } from 'emotion'
+
 import themeUtils from '../../theme-utils';
 import Card from '../card';
 
-const QuoteContainer = styled('div')`
+const container = css`
   position: relative;
   padding: 1rem 1rem 0rem 2rem;
 
@@ -37,7 +38,7 @@ type Props = {
 
 const QuoteCard = ({ children }: Props) => (
   <Card>
-    <QuoteContainer>{children}</QuoteContainer>
+    <div className={container}>{children}</div>
   </Card>
 );
 

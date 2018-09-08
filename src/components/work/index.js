@@ -1,26 +1,26 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
+import { css } from 'emotion';
 import { Element } from 'react-scroll';
-import styled from 'react-emotion';
 
 import themeUtils from '../theme-utils';
 import Carousel from './carousel';
 
-const WorkHeader = styled('h1')`
+const header = css`
   ${themeUtils.margins};
   margin-bottom: 1.6rem;
 `;
 
-const Work = ({ inputRef }) => (
+type Props = {
+  inputRef: () => void,
+};
+
+const Work = ({ inputRef }: Props) => (
   <section id="work" ref={inputRef}>
     <Element name="work" />
-    <WorkHeader>Work</WorkHeader>
+    <h1 className={header}>Work</h1>
     <Carousel />
   </section>
 );
-
-Work.propTypes = {
-  inputRef: PropTypes.func.isRequired,
-};
 
 export default Work;
