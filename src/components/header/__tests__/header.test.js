@@ -1,13 +1,56 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { animateScroll as scroll } from 'react-scroll';
+import { cleanup, fireEvent, render } from 'react-testing-library';
 
-import Navigation from '../navigation';
+import Header from '..';
 
 afterEach(cleanup);
 
-describe('<Navigation />', () => {
+const location = {
+  pathname: '/',
+};
+
+scroll.scrollToTop = jest.fn();
+
+describe('<Header /> mobile view', () => {
+  beforeAll(() => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: true,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+  });
+
   it('renders correctly', () => {
-    const { container } = render(<Navigation home />);
-    expect(container.firstChild).toMatchSnapshot();
+    const { container, getByLabelText } = render(<Header location={location} />);
+
+    expect(container).toBeTruthy();
+    expect(getByLabelText('menu-toggle')).toBeTruthy();
+  });
+});
+
+describe('<Header /> non-mobile view', () => {
+  beforeAll(() => {
+    window.matchMedia = jest.fn().mockImplementation(query => ({
+      matches: false,
+      media: query,
+      onchange: null,
+      addListener: jest.fn(),
+      removeListener: jest.fn(),
+    }));
+  });
+
+  it('renders correctly', () => {
+    const { container, getByAltText } = render(<Header location={location} />);
+
+    const logo = getByAltText('Logo');
+    fireEvent.click(logo);
+
+    expect(container).toBeTruthy();
+    expect(logo).toBeTruthy();
+    expect(scroll.scrollToTop).toBeCalledTimes(1);
+    scroll.scrollToTop.mockReset();
   });
 });
