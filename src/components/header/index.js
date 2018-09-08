@@ -46,14 +46,7 @@ class Header extends Component<{}, State> {
   }
 
   handleSizeChange = (evt: MediaQueryListEvent) => {
-    const { isMobile } = this.state;
-
-    if (evt.matches && !isMobile) {
-      this.setState({ isMobile: true });
-    }
-    if (!evt.matches && isMobile) {
-      this.setState({ isMobile: false });
-    }
+    this.setState({ isMobile: evt.matches });
   };
 
   render() {
