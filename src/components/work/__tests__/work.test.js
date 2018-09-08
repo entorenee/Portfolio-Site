@@ -2,6 +2,7 @@ import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 
 import Carousel from '../carousel';
+import Work from '..';
 
 afterEach(cleanup);
 
@@ -21,5 +22,14 @@ describe('<Carousel />', () => {
     expect(getByText('Simon Game')).toBeTruthy();
     fireEvent.click(getByLabelText('previous'));
     expect(getByText('Wanderful')).toBeTruthy();
+  });
+});
+
+describe('<Work />', () => {
+  it('renders correctly', () => {
+    const { container, getByText } = render(<Work />);
+
+    expect(container).toBeTruthy();
+    expect(getByText('Work')).toBeTruthy();
   });
 });
