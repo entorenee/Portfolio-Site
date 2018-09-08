@@ -1,21 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
+import { css } from 'emotion';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import styled from 'react-emotion';
 import { FaAngleLeft } from 'react-icons/lib/fa';
 import 'prismjs/themes/prism.css';
+
 import Layout from '../layouts/main';
 import themeUtils from '../components/theme-utils';
 import QuoteCard from '../components/base-components/quote-card';
 import './BlogPost.css';
 
-const PostContainer = styled.div`
+const wrapper = css`
   margin-top: 65px;
   padding-top: 2rem;
 `;
 
-const BlogIndexLink = styled.div`
+const blogIndexLink = css`
   ${themeUtils.margins};
   margin-bottom: 0.7rem;
 
@@ -26,7 +27,7 @@ const BlogIndexLink = styled.div`
   }
 `;
 
-const PostHeaderContainer = styled.div`
+const headerContainer = css`
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-around;
@@ -36,7 +37,7 @@ const PostHeaderContainer = styled.div`
   margin: 0 auto;
 `;
 
-const QuoteContainer = styled.div`
+const quoteContainer = css`
   margin-right: 0.5rem;
 
   @media (min-width: 1000px) {
@@ -44,7 +45,7 @@ const QuoteContainer = styled.div`
   }
 `;
 
-const BlogBodyContainer = styled.div`
+const postContainer = css`
   ${themeUtils.margins};
 
   h2 {
@@ -98,20 +99,44 @@ const BlogBodyContainer = styled.div`
   }
 `;
 
-const BlogTitle = styled.h1`
+const blogTitle = css`
   text-align: center;
 `;
 
 const BlogIndex = () => (
-  <BlogIndexLink>
+  <div className={blogIndexLink}>
     <Link to="/blog">
       <FaAngleLeft size={20} />
       Return to Blog Index
     </Link>
-  </BlogIndexLink>
+  </div>
 );
 
-const BlogPost = ({ data: { contentfulBlogPost } }) => {
+type Props = {
+  data: {
+    contentfulBlogPost: {
+      title: string,
+      body: {
+        childMarkdownRemark: {
+          html: string,
+        },
+      },
+      headlineImage?: {
+        description: string,
+        file: {
+          url: string,
+        },
+      },
+      keyQuote?: {
+        childMarkdownRemark: {
+          html: string,
+        },
+      },
+    },
+  },
+};
+
+const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const { title } = contentfulBlogPost;
   const { html: body } = contentfulBlogPost.body.childMarkdownRemark;
 
@@ -127,54 +152,30 @@ const BlogPost = ({ data: { contentfulBlogPost } }) => {
 
   return (
     <Layout>
-      <PostContainer>
+      <div className={wrapper}>
         <Helmet title={`${title} - Daniel Lemay`} />
         <BlogIndex />
-        <PostHeaderContainer>
+        <div className={headerContainer}>
           {keyQuote && (
-            <QuoteContainer>
+            <div className={quoteContainer}>
               <QuoteCard>
                 <div
                   dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
                 />
               </QuoteCard>
-            </QuoteContainer>
+            </div>
           )}
           {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
-        </PostHeaderContainer>
-        <BlogBodyContainer>
-          <BlogTitle>{title}</BlogTitle>
+        </div>
+        <div className={postContainer}>
+          <h1 className={blogTitle}>{title}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
           />
-        </BlogBodyContainer>
-      </PostContainer>
+        </div>
+      </div>
     </Layout>
   );
-};
-
-BlogPost.propTypes = {
-  data: PropTypes.shape({
-    contentfulBlogPost: PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      body: PropTypes.shape({
-        childMarkdownRemark: PropTypes.shape({
-          html: PropTypes.string.isRequired,
-        }).isRequired,
-      }).isRequired,
-      headlineImage: PropTypes.shape({
-        description: PropTypes.string,
-        file: PropTypes.shape({
-          url: PropTypes.string,
-        }),
-      }),
-      keyQuote: PropTypes.shape({
-        childMarkdownRemark: PropTypes.shape({
-          html: PropTypes.string,
-        }),
-      }),
-    }).isRequired,
-  }).isRequired,
 };
 
 export default BlogPost;

@@ -1,9 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'react-emotion';
+// @flow
+import * as React from 'react';
 import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/lib/fa';
+
+import type { Post as Props } from './BlogIndex';
 import themeUtils from '../components/theme-utils';
 import { postSlug } from '../utils/helpers';
 
@@ -52,7 +53,7 @@ const postHeaderDate = css`
   font-weight: bold;
 `;
 
-const PostImage = styled.img`
+const postImage = css`
   float: left;
   margin-right: 0.6rem;
 
@@ -69,13 +70,13 @@ const readMore = css`
   margin-right: 0.4rem;
 `;
 
-const PostDivider = styled.hr`
+const divider = css`
   margin: 0.7rem 0 1.5rem 0;
   height: 3px;
   background-color: ${themeUtils.complementaryDark};
 `;
 
-const BlogPostExcerpt = ({ node }) => {
+const BlogPostExcerpt = ({ node }: Props) => {
   const { title, postDate } = node;
   const { html: body } = node.body.childMarkdownRemark;
   const headlineImage = !node.headlineImage ? null : node.headlineImage.file.url;
@@ -87,7 +88,7 @@ const BlogPostExcerpt = ({ node }) => {
     <div>
       <h1 className={postHeaderTitle}>{title}</h1>
       <div className={postHeaderDate}>{longDateFormat(postDate)}</div>
-      {headlineImage && <PostImage src={headlineImage} alt={headlineAltText} />}
+      {headlineImage && <img className={postImage} src={headlineImage} alt={headlineAltText} />}
       <div
         dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
       />
@@ -95,23 +96,9 @@ const BlogPostExcerpt = ({ node }) => {
         <span className={readMore}>Read More</span>
         <FaChevronRight size={15} />
       </Link>
-      <PostDivider />
+      <hr className={divider} />
     </div>
   );
-};
-
-BlogPostExcerpt.propTypes = {
-  node: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    postDate: PropTypes.string.isRequired,
-    headlineImage: PropTypes.shape({
-      description: PropTypes.string,
-      file: PropTypes.shape({
-        url: PropTypes.string,
-      }),
-    }),
-  }).isRequired,
 };
 
 export default BlogPostExcerpt;

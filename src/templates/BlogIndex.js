@@ -1,51 +1,61 @@
+// @flow
 import React from 'react';
-import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
-import styled from 'react-emotion';
 import { css } from 'emotion';
-import themeUtils from '../components/theme-utils';
-import Layout from '../layouts/main';
-import BlogPostExcerpt from './BlogPostExcerpt';
 
-const BlogIndexContainer = styled.div`
+import BlogNavLink from './blog-nav-link';
+import BlogPostExcerpt from './BlogPostExcerpt';
+import Layout from '../layouts/main';
+import themeUtils from '../components/theme-utils';
+
+const container = css`
   ${themeUtils.margins};
   margin-top: 65px;
   padding-top: 1rem;
 `;
 
-const PageNavigationLinks = styled.div`
+const navigationLinks = css`
   display: flex;
   justify-content: space-around;
   margin-bottom: 1rem;
 `;
 
-const deadLink = css`
-  color: #666;
-  user-select: none;
-`;
-
-const RSSContainer = styled.div`
+const rssContainer = css`
   display: flex;
   justify-content: flex-end;
   margin-right: 2rem;
 `;
 
-const NavLink = ({ test, text, url }) => {
-  if (!test) {
-    return <Link to={url}>{text}</Link>;
-  }
-  return <span className={deadLink}>{text}</span>;
+export type Post = {
+  node: {
+    id: string,
+    title: string,
+    postDate: string,
+    body: {
+      childMarkdownRemark: {
+        html: string,
+      },
+    },
+    headlineImage?: {
+      description: string,
+      file: {
+        url: string,
+      },
+    },
+  },
 };
 
-NavLink.propTypes = {
-  test: PropTypes.bool.isRequired,
-  url: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
+type Props = {
+  pageContext: {
+    group: Array<Post>,
+    index: number,
+    first: boolean,
+    last: boolean,
+  },
 };
 
-const BlogIndex = ({ pageContext }) => {
-  // eslint-disable-next-line prettier/prettier
+const BlogIndex = ({ pageContext }: Props) => {
   const { group, index, first, last } = pageContext;
   const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
   const nextUrl = `/blog/page/${(index + 1).toString()}`;
@@ -54,44 +64,19 @@ const BlogIndex = ({ pageContext }) => {
 
   return (
     <Layout>
-      <BlogIndexContainer>
+      <div className={container}>
         <Helmet title="Blog | Daniel Lemay" />
-        <RSSContainer>
+        <div className={rssContainer}>
           <Link to="/feed.xml">Subscribe to RSS</Link>
-        </RSSContainer>
+        </div>
         {Posts}
-        <PageNavigationLinks>
-          <NavLink test={first} url={previousUrl} text="Go to Previous Page" />
-          <NavLink test={last} url={nextUrl} text="Go to Next Page" />
-        </PageNavigationLinks>
-      </BlogIndexContainer>
+        <div className={navigationLinks}>
+          <BlogNavLink test={first} url={previousUrl} text="Go to Previous Page" />
+          <BlogNavLink test={last} url={nextUrl} text="Go to Next Page" />
+        </div>
+      </div>
     </Layout>
   );
-};
-
-BlogIndex.propTypes = {
-  pageContext: PropTypes.shape({
-    group: PropTypes.arrayOf(
-      PropTypes.shape({
-        node: PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          title: PropTypes.string.isRequired,
-          postDate: PropTypes.string.isRequired,
-          body: PropTypes.shape({
-            childMarkdownRemark: PropTypes.shape({
-              html: PropTypes.string.isRequired,
-            }).isRequired,
-          }).isRequired,
-          headlineImage: PropTypes.shape({
-            description: PropTypes.string,
-            file: PropTypes.shape({
-              url: PropTypes.string,
-            }),
-          }),
-        }),
-      }),
-    ),
-  }).isRequired,
 };
 
 export default BlogIndex;
