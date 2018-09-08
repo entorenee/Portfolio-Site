@@ -35,10 +35,7 @@ const MenuLine = css`
 const Line1 = styled('span')`
   ${MenuLine};
   top: 0;
-`;
-
-const Line1Open = css`
-  transform: translateY(10px) translateY(-50%) rotate(-135deg);
+  transform: ${({ isOpen }) => (isOpen ? 'translateY(10px) translateY(-50%) rotate(-135deg)' : '')};
 `;
 
 const Line2 = styled('span')`
@@ -46,19 +43,13 @@ const Line2 = styled('span')`
   top: 0;
   bottom: 0;
   margin: auto;
-`;
-
-const Line2Open = css`
-  opacity: 0;
+  opacity: ${({ isOpen }) => (isOpen ? '0' : '')};
 `;
 
 const Line3 = styled('span')`
   ${MenuLine};
   bottom: 0;
-`;
-
-const Line3Open = css`
-  transform: translateY(-10px) translateY(50%) rotate(135deg);
+  transform: ${({ isOpen }) => (isOpen ? 'translateY(-10px) translateY(50%) rotate(135deg)' : '')};
 `;
 
 type Props = {
@@ -69,9 +60,9 @@ type Props = {
 const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
   <div className={iconContainer} onClick={() => toggleOpen()}>
     <div className={icon}>
-      <Line1 className={isOpen ? Line1Open : ''} />
-      <Line2 className={isOpen ? Line2Open : ''} />
-      <Line3 className={isOpen ? Line3Open : ''} />
+      <Line1 isOpen={isOpen} />
+      <Line2 isOpen={isOpen} />
+      <Line3 isOpen={isOpen} />
     </div>
   </div>
 );

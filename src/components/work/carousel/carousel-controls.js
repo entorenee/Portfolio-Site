@@ -8,7 +8,7 @@ import type { Project } from '.';
 import themeUtils from '../../theme-utils';
 import { keyboardHandler } from '../../../utils/helpers';
 
-const ControlsFlex = styled('div')`
+const wrapper = css`
   display: flex;
   justify-content: space-between;
   margin: 0 0.4rem 0.3rem 0.4rem;
@@ -23,7 +23,7 @@ const ControlsFlex = styled('div')`
   }
 `;
 
-const ControlsContainer = styled('div')`
+const controlsContainer = css`
   display: flex;
   width: 13rem;
   justify-content: space-between;
@@ -33,12 +33,9 @@ const ControlsContainer = styled('div')`
 const SelectorBox = styled('span')`
   width: 1.5rem;
   height: 0.8rem;
+  background-color: ${({ selected }) => (selected ? '#9a8956' : '')};
   border: 1px solid ${themeUtils.complementaryDark};
   transition: 500ms background-color;
-`;
-
-const selected = css`
-  background-color: #9a8956;
 `;
 
 type Props = {
@@ -56,7 +53,7 @@ const CarouselControls = ({
   updateIsPlaying,
   updateProject,
 }: Props) => (
-  <ControlsFlex>
+  <div className={wrapper}>
     {isPlaying ? (
       <FaPauseCircle
         aria-label="pause"
@@ -80,7 +77,7 @@ const CarouselControls = ({
         tabIndex={0}
       />
     )}
-    <ControlsContainer>
+    <div className={controlsContainer}>
       <FaAngleLeft
         aria-label="previous"
         size={25}
@@ -93,12 +90,12 @@ const CarouselControls = ({
       />
       {projects.map((project, i) => (
         <SelectorBox
-          className={currIndex === i ? selected : ''}
           onClick={() => updateProject(i, true)}
           onKeyPress={e => {
             if (keyboardHandler(e)) updateProject(i, true);
           }}
           role="button"
+          selected={currIndex === i}
           tabIndex={0}
           key={project.title}
         />
@@ -113,8 +110,8 @@ const CarouselControls = ({
         role="button"
         tabIndex={0}
       />
-    </ControlsContainer>
-  </ControlsFlex>
+    </div>
+  </div>
 );
 
 export default CarouselControls;
