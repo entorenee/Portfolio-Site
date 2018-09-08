@@ -10,5 +10,8 @@ module.exports = {
   },
   collectCoverageFrom: ['src/**/*.js', '!src/projects/**/*.js'],
   snapshotSerializers: ['jest-emotion/serializer'],
+  globals: {
+    __PATH_PREFIX__: '',
+  },
   testURL: 'http://localhost:3000',
 };
