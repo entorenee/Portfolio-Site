@@ -6,7 +6,6 @@ import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-ic
 
 import type { Project } from '.';
 import themeUtils from '../../theme-utils';
-import { keyboardHandler } from '../../../utils/helpers';
 
 const wrapper = css`
   display: flex;
@@ -23,6 +22,14 @@ const wrapper = css`
   }
 `;
 
+const Button = styled('button')`
+  appearance: none;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+`;
+
 const controlsContainer = css`
   display: flex;
   width: 13rem;
@@ -30,7 +37,7 @@ const controlsContainer = css`
   align-items: center;
 `;
 
-const SelectorBox = styled('span')`
+const SelectorBox = styled('div')`
   width: 1.5rem;
   height: 0.8rem;
   background-color: ${({ selected }) => (selected ? '#9a8956' : '')};
@@ -54,62 +61,25 @@ const CarouselControls = ({
   updateProject,
 }: Props) => (
   <div className={wrapper}>
-    {isPlaying ? (
-      <FaPauseCircle
-        aria-label="pause"
-        size={30}
-        onClick={() => updateIsPlaying()}
-        onKeyPress={e => {
-          if (keyboardHandler(e)) updateIsPlaying();
-        }}
-        role="button"
-        tabIndex={0}
-      />
-    ) : (
-      <FaPlayCircle
-        aria-label="play"
-        size={30}
-        onClick={() => updateIsPlaying()}
-        onKeyPress={e => {
-          if (keyboardHandler(e)) updateIsPlaying();
-        }}
-        role="button"
-        tabIndex={0}
-      />
-    )}
+    <Button type="button" onClick={() => updateIsPlaying()}>
+      {isPlaying ? (
+        <FaPauseCircle aria-label="pause" size={30} />
+      ) : (
+        <FaPlayCircle aria-label="play" size={30} />
+      )}
+    </Button>
     <div className={controlsContainer}>
-      <FaAngleLeft
-        aria-label="previous"
-        size={25}
-        onClick={() => updateProject('previous', true)}
-        onKeyPress={e => {
-          if (keyboardHandler(e)) updateProject('previous', true);
-        }}
-        role="button"
-        tabIndex={0}
-      />
+      <Button onClick={() => updateProject('previous', true)}>
+        <FaAngleLeft aria-label="previous" size={25} />
+      </Button>
       {projects.map((project, i) => (
-        <SelectorBox
-          onClick={() => updateProject(i, true)}
-          onKeyPress={e => {
-            if (keyboardHandler(e)) updateProject(i, true);
-          }}
-          role="button"
-          selected={currIndex === i}
-          tabIndex={0}
-          key={project.title}
-        />
+        <Button key={project.title} onClick={() => updateProject(i, true)}>
+          <SelectorBox selected={currIndex === i} />
+        </Button>
       ))}
-      <FaAngleRight
-        aria-label="next"
-        size={25}
-        onClick={() => updateProject('next', true)}
-        onKeyPress={e => {
-          if (keyboardHandler(e)) updateProject('next', true);
-        }}
-        role="button"
-        tabIndex={0}
-      />
+      <Button onClick={() => updateProject('next', true)}>
+        <FaAngleRight aria-label="next" size={25} />
+      </Button>
     </div>
   </div>
 );
