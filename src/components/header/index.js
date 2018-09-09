@@ -34,15 +34,22 @@ type State = {
 class Header extends Component<{}, State> {
   path: string;
 
+  mql: MediaQueryListListener;
+
   state = {
     isMobile: true,
   };
 
   componentDidMount() {
-    const mql = window.matchMedia('(max-width: 450px)');
-    mql.addListener(this.handleSizeChange);
-    this.handleSizeChange(mql);
+    this.mql = window.matchMedia('(max-width: 450px)');
+    this.mql.addListener(this.handleSizeChange);
     this.path = window.location.pathname;
+
+    this.setState({ isMobile: this.mql.matches });
+  }
+
+  componentWillUnmount() {
+    this.mql.removeListener(this.handleSizeChange);
   }
 
   handleSizeChange = (evt: MediaQueryListEvent) => {
