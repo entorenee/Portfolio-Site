@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
                 postDate(formatString: "YYYY/MM/DD")
                 body {
                   childMarkdownRemark {
+                    excerpt(pruneLength: 750)
                     html
                   }
                 }

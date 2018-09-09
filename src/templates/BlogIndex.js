@@ -34,6 +34,7 @@ export type Post = {
     postDate: string,
     body: {
       childMarkdownRemark: {
+        excerpt: string,
         html: string,
       },
     },

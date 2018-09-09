@@ -144,7 +144,9 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
     ? null
     : contentfulBlogPost.headlineImage.file.url;
 
-  const headlineAltText = headlineImage ? contentfulBlogPost.headlineImage.description : null;
+  const headlineAltText = !contentfulBlogPost.headlineImage
+    ? null
+    : contentfulBlogPost.headlineImage.description;
 
   const keyQuote = !contentfulBlogPost.keyQuote
     ? null
