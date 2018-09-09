@@ -1,13 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 import Helmet from 'react-helmet';
+
 import Header from '../components/header';
 import Footer from '../components/footer';
 import favicon from './favicon-32x32.png';
 
 import './index.css';
 
-const TemplateWrapper = ({ children }) => (
+type Props = {
+  children: React.ChildrenArray<React.Node>,
+};
+
+const TemplateWrapper = ({ children }: Props) => (
   <div>
     <Helmet>
       <meta charSet="utf-8" />
@@ -27,9 +32,5 @@ const TemplateWrapper = ({ children }) => (
     <Footer />
   </div>
 );
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-};
 
 export default TemplateWrapper;
