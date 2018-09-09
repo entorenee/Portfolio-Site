@@ -27,7 +27,16 @@ describe('<Header /> mobile view', () => {
     const { container, getByLabelText } = render(<Header location={location} />);
 
     expect(container).toBeTruthy();
-    expect(getByLabelText('menu-toggle')).toBeTruthy();
+    expect(getByLabelText('menu')).toBeTruthy();
+  });
+
+  it('the mobile icon toggles open states on click', () => {
+    const { getByLabelText } = render(<Header location={location} />);
+
+    const menu = getByLabelText('menu');
+    expect(menu).toHaveAttribute('aria-expanded', 'false');
+    fireEvent.click(menu);
+    expect(menu).toHaveAttribute('aria-expanded', 'true');
   });
 });
 

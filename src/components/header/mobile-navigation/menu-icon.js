@@ -59,7 +59,8 @@ type Props = {
 
 const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
   <button
-    aria-label="menu-toggle"
+    aria-label="menu"
+    aria-expanded={isOpen}
     className={iconContainer}
     onClick={() => toggleOpen()}
     type="button"
