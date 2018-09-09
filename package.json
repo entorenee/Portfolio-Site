@@ -1,8 +1,12 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "daniel-lemay-portfolio",
+  "description": "Portfolio Site for Daniel Lemay",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Daniel Lemay",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dslemay/Portfolio-Site.git"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
     "emotion": "^9.2.6",
@@ -35,7 +39,8 @@
     "typography-theme-lincoln": "^0.15.11"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "flow"
   ],
   "license": "MIT",
   "main": "n/a",
