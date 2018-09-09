@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 import { css } from 'emotion';
 import themeUtils from '../../theme-utils';
 
-const ButtonStyles = css`
+const buttonStyles = css`
   background-color: ${themeUtils.complementaryLight};
   color: ${themeUtils.baseColor};
   padding: 0.2rem 1.3rem;
@@ -26,17 +26,17 @@ type Props = {
 const Button = ({ children, type, url }: Props) => {
   if (!url)
     return (
-      <button type={type} className={ButtonStyles}>
+      <button type={type} className={buttonStyles}>
         {children}
       </button>
     );
 
   return url.substring(0, 1) === '/' ? (
-    <Link className={ButtonStyles} to={url}>
+    <Link className={buttonStyles} to={url}>
       {children}
     </Link>
   ) : (
-    <a href={url} target="_blank" rel="noopener noreferrer">
+    <a className={buttonStyles} href={url} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );

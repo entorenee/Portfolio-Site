@@ -73,7 +73,11 @@ const CarouselControls = ({
         <FaAngleLeft aria-label="previous" size={25} />
       </Button>
       {projects.map((project, i) => (
-        <Button key={project.title} onClick={() => updateProject(i, true)}>
+        <Button
+          key={project.title}
+          data-testid={`project${i}`}
+          onClick={() => updateProject(i, true)}
+        >
           <SelectorBox selected={currIndex === i} />
         </Button>
       ))}

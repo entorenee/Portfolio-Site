@@ -68,14 +68,14 @@ const Carousel = () => (
         />
         <div>
           <h1 className={title}>{project.title}</h1>
-          <img className={focusImage} src={project.image} />
+          <img className={focusImage} src={project.image} alt={project.title} />
           <div className={description}>
             <div
               dangerouslySetInnerHTML={{ __html: project.description }} // eslint-disable-line react/no-danger, max-len
             />
             <div className={projectLinks}>
-              <Button href={project.projectLink}>Link to Live Project</Button>
-              <Button href={project.githubLink}>Link to GitHub Repository</Button>
+              <Button url={project.projectLink}>Link to Live Project</Button>
+              <Button url={project.githubLink}>Link to GitHub Repository</Button>
             </div>
           </div>
         </div>
