@@ -56,7 +56,8 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "jest --config jest.config.js --no-cache",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
