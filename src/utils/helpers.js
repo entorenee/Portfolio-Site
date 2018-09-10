@@ -1,12 +1,17 @@
 const slugify = require('slugify');
+const { format } = require('date-fns');
 
-// Return if enter or spacebar was pressed for accessible keyboard handling
-exports.keyboardHandler = e => e.which === 13 || e.which === 32;
-
-exports.postSlug = (date, title) => {
+const postSlug = (date, title) => {
   const titleSlug = slugify(title, {
     remove: /[^A-Za-z0-9\s]+/,
     lower: true,
   });
   return `blog/${date}/${titleSlug}`;
+};
+
+const longDateFormat = date => format(date, 'MMMM D, YYYY');
+
+module.exports = {
+  longDateFormat,
+  postSlug,
 };

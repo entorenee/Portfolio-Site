@@ -1,19 +1,25 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "daniel-lemay-portfolio",
+  "description": "Portfolio Site for Daniel Lemay",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Daniel Lemay",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dslemay/Portfolio-Site.git"
+  },
   "dependencies": {
     "classnames": "^2.2.6",
-    "emotion": "^9.2.6",
-    "emotion-server": "^9.2.6",
+    "date-fns": "^1.29.0",
+    "emotion": "^9.2.8",
+    "emotion-server": "^9.2.8",
     "emotion-theming": "^9.2.6",
-    "gatsby": "^2.0.0-rc.0",
+    "gatsby": "^2.0.0-rc.15",
     "gatsby-paginate": "^1.0.16",
     "gatsby-plugin-emotion": "next",
     "gatsby-plugin-feed": "next",
+    "gatsby-plugin-flow": "^1.0.1-beta.0",
     "gatsby-plugin-google-analytics": "next",
-    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-offline": "^2.0.0-rc.6",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sitemap": "next",
     "gatsby-plugin-typography": "next",
@@ -21,9 +27,9 @@
     "gatsby-source-contentful": "next",
     "gatsby-transformer-remark": "next",
     "prismjs": "^1.15.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-emotion": "^9.2.6",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.0",
+    "react-emotion": "^9.2.8",
     "react-helmet": "^5.2.0",
     "react-icons": "^2.2.7",
     "react-scroll": "^1.7.10",
@@ -34,38 +40,54 @@
     "typography-theme-lincoln": "^0.15.11"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "flow"
   ],
   "license": "MIT",
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
     "test": "jest --config jest.config.js --no-cache",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "precommit": "lint-staged"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-rc.1",
-    "@babel/plugin-proposal-class-properties": "^7.0.0-rc.1",
-    "@babel/preset-env": "^7.0.0-rc.1",
-    "@babel/preset-react": "^7.0.0-rc.1",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-eslint": "^8.2.6",
+    "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
-    "babel-plugin-emotion": "^9.2.6",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb": "^17.0.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-import": "^2.13.0",
-    "eslint-plugin-jest": "^21.18.0",
+    "babel-plugin-emotion": "^9.2.8",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-flowtype-errors": "^3.6.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "^2.6.2",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-react": "^7.11.1",
+    "flow-bin": "^0.79.1",
+    "flow-typed": "^2.5.1",
+    "husky": "^0.14.3",
     "jest": "^23.5.0",
-    "prettier": "^1.14.0",
-    "react-test-renderer": "^16.4.2"
+    "jest-dom": "^1.12.0",
+    "jest-emotion": "^9.2.7",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "react-test-renderer": "^16.5.0",
+    "react-testing-library": "^5.0.1"
   }
 }

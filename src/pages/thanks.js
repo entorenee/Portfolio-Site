@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import styled from 'react-emotion';
+// @flow
+import * as React from 'react';
 import { css } from 'emotion';
-import themeUtils from '../components/themeUtils';
+import themeUtils from '../components/theme-utils';
 import Layout from '../layouts/main';
-import Card from '../components/Card';
-import Button from '../components/Button';
+import Card from '../components/base-components/card';
+import Button from '../components/base-components/button';
 
-const ThanksContainer = styled.div`
+const container = css`
   width: 100vw;
   height: 100vh;
   background-color: ${themeUtils.complementaryLight};
@@ -15,35 +15,35 @@ const ThanksContainer = styled.div`
   align-items: center;
 `;
 
-const CardWrapper = styled.div`
+const cardWrapper = css`
   ${themeUtils.margins};
   display: flex;
   justify-content: center;
 `;
 
-const cardStyles = {
-  padding: '1rem',
-  backgroundColor: '#FFF',
-};
+const cardStyles = css`
+  max-width: 500px;
+  padding: 1rem;
+  background-color: #fff;
+`;
 
 const centerText = css`
   text-align: center;
 `;
 
-const ButtonWrapper = styled.div`
+const buttonWrapper = css`
   display: flex;
   justify-content: flex-end;
 `;
 
-class Thanks extends Component {
-  constructor() {
-    super();
-    this.state = {
-      timer: 7000,
-    };
+type State = {
+  timer: number,
+};
 
-    this.timerCountdown = this.timerCountdown.bind(this);
-  }
+class Thanks extends React.Component<{}, State> {
+  state = {
+    timer: 7000,
+  };
 
   componentDidMount() {
     setInterval(() => this.timerCountdown(), 1000);
@@ -57,31 +57,29 @@ class Thanks extends Component {
     }
   }
 
-  timerCountdown() {
-    let { timer } = this.state;
-    timer -= 1000;
-    this.setState({ timer });
-  }
+  timerCountdown = () => {
+    this.setState(prevState => ({ timer: prevState.timer - 1000 }));
+  };
 
   render() {
     const { timer } = this.state;
 
     return (
       <Layout>
-        <ThanksContainer>
-          <CardWrapper>
-            <Card maxWidth="500px" style={cardStyles}>
+        <div className={container}>
+          <div className={cardWrapper}>
+            <Card style={cardStyles}>
               <h1 className={centerText}>Thank you!</h1>
               <p>
                 Your form has been submitted successfully. Please click the button below to return
                 to the homepage. You will be automatically redirected in {timer / 1000} seconds.
               </p>
-              <ButtonWrapper>
-                <Button to="/">Return to Homepage</Button>
-              </ButtonWrapper>
+              <div className={buttonWrapper}>
+                <Button url="/">Return to Homepage</Button>
+              </div>
             </Card>
-          </CardWrapper>
-        </ThanksContainer>
+          </div>
+        </div>
       </Layout>
     );
   }

@@ -1,22 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+// @flow
+import * as React from 'react';
 
-const TemplateWrapper = ({ children }) => (
-  <div>
-    <Helmet
-      title="Gatsby Default Starter"
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <div>{children}</div>
-  </div>
-);
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func.isRequired,
+type Props = {
+  children: React.ChildrenArray<React.Node>,
 };
+
+const TemplateWrapper = ({ children }: Props) => <div>{children}</div>;
 
 export default TemplateWrapper;

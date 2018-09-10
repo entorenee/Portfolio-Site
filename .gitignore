@@ -6,4 +6,5 @@ coverage/
 # Build directory
 public/
 .DS_Store
+.swp
 yarn-error.log

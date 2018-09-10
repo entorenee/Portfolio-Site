@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Layout from '../layouts/main';
-import About from '../components/about/About';
-import Work from '../components/work/Work';
-import Contact from '../components/Contact';
+import About from '../components/about';
+import Work from '../components/work';
+import Contact from '../components/contact';
 
 class IndexPage extends Component {
   constructor() {

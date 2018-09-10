@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button /> renders a button correctly 1`] = `
+.emotion-0 {
+  background-color: #E6D8AF;
+  color: #2D3B7F;
+  padding: 0.2rem 1.3rem;
+  border-radius: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #2D3B7F;
+}
+
+<button
+  class="emotion-0"
+  type="button"
+>
+  Click me
+</button>
+`;
+
+exports[`<Button /> renders an anchor link correctly 1`] = `
+.emotion-0 {
+  background-color: #E6D8AF;
+  color: #2D3B7F;
+  padding: 0.2rem 1.3rem;
+  border-radius: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #2D3B7F;
+}
+
+<a
+  class="emotion-0"
+  href="https://github.com/dlsemay"
+  rel="noopener noreferrer"
+  target="_blank"
+>
+  My Github
+</a>
+`;
+
+exports[`<Button /> renders an internal link correctly 1`] = `
+.emotion-0 {
+  background-color: #E6D8AF;
+  color: #2D3B7F;
+  padding: 0.2rem 1.3rem;
+  border-radius: 20px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.emotion-0:hover {
+  color: #2D3B7F;
+}
+
+<a
+  class="emotion-0"
+  href="/about"
+>
+  About
+</a>
+`;

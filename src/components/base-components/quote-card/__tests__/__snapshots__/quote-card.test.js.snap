@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<QuoteCard /> renders correctly 1`] = `
+.emotion-1 {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.25rem;
+  box-shadow: 3px 3px 5px #656E9A;
+}
+
+.emotion-0 {
+  position: relative;
+  padding: 1rem 1rem 0rem 2rem;
+}
+
+.emotion-0::before {
+  content: '\\201C';
+  font-family: Georgia;
+  font-style: bold;
+  font-size: 4rem;
+  color: #9A8956;
+  position: absolute;
+  top: -1.4rem;
+  left: 0.1rem;
+}
+
+.emotion-0::after {
+  content: '\\201D';
+  font-family: Georgia;
+  font-style: bold;
+  font-size: 4rem;
+  color: #9A8956;
+  position: absolute;
+  bottom: -3.6rem;
+  right: 0.1rem;
+}
+
+<div>
+  <div
+    class="emotion-1"
+  >
+    <div
+      class="emotion-0"
+    >
+      <p>
+        Inspiring quotes are amazing!
+      </p>
+    </div>
+  </div>
+</div>
+`;
