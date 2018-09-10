@@ -26,6 +26,7 @@ type Props = {
 const Button = ({ children, type, url }: Props) => {
   if (!url)
     return (
+      /* eslint-disable-next-line react/button-has-type */
       <button type={type} className={buttonStyles}>
         {children}
       </button>

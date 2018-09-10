@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion'
+import { css } from 'emotion';
 
 import themeUtils from '../../theme-utils';
 import Card from '../card';
