@@ -34,6 +34,8 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],
     'function-paren-newline': 0,
+    'jsx-a11y/label-has-for': 0,
+    'jsx-a11y/label-has-associated-control': 2,
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
