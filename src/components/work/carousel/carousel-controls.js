@@ -13,7 +13,7 @@ const wrapper = css`
   margin: 0 0.4rem 0.3rem 0.4rem;
 
   svg,
-  span {
+  div {
     cursor: pointer;
   }
 
