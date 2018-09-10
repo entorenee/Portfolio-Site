@@ -24,6 +24,12 @@ module.exports = {
   rules: {
     'react/require-default-props': 0,
     'react/default-props-match-prop-types': 0,
+    'react/sort-comp': [
+      2,
+      {
+        order: ['type-annotations', 'static-methods', 'lifecycle', 'everything-else', 'render'],
+      },
+    ],
     'flowtype-errors/show-errors': 2,
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],
