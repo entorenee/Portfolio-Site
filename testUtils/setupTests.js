@@ -1,10 +1,6 @@
-/* eslint-disable no-underscore-dangle */
-import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import 'jest-dom/extend-expect'
+/* eslint-disable import/no-extraneous-dependencies, no-underscore-dangle */
+import 'jest-dom/extend-expect';
 
 global.___loader = {
   enqueue: jest.fn(),
 };
-
-configure({ adapter: new Adapter() });
