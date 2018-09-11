@@ -5,7 +5,7 @@ const { postSlug } = require('./src/utils/helpers');
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve('src/templates/BlogPost.js');
+    const blogPostTemplate = path.resolve('src/templates/blog-post/index.js');
     resolve(
       graphql(`
         {
@@ -51,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
         createPaginatedPages({
           edges: result.data.allContentfulBlogPost.edges,
           createPage,
-          pageTemplate: 'src/templates/BlogIndex.js',
+          pageTemplate: 'src/templates/blog-index/index.js',
           pageLength: 5,
           pathPrefix: 'blog',
           // eslint-disable-next-line no-confusing-arrow
