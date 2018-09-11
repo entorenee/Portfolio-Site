@@ -62,8 +62,8 @@ const Skills = () => (
       </div>
       <hr className={divider} />
       <ul className={skillsList}>
+        <li>Cutting edge web technologies including React, GraphQL, and CSS Grid</li>
         <li>Responsive Web Design</li>
-        <li>Cutting edge web technologies including React, Redux, CSS Grid</li>
         <li>Backend experience with APIs, Node, Express, and MongoDB</li>
         <li>Experience working in large and diverse teams</li>
         <li>Clear Communication and direction to reach end goals</li>
