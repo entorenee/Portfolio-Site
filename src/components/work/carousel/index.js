@@ -111,19 +111,21 @@ const query = graphql`
   {
     contentfulSlideshow(group: { eq: "work" }) {
       slides {
-        title
-        description {
-          description
-        }
-        projectImage {
-          file {
+        ... on ContentfulWorkShowcase {
+          title
+          description {
+            description
+          }
+          projectImage {
+            file {
+              url
+            }
+            description
+          }
+          links {
+            text
             url
           }
-          description
-        }
-        links {
-          text
-          url
         }
       }
     }

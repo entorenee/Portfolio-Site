@@ -1,11 +1,10 @@
 // @flow
 import React from 'react';
 import { css } from 'emotion';
+import { graphql, StaticQuery } from 'gatsby';
 
 import Slideshow from '../slideshow';
 import QuoteCard from '../base-components/quote-card';
-
-import quotesData from '../../assets/js/quotesData';
 
 const gridStyles = css`
   grid-area: 3 / 1 / 4 / -1;
@@ -23,8 +22,25 @@ const attribution = css`
   margin-left: 1rem;
 `;
 
-const RandomQuote = () => (
-  <Slideshow slides={quotesData}>
+type Quote = {
+  attribution: string,
+  quote: string,
+};
+
+type Props = {
+  data: {
+    contentfulSlideshow: {
+      slides: Array<Quote>,
+    },
+  },
+};
+
+const RandomQuote = ({
+  data: {
+    contentfulSlideshow: { slides },
+  },
+}: Props) => (
+  <Slideshow slides={slides}>
     {({ slideData: quote }) => (
       <div className={gridStyles} data-testid="random-quote">
         <QuoteCard>
@@ -36,4 +52,17 @@ const RandomQuote = () => (
   </Slideshow>
 );
 
-export default RandomQuote;
+const query = graphql`
+  {
+    contentfulSlideshow(group: { eq: "quotes" }) {
+      slides {
+        ... on ContentfulQuote {
+          quote
+          attribution
+        }
+      }
+    }
+  }
+`;
+
+export default () => <StaticQuery query={query} render={data => <RandomQuote data={data} />} />;
