@@ -69,7 +69,7 @@ type Props = {
   },
 };
 
-const Carousel = ({
+export const PureCarousel = ({
   data: {
     contentfulSlideshow: { slides },
   },
@@ -132,4 +132,4 @@ const query = graphql`
   }
 `;
 
-export default () => <StaticQuery query={query} render={data => <Carousel data={data} />} />;
+export default () => <StaticQuery query={query} render={data => <PureCarousel data={data} />} />;

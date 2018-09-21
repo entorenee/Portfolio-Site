@@ -35,7 +35,7 @@ type Props = {
   },
 };
 
-const RandomQuote = ({
+export const PureRandomQuote = ({
   data: {
     contentfulSlideshow: { slides },
   },
@@ -65,4 +65,4 @@ const query = graphql`
   }
 `;
 
-export default () => <StaticQuery query={query} render={data => <RandomQuote data={data} />} />;
+export default () => <StaticQuery query={query} render={data => <PureRandomQuote data={data} />} />;
