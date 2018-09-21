@@ -1,10 +1,10 @@
 // @flow
 import React from 'react';
 import { css } from 'emotion';
+import { StaticQuery, graphql } from 'gatsby';
 
 import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
-import projectSpotlight from './project-spotlight';
 import Slideshow from '../../slideshow';
 import themeUtils from '../../theme-utils';
 
@@ -49,14 +49,32 @@ const projectLinks = css`
 
 export type Project = {
   title: string,
-  image: string,
-  projectLink: string,
-  githubLink: string,
-  description: string,
+  description: {
+    description: string,
+  },
+  projectImage: {
+    file: {
+      url: string,
+    },
+    description: string,
+  },
+  links: Array<{ text: string, url: string }>,
 };
 
-const Carousel = () => (
-  <Slideshow slides={projectSpotlight}>
+type Props = {
+  data: {
+    contentfulSlideshow: {
+      slides: Array<Project>,
+    },
+  },
+};
+
+export const PureCarousel = ({
+  data: {
+    contentfulSlideshow: { slides },
+  },
+}: Props) => (
+  <Slideshow slides={slides}>
     {({ currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject }) => (
       <div className={carouselContainer}>
         <CarouselControls
@@ -64,18 +82,23 @@ const Carousel = () => (
           isPlaying={isPlaying}
           updateIsPlaying={updateIsPlaying}
           currIndex={currIndex}
-          projects={projectSpotlight}
+          projects={slides}
         />
         <div>
           <h1 className={title}>{project.title}</h1>
-          <img className={focusImage} src={project.image} alt={project.title} />
+          <img
+            className={focusImage}
+            src={project.projectImage.file.url}
+            alt={project.projectImage.description}
+          />
           <div className={description}>
-            <div
-              dangerouslySetInnerHTML={{ __html: project.description }} // eslint-disable-line react/no-danger, max-len
-            />
+            <p>{project.description.description}</p>
             <div className={projectLinks}>
-              <Button url={project.projectLink}>Link to Live Project</Button>
-              <Button url={project.githubLink}>Link to GitHub Repository</Button>
+              {project.links.map(link => (
+                <Button key={link.url} url={link.url}>
+                  {link.text}
+                </Button>
+              ))}
             </div>
           </div>
         </div>
@@ -84,4 +107,29 @@ const Carousel = () => (
   </Slideshow>
 );
 
-export default Carousel;
+const query = graphql`
+  {
+    contentfulSlideshow(group: { eq: "work" }) {
+      slides {
+        ... on ContentfulWorkShowcase {
+          title
+          description {
+            description
+          }
+          projectImage {
+            file {
+              url
+            }
+            description
+          }
+          links {
+            text
+            url
+          }
+        }
+      }
+    }
+  }
+`;
+
+export default () => <StaticQuery query={query} render={data => <PureCarousel data={data} />} />;

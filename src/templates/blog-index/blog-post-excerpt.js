@@ -4,9 +4,9 @@ import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/lib/fa';
 
-import type { Post as Props } from './BlogIndex';
-import themeUtils from '../components/theme-utils';
-import { longDateFormat, postSlug } from '../utils/helpers';
+import type { Post as Props } from './types';
+import themeUtils from '../../components/theme-utils';
+import { longDateFormat, postSlug } from '../../utils/helpers';
 
 const postHeaderTitle = css`
   margin-bottom: 0.7rem;

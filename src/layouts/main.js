@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children }: Props) => (
   <div>
     <Helmet>
       <meta charSet="utf-8" />
-      <title>Daniel Lemay | Full Stack JavaScript Developer</title>
+      <title>Daniel Lemay | JavaScript Developer</title>
       <meta
         name="description"
         content="Daniel Lemay is a full stack JavaScript developer, based out of Portland Oregon, specializing in responsive web applications using cutting edge technologies." // eslint-disable-line max-len

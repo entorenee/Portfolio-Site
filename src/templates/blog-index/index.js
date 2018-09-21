@@ -4,10 +4,11 @@ import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import { css } from 'emotion';
 
+import type { Post } from './types';
 import BlogNavLink from './blog-nav-link';
-import BlogPostExcerpt from './BlogPostExcerpt';
-import Layout from '../layouts/main';
-import themeUtils from '../components/theme-utils';
+import BlogPostExcerpt from './blog-post-excerpt';
+import Layout from '../../layouts/main';
+import themeUtils from '../../components/theme-utils';
 
 const container = css`
   ${themeUtils.margins};
@@ -26,26 +27,6 @@ const rssContainer = css`
   justify-content: flex-end;
   margin-right: 2rem;
 `;
-
-export type Post = {
-  node: {
-    id: string,
-    title: string,
-    postDate: string,
-    body: {
-      childMarkdownRemark: {
-        excerpt: string,
-        html: string,
-      },
-    },
-    headlineImage?: {
-      description: string,
-      file: {
-        url: string,
-      },
-    },
-  },
-};
 
 type Props = {
   pageContext: {

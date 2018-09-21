@@ -6,10 +6,10 @@ import { graphql, Link } from 'gatsby';
 import { FaAngleLeft } from 'react-icons/lib/fa';
 import 'prismjs/themes/prism.css';
 
-import Layout from '../layouts/main';
-import themeUtils from '../components/theme-utils';
-import QuoteCard from '../components/base-components/quote-card';
-import './BlogPost.css';
+import Layout from '../../layouts/main';
+import themeUtils from '../../components/theme-utils';
+import QuoteCard from '../../components/base-components/quote-card';
+import './style.css';
 
 const wrapper = css`
   margin-top: 65px;

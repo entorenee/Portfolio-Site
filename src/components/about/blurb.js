@@ -18,9 +18,9 @@ const Blurb = () => (
   <div className={wrapper}>
     <p>
       <strong>
-        My name is Daniel Lemay, and I am a full stack JavaScript developer specializing in React.
+        My name is Daniel Lemay, and I am a JavaScript developer specializing in React.
       </strong>{' '}
-      I focus on building responsive and accessible front end applications using modern web
+      I focus on building responsive and accessible front-end applications using modern web
       technologies that are a pleasure to use. I pay attention to the details and work well with
       numerous stakeholders to complete projects. Take a look at some of my projects below and to
       contact me about available opportunities.
