@@ -1,6 +1,6 @@
 module.exports = {
   verbose: true,
-  transform: { '^.+\\.js$': '<rootDir>/jestPreprocess.js' },
+  transform: { '^.+\\.js$': 'babel-jest' },
   transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
   setupTestFrameworkScriptFile: '<rootDir>/testUtils/setupTests.js',
   moduleNameMapper: {

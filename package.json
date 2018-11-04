@@ -65,6 +65,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-emotion": "^9.2.10",
