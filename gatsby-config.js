@@ -14,6 +14,13 @@ module.exports = {
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'resource-pages',
+        path: `${__dirname}/src/pages/resource-pages`,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
