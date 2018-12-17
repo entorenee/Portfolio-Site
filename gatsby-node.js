@@ -6,6 +6,8 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve('src/templates/blog-post/index.js');
+    const resourcePageTemplate = path.resolve('src/templates/resource-page.js');
+
     resolve(
       graphql(`
         {
@@ -30,6 +32,17 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+          allFile {
+            edges {
+              node {
+                childMarkdownRemark {
+                  frontmatter {
+                    path
+                  }
+                }
+              }
+            }
+          }
         }
       `).then(result => {
         if (result.errors) {
@@ -47,6 +60,24 @@ exports.createPages = ({ graphql, actions }) => {
             },
           });
         });
+
+        result.data.allFile.edges.forEach(
+          ({
+            node: {
+              childMarkdownRemark: {
+                frontmatter: { path: sitePath },
+              },
+            },
+          }) => {
+            createPage({
+              path: sitePath,
+              component: resourcePageTemplate,
+              content: {
+                path: sitePath,
+              },
+            });
+          },
+        );
 
         createPaginatedPages({
           edges: result.data.allContentfulBlogPost.edges,
