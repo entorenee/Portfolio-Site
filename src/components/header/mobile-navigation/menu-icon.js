@@ -12,6 +12,8 @@ const iconContainer = css`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  background-color: ${themeUtils.baseColor};
+  border: none;
 `;
 
 const icon = css`
