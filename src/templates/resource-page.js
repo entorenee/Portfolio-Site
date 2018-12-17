@@ -24,6 +24,7 @@ const content = css`
 
   a {
     color: ${themeUtils.mediumAccent};
+    font-weight: 600;
     transition: color 800ms;
 
     &:hover {
