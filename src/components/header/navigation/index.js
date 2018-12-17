@@ -68,6 +68,9 @@ const NavigationLinks = ({ home, isOpen, mobile }: Props) => (
     <NavLink to="about" text="About" mobile={mobile} homePage={home} />
     <NavLink to="work" text="Work" mobile={mobile} homePage={home} />
     <NavLink to="contact" text="Contact" mobile={mobile} homePage={home} />
+    <Link to="/graphql" className={mobile ? mobileLinks : desktopLinks}>
+      GraphQL
+    </Link>
     <Link to="/blog" className={mobile ? mobileLinks : desktopLinks}>
       Blog
     </Link>

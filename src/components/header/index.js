@@ -41,7 +41,7 @@ class Header extends Component<{}, State> {
   };
 
   componentDidMount() {
-    this.mql = window.matchMedia('(max-width: 450px)');
+    this.mql = window.matchMedia('(max-width: 650px)');
     this.mql.addListener(this.handleSizeChange);
     this.path = window.location.pathname;
 
