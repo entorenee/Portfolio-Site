@@ -17,6 +17,7 @@ const wrapper = css`
 const content = css`
   ${themeUtils.margins};
 
+  h1,
   h2 {
     color: ${themeUtils.baseColor};
   }
