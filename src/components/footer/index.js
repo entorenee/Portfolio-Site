@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { css } from 'emotion';
-import { FaCopyright } from 'react-icons/lib/fa';
+import { FaCopyright } from 'react-icons/fa';
 
 import themeUtils from '../theme-utils';
 

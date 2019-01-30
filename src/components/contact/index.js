@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 import { Element } from 'react-scroll';
-import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/lib/fa';
+import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
 import themeUtils from '../theme-utils';
 import Card from '../base-components/card';

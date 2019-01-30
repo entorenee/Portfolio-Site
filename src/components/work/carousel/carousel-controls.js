@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/lib/fa';
+import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 
 import type { Project } from '.';
 import themeUtils from '../../theme-utils';
