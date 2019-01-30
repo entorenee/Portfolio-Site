@@ -3,7 +3,7 @@ import * as React from 'react';
 import { css } from 'emotion';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import { FaAngleLeft } from 'react-icons/lib/fa';
+import { FaAngleLeft } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 
 import Layout from '../../layouts/main';

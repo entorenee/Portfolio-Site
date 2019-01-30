@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { css } from 'emotion';
 import { Link } from 'gatsby';
-import { FaChevronRight } from 'react-icons/lib/fa';
+import { FaChevronRight } from 'react-icons/fa';
 
 import type { Post as Props } from './types';
 import themeUtils from '../../components/theme-utils';

@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { css } from 'emotion';
-import { FaCode } from 'react-icons/lib/fa';
+import { FaCode } from 'react-icons/fa';
 import themeUtils from '../theme-utils';
 import Card from '../base-components/card';
 
