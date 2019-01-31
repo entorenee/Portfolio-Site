@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { graphql, StaticQuery } from 'gatsby';
 
-import Slideshow from '../slideshow';
+import useSlideshow from '../slideshow';
 import QuoteCard from '../base-components/quote-card';
 
 const gridStyles = css`
@@ -39,18 +39,19 @@ export const PureRandomQuote = ({
   data: {
     contentfulSlideshow: { slides },
   },
-}: Props) => (
-  <Slideshow slides={slides}>
-    {({ slideData: quote }) => (
-      <div className={gridStyles} data-testid="random-quote">
-        <QuoteCard>
-          <div>{quote.quote}</div>
-          <div className={attribution}>{`~${quote.attribution}`}</div>
-        </QuoteCard>
-      </div>
-    )}
-  </Slideshow>
-);
+}: Props) => {
+  const { currIndex } = useSlideshow(slides);
+  const quote = slides[currIndex];
+
+  return (
+    <div className={gridStyles} data-testid="random-quote">
+      <QuoteCard>
+        <div>{quote.quote}</div>
+        <div className={attribution}>{`~${quote.attribution}`}</div>
+      </QuoteCard>
+    </div>
+  );
+};
 
 const query = graphql`
   {

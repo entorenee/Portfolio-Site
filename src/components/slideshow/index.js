@@ -1,94 +1,43 @@
 // @flow
-import * as React from 'react';
-
-import updateSlideshow from './stateUpdaters';
+import { useEffect, useState } from 'react';
 
 export type Direction = 'previous' | 'next' | number;
+type Slides = Array<any>;
+type Options = {
+  timerLength?: number,
+};
 
-export type State = {|
-  currIndex: number,
-  isPlaying: boolean,
-  intervalId?: IntervalID,
-|};
+function useSlideshow(slides: Slides, { timerLength = 5000 }: Options = {}) {
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [currIndex, setCurrIndex] = useState(0);
 
-export type Props = {|
-  children: ({
-    ...State,
-    updateProject: (direction: Direction, reset: boolean) => void,
-    updateIsPlaying: () => void,
-    slideData: Object,
-  }) => React.Node,
-  slides: Array<Object>,
-  timerLength: number,
-|};
+  /* eslint-disable-next-line consistent-return */
+  useEffect(() => {
+    if (isPlaying) {
+      const timer = setTimeout(() => setCurrIndex((currIndex + 1) % slides.length), timerLength);
 
-class Slideshow extends React.Component<Props, State> {
-  static defaultProps = {
-    timerLength: 5000,
-  };
+      return () => clearTimeout(timer);
+    }
+  }, [currIndex, isPlaying]);
 
-  state = {
-    currIndex: 0,
-    isPlaying: false,
-    intervalId: undefined,
-  };
-
-  componentDidMount() {
-    this.updateIsPlaying();
-  }
-
-  componentWillUnmount() {
-    const { intervalId } = this.state;
-    clearInterval(intervalId);
-  }
-
-  updateProject = (direction: Direction, reset: boolean = false) => {
-    const { isPlaying } = this.state;
-
-    if (isPlaying && reset) {
-      this.resetIntervalTimer();
+  const updateSlide = (direction: Direction) => {
+    if (typeof direction === 'number') {
+      return setCurrIndex(direction);
     }
 
-    this.setState((prevState, props) => updateSlideshow(prevState, props, direction));
+    if (direction === 'next') {
+      return setCurrIndex((currIndex + 1) % slides.length);
+    }
+
+    return setCurrIndex((currIndex - 1 + slides.length) % slides.length);
   };
 
-  updateIsPlaying = () => {
-    const { timerLength } = this.props;
-
-    this.setState(prevState => {
-      const { isPlaying, intervalId: prevIntervalId } = prevState;
-      let intervalId;
-
-      if (!isPlaying) {
-        intervalId = setInterval(() => this.updateProject('next'), timerLength);
-      } else {
-        intervalId = clearInterval(prevIntervalId);
-      }
-
-      return { intervalId, isPlaying: !isPlaying };
-    });
+  return {
+    currIndex,
+    isPlaying,
+    setIsPlaying,
+    updateSlide,
   };
-
-  resetIntervalTimer = () => {
-    const { intervalId: intervalState } = this.state;
-    const { timerLength } = this.props;
-
-    clearInterval(intervalState);
-    const intervalId = setInterval(() => this.updateProject('next'), timerLength);
-    this.setState({ intervalId });
-  };
-
-  render() {
-    const { children, slides } = this.props;
-    const { currIndex } = this.state;
-
-    return children({
-      ...this.state,
-      updateProject: this.updateProject,
-      updateIsPlaying: this.updateIsPlaying,
-      slideData: slides[currIndex],
-    });
-  }
 }
 
-export default Slideshow;
+export default useSlideshow;

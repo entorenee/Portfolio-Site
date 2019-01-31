@@ -49,19 +49,19 @@ type Props = {
   currIndex: number,
   isPlaying: boolean,
   projects: Array<Project>,
-  updateIsPlaying: () => void,
-  updateProject: (direction: 'previous' | 'next' | number, reset: boolean) => void,
+  setIsPlaying: boolean => void,
+  updateProject: (direction: 'previous' | 'next' | number) => void,
 };
 
 const CarouselControls = ({
   currIndex,
   isPlaying,
   projects,
-  updateIsPlaying,
+  setIsPlaying,
   updateProject,
 }: Props) => (
   <div className={wrapper}>
-    <Button type="button" onClick={() => updateIsPlaying()}>
+    <Button type="button" onClick={() => setIsPlaying(!isPlaying)}>
       {isPlaying ? (
         <FaPauseCircle aria-label="pause" size={30} />
       ) : (
@@ -69,19 +69,15 @@ const CarouselControls = ({
       )}
     </Button>
     <div className={controlsContainer}>
-      <Button onClick={() => updateProject('previous', true)}>
+      <Button onClick={() => updateProject('previous')}>
         <FaAngleLeft aria-label="previous" size={25} />
       </Button>
       {projects.map((project, i) => (
-        <Button
-          key={project.title}
-          data-testid={`project${i}`}
-          onClick={() => updateProject(i, true)}
-        >
+        <Button key={project.title} data-testid={`project${i}`} onClick={() => updateProject(i)}>
           <SelectorBox selected={currIndex === i} />
         </Button>
       ))}
-      <Button onClick={() => updateProject('next', true)}>
+      <Button onClick={() => updateProject('next')}>
         <FaAngleRight aria-label="next" size={25} />
       </Button>
     </div>
