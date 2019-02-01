@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { graphql, StaticQuery } from 'gatsby';
 
-import useSlideshow from '../slideshow';
+import useSlideshow from '../hooks/use-slideshow';
 import QuoteCard from '../base-components/quote-card';
 
 const gridStyles = css`

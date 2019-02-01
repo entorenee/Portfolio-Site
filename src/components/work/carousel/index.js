@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
-import useSlideshow from '../../slideshow';
+import useSlideshow from '../../hooks/use-slideshow';
 import themeUtils from '../../theme-utils';
 
 const carouselContainer = css`
