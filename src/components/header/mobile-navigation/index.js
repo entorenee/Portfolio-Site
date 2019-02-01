@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { useState } from 'react';
 import { css } from 'emotion';
 
 import MenuIcon from './menu-icon';
@@ -14,31 +14,17 @@ type Props = {
   home: boolean,
 };
 
-type State = {
-  isOpen: boolean,
+const MobileNavigation = ({ home }: Props) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => setIsOpen(!isOpen);
+
+  return (
+    <div className={iconContainer}>
+      <MenuIcon isOpen={isOpen} toggleOpen={toggleOpen} />
+      <Navigation mobile isOpen={isOpen} home={home} />
+    </div>
+  );
 };
-
-class MobileNavigation extends React.Component<Props, State> {
-  state = {
-    isOpen: false,
-  };
-
-  toggleOpen = () => {
-    const { isOpen } = this.state;
-    this.setState({ isOpen: !isOpen });
-  };
-
-  render() {
-    const { isOpen } = this.state;
-    const { home } = this.props;
-
-    return (
-      <div className={iconContainer}>
-        <MenuIcon isOpen={isOpen} toggleOpen={this.toggleOpen} />
-        <Navigation mobile isOpen={isOpen} home={home} />
-      </div>
-    );
-  }
-}
 
 export default MobileNavigation;
