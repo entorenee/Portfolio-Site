@@ -1,11 +1,12 @@
 // @flow
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'gatsby';
 import { animateScroll as scroll } from 'react-scroll';
 import { css } from 'emotion';
 
 import Navigation from './navigation';
 import MobileNavigation from './mobile-navigation';
+import useMediaQuery from '../hooks/use-media-query';
 import themeUtils from '../theme-utils';
 import logo from '../../assets/img/logo.png';
 
@@ -27,57 +28,27 @@ const logoStyles = css`
   margin: 0.5em 0.5em;
 `;
 
-type State = {
-  isMobile: boolean,
+const Header = () => {
+  const { isMobile } = useMediaQuery();
+  const path = typeof window !== 'undefined' ? window.location.pathname : '';
+  const home = path === '/';
+
+  return (
+    <header className={wrapper}>
+      <Link
+        to="/"
+        onClick={e => {
+          if (home) {
+            e.preventDefault();
+            scroll.scrollToTop();
+          }
+        }}
+      >
+        <img className={logoStyles} src={logo} alt="Logo" />
+      </Link>
+      {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
+    </header>
+  );
 };
-
-class Header extends Component<{}, State> {
-  path: string;
-
-  mql: MediaQueryListListener;
-
-  state = {
-    isMobile: true,
-  };
-
-  componentDidMount() {
-    this.mql = window.matchMedia('(max-width: 650px)');
-    this.mql.addListener(this.handleSizeChange);
-    this.path = window.location.pathname;
-
-    this.setState({ isMobile: this.mql.matches });
-  }
-
-  componentWillUnmount() {
-    this.mql.removeListener(this.handleSizeChange);
-  }
-
-  handleSizeChange = (evt: MediaQueryListEvent) => {
-    this.setState({ isMobile: evt.matches });
-  };
-
-  render() {
-    const { isMobile } = this.state;
-
-    const home = this.path === '/';
-
-    return (
-      <header className={wrapper}>
-        <Link
-          to="/"
-          onClick={e => {
-            if (home) {
-              e.preventDefault();
-              scroll.scrollToTop();
-            }
-          }}
-        >
-          <img className={logoStyles} src={logo} alt="Logo" />
-        </Link>
-        {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
-      </header>
-    );
-  }
-}
 
 export default Header;
