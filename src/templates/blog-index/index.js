@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import Helmet from 'react-helmet';
-import { Link } from 'gatsby';
+// import { Link } from 'gatsby';
 import { css } from 'emotion';
 
 import type { Post } from './types';
@@ -22,11 +22,13 @@ const navigationLinks = css`
   margin-bottom: 1rem;
 `;
 
+/*
 const rssContainer = css`
   display: flex;
   justify-content: flex-end;
   margin-right: 2rem;
 `;
+*/
 
 type Props = {
   pageContext: {
@@ -48,9 +50,11 @@ const BlogIndex = ({ pageContext }: Props) => {
     <Layout>
       <div className={container}>
         <Helmet title="Blog | Daniel Lemay" />
+        {/* TODO: Fix RSS Feed
         <div className={rssContainer}>
           <Link to="/feed.xml">Subscribe to RSS</Link>
         </div>
+        */}
         {Posts}
         <div className={navigationLinks}>
           <BlogNavLink test={first} url={previousUrl} text="Go to Previous Page" />
