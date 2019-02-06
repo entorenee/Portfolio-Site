@@ -118,6 +118,7 @@ type Props = {
       title: string,
       body: {
         childMarkdownRemark: {
+          excerpt: string,
           html: string,
         },
       },
@@ -138,7 +139,7 @@ type Props = {
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const { title } = contentfulBlogPost;
-  const { html: body } = contentfulBlogPost.body.childMarkdownRemark;
+  const { excerpt, html: body } = contentfulBlogPost.body.childMarkdownRemark;
 
   const headlineImage = !contentfulBlogPost.headlineImage
     ? null
@@ -152,10 +153,18 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
     ? null
     : contentfulBlogPost.keyQuote.childMarkdownRemark.html;
 
+  const metaTitle = `${title} - Daniel Lemay`;
+
   return (
     <Layout>
       <div className={wrapper}>
-        <Helmet title={`${title} - Daniel Lemay`} />
+        <Helmet>
+          <title>{metaTitle}</title>
+          <meta property="og:type" content="article" />
+          <meta property="og:title" content={metaTitle} />
+          <meta property="og:description" content={excerpt} />
+          {headlineImage && <meta property="og:image" content={headlineImage} />}
+        </Helmet>
         <BlogIndex />
         <div className={headerContainer}>
           {keyQuote && (
@@ -188,6 +197,7 @@ export const pageQuery = graphql`
       title
       body {
         childMarkdownRemark {
+          excerpt(pruneLength: 300)
           html
         }
       }
