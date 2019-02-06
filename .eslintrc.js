@@ -19,7 +19,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
+  plugins: ['react', 'react-hooks', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
   extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:flowtype/recommended'],
   rules: {
     'react/require-default-props': 0,
@@ -30,6 +30,7 @@ module.exports = {
         order: ['type-annotations', 'static-methods', 'lifecycle', 'everything-else', 'render'],
       },
     ],
+    'react-hooks/rules-of-hooks': 'error',
     'flowtype-errors/show-errors': 2,
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],

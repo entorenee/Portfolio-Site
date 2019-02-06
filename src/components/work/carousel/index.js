@@ -5,7 +5,7 @@ import { StaticQuery, graphql } from 'gatsby';
 
 import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
-import Slideshow from '../../slideshow';
+import useSlideshow from '../../hooks/use-slideshow';
 import themeUtils from '../../theme-utils';
 
 const carouselContainer = css`
@@ -73,39 +73,40 @@ export const PureCarousel = ({
   data: {
     contentfulSlideshow: { slides },
   },
-}: Props) => (
-  <Slideshow slides={slides}>
-    {({ currIndex, isPlaying, slideData: project, updateIsPlaying, updateProject }) => (
-      <div className={carouselContainer}>
-        <CarouselControls
-          updateProject={updateProject}
-          isPlaying={isPlaying}
-          updateIsPlaying={updateIsPlaying}
-          currIndex={currIndex}
-          projects={slides}
+}: Props) => {
+  const { currIndex, isPlaying, setIsPlaying, updateSlide } = useSlideshow(slides);
+  const project = slides[currIndex];
+
+  return (
+    <div className={carouselContainer}>
+      <CarouselControls
+        updateProject={updateSlide}
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        currIndex={currIndex}
+        projects={slides}
+      />
+      <div>
+        <h1 className={title}>{project.title}</h1>
+        <img
+          className={focusImage}
+          src={project.projectImage.file.url}
+          alt={project.projectImage.description}
         />
-        <div>
-          <h1 className={title}>{project.title}</h1>
-          <img
-            className={focusImage}
-            src={project.projectImage.file.url}
-            alt={project.projectImage.description}
-          />
-          <div className={description}>
-            <p>{project.description.description}</p>
-            <div className={projectLinks}>
-              {project.links.map(link => (
-                <Button key={link.url} url={link.url}>
-                  {link.text}
-                </Button>
-              ))}
-            </div>
+        <div className={description}>
+          <p>{project.description.description}</p>
+          <div className={projectLinks}>
+            {project.links.map(link => (
+              <Button key={link.url} url={link.url}>
+                {link.text}
+              </Button>
+            ))}
           </div>
         </div>
       </div>
-    )}
-  </Slideshow>
-);
+    </div>
+  );
+};
 
 const query = graphql`
   {

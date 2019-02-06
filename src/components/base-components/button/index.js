@@ -18,16 +18,17 @@ const buttonStyles = css`
 `;
 
 type Props = {
+  'aria-label'?: string,
   children: React.Node,
   type: 'button' | 'submit',
   url?: string,
 };
 
-const Button = ({ children, type, url }: Props) => {
+const Button = ({ 'aria-label': ariaLabel, children, type, url }: Props) => {
   if (!url)
     return (
       /* eslint-disable-next-line react/button-has-type */
-      <button type={type} className={buttonStyles}>
+      <button type={type} aria-label={ariaLabel} className={buttonStyles}>
         {children}
       </button>
     );
@@ -44,6 +45,7 @@ const Button = ({ children, type, url }: Props) => {
 };
 
 Button.defaultProps = {
+  'aria-label': undefined,
   type: 'button',
   url: undefined,
 };
