@@ -2,17 +2,20 @@
 import { useEffect, useState } from 'react';
 
 function useMediaQuery(): { isMobile: boolean } {
-  if (typeof window === 'undefined') return { isMobile: false };
-
-  const mql = window.matchMedia('(max-width: 650px)');
-  const [isMobile, setIsMobile] = useState(mql.matches);
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleSizeChange = ({ matches }: MediaQueryListEvent) => setIsMobile(matches);
 
+  // eslint-disable-next-line consistent-return
   useEffect(() => {
-    mql.addListener(handleSizeChange);
+    // Window does not exist on SSR
+    if (typeof window !== 'undefined') {
+      const mql = window.matchMedia('(max-width: 650px)');
+      mql.addListener(handleSizeChange);
+      setIsMobile(mql.matches); // Set initial state in DOM
 
-    return () => mql.removeListener(handleSizeChange);
+      return () => mql.removeListener(handleSizeChange);
+    }
   }, []);
 
   return { isMobile };
