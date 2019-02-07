@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { act, cleanup, render } from 'react-testing-library';
 
 import About from '..';
 import { PureRandomQuote } from '../random-quote';
@@ -24,7 +24,9 @@ describe('<About />', () => {
     expect(getByText(quotes[0].quote)).toBeTruthy();
 
     // Quote slideshow runs on a timer
-    jest.advanceTimersByTime(5000);
+    act(() => {
+      jest.advanceTimersByTime(5000);
+    });
     expect(queryByText(quotes[0].quote)).toBeNull();
     expect(getByText(quotes[1].quote)).toBeTruthy();
   });
