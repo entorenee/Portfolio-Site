@@ -8,7 +8,10 @@ install: yarn --frozen-lockfile
 before_script:
   - node -v
   - yarn -v
-script: yarn ci
+script:
+  - yarn prettier
+  - yarn lint
+  - yarn test
 branches:
   only:
     - master
