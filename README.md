@@ -4,4 +4,4 @@ This project is the source code for my portfolio site which can be found at http
 
 The site utilizes GraphQL to interact with Contentful, a headless CMS service, and pull all applicable data and assets to generate the blog posts at build time. Additionally, webhooks allow for the site to be rebuilt upon pushing code to the repository and when a post is created, updated, or deleted on Contentful. 
 
-![Powered by Contentful](https://images.contentful.com/fo9twyrwpveg/7Htleo27dKYua8gio8UEUy/0797152a2d2f8e41db49ecbf1ccffdaa/PoweredByContentful_DarkBackground_MonochromeLogo.svg)
+![Powered by Contentful](https://images.ctfassets.net/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg)
