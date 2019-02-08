@@ -1,5 +1,5 @@
 import React from 'react';
-import { act, cleanup, render } from 'react-testing-library';
+import { act, render } from 'react-testing-library';
 
 import About from '..';
 import { PureRandomQuote } from '../random-quote';
@@ -11,7 +11,6 @@ RandomQuote.default = () => <PureRandomQuote {...testProps} />;
 
 const { slides: quotes } = testProps.data.contentfulSlideshow;
 
-afterEach(cleanup);
 jest.useFakeTimers();
 
 describe('<About />', () => {

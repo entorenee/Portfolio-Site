@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, fireEvent, render } from 'react-testing-library';
+import { fireEvent, render } from 'react-testing-library';
 
 import { PureCarousel } from '../carousel';
 import Work from '..';
@@ -11,8 +11,6 @@ const Carousel = require('../carousel');
 Carousel.default = () => <PureCarousel {...testProps} />;
 
 const { slides } = testProps.data.contentfulSlideshow;
-
-afterEach(cleanup);
 
 describe('<Carousel />', () => {
   it('Navigation controls work properly', () => {

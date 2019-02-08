@@ -1,11 +1,9 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import Card from '..';
 
 describe('<Card />', () => {
-  afterEach(cleanup);
-
   it('renders correctly', () => {
     const { container } = render(
       <Card>

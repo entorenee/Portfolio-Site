@@ -1,11 +1,9 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import Button from '..';
 
 describe('<Button />', () => {
-  afterEach(cleanup);
-
   it('renders a button correctly', () => {
     const { container } = render(<Button>Click me</Button>);
     expect(container.firstChild).toMatchSnapshot();

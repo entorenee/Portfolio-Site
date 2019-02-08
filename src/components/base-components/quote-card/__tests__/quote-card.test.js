@@ -1,11 +1,9 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import QuoteCard from '..';
 
 describe('<QuoteCard />', () => {
-  afterEach(cleanup);
-
   it('renders correctly', () => {
     const { container } = render(
       <QuoteCard>

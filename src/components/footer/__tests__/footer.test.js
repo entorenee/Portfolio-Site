@@ -1,9 +1,7 @@
 import React from 'react';
-import { cleanup, render } from 'react-testing-library';
+import { render } from 'react-testing-library';
 
 import Footer from '..';
-
-afterEach(cleanup);
 
 describe('<Footer />', () => {
   it('renders correctly', () => {
