@@ -12,17 +12,17 @@ script:
   - yarn prettier
   - yarn lint
   - yarn test
+after_success: npx codecov
 branches:
   only:
     - master
 
 before_deploy:
-  - yarn global add netlify-cli
   - yarn build
 
 deploy:
   provider: script
-  script: netlify deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN --dir ./public
+  script: npx netlify-cli deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./public
   skip_cleanup: true
   on:
     branch: master
