@@ -23,22 +23,22 @@ describe('<Carousel />', () => {
     const play = getByLabelText('play');
     expect(play).toBeTruthy();
     fireEvent.click(play);
-    expect(getByLabelText('pause')).toBeTruthy();
+    getByLabelText('pause');
 
     // Test next and previous buttons
     fireEvent.click(getByLabelText('next'));
-    expect(getByText(slides[1].title)).toBeTruthy();
+    getByText(slides[1].title);
     fireEvent.click(getByLabelText('previous'));
-    expect(getByText(slides[0].title)).toBeTruthy();
+    getByText(slides[0].title);
 
     // Test when not playing
     fireEvent.click(getByLabelText('pause'));
     fireEvent.click(getByLabelText('next'));
-    expect(getByText(slides[1].title)).toBeTruthy();
+    getByText(slides[1].title);
 
     // Test clicking selector boxes
     fireEvent.click(getByTestId('project2'));
-    expect(getByText(slides[2].title)).toBeTruthy();
+    getByText(slides[2].title);
     expect(queryByText(slides[0].title)).toBeNull();
   });
 });
@@ -48,6 +48,6 @@ describe('<Work />', () => {
     const { container, getByText } = render(<Work />);
 
     expect(container).toBeTruthy();
-    expect(getByText('Work')).toBeTruthy();
+    getByText('Work');
   });
 });
