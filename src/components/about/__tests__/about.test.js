@@ -26,7 +26,7 @@ describe('<About />', () => {
     act(() => {
       jest.advanceTimersByTime(5000);
     });
-    queryByText(quotes[0].quote);
+    expect(queryByText(quotes[0].quote)).toBeNull();
     getByText(quotes[1].quote);
   });
 });
