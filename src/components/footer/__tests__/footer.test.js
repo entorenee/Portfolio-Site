@@ -5,7 +5,10 @@ import Footer from '..';
 
 describe('<Footer />', () => {
   it('renders correctly', () => {
-    const { getByLabelText } = render(<Footer />);
-    expect(getByLabelText('copyright')).toBeTruthy();
+    const year = new Date().getFullYear();
+    const { getByLabelText, getByText } = render(<Footer />);
+
+    getByLabelText('copyright');
+    getByText(new RegExp(year));
   });
 });

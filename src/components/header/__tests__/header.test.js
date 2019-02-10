@@ -25,7 +25,7 @@ describe('<Header /> mobile view', () => {
     const { container, getByLabelText } = render(<Header location={location} />);
 
     expect(container).toBeTruthy();
-    expect(getByLabelText('menu')).toBeTruthy();
+    getByLabelText('menu');
   });
 
   it('the mobile icon toggles open states on click', () => {
