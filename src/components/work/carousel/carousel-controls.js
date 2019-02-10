@@ -63,14 +63,14 @@ const CarouselControls = ({
   <div className={wrapper}>
     <Button type="button" onClick={() => setIsPlaying(!isPlaying)}>
       {isPlaying ? (
-        <FaPauseCircle aria-label="pause" size={30} />
+        <FaPauseCircle aria-label="pause slideshow" size={30} />
       ) : (
-        <FaPlayCircle aria-label="play" size={30} />
+        <FaPlayCircle aria-label="play slideshow" size={30} />
       )}
     </Button>
     <div className={controlsContainer}>
       <Button onClick={() => updateProject('previous')}>
-        <FaAngleLeft aria-label="previous" size={25} />
+        <FaAngleLeft aria-label="go to previous project" size={25} />
       </Button>
       {projects.map((project, i) => (
         <Button
@@ -83,7 +83,7 @@ const CarouselControls = ({
         </Button>
       ))}
       <Button onClick={() => updateProject('next')}>
-        <FaAngleRight aria-label="next" size={25} />
+        <FaAngleRight aria-label="go to next project" size={25} />
       </Button>
     </div>
   </div>

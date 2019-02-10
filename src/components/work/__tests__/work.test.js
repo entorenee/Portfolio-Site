@@ -19,21 +19,21 @@ describe('<Carousel />', () => {
     );
 
     // Test play pause buttons
-    fireEvent.click(getByLabelText('pause'));
-    const play = getByLabelText('play');
+    fireEvent.click(getByLabelText('pause slideshow'));
+    const play = getByLabelText('play slideshow');
     expect(play).toBeTruthy();
     fireEvent.click(play);
-    getByLabelText('pause');
+    getByLabelText('pause slideshow');
 
     // Test next and previous buttons
-    fireEvent.click(getByLabelText('next'));
+    fireEvent.click(getByLabelText('go to next project'));
     getByText(slides[1].title);
-    fireEvent.click(getByLabelText('previous'));
+    fireEvent.click(getByLabelText('go to previous project'));
     getByText(slides[0].title);
 
     // Test when not playing
-    fireEvent.click(getByLabelText('pause'));
-    fireEvent.click(getByLabelText('next'));
+    fireEvent.click(getByLabelText('pause slideshow'));
+    fireEvent.click(getByLabelText('go to next project'));
     getByText(slides[1].title);
 
     // Test clicking selector boxes
