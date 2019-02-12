@@ -8,10 +8,7 @@ install: yarn --frozen-lockfile
 before_script:
   - node -v
   - yarn -v
-script:
-  - yarn prettier
-  - yarn lint
-  - yarn test
+script: yarn validate
 after_success: npx codecov
 branches:
   only:
