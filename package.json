@@ -22,7 +22,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint src",
-    "ci": "yarn lint && yarn prettier && yarn test"
+    "validate": "yarn lint && yarn prettier && yarn test && yarn build"
   },
   "license": "MIT",
   "dependencies": {
