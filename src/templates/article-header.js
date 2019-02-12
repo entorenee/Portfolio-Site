@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import QuoteCard from '../components/base-components/quote-card';
 
@@ -27,9 +27,9 @@ type Props = {
 };
 
 const ArticleHeader = ({ keyQuote }: Props) => (
-  <div className={headerContainer}>
+  <div css={headerContainer}>
     {keyQuote && (
-      <div className={quoteContainer}>
+      <div css={quoteContainer}>
         <QuoteCard>
           <div
             dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len

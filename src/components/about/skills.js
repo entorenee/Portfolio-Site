@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { FaCode } from 'react-icons/fa';
 import themeUtils from '../theme-utils';
 import Card from '../base-components/card';
@@ -54,14 +54,14 @@ const skillsList = css`
 `;
 
 const Skills = () => (
-  <div className={gridStyles}>
-    <Card className={cardStyles}>
-      <div className={headerContainer}>
-        <FaCode size={80} color={themeUtils.baseColor} className={IconStyles} />
+  <div css={gridStyles}>
+    <Card css={cardStyles}>
+      <div css={headerContainer}>
+        <FaCode size={80} color={themeUtils.baseColor} css={IconStyles} />
         <h1>Skills</h1>
       </div>
-      <hr className={divider} />
-      <ul className={skillsList}>
+      <hr css={divider} />
+      <ul css={skillsList}>
         <li>Cutting edge web technologies including React, GraphQL, and CSS Grid</li>
         <li>Responsive Web Design</li>
         <li>Backend experience with APIs, Node, Express, and MongoDB</li>

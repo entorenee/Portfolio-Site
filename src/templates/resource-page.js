@@ -1,7 +1,7 @@
 // @flow
 /* eslint-disable react/no-danger */
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
@@ -68,11 +68,11 @@ const ResourcePage = ({
 
   return (
     <Layout>
-      <div className={wrapper}>
+      <div css={wrapper}>
         <Helmet title={`${title} - Daniel Lemay`} />
         <ArticleHeader keyQuote={keyQuote} />
-        <div className={content}>
-          <h1 className={pageTitle}>{title}</h1>
+        <div css={content}>
+          <h1 css={pageTitle}>{title}</h1>
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
       </div>

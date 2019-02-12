@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import themeUtils from '../../theme-utils';
 
 const iconContainer = css`
@@ -63,11 +63,11 @@ const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
   <button
     aria-label="menu"
     aria-expanded={isOpen}
-    className={iconContainer}
+    css={iconContainer}
     onClick={() => toggleOpen()}
     type="button"
   >
-    <div className={icon}>
+    <div css={icon}>
       <Line1 isOpen={isOpen} />
       <Line2 isOpen={isOpen} />
       <Line3 isOpen={isOpen} />

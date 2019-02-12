@@ -1,7 +1,6 @@
 // @flow
 import * as React from 'react';
-import classNames from 'classnames';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import themeUtils from '../../theme-utils';
 
 const cardStyles = css`
@@ -17,7 +16,9 @@ type Props = {
 };
 
 const Card = ({ children, className }: Props) => (
-  <div className={classNames(cardStyles, className)}>{children}</div>
+  <div className={className} css={cardStyles}>
+    {children}
+  </div>
 );
 
 Card.defaultProps = {

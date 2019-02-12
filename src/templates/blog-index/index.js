@@ -2,7 +2,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 // import { Link } from 'gatsby';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import type { Post } from './types';
 import BlogNavLink from './blog-nav-link';
@@ -48,15 +48,15 @@ const BlogIndex = ({ pageContext }: Props) => {
 
   return (
     <Layout>
-      <div className={container}>
+      <div css={container}>
         <Helmet title="Blog | Daniel Lemay" />
         {/* TODO: Fix RSS Feed
-        <div className={rssContainer}>
+        <div css={rssContainer}>
           <Link to="/feed.xml">Subscribe to RSS</Link>
         </div>
         */}
         {Posts}
-        <div className={navigationLinks}>
+        <div css={navigationLinks}>
           <BlogNavLink test={first} url={previousUrl} text="Go to Previous Page" />
           <BlogNavLink test={last} url={nextUrl} text="Go to Next Page" />
         </div>

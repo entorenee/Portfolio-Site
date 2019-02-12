@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
-import styled from 'react-emotion';
-import { css } from 'emotion';
+import styled from '@emotion/styled';
+import { css } from '@emotion/core';
 import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 
 import type { Project } from '.';
@@ -60,7 +60,7 @@ const CarouselControls = ({
   setIsPlaying,
   updateProject,
 }: Props) => (
-  <div className={wrapper}>
+  <div css={wrapper}>
     <Button type="button" onClick={() => setIsPlaying(!isPlaying)}>
       {isPlaying ? (
         <FaPauseCircle aria-label="pause slideshow" size={30} />
@@ -68,7 +68,7 @@ const CarouselControls = ({
         <FaPlayCircle aria-label="play slideshow" size={30} />
       )}
     </Button>
-    <div className={controlsContainer}>
+    <div css={controlsContainer}>
       <Button onClick={() => updateProject('previous')}>
         <FaAngleLeft aria-label="go to previous project" size={25} />
       </Button>

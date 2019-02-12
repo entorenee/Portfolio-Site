@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { Element } from 'react-scroll';
 
 import themeUtils from '../theme-utils';
@@ -18,7 +18,7 @@ type Props = {
 const Work = ({ inputRef }: Props) => (
   <section id="work" ref={inputRef}>
     <Element name="work" />
-    <h1 className={header}>Work</h1>
+    <h1 css={header}>Work</h1>
     <Carousel />
   </section>
 );

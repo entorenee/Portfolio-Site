@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
-import classNames from 'classnames';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 
 import NavLink, { desktopLinks, mobileLinks } from './nav-link';
@@ -58,24 +57,23 @@ type Props = {
   mobile: boolean,
 };
 
-const NavigationLinks = ({ home, isOpen, mobile }: Props) => (
-  <nav
-    className={classNames(wrapper, {
-      [mobileLinksOpen]: mobile && isOpen,
-      [mobileLinksClosed]: mobile && !isOpen,
-    })}
-  >
-    <NavLink to="about" text="About" mobile={mobile} homePage={home} />
-    <NavLink to="work" text="Work" mobile={mobile} homePage={home} />
-    <NavLink to="contact" text="Contact" mobile={mobile} homePage={home} />
-    <Link to="/graphql" className={mobile ? mobileLinks : desktopLinks}>
-      GraphQL
-    </Link>
-    <Link to="/blog" className={mobile ? mobileLinks : desktopLinks}>
-      Blog
-    </Link>
-  </nav>
-);
+const NavigationLinks = ({ home, isOpen, mobile }: Props) => {
+  const linkStyles = mobile ? mobileLinks : desktopLinks;
+
+  return (
+    <nav css={[wrapper, mobile && (isOpen ? mobileLinksOpen : mobileLinksClosed)]}>
+      <NavLink to="about" text="About" mobile={mobile} homePage={home} />
+      <NavLink to="work" text="Work" mobile={mobile} homePage={home} />
+      <NavLink to="contact" text="Contact" mobile={mobile} homePage={home} />
+      <Link to="/graphql" css={linkStyles}>
+        GraphQL
+      </Link>
+      <Link to="/blog" css={linkStyles}>
+        Blog
+      </Link>
+    </nav>
+  );
+};
 
 NavigationLinks.defaultProps = {
   mobile: false,

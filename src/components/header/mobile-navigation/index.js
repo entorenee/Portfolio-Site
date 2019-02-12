@@ -1,6 +1,6 @@
 // @flow
 import React, { useState } from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import MenuIcon from './menu-icon';
 import Navigation from '../navigation';
@@ -20,7 +20,7 @@ const MobileNavigation = ({ home }: Props) => {
   const toggleOpen = () => setIsOpen(!isOpen);
 
   return (
-    <div className={iconContainer}>
+    <div css={iconContainer}>
       <MenuIcon isOpen={isOpen} toggleOpen={toggleOpen} />
       <Navigation mobile isOpen={isOpen} home={home} />
     </div>

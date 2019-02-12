@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { graphql, StaticQuery } from 'gatsby';
 
 import useSlideshow from '../hooks/use-slideshow';
@@ -44,10 +44,10 @@ export const PureRandomQuote = ({
   const quote = slides[currIndex];
 
   return (
-    <div className={gridStyles} data-testid="random-quote">
+    <div css={gridStyles} data-testid="random-quote">
       <QuoteCard>
         <div>{quote.quote}</div>
-        <div className={attribution}>{`~${quote.attribution}`}</div>
+        <div css={attribution}>{`~${quote.attribution}`}</div>
       </QuoteCard>
     </div>
   );

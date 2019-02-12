@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/fa';
 
@@ -53,17 +53,17 @@ const BlogPostExcerpt = ({ node }: Props) => {
 
   return (
     <div>
-      <h1 className={postHeaderTitle}>{title}</h1>
-      <div className={postHeaderDate}>{longDateFormat(postDate)}</div>
-      {headlineImage && <img className={postImage} src={headlineImage} alt={headlineAltText} />}
+      <h1 css={postHeaderTitle}>{title}</h1>
+      <div css={postHeaderDate}>{longDateFormat(postDate)}</div>
+      {headlineImage && <img css={postImage} src={headlineImage} alt={headlineAltText} />}
       <div
         dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
       />
       <Link to={`/${slug}`}>
-        <span className={readMore}>Read More</span>
+        <span css={readMore}>Read More</span>
         <FaChevronRight size={15} />
       </Link>
-      <hr className={divider} />
+      <hr css={divider} />
     </div>
   );
 };

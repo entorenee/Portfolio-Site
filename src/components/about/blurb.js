@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 const wrapper = css`
   grid-area: 2 / 1 / 3 / -1;
@@ -15,7 +15,7 @@ const wrapper = css`
 `;
 
 const Blurb = () => (
-  <div className={wrapper}>
+  <div css={wrapper}>
     <p>
       <strong>
         My name is Daniel Lemay, and I am a JavaScript developer specializing in React.
