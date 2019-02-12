@@ -8,21 +8,8 @@ install: yarn --frozen-lockfile
 before_script:
   - node -v
   - yarn -v
-script:
-  - yarn prettier
-  - yarn lint
-  - yarn test
+script: yarn validate
 after_success: npx codecov
 branches:
   only:
     - master
-
-before_deploy:
-  - yarn build
-
-deploy:
-  provider: script
-  script: npx netlify-cli deploy -s $NETLIFY_SITE_ID --auth $NETLIFY_ACCESS_TOKEN -p --dir ./public
-  skip_cleanup: true
-  on:
-    branch: master
