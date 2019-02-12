@@ -19,7 +19,7 @@ module.exports = {
     },
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
+  plugins: ['react', 'react-hooks', 'emotion', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
   extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:flowtype/recommended'],
   rules: {
     'react/require-default-props': 0,
@@ -52,5 +52,8 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
+    "emotion/no-vanilla": "error",
+    "emotion/import-from-emotion": "error",
+    "emotion/styled-import": "error"
   },
 };
