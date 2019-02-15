@@ -61,7 +61,7 @@ const BlogPostExcerpt = ({ node }: Props) => {
   return (
     <div>
       <Link css={{ textDecoration: 'none' }} to={`/${slug}`}>
-        <h1 css={postHeaderTitle}>{title}</h1>
+        <h2 css={postHeaderTitle}>{title}</h2>
       </Link>
       <div css={postHeaderDate}>{longDateFormat(postDate)}</div>
       <div css={excerptContainer}>

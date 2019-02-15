@@ -31,6 +31,8 @@ const rssContainer = css`
 */
 
 type Props = {
+  headline: string,
+  metaTitle: string,
   pageContext: {
     group: Array<Post>,
     index: number,
@@ -39,7 +41,7 @@ type Props = {
   },
 };
 
-const BlogIndex = ({ pageContext }: Props) => {
+const BlogIndex = ({ headline, metaTitle, pageContext }: Props) => {
   const { group, index, first, last } = pageContext;
   const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
   const nextUrl = `/blog/page/${(index + 1).toString()}`;
@@ -49,12 +51,13 @@ const BlogIndex = ({ pageContext }: Props) => {
   return (
     <Layout>
       <div css={container}>
-        <Helmet title="Blog | Daniel Lemay" />
+        <Helmet title={`${metaTitle} | Daniel Lemay`} />
         {/* TODO: Fix RSS Feed
         <div css={rssContainer}>
           <Link to="/feed.xml">Subscribe to RSS</Link>
         </div>
         */}
+        <h1>{headline}</h1>
         {Posts}
         <div css={navigationLinks}>
           <BlogNavLink test={first} url={previousUrl} text="Go to Previous Page" />
@@ -63,6 +66,10 @@ const BlogIndex = ({ pageContext }: Props) => {
       </div>
     </Layout>
   );
+};
+
+BlogIndex.defaultProps = {
+  metaTitle: 'Blog',
 };
 
 export default BlogIndex;
