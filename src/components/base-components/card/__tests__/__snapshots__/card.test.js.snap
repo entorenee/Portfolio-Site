@@ -9,7 +9,7 @@ exports[`<Card /> renders correctly 1`] = `
 }
 
 <div
-  class="emotion-0"
+  class=" emotion-0"
 >
   <div>
     Hello World
