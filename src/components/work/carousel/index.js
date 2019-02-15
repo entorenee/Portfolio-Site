@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Button from '../../base-components/button';
@@ -78,7 +78,7 @@ export const PureCarousel = ({
   const project = slides[currIndex];
 
   return (
-    <div className={carouselContainer}>
+    <div css={carouselContainer}>
       <CarouselControls
         updateProject={updateSlide}
         isPlaying={isPlaying}
@@ -87,15 +87,15 @@ export const PureCarousel = ({
         projects={slides}
       />
       <div>
-        <h1 className={title}>{project.title}</h1>
+        <h1 css={title}>{project.title}</h1>
         <img
-          className={focusImage}
+          css={focusImage}
           src={project.projectImage.file.url}
           alt={project.projectImage.description}
         />
-        <div className={description}>
+        <div css={description}>
           <p>{project.description.description}</p>
-          <div className={projectLinks}>
+          <div css={projectLinks}>
             {project.links.map(link => (
               <Button key={link.url} url={link.url}>
                 {link.text}

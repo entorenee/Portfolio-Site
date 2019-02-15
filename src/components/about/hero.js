@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import themeUtils from '../theme-utils';
 import heroImg from '../../assets/img/hero-image.jpg';
@@ -53,8 +53,8 @@ const heroText = css`
 `;
 
 const Hero = () => (
-  <div className={bgImage}>
-    <div className={heroText}>
+  <div css={bgImage}>
+    <div css={heroText}>
       <h1>Daniel Lemay</h1>
       <hr />
       <h1>Full Stack JavaScript Developer</h1>

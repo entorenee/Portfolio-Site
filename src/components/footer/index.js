@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { FaCopyright } from 'react-icons/fa';
 
 import themeUtils from '../theme-utils';
@@ -22,7 +22,7 @@ const getCurrentYear = () => {
 };
 
 const Footer = () => (
-  <footer className={wrapper}>
+  <footer css={wrapper}>
     <div>
       <FaCopyright aria-label="copyright" size={18} /> {getCurrentYear()} Daniel Lemay. All Rights
       Reserved.

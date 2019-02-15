@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import themeUtils from '../../theme-utils';
 import Card from '../card';
@@ -38,7 +38,7 @@ type Props = {
 
 const QuoteCard = ({ children }: Props) => (
   <Card>
-    <div className={container}>{children}</div>
+    <div css={container}>{children}</div>
   </Card>
 );
 

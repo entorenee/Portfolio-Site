@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import themeUtils from '../theme-utils';
 
@@ -20,7 +20,7 @@ const socialLink = css`
 `;
 
 const SocialIcon = ({ component, link }: IconProps) => (
-  <a className={socialLink} href={link}>
+  <a css={socialLink} href={link}>
     {component}
   </a>
 );

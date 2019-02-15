@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import { Link } from 'gatsby';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import ScrollLink from './scroll-link';
 
@@ -30,7 +30,7 @@ const NavLink = ({ homePage, mobile, text, to }: Props) => {
       <ScrollLink
         to={to}
         href={`#${to}`} // Needed for accessibility of react-scroll implementation
-        className={mobile ? mobileLinks : desktopLinks}
+        css={mobile ? mobileLinks : desktopLinks}
         smooth
         offset={-80}
         duration={1000}
@@ -40,7 +40,7 @@ const NavLink = ({ homePage, mobile, text, to }: Props) => {
     );
   }
   return (
-    <Link to={`/#${to}`} className={mobile ? mobileLinks : desktopLinks}>
+    <Link to={`/#${to}`} css={mobile ? mobileLinks : desktopLinks}>
       {text}
     </Link>
   );

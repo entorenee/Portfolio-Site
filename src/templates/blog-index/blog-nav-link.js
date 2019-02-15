@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 
 const deadLink = css`
@@ -18,7 +18,7 @@ const BlogNavLink = ({ test, text, url }: Props) => {
   if (!test) {
     return <Link to={url}>{text}</Link>;
   }
-  return <span className={deadLink}>{text}</span>;
+  return <span css={deadLink}>{text}</span>;
 };
 
 export default BlogNavLink;

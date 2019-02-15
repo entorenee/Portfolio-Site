@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import { animateScroll as scroll } from 'react-scroll';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 import Navigation from './navigation';
 import MobileNavigation from './mobile-navigation';
@@ -34,7 +34,7 @@ const Header = () => {
   const home = path === '/';
 
   return (
-    <header className={wrapper}>
+    <header css={wrapper}>
       <Link
         to="/"
         onClick={e => {
@@ -44,7 +44,7 @@ const Header = () => {
           }
         }}
       >
-        <img className={logoStyles} src={logo} alt="Logo" />
+        <img css={logoStyles} src={logo} alt="Logo" />
       </Link>
       {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
     </header>

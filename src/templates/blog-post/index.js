@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
 import { FaAngleLeft } from 'react-icons/fa';
@@ -104,7 +104,7 @@ const blogTitle = css`
 `;
 
 const BlogIndex = () => (
-  <div className={blogIndexLink}>
+  <div css={blogIndexLink}>
     <Link to="/blog">
       <FaAngleLeft size={20} />
       Return to Blog Index
@@ -157,7 +157,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
 
   return (
     <Layout>
-      <div className={wrapper}>
+      <div css={wrapper}>
         <Helmet>
           <title>{metaTitle}</title>
           <meta property="og:type" content="article" />
@@ -166,9 +166,9 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           {headlineImage && <meta property="og:image" content={headlineImage} />}
         </Helmet>
         <BlogIndex />
-        <div className={headerContainer}>
+        <div css={headerContainer}>
           {keyQuote && (
-            <div className={quoteContainer}>
+            <div css={quoteContainer}>
               <QuoteCard>
                 <div
                   dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
@@ -178,8 +178,8 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           )}
           {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
         </div>
-        <div className={postContainer}>
-          <h1 className={blogTitle}>{title}</h1>
+        <div css={postContainer}>
+          <h1 css={blogTitle}>{title}</h1>
           <div
             dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
           />

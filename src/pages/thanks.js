@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import themeUtils from '../components/theme-utils';
 import Layout from '../layouts/main';
 import Card from '../components/base-components/card';
@@ -66,15 +66,15 @@ class Thanks extends React.Component<{}, State> {
 
     return (
       <Layout>
-        <div className={container}>
-          <div className={cardWrapper}>
+        <div css={container}>
+          <div css={cardWrapper}>
             <Card style={cardStyles}>
-              <h1 className={centerText}>Thank you!</h1>
+              <h1 css={centerText}>Thank you!</h1>
               <p>
                 Your form has been submitted successfully. Please click the button below to return
                 to the homepage. You will be automatically redirected in {timer / 1000} seconds.
               </p>
-              <div className={buttonWrapper}>
+              <div css={buttonWrapper}>
                 <Button url="/">Return to Homepage</Button>
               </div>
             </Card>

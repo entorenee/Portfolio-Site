@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import themeUtils from '../../theme-utils';
 
 const buttonStyles = css`
@@ -28,17 +28,17 @@ const Button = ({ 'aria-label': ariaLabel, children, type, url }: Props) => {
   if (!url)
     return (
       /* eslint-disable-next-line react/button-has-type */
-      <button type={type} aria-label={ariaLabel} className={buttonStyles}>
+      <button type={type} aria-label={ariaLabel} css={buttonStyles}>
         {children}
       </button>
     );
 
   return url.substring(0, 1) === '/' ? (
-    <Link className={buttonStyles} to={url}>
+    <Link css={buttonStyles} to={url}>
       {children}
     </Link>
   ) : (
-    <a className={buttonStyles} href={url} target="_blank" rel="noopener noreferrer">
+    <a css={buttonStyles} href={url} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );

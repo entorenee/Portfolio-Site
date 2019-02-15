@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 import { Element } from 'react-scroll';
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa';
 
@@ -81,27 +81,27 @@ type ContactProps = {
 };
 
 const Contact = ({ inputRef }: ContactProps) => (
-  <section className={contactSection} id="contact">
+  <section css={contactSection} id="contact">
     <div ref={inputRef}>
       <Element name="contact" />
       <h1>Contact</h1>
-      <Card className={cardStyles}>
+      <Card css={cardStyles}>
         <form action="https://formspree.io/daniel@dslemay.com" method="POST">
-          <label className={formLabel} htmlFor="name">
+          <label css={formLabel} htmlFor="name">
             <span>Name:</span>
             <input type="text" name="name" placeholder="Your name" />
           </label>
-          <label className={formLabel} htmlFor="email">
+          <label css={formLabel} htmlFor="email">
             <span>Email:</span>
             <input type="email" name="_replyto" placeholder="Your e-mail" />
           </label>
-          <label className={formLabel} htmlFor="message">
+          <label css={formLabel} htmlFor="message">
             <span>Message:</span>
             <textarea rows="6" name="message" placeholder="Your message" />
           </label>
           <input type="hidden" name="_subject" value="New contact form submission" />
           <input type="hidden" name="_next" value="/thanks" />
-          <div className={buttonContainer}>
+          <div css={buttonContainer}>
             <Button type="submit">Submit</Button>
           </div>
         </form>

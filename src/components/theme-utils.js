@@ -1,4 +1,4 @@
-import { css } from 'emotion';
+import { css } from '@emotion/core';
 
 const themeUtils = {
   baseColor: '#2D3B7F',
