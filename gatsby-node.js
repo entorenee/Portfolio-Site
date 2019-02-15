@@ -49,6 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
+        // Create page for each blog post
         result.data.allContentfulBlogPost.edges.forEach(edge => {
           const { title, postDate } = edge.node;
           const slug = postSlug(postDate, title);
@@ -61,6 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
+        // Create Resource pages
         result.data.allFile.edges.forEach(
           ({
             node: {
@@ -79,6 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
           },
         );
 
+        // Create Blog Index
         createPaginatedPages({
           edges: result.data.allContentfulBlogPost.edges,
           createPage,
