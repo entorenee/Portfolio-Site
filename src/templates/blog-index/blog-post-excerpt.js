@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/fa';
 
-import type { Post as Props } from './types';
+import type { PostNode as Props } from './types';
 import themeUtils from '../../components/theme-utils';
 import { longDateFormat, postSlug } from '../../utils/helpers';
 

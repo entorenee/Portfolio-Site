@@ -31,22 +31,41 @@ const rssContainer = css`
 */
 
 type Props = {
-  headline: string,
   metaTitle: string,
   pageContext: {
+    additionalContext: {
+      headline: string,
+    },
+    first: boolean,
     group: Array<Post>,
     index: number,
-    first: boolean,
     last: boolean,
+    pathPrefix: string,
   },
 };
 
-const BlogIndex = ({ headline, metaTitle, pageContext }: Props) => {
-  const { group, index, first, last } = pageContext;
-  const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
-  const nextUrl = `/blog/page/${(index + 1).toString()}`;
+const BlogIndex = ({ metaTitle, pageContext }: Props) => {
+  const {
+    additionalContext: { headline },
+    first,
+    group,
+    index,
+    last,
+    pathPrefix,
+  } = pageContext;
+  const previousUrl = index - 1 === 1 ? pathPrefix : `${pathPrefix}/page/${(index - 1).toString()}`;
+  const nextUrl = `${pathPrefix}/page/${(index + 1).toString()}`;
 
-  const Posts = group.map(({ node }) => <BlogPostExcerpt key={node.id} node={node} />);
+  const Posts = group.map((data: Post) => {
+    const { node } = data;
+
+    if (node) {
+      // Structure for posts from all posts query
+      return <BlogPostExcerpt key={node.id} node={node} />;
+    }
+    // Structure for category and tag queries
+    return <BlogPostExcerpt key={data.id} node={data} />;
+  });
 
   return (
     <Layout>
