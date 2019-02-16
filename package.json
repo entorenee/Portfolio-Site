@@ -46,8 +46,8 @@
     "gatsby-source-filesystem": "^2.0.12",
     "gatsby-transformer-remark": "^2.2.5",
     "prismjs": "^1.15.0",
-    "react": "^16.8.1",
-    "react-dom": "^16.8.1",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.4.0",
     "react-scroll": "^1.7.10",
@@ -87,7 +87,7 @@
     "jest-emotion": "^10.0.7",
     "lint-staged": "^8.1.4",
     "prettier": "^1.14.3",
-    "react-test-renderer": "^16.8.1",
+    "react-test-renderer": "^16.8.2",
     "react-testing-library": "^5.8.0"
   },
   "resolutions": {
