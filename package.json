@@ -87,7 +87,7 @@
     "jest-emotion": "^10.0.7",
     "lint-staged": "^8.1.4",
     "prettier": "^1.14.3",
-    "react-test-renderer": "^16.8.1",
+    "react-test-renderer": "^16.8.2",
     "react-testing-library": "^5.8.0"
   },
   "resolutions": {
