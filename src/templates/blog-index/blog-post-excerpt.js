@@ -21,13 +21,20 @@ const postHeaderDate = css`
   font-weight: bold;
 `;
 
-const postImage = css`
-  float: left;
-  margin-right: 0.6rem;
+const excerptContainer = css`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-  @media (min-width: 700px) {
-    max-width: 300px;
+  @media (min-width: 1000px) {
+    flex-direction: row;
+    align-items: flex-start;
   }
+`;
+
+const postImage = css`
+  margin-right: 1.2rem;
+  flex: 0 0 auto;
 
   @media (min-width: 1000px) {
     max-width: 400px;
@@ -53,12 +60,16 @@ const BlogPostExcerpt = ({ node }: Props) => {
 
   return (
     <div>
-      <h1 css={postHeaderTitle}>{title}</h1>
+      <Link css={{ textDecoration: 'none' }} to={`/${slug}`}>
+        <h1 css={postHeaderTitle}>{title}</h1>
+      </Link>
       <div css={postHeaderDate}>{longDateFormat(postDate)}</div>
-      {headlineImage && <img css={postImage} src={headlineImage} alt={headlineAltText} />}
-      <div
-        dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
-      />
+      <div css={excerptContainer}>
+        {headlineImage && <img css={postImage} src={headlineImage} alt={headlineAltText} />}
+        <div
+          dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
+        />
+      </div>
       <Link to={`/${slug}`}>
         <span css={readMore}>Read More</span>
         <FaChevronRight size={15} />
