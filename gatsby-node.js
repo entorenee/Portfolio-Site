@@ -1,5 +1,7 @@
 const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
+const slugify = require('slugify');
+
 const { postSlug } = require('./src/utils/helpers');
 
 exports.createPages = ({ graphql, actions }) => {
@@ -10,24 +12,37 @@ exports.createPages = ({ graphql, actions }) => {
 
     resolve(
       graphql(`
+        fragment BlogPost on ContentfulBlogPost {
+          id
+          title
+          postDate(formatString: "YYYY/MM/DD")
+          body {
+            childMarkdownRemark {
+              excerpt(pruneLength: 750)
+              html
+            }
+          }
+          headlineImage {
+            description
+            file {
+              url
+            }
+          }
+        }
         {
           allContentfulBlogPost(limit: 500, sort: { fields: [postDate], order: DESC }) {
             edges {
               node {
-                id
-                title
-                postDate(formatString: "YYYY/MM/DD")
-                body {
-                  childMarkdownRemark {
-                    excerpt(pruneLength: 750)
-                    html
-                  }
-                }
-                headlineImage {
-                  description
-                  file {
-                    url
-                  }
+                ...BlogPost
+              }
+            }
+          }
+          allContentfulCategories {
+            edges {
+              node {
+                category
+                blog_post {
+                  ...BlogPost
                 }
               }
             }
@@ -88,10 +103,30 @@ exports.createPages = ({ graphql, actions }) => {
           pageTemplate: 'src/templates/blog-index/index.js',
           pageLength: 5,
           pathPrefix: 'blog',
-          // eslint-disable-next-line no-confusing-arrow
           buildPath: (index, pathPrefix) =>
             index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+          context: {
+            headline: 'Blog',
+          },
         });
+
+        // Create Category Pages
+        result.data.allContentfulCategories.edges.forEach(
+          ({ node: { category, blog_post: posts } }) => {
+            createPaginatedPages({
+              edges: posts,
+              createPage,
+              pageTemplate: 'src/templates/blog-index/index.js',
+              pageLength: 5,
+              pathPrefix: `blog/category/${slugify(category)}`,
+              buildPath: (index, pathPrefix) =>
+                index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+              context: {
+                headline: `Blog Posts for ${category}`,
+              },
+            });
+          },
+        );
       }),
     );
   });
