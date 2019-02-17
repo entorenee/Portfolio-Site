@@ -1,12 +1,6 @@
 // @flow
 import * as React from 'react';
-import { css } from '@emotion/core';
 import { Link } from 'gatsby';
-
-const deadLink = css`
-  color: #666;
-  user-select: none;
-`;
 
 type Props = {
   test: boolean,
@@ -15,10 +9,7 @@ type Props = {
 };
 
 const BlogNavLink = ({ test, text, url }: Props) => {
-  if (!test) {
-    return <Link to={url}>{text}</Link>;
-  }
-  return <span css={deadLink}>{text}</span>;
+  return !test ? <Link to={url}>{text}</Link> : null;
 };
 
 export default BlogNavLink;
