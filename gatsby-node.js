@@ -2,6 +2,7 @@ const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
 
 const { postSlug } = require('./src/utils/helpers');
+const { CATEGORY_BASE, TAG_BASE } = require('./src/templates/blog-post/url-base');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -129,7 +130,7 @@ exports.createPages = ({ graphql, actions }) => {
               createPage,
               pageTemplate: 'src/templates/blog-index/index.js',
               pageLength: 5,
-              pathPrefix: `blog/category/${slug}`,
+              pathPrefix: `${CATEGORY_BASE}/${slug}`,
               buildPath: (index, pathPrefix) =>
                 index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
               context: {
@@ -146,7 +147,7 @@ exports.createPages = ({ graphql, actions }) => {
             createPage,
             pageTemplate: 'src/templates/blog-index/index.js',
             pageLength: 5,
-            pathPrefix: `blog/tag/${slug}`,
+            pathPrefix: `${TAG_BASE}/${slug}`,
             buildPath: (index, pathPrefix) =>
               index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
             context: {
