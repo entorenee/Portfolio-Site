@@ -1,6 +1,5 @@
 const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
-const slugify = require('slugify');
 
 const { postSlug } = require('./src/utils/helpers');
 
@@ -41,6 +40,18 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 category
+                slug
+                blog_post {
+                  ...BlogPost
+                }
+              }
+            }
+          }
+          allContentfulTags {
+            edges {
+              node {
+                tag
+                slug
                 blog_post {
                   ...BlogPost
                 }
@@ -112,13 +123,13 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create Category Pages
         result.data.allContentfulCategories.edges.forEach(
-          ({ node: { category, blog_post: posts } }) => {
+          ({ node: { category, slug, blog_post: posts } }) => {
             createPaginatedPages({
               edges: posts,
               createPage,
               pageTemplate: 'src/templates/blog-index/index.js',
               pageLength: 5,
-              pathPrefix: `blog/category/${slugify(category)}`,
+              pathPrefix: `blog/category/${slug}`,
               buildPath: (index, pathPrefix) =>
                 index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
               context: {
@@ -127,6 +138,22 @@ exports.createPages = ({ graphql, actions }) => {
             });
           },
         );
+
+        // Create Tag Pages
+        result.data.allContentfulTags.edges.forEach(({ node: { tag, slug, blog_post: posts } }) => {
+          createPaginatedPages({
+            edges: posts,
+            createPage,
+            pageTemplate: 'src/templates/blog-index/index.js',
+            pageLength: 5,
+            pathPrefix: `blog/tag/${slug}`,
+            buildPath: (index, pathPrefix) =>
+              index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+            context: {
+              headline: `Blog Posts for ${tag}`,
+            },
+          });
+        });
       }),
     );
   });
