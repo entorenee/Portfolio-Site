@@ -117,7 +117,7 @@ exports.createPages = ({ graphql, actions }) => {
           buildPath: (index, pathPrefix) =>
             index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
           context: {
-            headline: 'Blog',
+            headline: 'Blog Index',
           },
         });
 
@@ -133,7 +133,7 @@ exports.createPages = ({ graphql, actions }) => {
               buildPath: (index, pathPrefix) =>
                 index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
               context: {
-                headline: `Blog Posts for ${category}`,
+                headline: `Category: ${category}`,
               },
             });
           },
@@ -150,7 +150,7 @@ exports.createPages = ({ graphql, actions }) => {
             buildPath: (index, pathPrefix) =>
               index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
             context: {
-              headline: `Blog Posts for ${tag}`,
+              headline: `Tag: ${tag}`,
             },
           });
         });

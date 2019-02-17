@@ -31,7 +31,6 @@ const rssContainer = css`
 */
 
 type Props = {
-  metaTitle: string,
   pageContext: {
     additionalContext: {
       headline: string,
@@ -44,7 +43,7 @@ type Props = {
   },
 };
 
-const BlogIndex = ({ metaTitle, pageContext }: Props) => {
+const BlogIndex = ({ pageContext }: Props) => {
   const {
     additionalContext: { headline },
     first,
@@ -70,7 +69,7 @@ const BlogIndex = ({ metaTitle, pageContext }: Props) => {
   return (
     <Layout>
       <div css={container}>
-        <Helmet title={`${metaTitle} | Daniel Lemay`} />
+        <Helmet title={`${headline} | Daniel Lemay`} />
         {/* TODO: Fix RSS Feed
         <div css={rssContainer}>
           <Link to="/feed.xml">Subscribe to RSS</Link>
@@ -85,10 +84,6 @@ const BlogIndex = ({ metaTitle, pageContext }: Props) => {
       </div>
     </Layout>
   );
-};
-
-BlogIndex.defaultProps = {
-  metaTitle: 'Blog',
 };
 
 export default BlogIndex;
