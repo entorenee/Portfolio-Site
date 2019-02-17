@@ -6,6 +6,8 @@ import { graphql, Link } from 'gatsby';
 import { FaAngleLeft } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 
+import type { TopMetaProps as PostMetaProps } from './post-meta';
+import PostMeta from './post-meta';
 import Layout from '../../layouts/main';
 import themeUtils from '../../components/theme-utils';
 import QuoteCard from '../../components/base-components/quote-card';
@@ -48,6 +50,7 @@ const quoteContainer = css`
 const postContainer = css`
   ${themeUtils.margins};
 
+  h1,
   h2 {
     color: ${themeUtils.baseColor};
   }
@@ -101,6 +104,7 @@ const postContainer = css`
 
 const blogTitle = css`
   text-align: center;
+  margin-bottom: 1rem;
 `;
 
 const BlogIndex = () => (
@@ -115,11 +119,11 @@ const BlogIndex = () => (
 type Props = {
   data: {
     contentfulBlogPost: {
-      title: string,
       body: {
         childMarkdownRemark: {
           excerpt: string,
           html: string,
+          timeToRead: number,
         },
       },
       headlineImage?: {
@@ -133,13 +137,14 @@ type Props = {
           html: string,
         },
       },
-    },
+      title: string,
+    } & PostMetaProps,
   },
 };
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
-  const { title } = contentfulBlogPost;
-  const { excerpt, html: body } = contentfulBlogPost.body.childMarkdownRemark;
+  const { postCategory, postDate, postTags, title } = contentfulBlogPost;
+  const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
 
   const headlineImage = !contentfulBlogPost.headlineImage
     ? null
@@ -180,6 +185,12 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         </div>
         <div css={postContainer}>
           <h1 css={blogTitle}>{title}</h1>
+          <PostMeta
+            postCategory={postCategory}
+            postDate={postDate}
+            postTags={postTags}
+            timeToRead={timeToRead}
+          />
           <div
             dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
           />
@@ -199,6 +210,7 @@ export const pageQuery = graphql`
         childMarkdownRemark {
           excerpt(pruneLength: 300)
           html
+          timeToRead
         }
       }
       keyQuote {
@@ -212,6 +224,15 @@ export const pageQuery = graphql`
           url
         }
       }
+      postTags {
+        tag
+        slug
+      }
+      postCategory {
+        category
+        slug
+      }
+      postDate(formatString: "MMMM D, YYYY")
     }
   }
 `;
