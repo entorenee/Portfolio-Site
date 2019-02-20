@@ -50,20 +50,6 @@ const quoteContainer = css`
 const postContainer = css`
   ${themeUtils.margins};
 
-  h1,
-  h2 {
-    color: ${themeUtils.baseColor};
-  }
-
-  a {
-    color: ${themeUtils.mediumAccent};
-    transition: color 800ms;
-
-    &:hover {
-      color: ${themeUtils.complementaryDark};
-    }
-  }
-
   li {
     margin-bottom: 0.4rem;
     line-height: 1.5;

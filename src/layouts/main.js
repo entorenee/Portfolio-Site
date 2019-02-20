@@ -3,9 +3,10 @@ import * as React from 'react';
 import { Global, css } from '@emotion/core';
 import Helmet from 'react-helmet';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
 import favicon from './favicon-32x32.png';
+import Footer from '../components/footer';
+import Header from '../components/header';
+import themeUtils from '../components/theme-utils';
 
 type Props = {
   children: React.ChildrenArray<React.Node>,
@@ -18,17 +19,17 @@ const styles = css`
   h4,
   h5,
   h6 {
-    color: #2d3b7f;
+    color: ${themeUtils.baseColor};
   }
 
   a {
-    color: #656e9a;
+    color: ${themeUtils.mediumAccent};
     transition: color 800ms;
     text-decoration: underline;
   }
 
   a:hover {
-    color: #9a8956;
+    color: ${themeUtils.complementaryDark};
   }
 `;
 
