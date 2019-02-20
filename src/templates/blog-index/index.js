@@ -1,7 +1,6 @@
 // @flow
 import React from 'react';
 import Helmet from 'react-helmet';
-// import { Link } from 'gatsby';
 import { css } from '@emotion/core';
 
 import type { Post } from './types';
@@ -22,39 +21,56 @@ const navigationLinks = css`
   margin-bottom: 1rem;
 `;
 
-/*
 const rssContainer = css`
   display: flex;
   justify-content: flex-end;
   margin-right: 2rem;
 `;
-*/
 
 type Props = {
   pageContext: {
+    additionalContext: {
+      headline: string,
+    },
+    first: boolean,
     group: Array<Post>,
     index: number,
-    first: boolean,
     last: boolean,
+    pathPrefix: string,
   },
 };
 
 const BlogIndex = ({ pageContext }: Props) => {
-  const { group, index, first, last } = pageContext;
-  const previousUrl = index - 1 === 1 ? '/blog' : `/page/${(index - 1).toString()}`;
-  const nextUrl = `/blog/page/${(index + 1).toString()}`;
+  const {
+    additionalContext: { headline },
+    first,
+    group,
+    index,
+    last,
+    pathPrefix,
+  } = pageContext;
+  const previousUrl = index - 1 === 1 ? pathPrefix : `${pathPrefix}/page/${(index - 1).toString()}`;
+  const nextUrl = `${pathPrefix}/page/${(index + 1).toString()}`;
 
-  const Posts = group.map(({ node }) => <BlogPostExcerpt key={node.id} node={node} />);
+  const Posts = group.map((data: Post) => {
+    const { node } = data;
+
+    if (node) {
+      // Structure for posts from all posts query
+      return <BlogPostExcerpt key={node.id} node={node} />;
+    }
+    // Structure for category and tag queries
+    return <BlogPostExcerpt key={data.id} node={data} />;
+  });
 
   return (
     <Layout>
       <div css={container}>
-        <Helmet title="Blog | Daniel Lemay" />
-        {/* TODO: Fix RSS Feed
+        <Helmet title={`${headline} | Daniel Lemay`} />
         <div css={rssContainer}>
-          <Link to="/feed.xml">Subscribe to RSS</Link>
+          <a href="/feed.xml">Subscribe to RSS</a>
         </div>
-        */}
+        <h1>{headline}</h1>
         {Posts}
         <div css={navigationLinks}>
           <BlogNavLink test={first} url={previousUrl} text="Go to Previous Page" />

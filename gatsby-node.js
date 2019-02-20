@@ -1,6 +1,8 @@
 const path = require('path');
 const createPaginatedPages = require('gatsby-paginate');
+
 const { postSlug } = require('./src/utils/helpers');
+const { CATEGORY_BASE, TAG_BASE } = require('./src/templates/blog-post/url-base');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -10,24 +12,49 @@ exports.createPages = ({ graphql, actions }) => {
 
     resolve(
       graphql(`
+        fragment BlogPost on ContentfulBlogPost {
+          id
+          title
+          postDate(formatString: "YYYY/MM/DD")
+          body {
+            childMarkdownRemark {
+              excerpt(pruneLength: 750)
+              html
+            }
+          }
+          headlineImage {
+            description
+            file {
+              url
+            }
+          }
+        }
         {
           allContentfulBlogPost(limit: 500, sort: { fields: [postDate], order: DESC }) {
             edges {
               node {
-                id
-                title
-                postDate(formatString: "YYYY/MM/DD")
-                body {
-                  childMarkdownRemark {
-                    excerpt(pruneLength: 750)
-                    html
-                  }
+                ...BlogPost
+              }
+            }
+          }
+          allContentfulCategories {
+            edges {
+              node {
+                category
+                slug
+                blog_post {
+                  ...BlogPost
                 }
-                headlineImage {
-                  description
-                  file {
-                    url
-                  }
+              }
+            }
+          }
+          allContentfulTags {
+            edges {
+              node {
+                tag
+                slug
+                blog_post {
+                  ...BlogPost
                 }
               }
             }
@@ -49,6 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
+        // Create page for each blog post
         result.data.allContentfulBlogPost.edges.forEach(edge => {
           const { title, postDate } = edge.node;
           const slug = postSlug(postDate, title);
@@ -61,6 +89,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
 
+        // Create Resource pages
         result.data.allFile.edges.forEach(
           ({
             node: {
@@ -79,15 +108,52 @@ exports.createPages = ({ graphql, actions }) => {
           },
         );
 
+        // Create Blog Index
         createPaginatedPages({
           edges: result.data.allContentfulBlogPost.edges,
           createPage,
           pageTemplate: 'src/templates/blog-index/index.js',
           pageLength: 5,
           pathPrefix: 'blog',
-          // eslint-disable-next-line no-confusing-arrow
           buildPath: (index, pathPrefix) =>
             index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+          context: {
+            headline: 'Blog Index',
+          },
+        });
+
+        // Create Category Pages
+        result.data.allContentfulCategories.edges.forEach(
+          ({ node: { category, slug, blog_post: posts } }) => {
+            createPaginatedPages({
+              edges: posts,
+              createPage,
+              pageTemplate: 'src/templates/blog-index/index.js',
+              pageLength: 5,
+              pathPrefix: `${CATEGORY_BASE}/${slug}`,
+              buildPath: (index, pathPrefix) =>
+                index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+              context: {
+                headline: `Category: ${category}`,
+              },
+            });
+          },
+        );
+
+        // Create Tag Pages
+        result.data.allContentfulTags.edges.forEach(({ node: { tag, slug, blog_post: posts } }) => {
+          createPaginatedPages({
+            edges: posts,
+            createPage,
+            pageTemplate: 'src/templates/blog-index/index.js',
+            pageLength: 5,
+            pathPrefix: `${TAG_BASE}/${slug}`,
+            buildPath: (index, pathPrefix) =>
+              index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+            context: {
+              headline: `Tag: ${tag}`,
+            },
+          });
         });
       }),
     );

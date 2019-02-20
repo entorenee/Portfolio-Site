@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { Link } from 'gatsby';
 import { FaChevronRight } from 'react-icons/fa';
 
-import type { Post as Props } from './types';
+import type { PostNode as Props } from './types';
 import themeUtils from '../../components/theme-utils';
 import { longDateFormat, postSlug } from '../../utils/helpers';
 
@@ -61,7 +61,7 @@ const BlogPostExcerpt = ({ node }: Props) => {
   return (
     <div>
       <Link css={{ textDecoration: 'none' }} to={`/${slug}`}>
-        <h1 css={postHeaderTitle}>{title}</h1>
+        <h2 css={postHeaderTitle}>{title}</h2>
       </Link>
       <div css={postHeaderDate}>{longDateFormat(postDate)}</div>
       <div css={excerptContainer}>

@@ -1,16 +1,37 @@
 // @flow
 import * as React from 'react';
+import { Global, css } from '@emotion/core';
 import Helmet from 'react-helmet';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
 import favicon from './favicon-32x32.png';
-
-import './index.css';
+import Footer from '../components/footer';
+import Header from '../components/header';
+import themeUtils from '../components/theme-utils';
 
 type Props = {
   children: React.ChildrenArray<React.Node>,
 };
+
+const styles = css`
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: ${themeUtils.baseColor};
+  }
+
+  a {
+    color: ${themeUtils.mediumAccent};
+    transition: color 800ms;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: ${themeUtils.complementaryDark};
+  }
+`;
 
 const description =
   'Daniel Lemay is a full stack JavaScript developer, based out of Portland Oregon, specializing in responsive web applications using cutting edge technologies.';
@@ -18,7 +39,7 @@ const url = typeof window !== 'undefined' ? window.location.href : undefined;
 const title = 'Daniel Lemay | JavaScript Developer';
 
 const TemplateWrapper = ({ children }: Props) => (
-  <div>
+  <>
     <Helmet>
       <meta charSet="utf-8" />
       <title>{title}</title>
@@ -34,10 +55,11 @@ const TemplateWrapper = ({ children }: Props) => (
       />
       <link rel="icon" type="image/png" href={favicon} />
     </Helmet>
+    <Global styles={styles} />
     <Header />
     <div>{children}</div>
     <Footer />
-  </div>
+  </>
 );
 
 export default TemplateWrapper;
