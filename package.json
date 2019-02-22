@@ -47,7 +47,7 @@
     "gatsby-transformer-remark": "^2.2.5",
     "prismjs": "^1.15.0",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2",
+    "react-dom": "^16.8.3",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.4.0",
     "react-scroll": "^1.7.11",
