@@ -1,4 +1,5 @@
 // @flow
+// eslint-disable react/no-danger
 import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
@@ -30,13 +31,17 @@ const blogIndexLink = css`
 `;
 
 const headerContainer = css`
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   max-width: 90%;
-  margin: 0 auto;
+
+  img,
+  p {
+    margin-bottom: 0;
+  }
 `;
 
 const quoteContainer = css`
@@ -118,6 +123,11 @@ type Props = {
         },
         title: string,
       },
+      headlineImageCaption?: {
+        childMarkdownRemark: {
+          html: string,
+        },
+      },
       keyQuote?: {
         childMarkdownRemark: {
           html: string,
@@ -129,7 +139,7 @@ type Props = {
 };
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
-  const { postCategory, postDate, postTags, title } = contentfulBlogPost;
+  const { headlineImageCaption, postCategory, postDate, postTags, title } = contentfulBlogPost;
   const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
 
   const headlineImage = !contentfulBlogPost.headlineImage
@@ -161,13 +171,22 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           {keyQuote && (
             <div css={quoteContainer}>
               <QuoteCard>
-                <div
-                  dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
-                />
+                <div dangerouslySetInnerHTML={{ __html: keyQuote }} />
               </QuoteCard>
             </div>
           )}
-          {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
+          {headlineImage && (
+            <>
+              <img src={headlineImage} alt={headlineAltText} />
+              {headlineImageCaption && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: headlineImageCaption.childMarkdownRemark.html,
+                  }}
+                />
+              )}
+            </>
+          )}
         </div>
         <div css={postContainer}>
           <h1 css={blogTitle}>{title}</h1>
@@ -177,9 +196,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
             postTags={postTags}
             timeToRead={timeToRead}
           />
-          <div
-            dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
-          />
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
       </div>
     </Layout>
@@ -210,6 +227,11 @@ export const pageQuery = graphql`
           url
         }
         title
+      }
+      headlineImageCaption {
+        childMarkdownRemark {
+          html
+        }
       }
       postTags {
         tag
