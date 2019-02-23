@@ -1,5 +1,9 @@
 const { postSlug } = require('./src/utils/helpers');
 
+require('dotenv').config();
+
+const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOST } = process.env;
+
 module.exports = {
   siteMetadata: {
     title: 'Daniel Lemay Blog',
@@ -42,8 +46,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-contentful',
       options: {
-        spaceId: '024qyvhyq0tv',
-        accessToken: '4d263766bb6101d57642e0e5a3aa85f3f5d98a7c055f221fc4ff52be8aeb059f',
+        spaceId: CONTENTFUL_SPACE_ID,
+        accessToken: CONTENTFUL_ACCESS_TOKEN,
+        host: CONTENTFUL_HOST,
       },
     },
     {
