@@ -11,10 +11,10 @@ type PostExcerpt = {
     },
   },
   headlineImage?: {
-    description: string,
     file: {
       url: string,
     },
+    title: string,
   },
 };
 

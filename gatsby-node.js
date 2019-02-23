@@ -23,7 +23,7 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
           headlineImage {
-            description
+            title
             file {
               url
             }
@@ -125,35 +125,39 @@ exports.createPages = ({ graphql, actions }) => {
         // Create Category Pages
         result.data.allContentfulCategories.edges.forEach(
           ({ node: { category, slug, blog_post: posts } }) => {
-            createPaginatedPages({
-              edges: posts,
-              createPage,
-              pageTemplate: 'src/templates/blog-index/index.js',
-              pageLength: 5,
-              pathPrefix: `${CATEGORY_BASE}/${slug}`,
-              buildPath: (index, pathPrefix) =>
-                index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
-              context: {
-                headline: `Category: ${category}`,
-              },
-            });
+            if (Array.isArray(posts)) {
+              createPaginatedPages({
+                edges: posts,
+                createPage,
+                pageTemplate: 'src/templates/blog-index/index.js',
+                pageLength: 5,
+                pathPrefix: `${CATEGORY_BASE}/${slug}`,
+                buildPath: (index, pathPrefix) =>
+                  index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+                context: {
+                  headline: `Category: ${category}`,
+                },
+              });
+            }
           },
         );
 
         // Create Tag Pages
         result.data.allContentfulTags.edges.forEach(({ node: { tag, slug, blog_post: posts } }) => {
-          createPaginatedPages({
-            edges: posts,
-            createPage,
-            pageTemplate: 'src/templates/blog-index/index.js',
-            pageLength: 5,
-            pathPrefix: `${TAG_BASE}/${slug}`,
-            buildPath: (index, pathPrefix) =>
-              index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
-            context: {
-              headline: `Tag: ${tag}`,
-            },
-          });
+          if (Array.isArray(posts)) {
+            createPaginatedPages({
+              edges: posts,
+              createPage,
+              pageTemplate: 'src/templates/blog-index/index.js',
+              pageLength: 5,
+              pathPrefix: `${TAG_BASE}/${slug}`,
+              buildPath: (index, pathPrefix) =>
+                index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+              context: {
+                headline: `Tag: ${tag}`,
+              },
+            });
+          }
         });
       }),
     );

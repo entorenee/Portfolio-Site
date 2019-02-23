@@ -55,7 +55,7 @@ const BlogPostExcerpt = ({ node }: Props) => {
   const { title, postDate } = node;
   const { excerpt } = node.body.childMarkdownRemark;
   const headlineImage = !node.headlineImage ? null : node.headlineImage.file.url;
-  const headlineAltText = !node.headlineImage ? null : node.headlineImage.description;
+  const headlineAltText = !node.headlineImage ? null : node.headlineImage.title;
   const slug = postSlug(postDate, title);
 
   return (

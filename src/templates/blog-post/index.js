@@ -1,4 +1,5 @@
 // @flow
+/* eslint-disable react/no-danger */
 import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
@@ -30,13 +31,17 @@ const blogIndexLink = css`
 `;
 
 const headerContainer = css`
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
   max-width: 90%;
-  margin: 0 auto;
+
+  img,
+  p {
+    margin-bottom: 0;
+  }
 `;
 
 const quoteContainer = css`
@@ -113,9 +118,14 @@ type Props = {
         },
       },
       headlineImage?: {
-        description: string,
         file: {
           url: string,
+        },
+        title: string,
+      },
+      headlineImageCaption?: {
+        childMarkdownRemark: {
+          html: string,
         },
       },
       keyQuote?: {
@@ -129,21 +139,23 @@ type Props = {
 };
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
-  const { postCategory, postDate, postTags, title } = contentfulBlogPost;
+  const {
+    headlineImage,
+    headlineImageCaption,
+    keyQuote,
+    postCategory,
+    postDate,
+    postTags,
+    title,
+  } = contentfulBlogPost;
   const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
 
-  const headlineImage = !contentfulBlogPost.headlineImage
-    ? null
-    : contentfulBlogPost.headlineImage.file.url;
-
-  const headlineAltText = !contentfulBlogPost.headlineImage
-    ? null
-    : contentfulBlogPost.headlineImage.description;
-
-  const keyQuote = !contentfulBlogPost.keyQuote
-    ? null
-    : contentfulBlogPost.keyQuote.childMarkdownRemark.html;
-
+  const headlineImageSrc = headlineImage ? headlineImage.file.url : null;
+  const headlineAltText = headlineImage ? headlineImage.title : null;
+  const headlineImageCaptionHtml = headlineImageCaption
+    ? headlineImageCaption.childMarkdownRemark.html
+    : null;
+  const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : null;
   const metaTitle = `${title} - Daniel Lemay`;
 
   return (
@@ -154,20 +166,29 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           <meta property="og:type" content="article" />
           <meta property="og:title" content={metaTitle} />
           <meta property="og:description" content={excerpt} />
-          {headlineImage && <meta property="og:image" content={headlineImage} />}
+          {headlineImage && <meta property="og:image" content={headlineImageSrc} />}
         </Helmet>
         <BlogIndex />
         <div css={headerContainer}>
           {keyQuote && (
             <div css={quoteContainer}>
               <QuoteCard>
-                <div
-                  dangerouslySetInnerHTML={{ __html: keyQuote }} // eslint-disable-line react/no-danger, max-len
-                />
+                <div dangerouslySetInnerHTML={{ __html: keyQuoteHtml }} />
               </QuoteCard>
             </div>
           )}
-          {headlineImage && <img src={headlineImage} alt={headlineAltText} />}
+          {headlineImage && (
+            <>
+              <img src={headlineImageSrc} alt={headlineAltText} />
+              {headlineImageCaption && (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: headlineImageCaptionHtml,
+                  }}
+                />
+              )}
+            </>
+          )}
         </div>
         <div css={postContainer}>
           <h1 css={blogTitle}>{title}</h1>
@@ -177,9 +198,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
             postTags={postTags}
             timeToRead={timeToRead}
           />
-          <div
-            dangerouslySetInnerHTML={{ __html: body }} // eslint-disable-line react/no-danger
-          />
+          <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
       </div>
     </Layout>
@@ -208,6 +227,12 @@ export const pageQuery = graphql`
         description
         file {
           url
+        }
+        title
+      }
+      headlineImageCaption {
+        childMarkdownRemark {
+          html
         }
       }
       postTags {
