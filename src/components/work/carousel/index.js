@@ -56,7 +56,7 @@ export type Project = {
     file: {
       url: string,
     },
-    description: string,
+    title: string,
   },
   links: Array<{ text: string, url: string }>,
 };
@@ -91,7 +91,7 @@ export const PureCarousel = ({
         <img
           css={focusImage}
           src={project.projectImage.file.url}
-          alt={project.projectImage.description}
+          alt={project.projectImage.title}
         />
         <div css={description}>
           <p>{project.description.description}</p>
@@ -121,7 +121,7 @@ const query = graphql`
             file {
               url
             }
-            description
+            title
           }
           links {
             text
