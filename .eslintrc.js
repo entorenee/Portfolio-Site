@@ -31,6 +31,7 @@ module.exports = {
       },
     ],
     'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
     'flowtype-errors/show-errors': 2,
     'react/jsx-filename-extension': 0,
     'arrow-parens': [2, 'as-needed'],
@@ -52,8 +53,8 @@ module.exports = {
         trailingComma: 'all',
       },
     ],
-    "emotion/no-vanilla": "error",
-    "emotion/import-from-emotion": "error",
-    "emotion/styled-import": "error"
+    'emotion/no-vanilla': 'error',
+    'emotion/import-from-emotion': 'error',
+    'emotion/styled-import': 'error',
   },
 };

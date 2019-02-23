@@ -18,7 +18,7 @@ function useSlideshow(slides: Slides, { timerLength = 5000 }: Options = {}) {
 
       return () => clearTimeout(timer);
     }
-  }, [currIndex, isPlaying]);
+  }, [currIndex, isPlaying, slides.length, timerLength]);
 
   const updateSlide = (direction: Direction) => {
     if (typeof direction === 'number') {

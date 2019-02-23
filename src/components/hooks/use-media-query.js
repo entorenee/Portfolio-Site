@@ -16,7 +16,7 @@ function useMediaQuery(): { isMobile: boolean } {
 
       return () => mql.removeListener(handleSizeChange);
     }
-  }, []);
+  }, [handleSizeChange]);
 
   return { isMobile };
 }
