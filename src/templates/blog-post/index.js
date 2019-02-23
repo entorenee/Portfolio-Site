@@ -1,5 +1,5 @@
 // @flow
-// eslint-disable react/no-danger
+/* eslint-disable react/no-danger */
 import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
@@ -139,21 +139,23 @@ type Props = {
 };
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
-  const { headlineImageCaption, postCategory, postDate, postTags, title } = contentfulBlogPost;
+  const {
+    headlineImage,
+    headlineImageCaption,
+    keyQuote,
+    postCategory,
+    postDate,
+    postTags,
+    title,
+  } = contentfulBlogPost;
   const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
 
-  const headlineImage = !contentfulBlogPost.headlineImage
-    ? null
-    : contentfulBlogPost.headlineImage.file.url;
-
-  const headlineAltText = !contentfulBlogPost.headlineImage
-    ? null
-    : contentfulBlogPost.headlineImage.title;
-
-  const keyQuote = !contentfulBlogPost.keyQuote
-    ? null
-    : contentfulBlogPost.keyQuote.childMarkdownRemark.html;
-
+  const headlineImageSrc = headlineImage ? headlineImage.file.url : null;
+  const headlineAltText = headlineImage ? headlineImage.title : null;
+  const headlineImageCaptionHtml = headlineImageCaption
+    ? headlineImageCaption.childMarkdownRemark.html
+    : null;
+  const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : null;
   const metaTitle = `${title} - Daniel Lemay`;
 
   return (
@@ -164,24 +166,24 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           <meta property="og:type" content="article" />
           <meta property="og:title" content={metaTitle} />
           <meta property="og:description" content={excerpt} />
-          {headlineImage && <meta property="og:image" content={headlineImage} />}
+          {headlineImage && <meta property="og:image" content={headlineImageSrc} />}
         </Helmet>
         <BlogIndex />
         <div css={headerContainer}>
           {keyQuote && (
             <div css={quoteContainer}>
               <QuoteCard>
-                <div dangerouslySetInnerHTML={{ __html: keyQuote }} />
+                <div dangerouslySetInnerHTML={{ __html: keyQuoteHtml }} />
               </QuoteCard>
             </div>
           )}
           {headlineImage && (
             <>
-              <img src={headlineImage} alt={headlineAltText} />
+              <img src={headlineImageSrc} alt={headlineAltText} />
               {headlineImageCaption && (
                 <div
                   dangerouslySetInnerHTML={{
-                    __html: headlineImageCaption.childMarkdownRemark.html,
+                    __html: headlineImageCaptionHtml,
                   }}
                 />
               )}
