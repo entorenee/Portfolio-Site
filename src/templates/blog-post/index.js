@@ -113,10 +113,10 @@ type Props = {
         },
       },
       headlineImage?: {
-        description: string,
         file: {
           url: string,
         },
+        title: string,
       },
       keyQuote?: {
         childMarkdownRemark: {
@@ -138,7 +138,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
 
   const headlineAltText = !contentfulBlogPost.headlineImage
     ? null
-    : contentfulBlogPost.headlineImage.description;
+    : contentfulBlogPost.headlineImage.title;
 
   const keyQuote = !contentfulBlogPost.keyQuote
     ? null
@@ -209,6 +209,7 @@ export const pageQuery = graphql`
         file {
           url
         }
+        title
       }
       postTags {
         tag
