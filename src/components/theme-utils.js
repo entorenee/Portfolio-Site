@@ -14,6 +14,8 @@ const themeUtils = {
       width: 90%;
     }
   `,
+  tablet: '(max-width: 1024px)',
+  mobile: '(max-width: 454px)',
 };
 
 export default themeUtils;
