@@ -4,14 +4,17 @@ import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import { graphql, Link } from 'gatsby';
-import { FaAngleLeft } from 'react-icons/fa';
+import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 
 import type { TopMetaProps as PostMetaProps } from './post-meta';
-import PostMeta from './post-meta';
+
 import Layout from '../../layouts/main';
-import themeUtils from '../../components/theme-utils';
+import PostMeta from './post-meta';
+import { postSlug } from '../../utils/helpers';
 import QuoteCard from '../../components/base-components/quote-card';
+import RelatedContent from '../../components/base-components/related-content';
+import themeUtils from '../../components/theme-utils';
 import './style.css';
 
 const wrapper = css`
@@ -19,8 +22,13 @@ const wrapper = css`
   padding-top: 2rem;
 `;
 
-const blogIndexLink = css`
+const blogMargins = css`
   ${themeUtils.margins};
+  max-width: 800px;
+`;
+
+const blogIndexLink = css`
+  ${blogMargins};
   margin-bottom: 0.7rem;
 
   a {
@@ -53,7 +61,7 @@ const quoteContainer = css`
 `;
 
 const postContainer = css`
-  ${themeUtils.margins};
+  ${blogMargins};
 
   li {
     margin-bottom: 0.4rem;
@@ -98,6 +106,38 @@ const blogTitle = css`
   margin-bottom: 1rem;
 `;
 
+const relatedPostsContainer = css`
+  ${themeUtils.margins};
+  margin-bottom: 2rem;
+`;
+
+const relatedPostCards = css`
+  @media ${themeUtils.tablet} {
+    flex-direction: column;
+    align-items: center;
+    max-width: 40rem;
+    margin: 0 auto;
+
+    > *:nth-last-child(n + 2) {
+      margin-bottom: 2rem;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
+`;
+
+const readMoreLink = css`
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.2rem;
+
+  svg {
+    margin-left: 0.2rem;
+  }
+`;
+
 const BlogIndex = () => (
   <div css={blogIndexLink}>
     <Link to="/blog">
@@ -133,10 +173,26 @@ type Props = {
           html: string,
         },
       },
+      relatedPosts?: {
+        body: {
+          childMarkdownRemark: {
+            excerpt: string,
+          },
+        },
+        postDate: string,
+        title: string,
+      }[],
       title: string,
     } & PostMetaProps,
   },
 };
+
+const ReadMore = () => (
+  <span css={readMoreLink}>
+    Read more
+    <FaAngleRight />
+  </span>
+);
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const {
@@ -146,6 +202,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
     postCategory,
     postDate,
     postTags,
+    relatedPosts,
     title,
   } = contentfulBlogPost;
   const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
@@ -157,6 +214,16 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
     : null;
   const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : null;
   const metaTitle = `${title} - Daniel Lemay`;
+  const cards = !relatedPosts
+    ? null
+    : relatedPosts.map(post => ({
+        headlineText: post.title,
+        excerptText: post.body.childMarkdownRemark.excerpt,
+        link: {
+          text: <ReadMore />,
+          url: postSlug(post.postDate, post.title),
+        },
+      }));
 
   return (
     <Layout>
@@ -200,6 +267,12 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           />
           <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
+        {cards && (
+          <div css={relatedPostsContainer}>
+            <h2 css={{ textAlign: 'center' }}>Related Posts</h2>
+            <RelatedContent css={relatedPostCards} cards={cards} />
+          </div>
+        )}
       </div>
     </Layout>
   );
@@ -244,6 +317,15 @@ export const pageQuery = graphql`
         slug
       }
       postDate(formatString: "MMMM D, YYYY")
+      relatedPosts {
+        title
+        postDate(formatString: "YYYY/MM/DD")
+        body {
+          childMarkdownRemark {
+            excerpt(pruneLength: 200)
+          }
+        }
+      }
     }
   }
 `;
