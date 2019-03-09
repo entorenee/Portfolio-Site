@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          allFile {
+          allFile(filter: { sourceInstanceName: { eq: "resource-pages" } }) {
             edges {
               node {
                 childMarkdownRemark {
