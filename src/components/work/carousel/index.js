@@ -2,6 +2,9 @@
 import React from 'react';
 import { css } from '@emotion/core';
 import { StaticQuery, graphql } from 'gatsby';
+import Image from 'gatsby-image';
+
+import type { FluidImage } from '../../types';
 
 import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
@@ -19,7 +22,7 @@ const carouselContainer = css`
 
 const focusImage = css`
   display: block;
-  max-width: 100%;
+  max-width: 800px;
   height: auto;
   margin: 0 auto;
 `;
@@ -53,9 +56,7 @@ export type Project = {
     description: string,
   },
   projectImage: {
-    file: {
-      url: string,
-    },
+    fluid: FluidImage,
     title: string,
   },
   links: Array<{ text: string, url: string }>,
@@ -88,9 +89,9 @@ export const PureCarousel = ({
       />
       <div>
         <h1 css={title}>{project.title}</h1>
-        <img
+        <Image
           css={focusImage}
-          src={project.projectImage.file.url}
+          fluid={project.projectImage.fluid}
           alt={project.projectImage.title}
         />
         <div css={description}>
@@ -118,6 +119,9 @@ const query = graphql`
             description
           }
           projectImage {
+            fluid {
+              ...GatsbyContentfulFluid
+            }
             file {
               url
             }
