@@ -17,6 +17,8 @@ module.exports = {
     'gatsby-plugin-flow',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
