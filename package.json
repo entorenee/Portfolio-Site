@@ -15,6 +15,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
+    "develop:offline": "GATSBY_CONTENTFUL_OFFLINE=true yarn develop",
     "prettier": "is-ci prettier:check prettier:format",
     "prettier:check": "prettier --check \"src/**/*.{js, json, md}\"",
     "prettier:format": "prettier --write \"src/**/*.{js, json, md}\"",
