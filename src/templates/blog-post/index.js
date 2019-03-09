@@ -3,8 +3,8 @@
 import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
-import { graphql, Link } from 'gatsby';
-import { FaAngleLeft, FaAngleRight } from 'react-icons/fa';
+import { graphql } from 'gatsby';
+import { FaAngleRight } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 
 import type { TopMetaProps as PostMetaProps } from './post-meta';
@@ -27,36 +27,17 @@ const blogMargins = css`
   max-width: 800px;
 `;
 
-const blogIndexLink = css`
+const headlineImageContainer = css`
   ${themeUtils.margins};
-  margin-bottom: 0.7rem;
-
-  a {
-    svg {
-      margin-right: 0.3rem;
-    }
-  }
-`;
-
-const headerContainer = css`
-  margin: 0 auto 1.5rem;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
-  max-width: 90%;
+  margin-bottom: 1.5rem;
 
   img,
   p {
     margin-bottom: 0;
-  }
-`;
-
-const quoteContainer = css`
-  margin-right: 0.5rem;
-
-  @media (min-width: 1000px) {
-    max-width: 50%;
   }
 `;
 
@@ -101,6 +82,12 @@ const postContainer = css`
   }
 `;
 
+const quoteCardContainer = css`
+  p {
+    margin-bottom: 0;
+  }
+`;
+
 const blogTitle = css`
   text-align: center;
   margin-bottom: 1rem;
@@ -117,7 +104,7 @@ const relatedPostCards = css`
     align-items: center;
     margin: 0 auto;
 
-    > *:nth-last-child(n + 2) {
+    div:nth-last-of-type(n + 2) {
       margin-bottom: 2rem;
     }
 
@@ -136,15 +123,6 @@ const readMoreLink = css`
     margin-left: 0.2rem;
   }
 `;
-
-const BlogIndex = () => (
-  <div css={blogIndexLink}>
-    <Link to="/blog">
-      <FaAngleLeft size={20} />
-      Return to Blog Index
-    </Link>
-  </div>
-);
 
 type Props = {
   data: {
@@ -234,29 +212,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           <meta property="og:description" content={excerpt} />
           {headlineImage && <meta property="og:image" content={headlineImageSrc} />}
         </Helmet>
-        <BlogIndex />
-        <div css={headerContainer}>
-          {keyQuote && (
-            <div css={quoteContainer}>
-              <QuoteCard>
-                <div dangerouslySetInnerHTML={{ __html: keyQuoteHtml }} />
-              </QuoteCard>
-            </div>
-          )}
-          {headlineImage && (
-            <>
-              <img src={headlineImageSrc} alt={headlineAltText} />
-              {headlineImageCaption && (
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: headlineImageCaptionHtml,
-                  }}
-                />
-              )}
-            </>
-          )}
-        </div>
-        <div css={postContainer}>
+        <div css={blogMargins}>
           <h1 css={blogTitle}>{title}</h1>
           <PostMeta
             postCategory={postCategory}
@@ -264,6 +220,27 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
             postTags={postTags}
             timeToRead={timeToRead}
           />
+        </div>
+        {headlineImage && (
+          <div css={headlineImageContainer}>
+            <img src={headlineImageSrc} alt={headlineAltText} />
+            {headlineImageCaption && (
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: headlineImageCaptionHtml,
+                }}
+              />
+            )}
+          </div>
+        )}
+        <div css={postContainer}>
+          {keyQuote && (
+            <div css={quoteCardContainer}>
+              <QuoteCard>
+                <div dangerouslySetInnerHTML={{ __html: keyQuoteHtml }} />
+              </QuoteCard>
+            </div>
+          )}
           <div dangerouslySetInnerHTML={{ __html: body }} />
         </div>
         {cards && (
