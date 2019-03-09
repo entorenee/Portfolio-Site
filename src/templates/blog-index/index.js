@@ -49,8 +49,9 @@ const BlogIndex = ({ pageContext }: Props) => {
     last,
     pathPrefix,
   } = pageContext;
-  const previousUrl = index - 1 === 1 ? pathPrefix : `${pathPrefix}/page/${(index - 1).toString()}`;
-  const nextUrl = `${pathPrefix}/page/${(index + 1).toString()}`;
+  const previousUrl =
+    index - 1 === 1 ? `/${pathPrefix}` : `/${pathPrefix}/page/${(index - 1).toString()}`;
+  const nextUrl = `/${pathPrefix}/page/${(index + 1).toString()}`;
 
   const Posts = group.map((data: Post) => {
     const { node } = data;
