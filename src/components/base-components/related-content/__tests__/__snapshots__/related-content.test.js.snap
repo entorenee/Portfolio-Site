@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RelatedContent /> renders correctly 1`] = `
+.emotion-2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -1rem 2.4rem -1rem;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.emotion-2 > * {
+  margin: 0 1rem;
+  max-width: 30rem;
+  -webkit-flex: 1 0 30%;
+  -ms-flex: 1 0 30%;
+  flex: 1 0 30%;
+}
+
+.emotion-0 {
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0.25rem;
+  box-shadow: 3px 3px 5px #656E9A;
+  padding: 1rem 0.75rem;
+}
+
+<div
+  class=" emotion-2"
+>
+  <div
+    class="emotion-0"
+  >
+    <h3>
+      Find Great Ways to Test your Components
+    </h3>
+    <p>
+      This is a sample excerpt from a previous post
+       
+      <a
+        href="/blog"
+      >
+        Read More
+      </a>
+    </p>
+  </div>
+  <div
+    class="emotion-0"
+  >
+    <h3>
+      Amazing Headline. Come and Read this Article
+    </h3>
+    <p>
+      This is a sample excerpt from a previoust post
+       
+      <a
+        href="/blog"
+      >
+        Read More
+      </a>
+    </p>
+  </div>
+</div>
+`;
