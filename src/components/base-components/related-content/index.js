@@ -20,10 +20,12 @@ export type Props = {
 const wrapper = css`
   display: flex;
   margin: 0 -1rem 2.4rem -1rem;
+  justify-content: center;
 
   & > * {
     margin: 0 1rem;
-    flex: 1 1 30%;
+    max-width: 30rem;
+    flex: 1 0 30%;
   }
 `;
 

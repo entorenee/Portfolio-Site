@@ -28,7 +28,7 @@ const blogMargins = css`
 `;
 
 const blogIndexLink = css`
-  ${blogMargins};
+  ${themeUtils.margins};
   margin-bottom: 0.7rem;
 
   a {
@@ -115,7 +115,6 @@ const relatedPostCards = css`
   @media ${themeUtils.tablet} {
     flex-direction: column;
     align-items: center;
-    max-width: 40rem;
     margin: 0 auto;
 
     > *:nth-last-child(n + 2) {
