@@ -122,9 +122,6 @@ const query = graphql`
             fluid {
               ...GatsbyContentfulFluid
             }
-            file {
-              url
-            }
             title
           }
           links {
