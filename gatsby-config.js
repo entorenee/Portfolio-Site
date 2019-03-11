@@ -17,11 +17,20 @@ module.exports = {
     'gatsby-plugin-flow',
     'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'resource-pages',
         path: `${__dirname}/src/pages/resource-pages`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/assets`,
       },
     },
     {
