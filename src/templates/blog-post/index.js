@@ -4,10 +4,12 @@ import * as React from 'react';
 import { css } from '@emotion/core';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
+import Image from 'gatsby-image';
 import { FaAngleRight } from 'react-icons/fa';
 import 'prismjs/themes/prism.css';
 
 import type { TopMetaProps as PostMetaProps } from './post-meta';
+import type { FluidImage } from '../../components/types';
 
 import Layout from '../../layouts/main';
 import PostMeta from './post-meta';
@@ -29,10 +31,6 @@ const blogMargins = css`
 
 const headlineImageContainer = css`
   ${themeUtils.margins};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   margin-bottom: 1.5rem;
 
   img,
@@ -135,9 +133,7 @@ type Props = {
         },
       },
       headlineImage?: {
-        file: {
-          url: string,
-        },
+        fluid: FluidImage,
         title: string,
       },
       headlineImageCaption?: {
@@ -184,8 +180,6 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   } = contentfulBlogPost;
   const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
 
-  const headlineImageSrc = headlineImage ? headlineImage.file.url : null;
-  const headlineAltText = headlineImage ? headlineImage.title : null;
   const headlineImageCaptionHtml = headlineImageCaption
     ? headlineImageCaption.childMarkdownRemark.html
     : null;
@@ -210,7 +204,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           <meta property="og:type" content="article" />
           <meta property="og:title" content={metaTitle} />
           <meta property="og:description" content={excerpt} />
-          {headlineImage && <meta property="og:image" content={headlineImageSrc} />}
+          {headlineImage && <meta property="og:image" content={headlineImage.fluid.src} />}
         </Helmet>
         <div css={blogMargins}>
           <h1 css={blogTitle}>{title}</h1>
@@ -223,9 +217,10 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         </div>
         {headlineImage && (
           <div css={headlineImageContainer}>
-            <img src={headlineImageSrc} alt={headlineAltText} />
+            {headlineImage && <Image fluid={headlineImage.fluid} alt={headlineImage.title} />}
             {headlineImageCaption && (
               <span
+                css={{ textAlign: 'center' }}
                 dangerouslySetInnerHTML={{
                   __html: headlineImageCaptionHtml,
                 }}
@@ -273,9 +268,8 @@ export const pageQuery = graphql`
         }
       }
       headlineImage {
-        description
-        file {
-          url
+        fluid {
+          ...GatsbyContentfulFluid
         }
         title
       }
