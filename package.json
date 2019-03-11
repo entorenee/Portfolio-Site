@@ -86,7 +86,7 @@
     "is-ci-cli": "^1.1.1",
     "jest": "^24.0.0",
     "jest-dom": "^3.1.2",
-    "jest-emotion": "^10.0.7",
+    "jest-emotion": "^10.0.9",
     "lint-staged": "^8.1.4",
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.8.2",
