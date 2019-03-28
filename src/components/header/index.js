@@ -8,7 +8,7 @@ import Navigation from './navigation';
 import MobileNavigation from './mobile-navigation';
 import useMediaQuery from '../hooks/use-media-query';
 import themeUtils from '../theme-utils';
-import logo from '../../assets/img/logo.png';
+import logo from '../../images/logo.png';
 
 const wrapper = css`
   display: flex;

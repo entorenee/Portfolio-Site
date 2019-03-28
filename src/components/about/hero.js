@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/core';
 
 import themeUtils from '../theme-utils';
-import heroImg from '../../assets/img/hero-image.jpg';
+import heroImg from '../../images/hero-image.jpg';
 
 const bgImage = css`
   background-image: url(${heroImg});

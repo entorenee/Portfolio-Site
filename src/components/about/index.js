@@ -8,7 +8,7 @@ import Skills from './skills';
 import Blurb from './blurb';
 import RandomQuote from './random-quote';
 import themeUtils from '../theme-utils';
-import headshot from '../../assets/img/headshot.jpg';
+import headshot from '../../images/headshot.jpg';
 
 const wrapper = css`
   ${themeUtils.margins};
