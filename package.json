@@ -29,7 +29,7 @@
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.7",
     "@emotion/core": "^10.0.7",
-    "@emotion/styled": "^10.0.7",
+    "@emotion/styled": "^10.0.10",
     "classnames": "^2.2.6",
     "date-fns": "^1.29.0",
     "dotenv": "^7.0.0",
