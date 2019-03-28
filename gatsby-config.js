@@ -5,6 +5,14 @@ require('dotenv').config();
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOST } = process.env;
 
 module.exports = {
+  __experimentalThemes: [
+    {
+      resolve: 'gatsby-theme-dslemay-core',
+      options: {
+        analytics: 'UA-99838315-1',
+      },
+    },
+  ],
   siteMetadata: {
     title: 'Daniel Lemay Blog',
     description:
@@ -12,25 +20,14 @@ module.exports = {
     siteUrl: 'https://www.dslemay.com',
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     'gatsby-plugin-emotion',
     'gatsby-plugin-flow',
-    'gatsby-plugin-sitemap',
     'gatsby-plugin-offline',
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'resource-pages',
         path: `${__dirname}/src/pages/resource-pages`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'images',
-        path: `${__dirname}/src/assets`,
       },
     },
     {
@@ -58,12 +55,6 @@ module.exports = {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,
         host: CONTENTFUL_HOST,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: 'UA-99838315-1',
       },
     },
     {
