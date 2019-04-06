@@ -5788,7 +5788,7 @@ gatsby-plugin-compile-es6-packages@^1.0.6:
     "@babel/runtime" "^7.0.0"
     regex-escape "^3.4.8"
 
-gatsby-plugin-emotion@^4.0.4, gatsby-plugin-emotion@^4.0.6:
+gatsby-plugin-emotion@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-emotion/-/gatsby-plugin-emotion-4.0.6.tgz#5f496df66b2640874fcb073e4f2d8a2a1a4632da"
   integrity sha512-cBCGVdNkULlrYMPsrCVDKrCxiKpZq4PL9n5qzQ538FWmg+XqBhQKWaH8dALwEzoDS5GyHXQy1hI7XHoWmDBJAQ==
@@ -5806,7 +5806,7 @@ gatsby-plugin-feed@^2.0.14:
     lodash.merge "^4.6.0"
     rss "^1.2.2"
 
-gatsby-plugin-flow@^1.0.1, gatsby-plugin-flow@^1.0.4:
+gatsby-plugin-flow@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-flow/-/gatsby-plugin-flow-1.0.4.tgz#13a93a734115fb595fc725c319c47a007841d94d"
   integrity sha512-HUFDiZIBEU6ZM6gOytKdX0FtgpZyw3vycZwGdY4Y6rtins9iXrfNmnh0pMyb8jVmCWUlxSPu+LMt14sm1QVDOg==

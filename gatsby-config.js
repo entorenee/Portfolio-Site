@@ -20,8 +20,6 @@ module.exports = {
     siteUrl: 'https://www.dslemay.com',
   },
   plugins: [
-    'gatsby-plugin-emotion',
-    'gatsby-plugin-flow',
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
