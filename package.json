@@ -89,8 +89,5 @@
     "prettier": "^1.14.3",
     "react-test-renderer": "^16.8.2",
     "react-testing-library": "^6.0.4"
-  },
-  "resolutions": {
-    "ajv": "6.8.1"
   }
 }
