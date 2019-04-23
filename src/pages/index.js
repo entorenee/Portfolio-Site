@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Layout from '../layouts/main';
 import About from '../components/about';
 import Work from '../components/work';

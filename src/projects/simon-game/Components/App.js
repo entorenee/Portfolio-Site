@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+
 import ColorPlayButtons from './ColorPlayButtons';
 import Counter from './Counter';
 import Start from './Start';

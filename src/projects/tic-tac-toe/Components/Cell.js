@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { keyboardHandler } from '../helpers';
 import '../style/Cell.css';
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { act, render } from 'react-testing-library';
 
 import About from '..';
+
 import { PureRandomQuote } from '../random-quote';
 import testProps from '../testProps';
 

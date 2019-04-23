@@ -4,8 +4,9 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
 
-import type { Project } from '.';
 import themeUtils from '../../theme-utils';
+
+import type { Project } from '.';
 
 const wrapper = css`
   display: flex;
