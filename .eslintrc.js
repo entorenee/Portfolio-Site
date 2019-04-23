@@ -1,29 +1,36 @@
 module.exports = {
-  parser: 'babel-eslint',
-  env: {
-    browser: true,
-    es6: true,
-    'jest/globals': true,
-  },
   settings: {
     ecmascript: 6,
     jsx: true,
-    'import/core-modules': ['react', 'prop-types', 'react-router', 'typography', 'prismjs'],
+    react: {
+      version: 'detect',
+    },
   },
   parserOptions: {
-    ecmaVersion: 2017,
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
-      experimentalDecorators: true,
       jsx: true,
     },
-    sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks', 'emotion', 'jest', 'flowtype', 'flowtype-errors', 'prettier'],
-  extends: ['airbnb', 'prettier', 'prettier/react', 'plugin:flowtype/recommended'],
+  plugins: [
+    'react',
+    'react-hooks',
+    'jsx-a11y',
+    'emotion',
+    'flowtype',
+    'flowtype-errors',
+    'prettier',
+  ],
+  extends: [
+    'dslemay',
+    'dslemay/jest',
+    'plugin:react/recommended',
+    'prettier/react',
+    'plugin:flowtype/recommended',
+  ],
   rules: {
     'react/require-default-props': 0,
     'react/default-props-match-prop-types': 0,
+    'react/display-name': 0, // temporary addition during shifting config
     'react/sort-comp': [
       2,
       {
