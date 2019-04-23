@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
-import type { FluidImage } from '../../types';
+import type { Project } from './types';
 
 import Button from '../../base-components/button';
 import CarouselControls from './carousel-controls';
@@ -49,18 +49,6 @@ const projectLinks = css`
     }
   }
 `;
-
-export type Project = {
-  title: string,
-  description: {
-    description: string,
-  },
-  projectImage: {
-    fluid: FluidImage,
-    title: string,
-  },
-  links: Array<{ text: string, url: string }>,
-};
 
 type Props = {
   data: {
