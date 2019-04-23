@@ -2,8 +2,9 @@ import React from 'react';
 import { fireEvent, render } from 'react-testing-library';
 
 import { PureCarousel } from '../carousel';
-import Work from '..';
 import testProps from '../testProps';
+
+import Work from '..';
 
 // Mock Carousel default for Work integration test
 const Carousel = require('../carousel');

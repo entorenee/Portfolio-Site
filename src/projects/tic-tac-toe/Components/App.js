@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
+
 import Cell from './Cell';
 import MarkerSelector from './MarkerSelector';
 import '../style/App.css';

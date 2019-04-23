@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
+
 import { keyboardHandler } from '../helpers';
 import '../style/Timer.css';
 import play from '../img/play.png';

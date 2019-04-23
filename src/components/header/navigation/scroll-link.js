@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ScrollLink } from 'react-scroll';
+import { ScrollLink as scrollLink } from 'react-scroll';
 
 const Link = props => {
   const { children, href, ...rest } = props;
@@ -16,4 +16,4 @@ Link.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default ScrollLink(Link);
+export default scrollLink(Link);
