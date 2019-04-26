@@ -53,8 +53,8 @@ const mobileLinksClosed = css`
 
 type Props = {
   home: boolean,
-  isOpen: boolean,
-  mobile: boolean,
+  isOpen?: boolean,
+  mobile?: boolean,
 };
 
 const NavigationLinks = ({ home, isOpen, mobile }: Props) => {

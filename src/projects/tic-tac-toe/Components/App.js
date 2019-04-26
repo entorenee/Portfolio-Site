@@ -179,6 +179,7 @@ class App extends Component {
       <div className="ttt-game-wrapper">
         <Helmet>
           <title>Tic Tac Toe Game | Daniel Lemay</title>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <link
             href="https://fonts.googleapis.com/css?family=Bitter:400i|Indie+Flower"
             rel="stylesheet"

@@ -13,7 +13,7 @@ const cardStyles = css`
 
 type Props = {
   children: React.Node,
-  className: string,
+  className?: string,
 };
 
 const Card = ({ children, className }: Props) => (

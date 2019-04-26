@@ -154,6 +154,7 @@ class App extends Component {
       <div className="simon-app">
         <Helmet>
           <title>Simon Game | Daniel Lemay</title>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet" />
         </Helmet>
         <div className="game">
