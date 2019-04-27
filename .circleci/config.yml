@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/portfolio-site
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Yarn cache
+          keys:
+            - yarn-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Installing dependencies
+          command: yarn install
+      - save_cache:
+          name: Saving Yarn Package cache
+          key: yarn-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+      - run:
+          name: Run validate script
+          command: yarn validate
+      - store_artifacts:
+          path: coverage
+      - run:
+          name: Send coverage reports to Codecov
+          command: npx codecov
