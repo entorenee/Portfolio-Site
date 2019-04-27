@@ -10,6 +10,7 @@ const Strict = props => {
   return (
     <div className="strict-button-wrapper">
       <div className={classnames('strict-mode-light', { strict: isStrict })} />
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <div
         className="strict-mode-button"
         onClick={() => toggleStrict()}

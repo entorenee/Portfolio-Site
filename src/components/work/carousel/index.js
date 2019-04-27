@@ -121,5 +121,6 @@ const query = graphql`
     }
   }
 `;
+const Carousel = () => <StaticQuery query={query} render={data => <PureCarousel data={data} />} />;
 
-export default () => <StaticQuery query={query} render={data => <PureCarousel data={data} />} />;
+export default Carousel;

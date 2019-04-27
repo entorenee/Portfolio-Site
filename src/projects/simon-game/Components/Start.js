@@ -8,6 +8,7 @@ const Start = props => {
   const { startGame } = props;
   return (
     <div className="start-button-wrapper">
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <div
         className="start-button"
         onClick={() => startGame()}

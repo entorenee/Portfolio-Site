@@ -21,7 +21,7 @@ const buttonStyles = css`
 type Props = {
   'aria-label'?: string,
   children: React.Node,
-  type: 'button' | 'submit',
+  type?: 'button' | 'submit',
   url?: string,
 };
 

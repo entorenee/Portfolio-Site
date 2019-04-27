@@ -19,7 +19,7 @@ export const mobileLinks = css`
 
 type Props = {
   homePage: boolean,
-  mobile: boolean,
+  mobile?: boolean,
   text: string,
   to: string,
 };

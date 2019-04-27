@@ -66,4 +66,8 @@ const query = graphql`
   }
 `;
 
-export default () => <StaticQuery query={query} render={data => <PureRandomQuote data={data} />} />;
+const RandomQuote = () => (
+  <StaticQuery query={query} render={data => <PureRandomQuote data={data} />} />
+);
+
+export default RandomQuote;

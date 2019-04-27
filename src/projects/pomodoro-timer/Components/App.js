@@ -36,6 +36,7 @@ class App extends Component {
     return (
       <div className="pomodoro-app">
         <Helmet>
+          {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
           <link
             href="https://fonts.googleapis.com/css?family=Lato:700|Roboto:400i"
             rel="stylesheet"

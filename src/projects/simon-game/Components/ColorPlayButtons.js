@@ -36,6 +36,7 @@ class ColorPlayButtons extends Component {
     const { isPlayersTurn, gameOn, id } = this.props;
 
     return (
+      // eslint-disable-next-line jsx-a11y/control-has-associated-label
       <div
         id={`btn-${id}`}
         className={`color-buttons btn-${id}`}

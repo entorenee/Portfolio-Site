@@ -53,6 +53,7 @@ const TemplateWrapper = ({ children }: Props) => (
         name="keywords"
         content="javascript, web development, developer, Portland, Oregon, front-end, full stack, back-end, react" // eslint-disable-line max-len
       />
+      {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
       <link rel="icon" type="image/png" href={favicon} />
     </Helmet>
     <Global styles={styles} />
