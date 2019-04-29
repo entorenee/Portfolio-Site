@@ -4620,10 +4620,10 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-dslemay@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-dslemay/-/eslint-config-dslemay-1.1.0.tgz#6c3937045dee173db1af6a08be3a66eb53bc3842"
-  integrity sha512-aE8T5CUaaHCq1C7njFA7o9XIWESgKCLij6KSZ0YpWinVI1ABHjXWEbHZv/w9U4J1wp/sR/YnOhWLt0hjEjV7ww==
+eslint-config-dslemay@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-dslemay/-/eslint-config-dslemay-1.1.1.tgz#a8263b08d0b3e28d062a958e9ae3f58e8a61e274"
+  integrity sha512-fE0TJDe5QI1rrHowweBht8op7CVLkM9hKiGxe2aTSSa5vwuoHzBGwhqm+/qB/g0q+howZZmvuDVWW2y/fIpOiQ==
   dependencies:
     babel-eslint "^10.0.1"
     eslint-config-prettier "^4.1.0"
