@@ -1,7 +1,7 @@
-import React from 'react';
-import { render } from 'react-testing-library';
+import React from 'react'
+import { render } from 'react-testing-library'
 
-import QuoteCard from '..';
+import QuoteCard from '..'
 
 describe('<QuoteCard />', () => {
   it('renders correctly', () => {
@@ -9,7 +9,7 @@ describe('<QuoteCard />', () => {
       <QuoteCard>
         <p>Inspiring quotes are amazing!</p>
       </QuoteCard>,
-    );
-    expect(container).toMatchSnapshot();
-  });
-});
+    )
+    expect(container).toMatchSnapshot()
+  })
+})

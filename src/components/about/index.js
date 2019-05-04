@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
-import { css } from '@emotion/core';
-import { Element } from 'react-scroll';
+import React from 'react'
+import { css } from '@emotion/core'
+import { Element } from 'react-scroll'
 
-import Hero from './hero';
-import Skills from './skills';
-import Blurb from './blurb';
-import RandomQuote from './random-quote';
-import themeUtils from '../theme-utils';
-import headshot from '../../images/headshot.jpg';
+import Hero from './hero'
+import Skills from './skills'
+import Blurb from './blurb'
+import RandomQuote from './random-quote'
+import themeUtils from '../theme-utils'
+import headshot from '../../images/headshot.jpg'
 
 const wrapper = css`
   ${themeUtils.margins};
@@ -21,7 +21,7 @@ const wrapper = css`
   @media (max-width: 700px) {
     grid-gap: 10px;
   }
-`;
+`
 
 const avatar = css`
   margin: 0 auto;
@@ -40,7 +40,7 @@ const avatar = css`
     max-width: 250px;
     max-height: 250px;
   }
-`;
+`
 
 const header = css`
   font-size: 3rem;
@@ -57,24 +57,24 @@ const header = css`
     grid-column: 3 / span 2;
     font-size: 4rem;
   }
-`;
+`
 
 type Props = {
   inputRef: () => void,
-};
+}
 
 const About = ({ inputRef }: Props) => (
-  <section id="about" ref={inputRef}>
+  <section id='about' ref={inputRef}>
     <Hero />
-    <Element name="about" />
+    <Element name='about' />
     <div css={wrapper}>
-      <img css={avatar} src={headshot} alt="Profile of Daniel Lemay" />
+      <img css={avatar} src={headshot} alt='Profile of Daniel Lemay' />
       <h1 css={header}>About</h1>
       <RandomQuote />
       <Skills />
       <Blurb />
     </div>
   </section>
-);
+)
 
-export default About;
+export default About

@@ -1,14 +1,14 @@
 // @flow
-import React from 'react';
-import { Link } from 'gatsby';
-import { animateScroll as scroll } from 'react-scroll';
-import { css } from '@emotion/core';
+import React from 'react'
+import { Link } from 'gatsby'
+import { animateScroll as scroll } from 'react-scroll'
+import { css } from '@emotion/core'
 
-import Navigation from './navigation';
-import MobileNavigation from './mobile-navigation';
-import useMediaQuery from '../hooks/use-media-query';
-import themeUtils from '../theme-utils';
-import logo from '../../images/logo.png';
+import Navigation from './navigation'
+import MobileNavigation from './mobile-navigation'
+import useMediaQuery from '../hooks/use-media-query'
+import themeUtils from '../theme-utils'
+import logo from '../../images/logo.png'
 
 const wrapper = css`
   display: flex;
@@ -22,33 +22,33 @@ const wrapper = css`
   height: 65px;
   top: 0;
   left: 0;
-`;
+`
 
 const logoStyles = css`
   margin: 0.5em 0.5em;
-`;
+`
 
 const Header = () => {
-  const { isMobile } = useMediaQuery();
-  const path = typeof window !== 'undefined' ? window.location.pathname : '';
-  const home = path === '/';
+  const { isMobile } = useMediaQuery()
+  const path = typeof window !== 'undefined' ? window.location.pathname : ''
+  const home = path === '/'
 
   return (
     <header css={wrapper}>
       <Link
-        to="/"
+        to='/'
         onClick={e => {
           if (home) {
-            e.preventDefault();
-            scroll.scrollToTop();
+            e.preventDefault()
+            scroll.scrollToTop()
           }
         }}
       >
-        <img css={logoStyles} src={logo} alt="Logo" />
+        <img css={logoStyles} src={logo} alt='Logo' />
       </Link>
       {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

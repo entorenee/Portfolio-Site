@@ -1,15 +1,15 @@
 // @flow
-import React from 'react';
-import { css } from '@emotion/core';
-import { StaticQuery, graphql } from 'gatsby';
-import Image from 'gatsby-image';
+import React from 'react'
+import { css } from '@emotion/core'
+import { StaticQuery, graphql } from 'gatsby'
+import Image from 'gatsby-image'
 
-import type { Project } from './types';
+import type { Project } from './types'
 
-import Button from '../../base-components/button';
-import CarouselControls from './carousel-controls';
-import useSlideshow from '../../hooks/use-slideshow';
-import themeUtils from '../../theme-utils';
+import Button from '../../base-components/button'
+import CarouselControls from './carousel-controls'
+import useSlideshow from '../../hooks/use-slideshow'
+import themeUtils from '../../theme-utils'
 
 const carouselContainer = css`
   ${themeUtils.margins};
@@ -18,23 +18,23 @@ const carouselContainer = css`
   border: 1px solid #ccc;
   padding: 0.5rem 0.25rem;
   box-shadow: 3px 3px 5px ${themeUtils.mediumAccent};
-`;
+`
 
 const focusImage = css`
   display: block;
   max-width: 800px;
   height: auto;
   margin: 0 auto;
-`;
+`
 
 const description = css`
   padding: 0.5rem;
-`;
+`
 
 const title = css`
   text-align: center;
   margin-bottom: 0.6rem;
-`;
+`
 
 const projectLinks = css`
   display: flex;
@@ -48,7 +48,7 @@ const projectLinks = css`
       margin-bottom: 0.75rem;
     }
   }
-`;
+`
 
 type Props = {
   data: {
@@ -56,15 +56,17 @@ type Props = {
       slides: Array<Project>,
     },
   },
-};
+}
 
 export const PureCarousel = ({
   data: {
     contentfulSlideshow: { slides },
   },
 }: Props) => {
-  const { currIndex, isPlaying, setIsPlaying, updateSlide } = useSlideshow(slides);
-  const project = slides[currIndex];
+  const { currIndex, isPlaying, setIsPlaying, updateSlide } = useSlideshow(
+    slides,
+  )
+  const project = slides[currIndex]
 
   return (
     <div css={carouselContainer}>
@@ -94,8 +96,8 @@ export const PureCarousel = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const query = graphql`
   {
@@ -120,7 +122,9 @@ const query = graphql`
       }
     }
   }
-`;
-const Carousel = () => <StaticQuery query={query} render={data => <PureCarousel data={data} />} />;
+`
+const Carousel = () => (
+  <StaticQuery query={query} render={data => <PureCarousel data={data} />} />
+)
 
-export default Carousel;
+export default Carousel

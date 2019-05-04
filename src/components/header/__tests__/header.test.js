@@ -1,14 +1,14 @@
-import React from 'react';
-import { animateScroll as scroll } from 'react-scroll';
-import { fireEvent, render } from 'react-testing-library';
+import React from 'react'
+import { animateScroll as scroll } from 'react-scroll'
+import { fireEvent, render } from 'react-testing-library'
 
-import Header from '..';
+import Header from '..'
 
 const location = {
   pathname: '/',
-};
+}
 
-scroll.scrollToTop = jest.fn();
+scroll.scrollToTop = jest.fn()
 
 describe('<Header /> mobile view', () => {
   beforeAll(() => {
@@ -18,25 +18,25 @@ describe('<Header /> mobile view', () => {
       onchange: null,
       addListener: jest.fn(),
       removeListener: jest.fn(),
-    }));
-  });
+    }))
+  })
 
   it('renders correctly', () => {
-    const { container, getByLabelText } = render(<Header location={location} />);
+    const { container, getByLabelText } = render(<Header location={location} />)
 
-    expect(container).toBeTruthy();
-    getByLabelText('menu');
-  });
+    expect(container).toBeTruthy()
+    getByLabelText('menu')
+  })
 
   it('the mobile icon toggles open states on click', () => {
-    const { getByLabelText } = render(<Header location={location} />);
+    const { getByLabelText } = render(<Header location={location} />)
 
-    const menu = getByLabelText('menu');
-    expect(menu).toHaveAttribute('aria-expanded', 'false');
-    fireEvent.click(menu);
-    expect(menu).toHaveAttribute('aria-expanded', 'true');
-  });
-});
+    const menu = getByLabelText('menu')
+    expect(menu).toHaveAttribute('aria-expanded', 'false')
+    fireEvent.click(menu)
+    expect(menu).toHaveAttribute('aria-expanded', 'true')
+  })
+})
 
 describe('<Header /> non-mobile view', () => {
   beforeAll(() => {
@@ -46,18 +46,18 @@ describe('<Header /> non-mobile view', () => {
       onchange: null,
       addListener: jest.fn(),
       removeListener: jest.fn(),
-    }));
-  });
+    }))
+  })
 
   it('renders correctly', () => {
-    const { container, getByAltText } = render(<Header location={location} />);
+    const { container, getByAltText } = render(<Header location={location} />)
 
-    const logo = getByAltText('Logo');
-    fireEvent.click(logo);
+    const logo = getByAltText('Logo')
+    fireEvent.click(logo)
 
-    expect(container).toBeTruthy();
-    expect(logo).toBeTruthy();
-    expect(scroll.scrollToTop).toBeCalledTimes(1);
-    scroll.scrollToTop.mockReset();
-  });
-});
+    expect(container).toBeTruthy()
+    expect(logo).toBeTruthy()
+    expect(scroll.scrollToTop).toBeCalledTimes(1)
+    scroll.scrollToTop.mockReset()
+  })
+})

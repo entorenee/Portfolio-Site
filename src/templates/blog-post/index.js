@@ -1,33 +1,33 @@
 // @flow
 /* eslint-disable react/no-danger */
-import * as React from 'react';
-import { css } from '@emotion/core';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Image from 'gatsby-image';
-import { FaAngleRight } from 'react-icons/fa';
-import 'prismjs/themes/prism.css';
+import * as React from 'react'
+import { css } from '@emotion/core'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Image from 'gatsby-image'
+import { FaAngleRight } from 'react-icons/fa'
+import 'prismjs/themes/prism.css'
 
-import type { TopMetaProps as PostMetaProps } from './post-meta';
-import type { FluidImage } from '../../components/types';
+import type { TopMetaProps as PostMetaProps } from './post-meta'
+import type { FluidImage } from '../../components/types'
 
-import Layout from '../../layouts/main';
-import PostMeta from './post-meta';
-import { postSlug } from '../../utils/helpers';
-import QuoteCard from '../../components/base-components/quote-card';
-import RelatedContent from '../../components/base-components/related-content';
-import themeUtils from '../../components/theme-utils';
-import './style.css';
+import Layout from '../../layouts/main'
+import PostMeta from './post-meta'
+import { postSlug } from '../../utils/helpers'
+import QuoteCard from '../../components/base-components/quote-card'
+import RelatedContent from '../../components/base-components/related-content'
+import themeUtils from '../../components/theme-utils'
+import './style.css'
 
 const wrapper = css`
   margin-top: 65px;
   padding-top: 2rem;
-`;
+`
 
 const blogMargins = css`
   ${themeUtils.margins};
   max-width: 800px;
-`;
+`
 
 const headlineImageContainer = css`
   ${themeUtils.margins};
@@ -37,7 +37,7 @@ const headlineImageContainer = css`
   p {
     margin-bottom: 0;
   }
-`;
+`
 
 const postContainer = css`
   ${blogMargins};
@@ -78,23 +78,23 @@ const postContainer = css`
       right: 0.1rem;
     }
   }
-`;
+`
 
 const quoteCardContainer = css`
   p {
     margin-bottom: 0;
   }
-`;
+`
 
 const blogTitle = css`
   text-align: center;
   margin-bottom: 1rem;
-`;
+`
 
 const relatedPostsContainer = css`
   ${themeUtils.margins};
   margin-bottom: 2rem;
-`;
+`
 
 const relatedPostCards = css`
   @media ${themeUtils.tablet} {
@@ -110,7 +110,7 @@ const relatedPostCards = css`
       font-size: 1.1rem;
     }
   }
-`;
+`
 
 const readMoreLink = css`
   display: inline-flex;
@@ -120,7 +120,7 @@ const readMoreLink = css`
   svg {
     margin-left: 0.2rem;
   }
-`;
+`
 
 type Props = {
   data: {
@@ -158,14 +158,14 @@ type Props = {
       title: string,
     } & PostMetaProps,
   },
-};
+}
 
 const ReadMore = () => (
   <span css={readMoreLink}>
     Read more
     <FaAngleRight />
   </span>
-);
+)
 
 const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const {
@@ -177,14 +177,18 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
     postTags,
     relatedPosts,
     title,
-  } = contentfulBlogPost;
-  const { excerpt, html: body, timeToRead } = contentfulBlogPost.body.childMarkdownRemark;
+  } = contentfulBlogPost
+  const {
+    excerpt,
+    html: body,
+    timeToRead,
+  } = contentfulBlogPost.body.childMarkdownRemark
 
   const headlineImageCaptionHtml = headlineImageCaption
     ? headlineImageCaption.childMarkdownRemark.html
-    : null;
-  const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : null;
-  const metaTitle = `${title} - Daniel Lemay`;
+    : null
+  const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : null
+  const metaTitle = `${title} - Daniel Lemay`
   const cards = !relatedPosts
     ? null
     : relatedPosts.map(post => ({
@@ -194,17 +198,19 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           text: <ReadMore />,
           url: postSlug(post.postDate, post.title),
         },
-      }));
+      }))
 
   return (
     <Layout>
       <div css={wrapper}>
         <Helmet>
           <title>{metaTitle}</title>
-          <meta property="og:type" content="article" />
-          <meta property="og:title" content={metaTitle} />
-          <meta property="og:description" content={excerpt} />
-          {headlineImage && <meta property="og:image" content={headlineImage.fluid.src} />}
+          <meta property='og:type' content='article' />
+          <meta property='og:title' content={metaTitle} />
+          <meta property='og:description' content={excerpt} />
+          {headlineImage && (
+            <meta property='og:image' content={headlineImage.fluid.src} />
+          )}
         </Helmet>
         <div css={blogMargins}>
           <h1 css={blogTitle}>{title}</h1>
@@ -217,7 +223,9 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         </div>
         {headlineImage && (
           <div css={headlineImageContainer}>
-            {headlineImage && <Image fluid={headlineImage.fluid} alt={headlineImage.title} />}
+            {headlineImage && (
+              <Image fluid={headlineImage.fluid} alt={headlineImage.title} />
+            )}
             {headlineImageCaption && (
               <span
                 css={{ textAlign: 'center' }}
@@ -246,10 +254,10 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         )}
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const pageQuery = graphql`
   query blogPostQuery($id: String!) {
@@ -298,4 +306,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

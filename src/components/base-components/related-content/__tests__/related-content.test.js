@@ -1,7 +1,7 @@
-import React from 'react';
-import { render } from 'react-testing-library';
+import React from 'react'
+import { render } from 'react-testing-library'
 
-import RelatedContent from '..';
+import RelatedContent from '..'
 
 describe('<RelatedContent />', () => {
   const props = {
@@ -23,11 +23,11 @@ describe('<RelatedContent />', () => {
         },
       },
     ],
-  };
+  }
 
   it('renders correctly', () => {
-    const { container } = render(<RelatedContent {...props} />);
+    const { container } = render(<RelatedContent {...props} />)
 
-    expect(container.firstChild).toMatchSnapshot();
-  });
-});
+    expect(container.firstChild).toMatchSnapshot()
+  })
+})

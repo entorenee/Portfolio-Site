@@ -1,13 +1,13 @@
 // @flow
-import React from 'react';
+import React from 'react'
 
-import Project from '../../layouts/projects';
-import App from '../../projects/tic-tac-toe/Components/App';
+import Project from '../../layouts/projects'
+import App from '../../projects/tic-tac-toe/Components/App'
 
 const ticTacToeProject = () => (
   <Project>
     <App />
   </Project>
-);
+)
 
-export default ticTacToeProject;
+export default ticTacToeProject

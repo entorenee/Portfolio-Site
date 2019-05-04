@@ -1,28 +1,28 @@
 // @flow
-import React from 'react';
-import { Link } from 'gatsby';
-import { css } from '@emotion/core';
+import React from 'react'
+import { Link } from 'gatsby'
+import { css } from '@emotion/core'
 
-import ScrollLink from './scroll-link';
+import ScrollLink from './scroll-link'
 
 export const desktopLinks = css`
   margin-right: 1.5em;
   text-decoration: none;
   display: inline;
-`;
+`
 
 export const mobileLinks = css`
   margin-right: 0;
   text-decoration: none;
   display: block;
-`;
+`
 
 type Props = {
   homePage: boolean,
   mobile?: boolean,
   text: string,
   to: string,
-};
+}
 
 const NavLink = ({ homePage, mobile, text, to }: Props) => {
   if (homePage) {
@@ -37,17 +37,17 @@ const NavLink = ({ homePage, mobile, text, to }: Props) => {
       >
         {text}
       </ScrollLink>
-    );
+    )
   }
   return (
     <Link to={`/#${to}`} css={mobile ? mobileLinks : desktopLinks}>
       {text}
     </Link>
-  );
-};
+  )
+}
 
 NavLink.defaultProps = {
   mobile: false,
-};
+}
 
-export default NavLink;
+export default NavLink

@@ -117,6 +117,6 @@ const testProps = {
       ],
     },
   },
-};
+}
 
-export default testProps;
+export default testProps

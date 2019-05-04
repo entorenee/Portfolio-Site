@@ -1,5 +1,5 @@
 // @flow
-import type { FluidImage } from '../../types';
+import type { FluidImage } from '../../types'
 
 export type Project = {
   title: string,
@@ -11,4 +11,4 @@ export type Project = {
     title: string,
   },
   links: Array<{ text: string, url: string }>,
-};
+}

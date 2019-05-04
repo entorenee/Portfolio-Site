@@ -1,21 +1,21 @@
 // @flow
-import React from 'react';
-import { css } from '@emotion/core';
-import { Link } from 'gatsby';
+import React from 'react'
+import { css } from '@emotion/core'
+import { Link } from 'gatsby'
 
-import type { LinkType } from '../../types';
-import Card from '../card';
+import type { LinkType } from '../../types'
+import Card from '../card'
 
 type CardProps = {
   excerptText: string,
   headlineText: string,
   link: LinkType,
-};
+}
 
 export type Props = {
   cards: CardProps[],
   className?: string,
-};
+}
 
 const wrapper = css`
   display: flex;
@@ -27,11 +27,11 @@ const wrapper = css`
     max-width: 30rem;
     flex: 1 0 30%;
   }
-`;
+`
 
 const excerptCard = css`
   padding: 1rem 0.75rem;
-`;
+`
 
 const RelatedContent = ({ cards, className }: Props) => (
   <div className={className} css={wrapper}>
@@ -44,10 +44,10 @@ const RelatedContent = ({ cards, className }: Props) => (
       </Card>
     ))}
   </div>
-);
+)
 
 RelatedContent.defaultProps = {
   className: '',
-};
+}
 
-export default RelatedContent;
+export default RelatedContent

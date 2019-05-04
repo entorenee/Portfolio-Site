@@ -1,11 +1,16 @@
 // @flow
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
-import { FaAngleLeft, FaAngleRight, FaPlayCircle, FaPauseCircle } from 'react-icons/fa';
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
+import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaPlayCircle,
+  FaPauseCircle,
+} from 'react-icons/fa'
 
-import themeUtils from '../../theme-utils';
-import type { Project } from './types';
+import themeUtils from '../../theme-utils'
+import type { Project } from './types'
 
 const wrapper = css`
   display: flex;
@@ -20,7 +25,7 @@ const wrapper = css`
   svg {
     color: ${themeUtils.complementaryDark};
   }
-`;
+`
 
 const Button = styled('button')`
   appearance: none;
@@ -28,14 +33,14 @@ const Button = styled('button')`
   background: none;
   margin: 0;
   padding: 0;
-`;
+`
 
 const controlsContainer = css`
   display: flex;
   width: 13rem;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const SelectorBox = styled('div')`
   width: 1.5rem;
@@ -43,7 +48,7 @@ const SelectorBox = styled('div')`
   background-color: ${({ selected }) => (selected ? '#9a8956' : '')};
   border: 1px solid ${themeUtils.complementaryDark};
   transition: 500ms background-color;
-`;
+`
 
 type Props = {
   currIndex: number,
@@ -51,7 +56,7 @@ type Props = {
   projects: Array<Project>,
   setIsPlaying: boolean => void,
   updateProject: (direction: 'previous' | 'next' | number) => void,
-};
+}
 
 const CarouselControls = ({
   currIndex,
@@ -61,16 +66,16 @@ const CarouselControls = ({
   updateProject,
 }: Props) => (
   <div css={wrapper}>
-    <Button type="button" onClick={() => setIsPlaying(!isPlaying)}>
+    <Button type='button' onClick={() => setIsPlaying(!isPlaying)}>
       {isPlaying ? (
-        <FaPauseCircle aria-label="pause slideshow" size={30} />
+        <FaPauseCircle aria-label='pause slideshow' size={30} />
       ) : (
-        <FaPlayCircle aria-label="play slideshow" size={30} />
+        <FaPlayCircle aria-label='play slideshow' size={30} />
       )}
     </Button>
     <div css={controlsContainer}>
       <Button onClick={() => updateProject('previous')}>
-        <FaAngleLeft aria-label="go to previous project" size={25} />
+        <FaAngleLeft aria-label='go to previous project' size={25} />
       </Button>
       {projects.map((project, i) => (
         <Button
@@ -83,10 +88,10 @@ const CarouselControls = ({
         </Button>
       ))}
       <Button onClick={() => updateProject('next')}>
-        <FaAngleRight aria-label="go to next project" size={25} />
+        <FaAngleRight aria-label='go to next project' size={25} />
       </Button>
     </div>
   </div>
-);
+)
 
-export default CarouselControls;
+export default CarouselControls
