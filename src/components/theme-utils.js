@@ -1,4 +1,4 @@
-import { css } from '@emotion/core';
+import { css } from '@emotion/core'
 
 const themeUtils = {
   baseColor: '#2D3B7F',
@@ -16,6 +16,6 @@ const themeUtils = {
   `,
   tablet: '(max-width: 1024px)',
   mobile: '(max-width: 454px)',
-};
+}
 
-export default themeUtils;
+export default themeUtils

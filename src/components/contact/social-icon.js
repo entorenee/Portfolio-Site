@@ -1,13 +1,13 @@
 // @flow
-import * as React from 'react';
-import { css } from '@emotion/core';
+import * as React from 'react'
+import { css } from '@emotion/core'
 
-import themeUtils from '../theme-utils';
+import themeUtils from '../theme-utils'
 
 type IconProps = {
   link: string,
   component: React.Node,
-};
+}
 
 const socialLink = css`
   color: ${themeUtils.mediumAccent};
@@ -17,12 +17,12 @@ const socialLink = css`
   &:hover {
     color: ${themeUtils.complementaryDark};
   }
-`;
+`
 
 const SocialIcon = ({ component, link }: IconProps) => (
   <a css={socialLink} href={link}>
     {component}
   </a>
-);
+)
 
-export default SocialIcon;
+export default SocialIcon

@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
-import { css } from '@emotion/core';
+import React from 'react'
+import { css } from '@emotion/core'
 
-import themeUtils from '../theme-utils';
-import heroImg from '../../images/hero-image.jpg';
+import themeUtils from '../theme-utils'
+import heroImg from '../../images/hero-image.jpg'
 
 const bgImage = css`
   background-image: url(${heroImg});
@@ -28,7 +28,7 @@ const bgImage = css`
     left: 0;
     content: '';
   }
-`;
+`
 
 const heroText = css`
   width: 50%;
@@ -50,7 +50,7 @@ const heroText = css`
     height: 4px;
     border-radius: 5px;
   }
-`;
+`
 
 const Hero = () => (
   <div css={bgImage}>
@@ -60,6 +60,6 @@ const Hero = () => (
       <h1>Full Stack JavaScript Developer</h1>
     </div>
   </div>
-);
+)
 
-export default Hero;
+export default Hero

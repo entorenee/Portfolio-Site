@@ -1,45 +1,45 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import { keyboardHandler } from '../helpers';
-import '../style/Cell.css';
+import { keyboardHandler } from '../helpers'
+import '../style/Cell.css'
 
 class Cell extends Component {
   shouldComponentUpdate(nextProps) {
-    const { cellValue } = this.props;
+    const { cellValue } = this.props
 
     if (nextProps.cellValue !== cellValue) {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   render() {
-    const { cellValue, id, playerSelectCell } = this.props;
-    const cellDisplay = cellValue !== 'E' ? cellValue : '';
+    const { cellValue, id, playerSelectCell } = this.props
+    const cellDisplay = cellValue !== 'E' ? cellValue : ''
     if (cellValue === 'X') {
-      this.cell.classList.add('x-marker');
+      this.cell.classList.add('x-marker')
     }
     if (cellValue === 'O') {
-      this.cell.classList.add('o-marker');
+      this.cell.classList.add('o-marker')
     }
     return (
       <td className={`cells cell-${id}`}>
         <div
           ref={input => {
-            this.cell = input;
+            this.cell = input
           }}
           onClick={() => playerSelectCell(cellValue, id)}
           onKeyPress={e => {
-            if (keyboardHandler(e)) playerSelectCell(cellValue, id);
+            if (keyboardHandler(e)) playerSelectCell(cellValue, id)
           }}
-          role="button"
+          role='button'
           tabIndex={0}
         >
           {cellDisplay}
         </div>
       </td>
-    );
+    )
   }
 }
 
@@ -47,6 +47,6 @@ Cell.propTypes = {
   id: PropTypes.string.isRequired,
   cellValue: PropTypes.string.isRequired,
   playerSelectCell: PropTypes.func.isRequired,
-};
+}
 
-export default Cell;
+export default Cell

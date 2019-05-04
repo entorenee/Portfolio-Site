@@ -16,10 +16,10 @@ type PostExcerpt = {
     },
     title: string,
   },
-};
+}
 
 export type PostNode = {
   node: PostExcerpt,
-};
+}
 
-export type Post = PostExcerpt & $Shape<PostNode>;
+export type Post = PostExcerpt & $Shape<PostNode>

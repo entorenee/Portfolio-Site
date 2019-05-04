@@ -1,8 +1,8 @@
 // @flow
-import * as React from 'react';
-import { css } from '@emotion/core';
+import * as React from 'react'
+import { css } from '@emotion/core'
 
-import QuoteCard from '../components/base-components/quote-card';
+import QuoteCard from '../components/base-components/quote-card'
 
 const headerContainer = css`
   margin-bottom: 1.5rem;
@@ -12,7 +12,7 @@ const headerContainer = css`
   flex-wrap: wrap;
   max-width: 90%;
   margin: 0 auto;
-`;
+`
 
 const quoteContainer = css`
   margin-right: 0.5rem;
@@ -20,11 +20,11 @@ const quoteContainer = css`
   @media (min-width: 1000px) {
     max-width: 50%;
   }
-`;
+`
 
 type Props = {
   keyQuote: string,
-};
+}
 
 const ArticleHeader = ({ keyQuote }: Props) => (
   <div css={headerContainer}>
@@ -38,6 +38,6 @@ const ArticleHeader = ({ keyQuote }: Props) => (
       </div>
     )}
   </div>
-);
+)
 
-export default ArticleHeader;
+export default ArticleHeader

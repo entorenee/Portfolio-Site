@@ -1,9 +1,9 @@
 // @flow
-import React from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/core';
+import React from 'react'
+import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
-import themeUtils from '../../theme-utils';
+import themeUtils from '../../theme-utils'
 
 const iconContainer = css`
   position: relative;
@@ -15,7 +15,7 @@ const iconContainer = css`
   justify-content: center;
   background-color: ${themeUtils.baseColor};
   border: none;
-`;
+`
 
 const icon = css`
   position: relative;
@@ -23,7 +23,7 @@ const icon = css`
   width: 30px;
   cursor: pointer;
   z-index: 10;
-`;
+`
 
 const MenuLine = css`
   background-color: ${themeUtils.lightAccent};
@@ -33,13 +33,14 @@ const MenuLine = css`
   position: absolute;
   left: 0;
   transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-`;
+`
 
 const Line1 = styled('span')`
   ${MenuLine};
   top: 0;
-  transform: ${({ isOpen }) => (isOpen ? 'translateY(10px) translateY(-50%) rotate(-135deg)' : '')};
-`;
+  transform: ${({ isOpen }) =>
+    isOpen ? 'translateY(10px) translateY(-50%) rotate(-135deg)' : ''};
+`
 
 const Line2 = styled('span')`
   ${MenuLine};
@@ -47,26 +48,27 @@ const Line2 = styled('span')`
   bottom: 0;
   margin: auto;
   opacity: ${({ isOpen }) => (isOpen ? '0' : '')};
-`;
+`
 
 const Line3 = styled('span')`
   ${MenuLine};
   bottom: 0;
-  transform: ${({ isOpen }) => (isOpen ? 'translateY(-10px) translateY(50%) rotate(135deg)' : '')};
-`;
+  transform: ${({ isOpen }) =>
+    isOpen ? 'translateY(-10px) translateY(50%) rotate(135deg)' : ''};
+`
 
 type Props = {
   isOpen: boolean,
   toggleOpen: () => void,
-};
+}
 
 const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
   <button
-    aria-label="menu"
+    aria-label='menu'
     aria-expanded={isOpen}
     css={iconContainer}
     onClick={() => toggleOpen()}
-    type="button"
+    type='button'
   >
     <div css={icon}>
       <Line1 isOpen={isOpen} />
@@ -74,6 +76,6 @@ const MenuIcon = ({ isOpen, toggleOpen }: Props) => (
       <Line3 isOpen={isOpen} />
     </div>
   </button>
-);
+)
 
-export default MenuIcon;
+export default MenuIcon

@@ -1,18 +1,18 @@
 // @flow
 /* eslint-disable react/no-danger */
-import * as React from 'react';
-import { css } from '@emotion/core';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
+import * as React from 'react'
+import { css } from '@emotion/core'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
 
-import ArticleHeader from './article-header';
-import Layout from '../layouts/main';
-import themeUtils from '../components/theme-utils';
+import ArticleHeader from './article-header'
+import Layout from '../layouts/main'
+import themeUtils from '../components/theme-utils'
 
 const wrapper = css`
   margin-top: 65px;
   padding-top: 2rem;
-`;
+`
 
 const content = css`
   ${themeUtils.margins};
@@ -41,11 +41,11 @@ const content = css`
     margin: 0 auto;
     display: block;
   }
-`;
+`
 
 const pageTitle = css`
   text-align: center;
-`;
+`
 
 type Props = {
   data: {
@@ -57,14 +57,14 @@ type Props = {
       html: string,
     },
   },
-};
+}
 
 const ResourcePage = ({
   data: {
     markdownRemark: { frontmatter, html },
   },
 }: Props) => {
-  const { title, keyQuote } = frontmatter;
+  const { title, keyQuote } = frontmatter
 
   return (
     <Layout>
@@ -77,10 +77,10 @@ const ResourcePage = ({
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default ResourcePage;
+export default ResourcePage
 
 export const pageQuery = graphql`
   query resourcePageQuery($path: String!) {
@@ -92,4 +92,4 @@ export const pageQuery = graphql`
       html
     }
   }
-`;
+`

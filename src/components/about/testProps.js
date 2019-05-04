@@ -3,15 +3,18 @@ const testProps = {
     contentfulSlideshow: {
       slides: [
         {
-          quote: '"One option is no option. Two options is a dilemma. Three options is a choice."',
+          quote:
+            '"One option is no option. Two options is a dilemma. Three options is a choice."',
           attribution: 'Anthony Robbins',
         },
         {
-          quote: '"Just when the caterpillar thought the world was over, it became a butterfly."',
+          quote:
+            '"Just when the caterpillar thought the world was over, it became a butterfly."',
           attribution: 'Proverb',
         },
         {
-          quote: '"Sometimes the questions are complicated and the answers are simple."',
+          quote:
+            '"Sometimes the questions are complicated and the answers are simple."',
           attribution: 'Dr Seuss',
         },
         {
@@ -23,12 +26,13 @@ const testProps = {
           attribution: 'Anais Nin',
         },
         {
-          quote: '"A friend is someone who knows all about you and loves you just the same."',
+          quote:
+            '"A friend is someone who knows all about you and loves you just the same."',
           attribution: 'Elbert Hubbard',
         },
       ],
     },
   },
-};
+}
 
-export default testProps;
+export default testProps

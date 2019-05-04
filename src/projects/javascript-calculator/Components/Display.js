@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../style/Display.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import '../style/Display.css'
 
-const Display = ({ display }) => <div className="display-field">{display}</div>;
+const Display = ({ display }) => <div className='display-field'>{display}</div>
 
 Display.propTypes = {
   display: PropTypes.string.isRequired,
-};
+}
 
-export default Display;
+export default Display

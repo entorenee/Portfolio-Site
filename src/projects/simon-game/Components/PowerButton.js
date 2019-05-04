@@ -1,22 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import React from 'react'
+import PropTypes from 'prop-types'
+import classnames from 'classnames'
 
-import { keyboardHandler } from '../helpers';
-import '../style/PowerButton.css';
+import { keyboardHandler } from '../helpers'
+import '../style/PowerButton.css'
 
 const PowerButton = props => {
-  const { gameOn, toggleGamePower } = props;
+  const { gameOn, toggleGamePower } = props
   return (
-    <div className="power-button-wrapper">
-      <span className="power-identifiers">OFF</span>
+    <div className='power-button-wrapper'>
+      <span className='power-identifiers'>OFF</span>
       <div
-        className="toggle-power"
+        className='toggle-power'
         onClick={() => toggleGamePower()}
         onKeyPress={e => {
-          if (keyboardHandler(e)) toggleGamePower();
+          if (keyboardHandler(e)) toggleGamePower()
         }}
-        role="button"
+        role='button'
         tabIndex={0}
       >
         <span
@@ -25,14 +25,14 @@ const PowerButton = props => {
           })}
         />
       </div>
-      <span className="power-identifiers">ON</span>
+      <span className='power-identifiers'>ON</span>
     </div>
-  );
-};
+  )
+}
 
 PowerButton.propTypes = {
   toggleGamePower: PropTypes.func.isRequired,
   gameOn: PropTypes.bool.isRequired,
-};
+}
 
-export default PowerButton;
+export default PowerButton
