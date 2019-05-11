@@ -1,10 +1,16 @@
 // @flow
 import * as React from 'react'
+import Helmet from 'react-helmet'
 
 type Props = {
   children: React.ChildrenArray<React.Node>,
 }
 
-const TemplateWrapper = ({ children }: Props) => <div>{children}</div>
+const TemplateWrapper = ({ children }: Props) => (
+  <>
+    <Helmet htmlAttributes={{ lang: 'en' }} />
+    {children}
+  </>
+)
 
 export default TemplateWrapper
