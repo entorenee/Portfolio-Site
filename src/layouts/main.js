@@ -40,7 +40,7 @@ const title = 'Daniel Lemay | JavaScript Developer'
 
 const TemplateWrapper = ({ children }: Props) => (
   <>
-    <Helmet>
+    <Helmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet='utf-8' />
       <title>{title}</title>
       <meta name='twitter:card' content='summary' />
