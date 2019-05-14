@@ -5,8 +5,8 @@ import { css } from '@emotion/core'
 import themeUtils from '../theme-utils'
 
 type IconProps = {
+  children: React.Node,
   link: string,
-  component: React.Node,
 }
 
 const socialLink = css`
@@ -19,9 +19,9 @@ const socialLink = css`
   }
 `
 
-const SocialIcon = ({ component, link }: IconProps) => (
+const SocialIcon = ({ children, link }: IconProps) => (
   <a css={socialLink} href={link}>
-    {component}
+    {children}
   </a>
 )
 

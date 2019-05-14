@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 import { Element } from 'react-scroll'
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa'
 
-import themeUtils from '../theme-utils'
+import themeUtils, { hideElement } from '../theme-utils'
 import Card from '../base-components/card'
 import Button from '../base-components/button'
 import SocialIcon from './social-icon'
@@ -62,17 +62,33 @@ const socialData = [
   {
     service: 'twitter',
     link: 'https://twitter.com/dslemay',
-    component: <FaTwitter aria-label='Twitter' size={30} />,
+    component: (
+      <>
+        <FaTwitter size={30} />
+        <span css={hideElement}>Twitter</span>
+      </>
+    ),
   },
   {
     service: 'linkedin',
     link: 'https://www.linkedin.com/in/dslemay',
-    component: <FaLinkedin aria-label='LinkedIn' size={30} />,
+    component: (
+      <>
+        <FaLinkedin size={30} />
+        <span css={hideElement}>LinkedIn</span>
+      </>
+    ),
   },
   {
+    'aria-label': 'GitHub',
     service: 'github',
     link: 'https://github.com/dslemay',
-    component: <FaGithub aria-label='Github' size={30} />,
+    component: (
+      <>
+        <FaGithub size={30} />
+        <span css={hideElement}>GitHub</span>
+      </>
+    ),
   },
 ]
 
@@ -111,11 +127,9 @@ const Contact = ({ inputRef }: ContactProps) => (
         </form>
       </Card>
       {socialData.map(social => (
-        <SocialIcon
-          key={social.service}
-          link={social.link}
-          component={social.component}
-        />
+        <SocialIcon key={social.service} link={social.link}>
+          {social.component}
+        </SocialIcon>
       ))}
     </div>
   </section>
