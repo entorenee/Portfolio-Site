@@ -65,7 +65,7 @@
     "babel-jest": "^24.0.0",
     "babel-plugin-emotion": "^10.0.7",
     "eslint": "^5.14.1",
-    "eslint-config-dslemay": "^1.0.0",
+    "eslint-config-dslemay": "^1.1.2",
     "eslint-plugin-emotion": "^10.0.7",
     "eslint-plugin-flowtype": "^3.4.2",
     "flow-bin": "^0.97.0",
