@@ -23,7 +23,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint src",
-    "validate": "yarn lint && yarn prettier && yarn test && yarn build"
+    "validate": "yarn lint && yarn flow && yarn prettier && yarn test && yarn build"
   },
   "license": "MIT",
   "dependencies": {
@@ -68,8 +68,6 @@
     "eslint-config-dslemay": "^1.0.0",
     "eslint-plugin-emotion": "^10.0.7",
     "eslint-plugin-flowtype": "^3.4.2",
-    "eslint-plugin-flowtype-errors": "^4.0.0",
-    "eslint-plugin-prettier": "^3.0.0",
     "flow-bin": "^0.97.0",
     "flow-typed": "^2.5.1",
     "husky": "^1.1.3",
