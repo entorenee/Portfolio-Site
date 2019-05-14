@@ -15,6 +15,7 @@ const Start = props => {
         onKeyPress={e => {
           if (keyboardHandler(e)) startGame()
         }}
+        aria-label='Start new game'
         role='button'
         tabIndex={0}
       />

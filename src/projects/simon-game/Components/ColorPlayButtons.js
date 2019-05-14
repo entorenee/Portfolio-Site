@@ -33,7 +33,7 @@ class ColorPlayButtons extends Component {
   }
 
   render() {
-    const { isPlayersTurn, gameOn, id } = this.props
+    const { 'aria-label': ariaLabel, isPlayersTurn, gameOn, id } = this.props
 
     return (
       // eslint-disable-next-line jsx-a11y/control-has-associated-label
@@ -56,6 +56,7 @@ class ColorPlayButtons extends Component {
             this.clickButton()
           }
         }}
+        aria-label={ariaLabel}
         role='button'
         tabIndex={0}
       />
@@ -64,6 +65,7 @@ class ColorPlayButtons extends Component {
 }
 
 ColorPlayButtons.propTypes = {
+  'aria-label': PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   activeClass: PropTypes.string.isRequired,
   isPlayersTurn: PropTypes.bool.isRequired,
