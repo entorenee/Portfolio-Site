@@ -79,6 +79,6 @@
     "prettier": "^1.14.3",
     "prettier-config-dslemay": "^1.0.0",
     "react-test-renderer": "^16.8.2",
-    "react-testing-library": "^6.0.4"
+    "react-testing-library": "^7.0.1"
   }
 }
