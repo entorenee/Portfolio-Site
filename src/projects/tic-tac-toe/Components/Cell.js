@@ -33,6 +33,7 @@ class Cell extends Component {
           onKeyPress={e => {
             if (keyboardHandler(e)) playerSelectCell(cellValue, id)
           }}
+          aria-label={cellDisplay || 'Empty'}
           role='button'
           tabIndex={0}
         >

@@ -167,6 +167,7 @@ class App extends Component {
         </Helmet>
         <div className='game'>
           <ColorPlayButtons
+            aria-label='Green button'
             id='0'
             activeClass='active-green'
             playerSelectButton={this.playerSelectButton}
@@ -174,6 +175,7 @@ class App extends Component {
             gameOn={gameOn}
           />
           <ColorPlayButtons
+            aria-label='Red button'
             id='1'
             activeClass='active-red'
             playerSelectButton={this.playerSelectButton}
@@ -181,6 +183,7 @@ class App extends Component {
             gameOn={gameOn}
           />
           <ColorPlayButtons
+            aria-label='Yellow button'
             id='2'
             activeClass='active-yellow'
             playerSelectButton={this.playerSelectButton}
@@ -188,6 +191,7 @@ class App extends Component {
             gameOn={gameOn}
           />
           <ColorPlayButtons
+            aria-label='Blue button'
             id='3'
             activeClass='active-blue'
             playerSelectButton={this.playerSelectButton}

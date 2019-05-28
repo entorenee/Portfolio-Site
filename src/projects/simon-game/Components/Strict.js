@@ -17,6 +17,7 @@ const Strict = props => {
         onKeyPress={e => {
           if (keyboardHandler(e)) toggleStrict()
         }}
+        aria-label={`Turn strict mode ${isStrict ? 'off' : 'on'}`}
         role='button'
         tabIndex={0}
       />

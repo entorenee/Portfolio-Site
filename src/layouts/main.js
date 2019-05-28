@@ -58,7 +58,7 @@ const TemplateWrapper = ({ children }: Props) => (
     </Helmet>
     <Global styles={styles} />
     <Header />
-    <div>{children}</div>
+    <main>{children}</main>
     <Footer />
   </>
 )

@@ -16,6 +16,7 @@ const PowerButton = props => {
         onKeyPress={e => {
           if (keyboardHandler(e)) toggleGamePower()
         }}
+        aria-label={`Turn game ${gameOn ? 'off' : 'on'}`}
         role='button'
         tabIndex={0}
       >

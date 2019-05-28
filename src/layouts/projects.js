@@ -9,7 +9,7 @@ type Props = {
 const TemplateWrapper = ({ children }: Props) => (
   <>
     <Helmet htmlAttributes={{ lang: 'en' }} />
-    {children}
+    <main>{children}</main>
   </>
 )
 

@@ -42,9 +42,10 @@ const controlsContainer = css`
   align-items: center;
 `
 
-const SelectorBox = styled('div')`
+const SelectorBox = styled('span')`
   width: 1.5rem;
   height: 0.8rem;
+  display: block;
   background-color: ${({ selected }) => (selected ? '#9a8956' : '')};
   border: 1px solid ${themeUtils.complementaryDark};
   transition: 500ms background-color;
@@ -66,16 +67,19 @@ const CarouselControls = ({
   updateProject,
 }: Props) => (
   <div css={wrapper}>
-    <Button type='button' onClick={() => setIsPlaying(!isPlaying)}>
-      {isPlaying ? (
-        <FaPauseCircle aria-label='pause slideshow' size={30} />
-      ) : (
-        <FaPlayCircle aria-label='play slideshow' size={30} />
-      )}
+    <Button
+      type='button'
+      aria-label={isPlaying ? 'Pause slideshow' : 'Play slideshow'}
+      onClick={() => setIsPlaying(!isPlaying)}
+    >
+      {isPlaying ? <FaPauseCircle size={30} /> : <FaPlayCircle size={30} />}
     </Button>
     <div css={controlsContainer}>
-      <Button onClick={() => updateProject('previous')}>
-        <FaAngleLeft aria-label='go to previous project' size={25} />
+      <Button
+        aria-label='go to previous project'
+        onClick={() => updateProject('previous')}
+      >
+        <FaAngleLeft size={25} />
       </Button>
       {projects.map((project, i) => (
         <Button
@@ -87,8 +91,11 @@ const CarouselControls = ({
           <SelectorBox selected={currIndex === i} />
         </Button>
       ))}
-      <Button onClick={() => updateProject('next')}>
-        <FaAngleRight aria-label='go to next project' size={25} />
+      <Button
+        aria-label='go to next project'
+        onClick={() => updateProject('next')}
+      >
+        <FaAngleRight size={25} />
       </Button>
     </div>
   </div>
