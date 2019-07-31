@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import { fireEvent, render } from 'react-testing-library'
+import { fireEvent, render } from '@testing-library/react'
 
 import { PureCarousel } from '../carousel'
 import testProps from '../testProps'

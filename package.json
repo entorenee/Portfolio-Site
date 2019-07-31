@@ -62,6 +62,8 @@
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
+    "@testing-library/jest-dom": "^4.0.0",
+    "@testing-library/react": "^8.0.7",
     "babel-core": "^7.0.0-bridge",
     "babel-jest": "^24.0.0",
     "babel-plugin-emotion": "^10.0.7",
@@ -74,12 +76,10 @@
     "husky": "^3.0.2",
     "is-ci-cli": "^1.1.1",
     "jest": "^24.0.0",
-    "jest-dom": "^3.1.2",
     "jest-emotion": "^10.0.7",
     "lint-staged": "^9.2.1",
     "prettier": "^1.14.3",
     "prettier-config-dslemay": "^1.0.0",
-    "react-test-renderer": "^16.8.2",
-    "react-testing-library": "^6.0.4"
+    "react-test-renderer": "^16.8.2"
   }
 }

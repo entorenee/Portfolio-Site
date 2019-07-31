@@ -1,11 +1,11 @@
 /* eslint-disable react/display-name */
 import React from 'react'
-import { act, render } from 'react-testing-library'
-
-import About from '..'
+import { act, render } from '@testing-library/react'
 
 import { PureRandomQuote } from '../random-quote'
 import testProps from '../testProps'
+
+import About from '..'
 
 const RandomQuote = require('../random-quote')
 
