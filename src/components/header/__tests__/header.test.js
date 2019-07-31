@@ -1,6 +1,6 @@
 import React from 'react'
 import { animateScroll as scroll } from 'react-scroll'
-import { fireEvent, render } from 'react-testing-library'
+import { fireEvent, render } from '@testing-library/react'
 
 import Header from '..'
 
