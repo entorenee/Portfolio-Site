@@ -12153,10 +12153,10 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-axe@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/react-axe/-/react-axe-3.1.0.tgz#77f920642ab34a39f971c8195ea3b44c02c05b8f"
-  integrity sha512-aUkgYpYVFhQ9hAF3DkvUqWTN5eOIN5K+WqQItgBzSbL5MpJssnd2hN09QoloYEAo6BhBsV0k0O9S0tNquyni2w==
+react-axe@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/react-axe/-/react-axe-3.2.0.tgz#d17427e5d54d6c4561e74ad9cf8c1839e411bde3"
+  integrity sha512-2KlO2wZq58+GSFP4oWA2ZjU1ggbXdDLJc7tMUXUXkE4NVQ3FftdYtb7qNR+x1nTLeuVYiH4nH4hzIz9vQZ/Chw==
   dependencies:
     axe-core "^3.0.0"
     requestidlecallback "^0.3.0"
