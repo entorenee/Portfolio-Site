@@ -43,7 +43,7 @@ const TemplateWrapper = ({ children }: Props) => (
     <Helmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet='utf-8' />
       <title>{title}</title>
-      <meta name='twitter:card' content='summary' />
+      <meta name='twitter:card' content='summary_large_image' />
       <meta property='og:type' content='website' />
       <meta property='og:title' content={title} />
       <meta property='og:url' content={url} />
