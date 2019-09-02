@@ -209,7 +209,10 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           <meta property='og:title' content={metaTitle} />
           <meta property='og:description' content={excerpt} />
           {headlineImage && (
-            <meta property='og:image' content={headlineImage.fluid.src} />
+            <meta
+              property='og:image'
+              content={`https://${headlineImage.fluid.src}`}
+            />
           )}
         </Helmet>
         <div css={blogMargins}>
