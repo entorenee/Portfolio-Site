@@ -9,6 +9,13 @@ import pause from '../img/pause.png'
 import bell from '../bell.mp3'
 
 class Timer extends Component {
+  static propTypes = {
+    sessionTime: PropTypes.number.isRequired,
+    breakTime: PropTypes.number.isRequired,
+    isRunning: PropTypes.bool.isRequired,
+    toggleTimer: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -120,13 +127,6 @@ class Timer extends Component {
       </div>
     )
   }
-}
-
-Timer.propTypes = {
-  sessionTime: PropTypes.number.isRequired,
-  breakTime: PropTypes.number.isRequired,
-  isRunning: PropTypes.bool.isRequired,
-  toggleTimer: PropTypes.func.isRequired,
 }
 
 export default Timer
