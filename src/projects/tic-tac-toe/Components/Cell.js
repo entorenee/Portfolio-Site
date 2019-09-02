@@ -5,6 +5,12 @@ import { keyboardHandler } from '../helpers'
 import '../style/Cell.css'
 
 class Cell extends Component {
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    cellValue: PropTypes.string.isRequired,
+    playerSelectCell: PropTypes.func.isRequired,
+  }
+
   shouldComponentUpdate(nextProps) {
     const { cellValue } = this.props
 
@@ -42,12 +48,6 @@ class Cell extends Component {
       </td>
     )
   }
-}
-
-Cell.propTypes = {
-  id: PropTypes.string.isRequired,
-  cellValue: PropTypes.string.isRequired,
-  playerSelectCell: PropTypes.func.isRequired,
 }
 
 export default Cell

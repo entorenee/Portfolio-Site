@@ -9,6 +9,15 @@ import { keyboardHandler } from '../helpers'
 import '../style/ColorPlayButtons.css'
 
 class ColorPlayButtons extends Component {
+  static propTypes = {
+    'aria-label': PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired,
+    activeClass: PropTypes.string.isRequired,
+    isPlayersTurn: PropTypes.bool.isRequired,
+    playerSelectButton: PropTypes.func.isRequired,
+    gameOn: PropTypes.bool.isRequired,
+  }
+
   componentDidMount() {
     this.buttonSounds = [
       new Audio(simonSound0),
@@ -62,15 +71,6 @@ class ColorPlayButtons extends Component {
       />
     )
   }
-}
-
-ColorPlayButtons.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
-  activeClass: PropTypes.string.isRequired,
-  isPlayersTurn: PropTypes.bool.isRequired,
-  playerSelectButton: PropTypes.func.isRequired,
-  gameOn: PropTypes.bool.isRequired,
 }
 
 export default ColorPlayButtons
