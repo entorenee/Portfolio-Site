@@ -44,6 +44,7 @@ const TemplateWrapper = ({ children }: Props) => (
       <meta charSet='utf-8' />
       <title>{title}</title>
       <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:creator' content='@dslemay' />
       <meta property='og:type' content='website' />
       <meta property='og:title' content={title} />
       <meta property='og:url' content={url} />
