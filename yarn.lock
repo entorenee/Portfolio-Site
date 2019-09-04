@@ -6641,7 +6641,7 @@ gatsby-telemetry@^1.1.21:
     stack-utils "1.0.2"
     uuid "3.3.3"
 
-gatsby-theme-dslemay-core@^0.3.0:
+gatsby-theme-dslemay-core@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/gatsby-theme-dslemay-core/-/gatsby-theme-dslemay-core-0.3.1.tgz#5e1d0ab0457b0fab7c0df758df3da3555828f4c1"
   integrity sha512-HJE3JFag9vv6ugBslePsLIPpcBwkWmPlFD1E+O2oEtZIfPoM5CaPobLeal7tuynJpT6v0cCnYRUwvjXUX67ESQ==
