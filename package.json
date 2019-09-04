@@ -69,7 +69,7 @@
     "babel-plugin-emotion": "^10.0.7",
     "eslint": "^6.3.0",
     "eslint-config-dslemay": "^3.0.0",
-    "eslint-plugin-emotion": "^10.0.7",
+    "eslint-plugin-emotion": "^10.0.14",
     "eslint-plugin-flowtype": "^4.2.0",
     "flow-bin": "^0.106.3",
     "flow-typed": "^2.5.1",
