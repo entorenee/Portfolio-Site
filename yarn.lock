@@ -11901,7 +11901,7 @@ prettier-config-dslemay@^1.0.0:
   resolved "https://registry.yarnpkg.com/prettier-config-dslemay/-/prettier-config-dslemay-1.0.0.tgz#6c42911351e1de1046fc588f46e5b2f9911766d4"
   integrity sha512-7/tU+3XqqpaXG2mIKatCTIZ3F0CpoKdrkW+Ec8QQ404jBnuzCR1xui/ESeE74PugvySu7/e6h+SsQ6v3oi8Nmw==
 
-prettier@^1.14.3, prettier@^1.16.4, prettier@^1.18.2:
+prettier@^1.16.4, prettier@^1.18.2:
   version "1.18.2"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.18.2.tgz#6823e7c5900017b4bd3acf46fe9ac4b4d7bda9ea"
   integrity sha512-OeHeMc0JhFE9idD4ZdtNibzY0+TPHSpSSb9h8FqtP+YnoZZ1sl8Vc9b1sasjfymH3SonAF4QcA2+mzHPhMvIiw==
