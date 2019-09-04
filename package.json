@@ -35,7 +35,7 @@
     "dotenv": "^8.0.0",
     "gatsby": "^2.1.17",
     "gatsby-image": "^2.0.31",
-    "gatsby-paginate": "^1.0.16",
+    "gatsby-paginate": "^1.1.1",
     "gatsby-plugin-feed": "^2.0.14",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-typography": "^2.2.0",
