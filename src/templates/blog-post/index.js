@@ -211,7 +211,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           {headlineImage && (
             <meta
               property='og:image'
-              content={`https://${headlineImage.fluid.src}`}
+              content={`https:${headlineImage.fluid.src}`}
             />
           )}
         </Helmet>
