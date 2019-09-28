@@ -31,7 +31,7 @@
     "@emotion/core": "^10.0.17",
     "@emotion/styled": "^10.0.17",
     "classnames": "^2.2.6",
-    "date-fns": "^1.30.1",
+    "date-fns": "^2.4.1",
     "dotenv": "^8.1.0",
     "gatsby": "^2.15.20",
     "gatsby-image": "^2.2.20",
