@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { Link } from 'gatsby'
-import { animateScroll as scroll } from 'react-scroll'
 import { css } from '@emotion/core'
 
 import Navigation from './navigation'
@@ -30,19 +29,11 @@ const logoStyles = css`
 
 const Header = () => {
   const { isMobile } = useMediaQuery()
-  const path = typeof window !== 'undefined' ? window.location.pathname : ''
-  const home = path === '/'
 
   return (
     <header css={wrapper}>
       <Link
         to='/'
-        onClick={e => {
-          if (home) {
-            e.preventDefault()
-            scroll.scrollToTop()
-          }
-        }}
       >
         <img css={logoStyles} src={logo} alt='Logo' />
       </Link>
