@@ -50,6 +50,10 @@ const heroText = css`
     height: 4px;
     border-radius: 5px;
   }
+
+  @media ${themeUtils.mobile} {
+    width: 90%;
+  }
 `
 
 const Hero = () => (
