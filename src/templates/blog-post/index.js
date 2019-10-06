@@ -13,7 +13,6 @@ import type { FluidImage } from '../../components/types'
 
 import Layout from '../../layouts/main'
 import PostMeta from './post-meta'
-import { postSlug } from '../../utils/helpers'
 import QuoteCard from '../../components/base-components/quote-card'
 import RelatedContent from '../../components/base-components/related-content'
 import themeUtils from '../../components/theme-utils'
@@ -152,7 +151,9 @@ type Props = {
             excerpt: string,
           },
         },
-        postDate: string,
+        fields: {
+          slug: string,
+        },
         title: string,
       }[],
       title: string,
@@ -196,7 +197,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         excerptText: post.body.childMarkdownRemark.excerpt,
         link: {
           text: <ReadMore />,
-          url: postSlug(post.postDate, post.title),
+          url: post.fields.slug,
         },
       }))
 
@@ -300,7 +301,9 @@ export const pageQuery = graphql`
       postDate(formatString: "MMMM D, YYYY")
       relatedPosts {
         title
-        postDate(formatString: "YYYY/MM/DD")
+        fields {
+          slug
+        }
         body {
           childMarkdownRemark {
             excerpt(pruneLength: 200)

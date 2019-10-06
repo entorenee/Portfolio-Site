@@ -22,10 +22,10 @@ const Blurb = () => (
         React.
       </strong>{' '}
       I focus on building responsive and accessible front-end applications using
-      modern web technologies that are a pleasure to use. I pay attention to the
-      details and work well with numerous stakeholders to complete projects.
-      Take a look at some of my projects below and to contact me about available
-      opportunities.
+      modern web technologies. I have experience leading teams and breaking down
+      business requirements into development approaches. I also organize various
+      community events focused on helping people to learn web development and
+      emerging technologies such as GraphQL.
     </p>
   </div>
 )

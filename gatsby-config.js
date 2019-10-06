@@ -1,4 +1,4 @@
-const { postSlug } = require('./src/utils/helpers')
+const postSlug = require('./src/utils/post-slug')
 
 require('dotenv').config()
 

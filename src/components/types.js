@@ -13,3 +13,8 @@ export type FluidImage = {
   src: string,
   srcSet: string,
 }
+
+export type HeadlineImage = {
+  description: string,
+  fluid: FluidImage,
+}

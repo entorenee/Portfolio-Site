@@ -1,7 +1,6 @@
 // @flow
 import React from 'react'
 import { css } from '@emotion/core'
-import { Element } from 'react-scroll'
 
 import Hero from './hero'
 import Skills from './skills'
@@ -59,17 +58,12 @@ const header = css`
   }
 `
 
-type Props = {
-  inputRef: () => void,
-}
-
-const About = ({ inputRef }: Props) => (
-  <section id='about' ref={inputRef}>
+const About = () => (
+  <section id='about'>
     <Hero />
-    <Element name='about' />
     <div css={wrapper}>
       <img css={avatar} src={headshot} alt='Profile of Daniel Lemay' />
-      <h1 css={header}>About</h1>
+      <h2 css={header}>About</h2>
       <RandomQuote />
       <Skills />
       <Blurb />

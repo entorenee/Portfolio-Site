@@ -1,10 +1,9 @@
 // @flow
 import * as React from 'react'
 import { css } from '@emotion/core'
-import { Element } from 'react-scroll'
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa'
 
-import themeUtils, { hideElement } from '../theme-utils'
+import themeUtils, { h1, hideElement } from '../theme-utils'
 import Card from '../base-components/card'
 import Button from '../base-components/button'
 import SocialIcon from './social-icon'
@@ -92,15 +91,10 @@ const socialData = [
   },
 ]
 
-type ContactProps = {
-  inputRef: () => void,
-}
-
-const Contact = ({ inputRef }: ContactProps) => (
+const Contact = () => (
   <section css={contactSection} id='contact'>
-    <div ref={inputRef}>
-      <Element name='contact' />
-      <h1>Contact</h1>
+    <div>
+      <h2 css={h1}>Contact</h2>
       <Card css={cardStyles}>
         <form action='https://formspree.io/daniel@dslemay.com' method='POST'>
           <label css={formLabel} htmlFor='name'>

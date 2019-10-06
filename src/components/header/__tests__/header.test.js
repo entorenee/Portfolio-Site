@@ -1,5 +1,4 @@
 import React from 'react'
-import { animateScroll as scroll } from 'react-scroll'
 import { fireEvent, render } from '@testing-library/react'
 
 import Header from '..'
@@ -8,7 +7,7 @@ const location = {
   pathname: '/',
 }
 
-scroll.scrollToTop = jest.fn()
+window.___navigate = jest.fn()
 
 describe('<Header /> mobile view', () => {
   beforeAll(() => {
@@ -57,7 +56,5 @@ describe('<Header /> non-mobile view', () => {
 
     expect(container).toBeTruthy()
     expect(logo).toBeTruthy()
-    expect(scroll.scrollToTop).toBeCalledTimes(1)
-    scroll.scrollToTop.mockReset()
   })
 })
