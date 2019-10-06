@@ -32,9 +32,7 @@ const Header = () => {
 
   return (
     <header css={wrapper}>
-      <Link
-        to='/'
-      >
+      <Link to='/'>
         <img css={logoStyles} src={logo} alt='Logo' />
       </Link>
       {isMobile ? <MobileNavigation /> : <Navigation />}
