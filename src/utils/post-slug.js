@@ -1,6 +1,6 @@
 const slugify = require('slugify')
-const { format } = require('date-fns')
 
+// Used for page generation in gatsby-node
 const postSlug = (date, title) => {
   const urlDate = date.replace(/-/g, '/')
   const titleSlug = slugify(title, {
@@ -10,9 +10,4 @@ const postSlug = (date, title) => {
   return `/blog/${urlDate}/${titleSlug}`
 }
 
-const longDateFormat = date => format(date, 'MMMM D, YYYY')
-
-module.exports = {
-  longDateFormat,
-  postSlug,
-}
+module.exports = postSlug

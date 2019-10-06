@@ -2,7 +2,7 @@ const path = require('path')
 
 const createPaginatedPages = require('gatsby-paginate')
 
-const { postSlug } = require('./src/utils/helpers')
+const postSlug = require('./src/utils/post-slug')
 const {
   CATEGORY_BASE,
   TAG_BASE,
