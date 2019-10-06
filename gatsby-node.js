@@ -45,34 +45,28 @@ exports.createPages = ({ graphql, actions }) => {
             }
           }
           allContentfulCategories {
-            edges {
-              node {
-                category
-                slug
-                blog_post {
-                  ...BlogPost
-                }
+            nodes {
+              category
+              slug
+              blog_post {
+                ...BlogPost
               }
             }
           }
           allContentfulTags {
-            edges {
-              node {
-                tag
-                slug
-                blog_post {
-                  ...BlogPost
-                }
+            nodes {
+              tag
+              slug
+              blog_post {
+                ...BlogPost
               }
             }
           }
           allFile(filter: { sourceInstanceName: { eq: "resource-pages" } }) {
-            edges {
-              node {
-                childMarkdownRemark {
-                  frontmatter {
-                    path
-                  }
+            nodes {
+              childMarkdownRemark {
+                frontmatter {
+                  path
                 }
               }
             }
@@ -97,12 +91,10 @@ exports.createPages = ({ graphql, actions }) => {
         )
 
         // Create Resource pages
-        result.data.allFile.edges.forEach(
+        result.data.allFile.nodes.forEach(
           ({
-            node: {
-              childMarkdownRemark: {
-                frontmatter: { path: sitePath },
-              },
+            childMarkdownRemark: {
+              frontmatter: { path: sitePath },
             },
           }) => {
             createPage({
@@ -130,8 +122,8 @@ exports.createPages = ({ graphql, actions }) => {
         })
 
         // Create Category Pages
-        result.data.allContentfulCategories.edges.forEach(
-          ({ node: { category, slug, blog_post: posts } }) => {
+        result.data.allContentfulCategories.nodes.forEach(
+          ({ category, slug, blog_post: posts }) => {
             if (Array.isArray(posts)) {
               createPaginatedPages({
                 edges: posts,
@@ -150,8 +142,8 @@ exports.createPages = ({ graphql, actions }) => {
         )
 
         // Create Tag Pages
-        result.data.allContentfulTags.edges.forEach(
-          ({ node: { tag, slug, blog_post: posts } }) => {
+        result.data.allContentfulTags.nodes.forEach(
+          ({ tag, slug, blog_post: posts }) => {
             if (Array.isArray(posts)) {
               createPaginatedPages({
                 edges: posts,
