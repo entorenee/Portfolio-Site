@@ -57,7 +57,7 @@ const PostMeta = ({ postCategory, postDate, postTags, timeToRead }: Props) => (
     <div css={categoryTagContainer}>
       <span>
         Category:{' '}
-        <Link to={`${CATEGORY_BASE}/${postCategory.slug}`}>
+        <Link to={`/${CATEGORY_BASE}/${postCategory.slug}`}>
           {postCategory.category}
         </Link>
       </span>
@@ -65,7 +65,7 @@ const PostMeta = ({ postCategory, postDate, postTags, timeToRead }: Props) => (
         {'Tagged with: '}
         {postTags.map(({ tag, slug }) => (
           <React.Fragment key={tag}>
-            <Link to={`${TAG_BASE}/${slug}`}>{tag}</Link>
+            <Link to={`/${TAG_BASE}/${slug}`}>{tag}</Link>
           </React.Fragment>
         ))}
       </span>
