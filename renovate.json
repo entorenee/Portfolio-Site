@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":maintainLockFilesWeekly"],
+  "extends": ["config:base"],
   "baseBranches": ["develop"],
   "bumpVersion": null,
   "packageRules": [
