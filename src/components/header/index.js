@@ -46,7 +46,7 @@ const Header = () => {
       >
         <img css={logoStyles} src={logo} alt='Logo' />
       </Link>
-      {isMobile ? <MobileNavigation home={home} /> : <Navigation home={home} />}
+      {isMobile ? <MobileNavigation /> : <Navigation />}
     </header>
   )
 }

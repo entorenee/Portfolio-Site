@@ -10,11 +10,7 @@ const iconContainer = css`
   height: 65px;
 `
 
-type Props = {
-  home: boolean,
-}
-
-const MobileNavigation = ({ home }: Props) => {
+const MobileNavigation = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   const toggleOpen = () => setIsOpen(!isOpen)
@@ -22,7 +18,7 @@ const MobileNavigation = ({ home }: Props) => {
   return (
     <div css={iconContainer}>
       <MenuIcon isOpen={isOpen} toggleOpen={toggleOpen} />
-      <Navigation mobile isOpen={isOpen} home={home} />
+      <Navigation mobile isOpen={isOpen} />
     </div>
   )
 }
