@@ -19,11 +19,10 @@ exports.createPages = ({ graphql, actions }) => {
         fragment BlogPost on ContentfulBlogPost {
           id
           title
-          postDate(formatString: "YYYY/MM/DD")
+          postDate(formatString: "MMMM D, YYYY")
           body {
             childMarkdownRemark {
               excerpt(pruneLength: 750)
-              html
             }
           }
           headlineImage {
@@ -32,16 +31,17 @@ exports.createPages = ({ graphql, actions }) => {
               url
             }
           }
+          fields {
+            slug
+          }
         }
         {
           allContentfulBlogPost(
             limit: 500
             sort: { fields: [postDate], order: DESC }
           ) {
-            edges {
-              node {
-                ...BlogPost
-              }
+            nodes {
+              ...BlogPost
             }
           }
           allContentfulCategories {
@@ -84,17 +84,17 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         // Create page for each blog post
-        result.data.allContentfulBlogPost.edges.forEach(edge => {
-          const { title, postDate } = edge.node
-          const slug = postSlug(postDate, title)
-          createPage({
-            path: slug,
-            component: blogPostTemplate,
-            context: {
-              id: edge.node.id,
-            },
-          })
-        })
+        result.data.allContentfulBlogPost.nodes.forEach(
+          ({ id, fields: { slug } }) => {
+            createPage({
+              path: slug,
+              component: blogPostTemplate,
+              context: {
+                id,
+              },
+            })
+          },
+        )
 
         // Create Resource pages
         result.data.allFile.edges.forEach(
@@ -117,7 +117,7 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Create Blog Index
         createPaginatedPages({
-          edges: result.data.allContentfulBlogPost.edges,
+          edges: result.data.allContentfulBlogPost.nodes,
           createPage,
           pageTemplate: 'src/templates/blog-index/index.js',
           pageLength: 5,

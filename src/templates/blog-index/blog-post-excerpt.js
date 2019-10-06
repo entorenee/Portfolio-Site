@@ -6,7 +6,6 @@ import { FaChevronRight } from 'react-icons/fa'
 
 import type { PostNode as Props } from './types'
 import themeUtils from '../../components/theme-utils'
-import { longDateFormat, postSlug } from '../../utils/helpers'
 
 const postHeaderTitle = css`
   margin-bottom: 0.7rem;
@@ -52,18 +51,23 @@ const divider = css`
 `
 
 const BlogPostExcerpt = ({ node }: Props) => {
-  const { title, postDate } = node
-  const { excerpt } = node.body.childMarkdownRemark
+  const {
+    body: {
+      childMarkdownRemark: { excerpt },
+    },
+    fields: { slug },
+    postDate,
+    title,
+  } = node
   const headlineImage = !node.headlineImage ? null : node.headlineImage.file.url
   const headlineAltText = !node.headlineImage ? null : node.headlineImage.title
-  const slug = postSlug(postDate, title)
 
   return (
     <div>
-      <Link css={{ textDecoration: 'none' }} to={`/${slug}`}>
+      <Link css={{ textDecoration: 'none' }} to={slug}>
         <h2 css={postHeaderTitle}>{title}</h2>
       </Link>
-      <div css={postHeaderDate}>{longDateFormat(postDate)}</div>
+      <div css={postHeaderDate}>{postDate}</div>
       <div css={excerptContainer}>
         {headlineImage && (
           <img css={postImage} src={headlineImage} alt={headlineAltText} />
