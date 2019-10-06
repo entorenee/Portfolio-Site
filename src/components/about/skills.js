@@ -34,7 +34,7 @@ const headerContainer = css`
   align-items: center;
 
   svg,
-  h1 {
+  h3 {
     margin: 0;
   }
 `
@@ -59,7 +59,7 @@ const Skills = () => (
     <Card css={cardStyles}>
       <div css={headerContainer}>
         <FaCode size={80} color={themeUtils.baseColor} css={IconStyles} />
-        <h1>Skills</h1>
+        <h3 css={{ fontSize: '2rem' }}>Skills</h3>
       </div>
       <hr css={divider} />
       <ul css={skillsList}>

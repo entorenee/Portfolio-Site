@@ -3,7 +3,7 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import { FaLinkedin, FaTwitter, FaGithub } from 'react-icons/fa'
 
-import themeUtils, { hideElement } from '../theme-utils'
+import themeUtils, { h1, hideElement } from '../theme-utils'
 import Card from '../base-components/card'
 import Button from '../base-components/button'
 import SocialIcon from './social-icon'
@@ -94,7 +94,7 @@ const socialData = [
 const Contact = () => (
   <section css={contactSection} id='contact'>
     <div>
-      <h1>Contact</h1>
+      <h2 css={h1}>Contact</h2>
       <Card css={cardStyles}>
         <form action='https://formspree.io/daniel@dslemay.com' method='POST'>
           <label css={formLabel} htmlFor='name'>
