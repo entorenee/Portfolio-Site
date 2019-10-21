@@ -9,14 +9,6 @@ const {
 } = process.env
 
 module.exports = {
-  __experimentalThemes: [
-    {
-      resolve: 'gatsby-theme-dslemay-core',
-      options: {
-        analytics: 'UA-99838315-1',
-      },
-    },
-  ],
   siteMetadata: {
     title: 'Daniel Lemay Blog',
     description:
@@ -24,6 +16,12 @@ module.exports = {
     siteUrl: 'https://www.dslemay.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-theme-dslemay-core',
+      options: {
+        analytics: 'UA-99838315-1',
+      },
+    },
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
