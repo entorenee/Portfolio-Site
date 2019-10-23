@@ -50,14 +50,26 @@ const heroText = css`
     height: 4px;
     border-radius: 5px;
   }
+
+  @media ${themeUtils.tablet} {
+    width: 75%;
+  }
+
+  @media ${themeUtils.mobile} {
+    width: 90%;
+  }
 `
 
 const Hero = () => (
   <div css={bgImage}>
     <div css={heroText}>
-      <h1>Daniel Lemay</h1>
-      <hr />
-      <h1>Full Stack JavaScript Developer</h1>
+      <h1>
+        <span css={{ display: 'block', marginBottom: '0.5rem' }}>
+          Daniel Lemay
+        </span>
+        <hr />
+        JavaScript Developer
+      </h1>
     </div>
   </div>
 )

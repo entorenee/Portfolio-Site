@@ -1,25 +1,28 @@
-const path = require('path');
-const createPaginatedPages = require('gatsby-paginate');
+const path = require('path')
 
-const { postSlug } = require('./src/utils/helpers');
-const { CATEGORY_BASE, TAG_BASE } = require('./src/templates/blog-post/url-base');
+const createPaginatedPages = require('gatsby-paginate')
+
+const postSlug = require('./src/utils/post-slug')
+const {
+  CATEGORY_BASE,
+  TAG_BASE,
+} = require('./src/templates/blog-post/url-base')
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve('src/templates/blog-post/index.js');
-    const resourcePageTemplate = path.resolve('src/templates/resource-page.js');
+    const blogPostTemplate = path.resolve('src/templates/blog-post/index.js')
+    const resourcePageTemplate = path.resolve('src/templates/resource-page.js')
 
     resolve(
       graphql(`
         fragment BlogPost on ContentfulBlogPost {
           id
           title
-          postDate(formatString: "YYYY/MM/DD")
+          postDate(formatString: "MMMM D, YYYY")
           body {
             childMarkdownRemark {
               excerpt(pruneLength: 750)
-              html
             }
           }
           headlineImage {
@@ -28,44 +31,42 @@ exports.createPages = ({ graphql, actions }) => {
               url
             }
           }
+          fields {
+            slug
+          }
         }
         {
-          allContentfulBlogPost(limit: 500, sort: { fields: [postDate], order: DESC }) {
-            edges {
-              node {
+          allContentfulBlogPost(
+            limit: 500
+            sort: { fields: [postDate], order: DESC }
+          ) {
+            nodes {
+              ...BlogPost
+            }
+          }
+          allContentfulCategories {
+            nodes {
+              category
+              slug
+              blog_post {
                 ...BlogPost
               }
             }
           }
-          allContentfulCategories {
-            edges {
-              node {
-                category
-                slug
-                blog_post {
-                  ...BlogPost
-                }
-              }
-            }
-          }
           allContentfulTags {
-            edges {
-              node {
-                tag
-                slug
-                blog_post {
-                  ...BlogPost
-                }
+            nodes {
+              tag
+              slug
+              blog_post {
+                ...BlogPost
               }
             }
           }
           allFile(filter: { sourceInstanceName: { eq: "resource-pages" } }) {
-            edges {
-              node {
-                childMarkdownRemark {
-                  frontmatter {
-                    path
-                  }
+            nodes {
+              childMarkdownRemark {
+                frontmatter {
+                  path
                 }
               }
             }
@@ -73,29 +74,27 @@ exports.createPages = ({ graphql, actions }) => {
         }
       `).then(result => {
         if (result.errors) {
-          reject(result.errors);
+          reject(result.errors)
         }
 
         // Create page for each blog post
-        result.data.allContentfulBlogPost.edges.forEach(edge => {
-          const { title, postDate } = edge.node;
-          const slug = postSlug(postDate, title);
-          createPage({
-            path: slug,
-            component: blogPostTemplate,
-            context: {
-              id: edge.node.id,
-            },
-          });
-        });
+        result.data.allContentfulBlogPost.nodes.forEach(
+          ({ id, fields: { slug } }) => {
+            createPage({
+              path: slug,
+              component: blogPostTemplate,
+              context: {
+                id,
+              },
+            })
+          },
+        )
 
         // Create Resource pages
-        result.data.allFile.edges.forEach(
+        result.data.allFile.nodes.forEach(
           ({
-            node: {
-              childMarkdownRemark: {
-                frontmatter: { path: sitePath },
-              },
+            childMarkdownRemark: {
+              frontmatter: { path: sitePath },
             },
           }) => {
             createPage({
@@ -104,13 +103,13 @@ exports.createPages = ({ graphql, actions }) => {
               content: {
                 path: sitePath,
               },
-            });
+            })
           },
-        );
+        )
 
         // Create Blog Index
         createPaginatedPages({
-          edges: result.data.allContentfulBlogPost.edges,
+          edges: result.data.allContentfulBlogPost.nodes,
           createPage,
           pageTemplate: 'src/templates/blog-index/index.js',
           pageLength: 5,
@@ -120,11 +119,11 @@ exports.createPages = ({ graphql, actions }) => {
           context: {
             headline: 'Blog Index',
           },
-        });
+        })
 
         // Create Category Pages
-        result.data.allContentfulCategories.edges.forEach(
-          ({ node: { category, slug, blog_post: posts } }) => {
+        result.data.allContentfulCategories.nodes.forEach(
+          ({ category, slug, blog_post: posts }) => {
             if (Array.isArray(posts)) {
               createPaginatedPages({
                 edges: posts,
@@ -137,44 +136,61 @@ exports.createPages = ({ graphql, actions }) => {
                 context: {
                   headline: `Category: ${category}`,
                 },
-              });
+              })
             }
           },
-        );
+        )
 
         // Create Tag Pages
-        result.data.allContentfulTags.edges.forEach(({ node: { tag, slug, blog_post: posts } }) => {
-          if (Array.isArray(posts)) {
-            createPaginatedPages({
-              edges: posts,
-              createPage,
-              pageTemplate: 'src/templates/blog-index/index.js',
-              pageLength: 5,
-              pathPrefix: `${TAG_BASE}/${slug}`,
-              buildPath: (index, pathPrefix) =>
-                index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
-              context: {
-                headline: `Tag: ${tag}`,
-              },
-            });
-          }
-        });
+        result.data.allContentfulTags.nodes.forEach(
+          ({ tag, slug, blog_post: posts }) => {
+            if (Array.isArray(posts)) {
+              createPaginatedPages({
+                edges: posts,
+                createPage,
+                pageTemplate: 'src/templates/blog-index/index.js',
+                pageLength: 5,
+                pathPrefix: `${TAG_BASE}/${slug}`,
+                buildPath: (index, pathPrefix) =>
+                  index > 1 ? `${pathPrefix}/page/${index}` : `/${pathPrefix}`,
+                context: {
+                  headline: `Tag: ${tag}`,
+                },
+              })
+            }
+          },
+        )
       }),
-    );
-  });
-};
+    )
+  })
+}
 
-exports.onCreatePage = async ({ page, actions }) => {
-  const { createPage } = actions;
-  const pageExport = page;
+exports.onCreatePage = ({ page, actions }) => {
+  const { createPage } = actions
+  const pageExport = page
 
   return new Promise(resolve => {
     if (page.path.match(/^\/projects/)) {
-      pageExport.layout = 'projects';
+      pageExport.layout = 'projects'
 
-      createPage(pageExport);
+      createPage(pageExport)
     }
 
-    resolve();
-  });
-};
+    resolve()
+  })
+}
+
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === 'ContentfulBlogPost') {
+    const { postDate, title } = node
+    const slug = postSlug(postDate, title)
+
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    })
+  }
+}

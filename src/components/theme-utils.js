@@ -18,6 +18,15 @@ const themeUtils = {
   mobile: '(max-width: 454px)',
 }
 
+export const h1 = css`
+  font-size: 3rem;
+  margin-bottom: 1rem;
+
+  @media ${themeUtils.mobile} {
+    font-size: 2rem;
+  }
+`
+
 export const hideElement = css`
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);

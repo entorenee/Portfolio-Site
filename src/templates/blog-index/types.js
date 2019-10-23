@@ -1,14 +1,13 @@
 // @flow
 
 type PostExcerpt = {
-  id: string,
-  title: string,
-  postDate: string,
   body: {
     childMarkdownRemark: {
       excerpt: string,
-      html: string,
     },
+  },
+  fields: {
+    slug: string,
   },
   headlineImage?: {
     file: {
@@ -16,6 +15,9 @@ type PostExcerpt = {
     },
     title: string,
   },
+  id: string,
+  postDate: string,
+  title: string,
 }
 
 export type PostNode = {

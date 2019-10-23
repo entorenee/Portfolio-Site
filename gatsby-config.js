@@ -1,18 +1,14 @@
-const { postSlug } = require('./src/utils/helpers');
+const postSlug = require('./src/utils/post-slug')
 
-require('dotenv').config();
+require('dotenv').config()
 
-const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOST } = process.env;
+const {
+  CONTENTFUL_SPACE_ID,
+  CONTENTFUL_ACCESS_TOKEN,
+  CONTENTFUL_HOST,
+} = process.env
 
 module.exports = {
-  __experimentalThemes: [
-    {
-      resolve: 'gatsby-theme-dslemay-core',
-      options: {
-        analytics: 'UA-99838315-1',
-      },
-    },
-  ],
   siteMetadata: {
     title: 'Daniel Lemay Blog',
     description:
@@ -20,6 +16,12 @@ module.exports = {
     siteUrl: 'https://www.dslemay.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-theme-dslemay-core',
+      options: {
+        analytics: 'UA-99838315-1',
+      },
+    },
     'gatsby-plugin-offline',
     {
       resolve: 'gatsby-source-filesystem',
@@ -73,17 +75,21 @@ module.exports = {
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
               allContentfulBlogPost.edges.map(edge => {
-                const { title, postDate } = edge.node;
-                const { html } = edge.node.body.childMarkdownRemark;
-                return Object.assign(
-                  {},
-                  {
+                const { title, postDate } = edge.node
+                const { html } = edge.node.body.childMarkdownRemark
+                return {
+                  title,
+                  url: `${site.siteMetadata.siteUrl}/${postSlug(
+                    postDate,
                     title,
-                    url: `${site.siteMetadata.siteUrl}/${postSlug(postDate, title)}`,
-                    guid: `${site.siteMetadata.siteUrl}/${postSlug(postDate, title)}`,
-                    custom_elements: [{ 'content-encoded': html }],
-                  },
-                );
+                  )}`,
+                  guid: `${site.siteMetadata.siteUrl}/${postSlug(
+                    postDate,
+                    title,
+                  )}`,
+                  // eslint-disable-next-line camelcase
+                  custom_elements: [{ 'content-encoded': html }],
+                }
               }),
             query: `
               {
@@ -103,9 +109,10 @@ module.exports = {
               }
             `,
             output: '/feed.xml',
+            title: 'Daniel Lemay Blog RSS Feed',
           },
         ],
       },
     },
   ],
-};
+}
