@@ -20,6 +20,7 @@ const Blurb = () => (
       <strong>
         My name is Daniel Lemay, and I am a JavaScript developer specializing in
         React.
+        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
       </strong>{' '}
       I focus on building responsive and accessible front-end applications using
       modern web technologies. I have experience leading teams and breaking down

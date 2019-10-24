@@ -56,7 +56,8 @@ const PostMeta = ({ postCategory, postDate, postTags, timeToRead }: Props) => (
     <p>{`${timeToRead} min read · ${postDate}`}</p>
     <div css={categoryTagContainer}>
       <span>
-        Category:{' '}
+        {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
+        {'Category: '}
         <Link to={`/${CATEGORY_BASE}/${postCategory.slug}`}>
           {postCategory.category}
         </Link>
