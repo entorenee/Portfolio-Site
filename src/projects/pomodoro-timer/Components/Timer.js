@@ -31,7 +31,16 @@ class Timer extends Component {
     this.bell = new Audio(bell)
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentDidUpdate() {
+    const { breakCountdown, sessionCountdown } = this.state
+
+    if (sessionCountdown === 0 || breakCountdown === 0) {
+      this.switchTimer()
+    }
+  }
+
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { breakTime, isRunning, sessionTime } = this.props
     const { currTimer } = this.state
 
@@ -46,14 +55,6 @@ class Timer extends Component {
     }
     if (isRunning === true && nextProps.isRunning === false) {
       this.pauseTimer()
-    }
-  }
-
-  componentDidUpdate() {
-    const { breakCountdown, sessionCountdown } = this.state
-
-    if (sessionCountdown === 0 || breakCountdown === 0) {
-      this.switchTimer()
     }
   }
 

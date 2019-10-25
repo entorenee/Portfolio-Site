@@ -29,7 +29,7 @@ type GqlQuery = {
 
 const query = graphql`
   query blogHomepage {
-    allContentfulBlogPost(limit: 6) {
+    allContentfulBlogPost(limit: 6, sort: { fields: postDate, order: DESC }) {
       nodes {
         fields {
           slug
