@@ -8,8 +8,7 @@ import themeUtils from '../theme-utils'
 const wrapper = css`
   padding: 0.4rem 0;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   align-items: center;
   font-size: 0.8rem;
   background-color: ${themeUtils.baseColor};
@@ -23,10 +22,12 @@ const getCurrentYear = () => {
 
 const Footer = () => (
   <footer css={wrapper}>
-    <div>
-      <FaCopyright aria-label='copyright' size={18} /> {getCurrentYear()} Daniel
-      Lemay. All Rights Reserved.
-    </div>
+    <FaCopyright
+      aria-label='copyright'
+      css={{ marginRight: '0.5rem' }}
+      size={18}
+    />{' '}
+    {getCurrentYear()} Daniel Lemay. All Rights Reserved.
   </footer>
 )
 
