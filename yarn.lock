@@ -6936,10 +6936,10 @@ escodegen@^1.11.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-config-dslemay@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-dslemay/-/eslint-config-dslemay-4.1.0.tgz#5492c79150991e14012a0ba7d341c974b9f08663"
-  integrity sha512-iBLUbg4InIOWfBkV3ujQ4Vjb0rEkOhjBhFMjT/QqbJgNXkKkgiGKuFO+cFUq/dA+IFrIrEScuXwjggWrZJAh+g==
+eslint-config-dslemay@^4.1.1:
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-dslemay/-/eslint-config-dslemay-4.1.1.tgz#e39e317a5c199ee71106c0bad4327e3367e27e38"
+  integrity sha512-+/JDpcc5Q35kS8I0KWpanQUBn11F8q6b5Pi4K+lJaEru53yC9666nn5PIueCP7ueXfmDB1BohELI2UMdv0dgww==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^2.18.0"
     "@typescript-eslint/parser" "^2.18.0"
