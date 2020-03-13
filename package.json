@@ -61,7 +61,7 @@
     "@babel/preset-flow": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
     "@testing-library/jest-dom": "^5.1.1",
-    "@testing-library/react": "^9.5.0",
+    "@testing-library/react": "^10.0.1",
     "babel-core": "^7.0.0-bridge",
     "babel-jest": "^25.1.0",
     "babel-plugin-emotion": "^10.0.21",
