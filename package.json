@@ -74,7 +74,7 @@
     "eslint-config-dslemay": "^4.1.1",
     "eslint-plugin-emotion": "^10.0.27",
     "eslint-plugin-flowtype": "^5.1.0",
-    "flow-bin": "^0.124.0",
+    "flow-bin": "^0.125.1",
     "flow-typed": "^2.6.2",
     "husky": "^4.2.5",
     "is-ci-cli": "^2.0.0",
