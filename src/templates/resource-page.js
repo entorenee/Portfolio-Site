@@ -2,7 +2,7 @@
 /* eslint-disable react/no-danger */
 import * as React from 'react'
 import { css } from '@emotion/core'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
 
 import ArticleHeader from './article-header'

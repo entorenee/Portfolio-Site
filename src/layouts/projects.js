@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 type Props = {
   children: React.ChildrenArray<React.Node>,

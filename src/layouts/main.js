@@ -1,7 +1,7 @@
 // @flow
 import * as React from 'react'
 import { Global, css } from '@emotion/core'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
 
 import favicon from './favicon-32x32.png'
 import Footer from '../components/footer'
