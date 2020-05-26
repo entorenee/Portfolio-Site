@@ -17,12 +17,25 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-theme-dslemay-core',
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        analytics: 'UA-99838315-1',
+        anonymize: true,
+        trackingId: 'UA-99838315-1',
       },
     },
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-offline',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-flow',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: 'src/images',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

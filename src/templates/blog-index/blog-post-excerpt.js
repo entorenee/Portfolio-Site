@@ -76,7 +76,7 @@ const BlogPostExcerpt = ({ node }: Props) => {
           dangerouslySetInnerHTML={{ __html: excerpt }} // eslint-disable-line react/no-danger
         />
       </div>
-      <Link to={`/${slug}`}>
+      <Link to={slug}>
         <span css={readMore}>Read More</span>
         <FaChevronRight size={15} />
       </Link>
