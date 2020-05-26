@@ -1,6 +1,9 @@
 [ignore]
 .*/node_modules/config-chain/test/broken.json
 
+[untyped]
+.*/node_modules/@emotion/cache/src/index.js
+
 [include]
 
 [libs]
