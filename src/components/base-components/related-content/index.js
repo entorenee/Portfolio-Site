@@ -39,7 +39,7 @@ const RelatedContent = ({ cards, className }: Props) => (
       <Card key={headlineText} css={excerptCard}>
         <h3>{headlineText}</h3>
         <p>
-          {excerptText} <Link to={`/${link.url}`}>{link.text}</Link>
+          {excerptText} <Link to={link.url}>{link.text}</Link>
         </p>
       </Card>
     ))}
