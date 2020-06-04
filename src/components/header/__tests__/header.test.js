@@ -11,7 +11,7 @@ window.___navigate = jest.fn()
 
 describe('<Header /> mobile view', () => {
   beforeAll(() => {
-    window.matchMedia = jest.fn().mockImplementation(query => ({
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
       matches: true,
       media: query,
       onchange: null,
@@ -39,7 +39,7 @@ describe('<Header /> mobile view', () => {
 
 describe('<Header /> non-mobile view', () => {
   beforeAll(() => {
-    window.matchMedia = jest.fn().mockImplementation(query => ({
+    window.matchMedia = jest.fn().mockImplementation((query) => ({
       matches: false,
       media: query,
       onchange: null,

@@ -38,7 +38,7 @@ class App extends React.Component {
       operator: null,
     }
 
-    this.setState(state => {
+    this.setState((state) => {
       const { currVal, display, operator } = state
       if (currVal === null && operator === null) {
         return initialState
@@ -53,7 +53,7 @@ class App extends React.Component {
     })
   }
 
-  addNum = number => {
+  addNum = (number) => {
     // Tests for initial operations or immediately after pressing operator
     const { currVal, display, operator, prevVal } = this.state
     const states = { ...this.state }
@@ -107,7 +107,7 @@ class App extends React.Component {
     }
   }
 
-  operations = operator => {
+  operations = (operator) => {
     let states = { ...this.state }
     // Tests for first operation of a chain.
     const { currVal, prevVal, operator: operatorState } = this.state
@@ -221,7 +221,7 @@ class App extends React.Component {
     } // End complete calculations conditional
   } // End operations method
 
-  handleKeypress = e => {
+  handleKeypress = (e) => {
     const { key } = e
     const numOptions = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.']
     const mathOptions = ['%', '-', '+', '=']
@@ -251,7 +251,7 @@ class App extends React.Component {
    * for different values a key may produce when shift is pressed. Since some of the math
    * operators are on the number keys this would create bugs.
    */
-  handleKeydown = e => {
+  handleKeydown = (e) => {
     const { key } = e
     const clearKeys = ['Escape', 'Delete', 'Backspace']
     if (clearKeys.indexOf(key) > -1) {
@@ -289,7 +289,7 @@ class App extends React.Component {
         <div className='calculator'>
           <Display display={display} />
           <div className='calculator-buttons'>
-            {keys.map(key => (
+            {keys.map((key) => (
               <Key
                 key={key.value}
                 type={key.type}

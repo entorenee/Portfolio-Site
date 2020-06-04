@@ -116,7 +116,7 @@ class App extends Component {
     }
   }
 
-  playerSelectButton = button => {
+  playerSelectButton = (button) => {
     const { buttonPattern, playerCopyPattern, strict } = this.state
     const states = { playerCopyPattern }
     const playerIndex = playerCopyPattern.length

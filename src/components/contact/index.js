@@ -120,7 +120,7 @@ const Contact = () => (
           </div>
         </form>
       </Card>
-      {socialData.map(social => (
+      {socialData.map((social) => (
         <SocialIcon key={social.service} link={social.link}>
           {social.component}
         </SocialIcon>

@@ -59,7 +59,7 @@ class ColorPlayButtons extends Component {
             this.clickButton()
           }
         }}
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           if (keyboardHandler(e) && isPlayersTurn && gameOn) {
             this.addActiveClass()
             this.clickButton()

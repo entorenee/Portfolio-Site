@@ -87,7 +87,7 @@ export const PureCarousel = ({
         <div css={description}>
           <p>{project.description.description}</p>
           <div css={projectLinks}>
-            {project.links.map(link => (
+            {project.links.map((link) => (
               <Button key={link.url} url={link.url}>
                 {link.text}
               </Button>
@@ -124,7 +124,7 @@ const query = graphql`
   }
 `
 const Carousel = () => (
-  <StaticQuery query={query} render={data => <PureCarousel data={data} />} />
+  <StaticQuery query={query} render={(data) => <PureCarousel data={data} />} />
 )
 
 export default Carousel

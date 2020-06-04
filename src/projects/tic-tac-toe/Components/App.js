@@ -191,7 +191,7 @@ class App extends Component {
         </Helmet>
         <MarkerSelector playerSelectMarker={this.playerSelectMarker} />
         <div
-          ref={input => {
+          ref={(input) => {
             this.gameWinner = input
           }}
           className='ttt-game-winner'
