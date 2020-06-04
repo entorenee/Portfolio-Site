@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { keyboardHandler } from '../helpers'
 import '../style/PowerButton.css'
 
-const PowerButton = props => {
+const PowerButton = (props) => {
   const { gameOn, toggleGamePower } = props
   return (
     <div className='power-button-wrapper'>
@@ -13,7 +13,7 @@ const PowerButton = props => {
       <div
         className='toggle-power'
         onClick={() => toggleGamePower()}
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           if (keyboardHandler(e)) toggleGamePower()
         }}
         aria-label={`Turn game ${gameOn ? 'off' : 'on'}`}

@@ -32,11 +32,11 @@ class Cell extends Component {
     return (
       <td className={`cells cell-${id}`}>
         <div
-          ref={input => {
+          ref={(input) => {
             this.cell = input
           }}
           onClick={() => playerSelectCell(cellValue, id)}
-          onKeyPress={e => {
+          onKeyPress={(e) => {
             if (keyboardHandler(e)) playerSelectCell(cellValue, id)
           }}
           aria-label={cellDisplay || 'Empty'}

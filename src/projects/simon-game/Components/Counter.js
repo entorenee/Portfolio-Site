@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import '../style/Counter.css'
 
-const Counter = props => {
+const Counter = (props) => {
   const { gameOn, moveCount } = props
   const moveCountString = moveCount < 10 ? `0${moveCount}` : moveCount
   let moveCountDisplay

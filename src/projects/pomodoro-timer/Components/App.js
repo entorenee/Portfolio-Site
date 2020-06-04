@@ -13,7 +13,7 @@ class App extends Component {
   }
 
   adjustTimers = (timer, timeDirection) => {
-    this.setState(state => {
+    this.setState((state) => {
       const { isRunning } = state
       if (isRunning === false && timeDirection === '+') {
         return { [timer]: state[timer] + 1 }
@@ -27,7 +27,7 @@ class App extends Component {
   }
 
   toggleTimer = () => {
-    this.setState(state => ({ isRunning: !state.isRunning }))
+    this.setState((state) => ({ isRunning: !state.isRunning }))
   }
 
   render() {
