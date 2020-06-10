@@ -77,7 +77,7 @@
     "flow-bin": "^0.126.1",
     "flow-typed": "^2.6.2",
     "husky": "^4.2.5",
-    "is-ci-cli": "^2.0.0",
+    "is-ci-cli": "^2.1.1",
     "jest": "^26.0.1",
     "jest-emotion": "^10.0.32",
     "lint-staged": "^10.2.9",
