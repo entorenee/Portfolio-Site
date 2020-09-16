@@ -80,7 +80,7 @@
     "is-ci-cli": "^2.1.2",
     "jest": "^26.4.2",
     "jest-emotion": "^10.0.32",
-    "lint-staged": "^10.3.0",
+    "lint-staged": "^10.4.0",
     "prettier": "^2.1.2",
     "prettier-config-dslemay": "^2.0.0",
     "react-test-renderer": "^16.13.1"
