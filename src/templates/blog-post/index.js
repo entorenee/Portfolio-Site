@@ -121,6 +121,11 @@ const readMoreLink = css`
   }
 `
 
+const heroImage = css`
+  max-width: 1200px;
+  margin: 0 auto;
+`
+
 type Props = {
   data: {
     contentfulBlogPost: {
@@ -192,7 +197,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const metaTitle = `${title} - Daniel Lemay`
   const cards = !relatedPosts
     ? null
-    : relatedPosts.map(post => ({
+    : relatedPosts.map((post) => ({
         headlineText: post.title,
         excerptText: post.body.childMarkdownRemark.excerpt,
         link: {
@@ -228,7 +233,11 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         {headlineImage && (
           <div css={headlineImageContainer}>
             {headlineImage && (
-              <Image fluid={headlineImage.fluid} alt={headlineImage.title} />
+              <Image
+                css={heroImage}
+                fluid={headlineImage.fluid}
+                alt={headlineImage.title}
+              />
             )}
             {headlineImageCaption && (
               <span
@@ -280,7 +289,7 @@ export const pageQuery = graphql`
         }
       }
       headlineImage {
-        fluid {
+        fluid(maxWidth: 1200) {
           ...GatsbyContentfulFluid
         }
         title
