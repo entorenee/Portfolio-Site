@@ -197,7 +197,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
   const metaTitle = `${title} - Daniel Lemay`
   const cards = !relatedPosts
     ? null
-    : relatedPosts.map((post) => ({
+    : relatedPosts.map(post => ({
         headlineText: post.title,
         excerptText: post.body.childMarkdownRemark.excerpt,
         link: {
