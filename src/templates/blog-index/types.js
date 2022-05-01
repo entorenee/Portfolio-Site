@@ -24,4 +24,5 @@ export type PostNode = {
   node: PostExcerpt,
 }
 
+// eslint-disable-next-line
 export type Post = PostExcerpt & $Shape<PostNode>
