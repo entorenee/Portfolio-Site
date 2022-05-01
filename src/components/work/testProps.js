@@ -10,8 +10,7 @@ const testProps = {
           },
           projectImage: {
             fluid: {
-              src:
-                '//images.ctfassets.net/024qyvhyq0tv/xzgpz7GytMo0MaoysUESc/e2f2578e76ccd7ab438180bdee041c73/wanderful-thumb.jpg?w=800&q=50',
+              src: '//images.ctfassets.net/024qyvhyq0tv/xzgpz7GytMo0MaoysUESc/e2f2578e76ccd7ab438180bdee041c73/wanderful-thumb.jpg?w=800&q=50',
               srcSet:
                 '//images.ctfassets.net/024qyvhyq0tv/xzgpz7GytMo0MaoysUESc/e2f2578e76ccd7ab438180bdee041c73/wanderful-thumb.jpg?w=200&h=103&q=50 200w,\n//images.ctfassets.net/024qyvhyq0tv/xzgpz7GytMo0MaoysUESc/e2f2578e76ccd7ab438180bdee041c73/wanderful-thumb.jpg?w=400&h=206&q=50 400w,\n//images.ctfassets.net/024qyvhyq0tv/xzgpz7GytMo0MaoysUESc/e2f2578e76ccd7ab438180bdee041c73/wanderful-thumb.jpg?w=800&h=412&q=50 800w',
               sizes: '(max-width: 800px) 100vw, 800px',
@@ -38,8 +37,7 @@ const testProps = {
           },
           projectImage: {
             fluid: {
-              src:
-                '//images.ctfassets.net/024qyvhyq0tv/7fcE80uEbC8SE26YkeUOw0/95eae8a5ff295c82f0beb74ebd051f14/simon-thumb.jpg?w=800&q=50',
+              src: '//images.ctfassets.net/024qyvhyq0tv/7fcE80uEbC8SE26YkeUOw0/95eae8a5ff295c82f0beb74ebd051f14/simon-thumb.jpg?w=800&q=50',
               srcSet:
                 '//images.ctfassets.net/024qyvhyq0tv/7fcE80uEbC8SE26YkeUOw0/95eae8a5ff295c82f0beb74ebd051f14/simon-thumb.jpg?w=200&h=122&q=50 200w,\n//images.ctfassets.net/024qyvhyq0tv/7fcE80uEbC8SE26YkeUOw0/95eae8a5ff295c82f0beb74ebd051f14/simon-thumb.jpg?w=400&h=243&q=50 400w,\n//images.ctfassets.net/024qyvhyq0tv/7fcE80uEbC8SE26YkeUOw0/95eae8a5ff295c82f0beb74ebd051f14/simon-thumb.jpg?w=800&h=486&q=50 800w',
               sizes: '(max-width: 800px) 100vw, 800px',
@@ -66,8 +64,7 @@ const testProps = {
           },
           projectImage: {
             fluid: {
-              src:
-                '//images.ctfassets.net/024qyvhyq0tv/3rHdlaoRgIY0QKMMUQuQIY/f4d3d15008dd0129bdc57411e93ce209/tic-tac-toe-thumb.jpg?w=800&q=50',
+              src: '//images.ctfassets.net/024qyvhyq0tv/3rHdlaoRgIY0QKMMUQuQIY/f4d3d15008dd0129bdc57411e93ce209/tic-tac-toe-thumb.jpg?w=800&q=50',
               srcSet:
                 '//images.ctfassets.net/024qyvhyq0tv/3rHdlaoRgIY0QKMMUQuQIY/f4d3d15008dd0129bdc57411e93ce209/tic-tac-toe-thumb.jpg?w=200&h=122&q=50 200w,\n//images.ctfassets.net/024qyvhyq0tv/3rHdlaoRgIY0QKMMUQuQIY/f4d3d15008dd0129bdc57411e93ce209/tic-tac-toe-thumb.jpg?w=400&h=243&q=50 400w,\n//images.ctfassets.net/024qyvhyq0tv/3rHdlaoRgIY0QKMMUQuQIY/f4d3d15008dd0129bdc57411e93ce209/tic-tac-toe-thumb.jpg?w=800&h=486&q=50 800w',
               sizes: '(max-width: 800px) 100vw, 800px',
@@ -94,8 +91,7 @@ const testProps = {
           },
           projectImage: {
             fluid: {
-              src:
-                '//images.ctfassets.net/024qyvhyq0tv/2a8UgnpPyEIyuy8Q8iuSWC/662c60c4ec8d8cb4c32c7ffada302a5c/pomodoro-thumb.jpg?w=800&q=50',
+              src: '//images.ctfassets.net/024qyvhyq0tv/2a8UgnpPyEIyuy8Q8iuSWC/662c60c4ec8d8cb4c32c7ffada302a5c/pomodoro-thumb.jpg?w=800&q=50',
               srcSet:
                 '//images.ctfassets.net/024qyvhyq0tv/2a8UgnpPyEIyuy8Q8iuSWC/662c60c4ec8d8cb4c32c7ffada302a5c/pomodoro-thumb.jpg?w=200&h=122&q=50 200w,\n//images.ctfassets.net/024qyvhyq0tv/2a8UgnpPyEIyuy8Q8iuSWC/662c60c4ec8d8cb4c32c7ffada302a5c/pomodoro-thumb.jpg?w=400&h=243&q=50 400w,\n//images.ctfassets.net/024qyvhyq0tv/2a8UgnpPyEIyuy8Q8iuSWC/662c60c4ec8d8cb4c32c7ffada302a5c/pomodoro-thumb.jpg?w=800&h=486&q=50 800w',
               sizes: '(max-width: 800px) 100vw, 800px',
