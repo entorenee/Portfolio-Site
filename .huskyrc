@@ -1,5 +1,5 @@
 {
   "hooks": {
-    "pre-commit": "flow check && lint-staged"
+    "pre-commit": "lint-staged"
   }
 }
