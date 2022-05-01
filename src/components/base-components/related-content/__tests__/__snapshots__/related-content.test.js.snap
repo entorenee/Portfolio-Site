@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<RelatedContent /> renders correctly 1`] = `
-.emotion-2 {
+.emotion-0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -13,7 +13,7 @@ exports[`<RelatedContent /> renders correctly 1`] = `
   justify-content: center;
 }
 
-.emotion-2 > * {
+.emotion-0>* {
   margin: 0 1rem;
   max-width: 30rem;
   -webkit-flex: 1 0 30%;
@@ -21,7 +21,7 @@ exports[`<RelatedContent /> renders correctly 1`] = `
   flex: 1 0 30%;
 }
 
-.emotion-0 {
+.emotion-1 {
   margin-bottom: 1.5rem;
   border: 1px solid #ccc;
   padding: 0.5rem 0.25rem;
@@ -30,10 +30,10 @@ exports[`<RelatedContent /> renders correctly 1`] = `
 }
 
 <div
-  class=" emotion-2"
+  class=" emotion-0"
 >
   <div
-    class="emotion-0"
+    class="emotion-1"
   >
     <h3>
       Find Great Ways to Test your Components
@@ -49,7 +49,7 @@ exports[`<RelatedContent /> renders correctly 1`] = `
     </p>
   </div>
   <div
-    class="emotion-0"
+    class="emotion-1"
   >
     <h3>
       Amazing Headline. Come and Read this Article

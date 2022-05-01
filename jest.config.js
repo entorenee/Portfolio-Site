@@ -8,11 +8,14 @@ module.exports = {
       '<rootDir>/testUtils/assetsTransformer.js',
     '\\.(css|less)$': '<rootDir>/testUtils/assetsTransformer.js',
   },
+  testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/.cache/'],
   collectCoverageFrom: ['src/components/**/*.js'],
-  snapshotSerializers: ['jest-emotion/serializer'],
+  snapshotSerializers: ['@emotion/jest/serializer'],
   globals: {
     __PATH_PREFIX__: '',
   },
-  testURL: 'http://localhost:3000',
-};
+  testEnvironmentOptions: {
+    url: 'http://localhost:3000',
+  },
+}

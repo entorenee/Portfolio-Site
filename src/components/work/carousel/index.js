@@ -63,9 +63,8 @@ export const PureCarousel = ({
     contentfulSlideshow: { slides },
   },
 }: Props) => {
-  const { currIndex, isPlaying, setIsPlaying, updateSlide } = useSlideshow(
-    slides,
-  )
+  const { currIndex, isPlaying, setIsPlaying, updateSlide } =
+    useSlideshow(slides)
   const project = slides[currIndex]
 
   return (
