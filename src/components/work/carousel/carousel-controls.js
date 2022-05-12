@@ -55,7 +55,7 @@ type Props = {
   currIndex: number,
   isPlaying: boolean,
   projects: Array<Project>,
-  setIsPlaying: boolean => void,
+  setIsPlaying: (boolean) => void,
   updateProject: (direction: 'previous' | 'next' | number) => void,
 }
 

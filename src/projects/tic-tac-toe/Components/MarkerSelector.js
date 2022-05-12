@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { keyboardHandler } from '../helpers'
 import '../style/MarkerSelector.css'
 
-const MarkerSelector = props => {
+const MarkerSelector = (props) => {
   const { playerSelectMarker } = props
   return (
     <div id='playerSelect' className='player-selector-modal'>
@@ -14,7 +14,7 @@ const MarkerSelector = props => {
           <div
             className='ttt-marker ttt-select-x'
             onClick={() => playerSelectMarker('X')}
-            onKeyPress={e => {
+            onKeyPress={(e) => {
               if (keyboardHandler(e)) playerSelectMarker('X')
             }}
             role='button'
@@ -25,7 +25,7 @@ const MarkerSelector = props => {
           <div
             className='ttt-marker ttt-select-o'
             onClick={() => playerSelectMarker('O')}
-            onKeyPress={e => {
+            onKeyPress={(e) => {
               if (keyboardHandler(e)) playerSelectMarker('O')
             }}
             role='button'

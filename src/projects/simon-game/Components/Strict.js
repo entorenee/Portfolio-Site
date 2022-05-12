@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { keyboardHandler } from '../helpers'
 import '../style/Strict.css'
 
-const Strict = props => {
+const Strict = (props) => {
   const { isStrict, toggleStrict } = props
   return (
     <div className='strict-button-wrapper'>
@@ -14,7 +14,7 @@ const Strict = props => {
       <div
         className='strict-mode-button'
         onClick={() => toggleStrict()}
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           if (keyboardHandler(e)) toggleStrict()
         }}
         aria-label={`Turn strict mode ${isStrict ? 'off' : 'on'}`}

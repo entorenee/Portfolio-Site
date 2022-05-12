@@ -2,13 +2,13 @@ const postSlug = require('./src/utils/post-slug')
 
 require('dotenv').config()
 
-const {
-  CONTENTFUL_SPACE_ID,
-  CONTENTFUL_ACCESS_TOKEN,
-  CONTENTFUL_HOST,
-} = process.env
+const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOST } =
+  process.env
 
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
     title: 'Daniel Lemay Blog',
     description:
@@ -87,7 +87,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
-              allContentfulBlogPost.edges.map(edge => {
+              allContentfulBlogPost.edges.map((edge) => {
                 const { title, postDate } = edge.node
                 const { html } = edge.node.body.childMarkdownRemark
                 return {

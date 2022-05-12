@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import '../style/Key.css'
 
-const setProcessFunc = props => {
+const setProcessFunc = (props) => {
   const { addNum, clearDisplay, operations, type, value } = props
 
   switch (type) {
@@ -26,7 +26,7 @@ const setProcessFunc = props => {
   }
 }
 
-const NumKey = props => {
+const NumKey = (props) => {
   const { display, value, ...funcProps } = props
   const processFunc = setProcessFunc({ value, ...funcProps })
   let keyVal

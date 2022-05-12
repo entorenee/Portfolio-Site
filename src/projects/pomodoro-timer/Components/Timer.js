@@ -58,12 +58,12 @@ class Timer extends Component {
     }
   }
 
-  countdownTimer = timerName => {
+  countdownTimer = (timerName) => {
     const stateManaged =
       timerName === 'Session' ? 'sessionCountdown' : 'breakCountdown'
 
     const intervalId = setInterval(() => {
-      this.setState(state => ({
+      this.setState((state) => ({
         [stateManaged]: state[stateManaged] - 1000,
       }))
     }, 1000)
@@ -106,7 +106,7 @@ class Timer extends Component {
       <div
         className='timer-countdown'
         onClick={() => toggleTimer()}
-        onKeyPress={e => {
+        onKeyPress={(e) => {
           if (keyboardHandler(e)) toggleTimer()
         }}
         role='button'
@@ -121,7 +121,7 @@ class Timer extends Component {
           className='play-pause-btn'
           src={isRunning ? pause : play}
           alt='Play pause button'
-          ref={input => {
+          ref={(input) => {
             this.playBtn = input
           }}
         />

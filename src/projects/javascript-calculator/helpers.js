@@ -22,7 +22,7 @@ exports.operation = (val1, operator, val2) => {
   return result.toString()
 }
 
-exports.percentageToDecimal = value => {
+exports.percentageToDecimal = (value) => {
   const result = Number(value) / 100
   return result.toString()
 }

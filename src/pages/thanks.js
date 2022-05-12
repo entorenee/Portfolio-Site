@@ -59,7 +59,7 @@ class Thanks extends React.Component<{}, State> {
   }
 
   timerCountdown = () => {
-    this.setState(prevState => ({ timer: prevState.timer - 1000 }))
+    this.setState((prevState) => ({ timer: prevState.timer - 1000 }))
   }
 
   render() {
