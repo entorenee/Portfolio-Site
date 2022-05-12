@@ -1,4 +1,5 @@
 /* eslint-disable react/display-name */
+/* eslint @typescript-eslint/no-require-imports: "warn", @typescript-eslint/no-var-requires: "warn" */
 import React from 'react'
 import { act, render } from '@testing-library/react'
 
