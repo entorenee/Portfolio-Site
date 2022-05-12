@@ -4,12 +4,11 @@ import * as React from 'react'
 import { css } from '@emotion/core'
 import { Helmet } from 'react-helmet'
 import { graphql } from 'gatsby'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { FaAngleRight } from 'react-icons/fa'
 import 'prismjs/themes/prism.css'
 
 import type { TopMetaProps as PostMetaProps } from './post-meta'
-import type { FluidImage } from '../../components/types'
 
 import Layout from '../../layouts/main'
 import PostMeta from './post-meta'
@@ -132,7 +131,8 @@ type Props = {
         },
       },
       headlineImage?: {
-        fluid: FluidImage,
+        // TODO: resolve types after shifting to TS
+        gatsbyImage: any,
         title: string,
       },
       headlineImageCaption?: {
@@ -212,7 +212,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           {headlineImage && (
             <meta
               property='og:image'
-              content={`https:${headlineImage.fluid.src}`}
+              content={`https:${headlineImage.gatsbyImage.images.fallback.src}`}
             />
           )}
         </Helmet>
@@ -228,7 +228,10 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
         {headlineImage && (
           <div css={headlineImageContainer}>
             {headlineImage && (
-              <Image fluid={headlineImage.fluid} alt={headlineImage.title} />
+              <GatsbyImage
+                image={headlineImage.gatsbyImage}
+                alt={headlineImage.title}
+              />
             )}
             {headlineImageCaption && (
               <span
@@ -280,9 +283,7 @@ export const pageQuery = graphql`
         }
       }
       headlineImage {
-        fluid {
-          ...GatsbyContentfulFluid
-        }
+        gatsbyImage(layout: CONSTRAINED, width: 1200)
         title
       }
       headlineImageCaption {

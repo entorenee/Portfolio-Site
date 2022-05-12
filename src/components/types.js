@@ -16,5 +16,6 @@ export type FluidImage = {
 
 export type HeadlineImage = {
   description: string,
-  fluid: FluidImage,
+  // TODO: resolve types after shifting to TS
+  gatsbyImage: any,
 }
