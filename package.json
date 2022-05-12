@@ -23,7 +23,7 @@
     "test:coverage": "jest --coverage",
     "test:watch": "jest --watch",
     "lint": "eslint src",
-    "validate": "yarn lint && yarn prettier && yarn test && yarn build",
+    "validate": "yarn lint && yarn prettier && yarn test",
     "prepare": "husky install"
   },
   "license": "MIT",
