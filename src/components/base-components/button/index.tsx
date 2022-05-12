@@ -32,12 +32,13 @@ const Button = ({
 }: ButtonProps): JSX.Element => {
   if (!url)
     return (
+      // eslint-disable-next-line react/button-has-type
       <button type={type} aria-label={ariaLabel} css={buttonStyles}>
         {children}
       </button>
     )
 
-  return url.substring(0, 1) === '/' ? (
+  return url.startsWith('/') ? (
     <Link css={buttonStyles} to={url}>
       {children}
     </Link>

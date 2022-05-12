@@ -7,10 +7,9 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { FaAngleRight } from 'react-icons/fa'
 import 'prismjs/themes/prism.css'
 
-import type { TopMetaProps as PostMetaProps } from './post-meta'
+import PostMeta, { TopMetaProps as PostMetaProps } from './post-meta'
 
 import Layout from '../../layouts/main'
-import PostMeta from './post-meta'
 import QuoteCard from '../../components/base-components/quote-card'
 import RelatedContent from '../../components/base-components/related-content'
 import themeUtils from '../../components/theme-utils'
@@ -119,7 +118,7 @@ const readMoreLink = css`
   }
 `
 
-type Props = {
+interface Props {
   data: {
     contentfulBlogPost: {
       body: {
@@ -160,14 +159,14 @@ type Props = {
   }
 }
 
-const ReadMore = () => (
+const ReadMore = (): JSX.Element => (
   <span css={readMoreLink}>
     Read more
     <FaAngleRight />
   </span>
 )
 
-const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
+const BlogPost = ({ data: { contentfulBlogPost } }: Props): JSX.Element => {
   const {
     headlineImage,
     headlineImageCaption,
@@ -211,6 +210,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props) => {
           {headlineImage && (
             <meta
               property='og:image'
+              // eslint-disable-next-line
               content={`https:${headlineImage.gatsbyImage.images.fallback.src}`}
             />
           )}

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
 export type Direction = 'previous' | 'next' | number
-type Slides = Array<any>
-type Options = {
+type Slides = any[]
+interface Options {
   timerLength?: number
 }
-type HookReturn = {
+interface HookReturn {
   currIndex: number
   isPlaying: boolean
   setIsPlaying: (isPlaying: boolean) => void
@@ -27,11 +27,11 @@ function useSlideshow(
         timerLength,
       )
 
-      return () => clearTimeout(timer)
+      return (): void => clearTimeout(timer)
     }
   }, [currIndex, isPlaying, slides.length, timerLength])
 
-  const updateSlide = (direction: Direction) => {
+  const updateSlide = (direction: Direction): void => {
     if (typeof direction === 'number') {
       return setCurrIndex(direction)
     }

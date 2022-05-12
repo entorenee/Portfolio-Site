@@ -7,7 +7,7 @@ import themeUtils, { h1 } from '../theme-utils'
 
 import BlogExcerpt from './blog-excerpt'
 
-type BlogPostExcerpt = {
+interface BlogPostExcerpt {
   fields: {
     slug: string
   }
@@ -20,7 +20,7 @@ type BlogPostExcerpt = {
   }
 }
 
-type GqlQuery = {
+interface GqlQuery {
   allContentfulBlogPost: {
     nodes: BlogPostExcerpt[]
   }

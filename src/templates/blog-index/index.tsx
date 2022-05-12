@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { css } from '@emotion/core'
 
-import type { Post } from './types'
+import { Post } from './types'
 import BlogNavLink from './blog-nav-link'
 import BlogPostExcerpt from './blog-post-excerpt'
 import Layout from '../../layouts/main'
@@ -26,13 +26,13 @@ const rssContainer = css`
   margin-right: 2rem;
 `
 
-type Props = {
+interface Props {
   pageContext: {
     additionalContext: {
       headline: string
     }
     first: boolean
-    group: Array<Post>
+    group: Post[]
     index: number
     last: boolean
     pathPrefix: string

@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 
-export type LinkType = {
+export interface LinkType {
   text: string | ReactNode,
   url: string,
 }
 
-export type FluidImage = {
+export interface FluidImage {
   aspectRatio: number,
   base64: string,
   sizes: string,
@@ -13,7 +13,7 @@ export type FluidImage = {
   srcSet: string,
 }
 
-export type HeadlineImage = {
+export interface HeadlineImage {
   description: string,
   // TODO: resolve types after shifting to TS
   gatsbyImage: any,

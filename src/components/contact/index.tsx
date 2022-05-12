@@ -90,7 +90,7 @@ const socialData = [
   },
 ]
 
-const Contact = () => (
+const Contact = (): JSX.Element => (
   <section css={contactSection} id='contact'>
     <div>
       <h2 css={h1}>Contact</h2>

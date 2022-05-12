@@ -46,7 +46,7 @@ const pageTitle = css`
   text-align: center;
 `
 
-type Props = {
+interface Props {
   data: {
     markdownRemark: {
       frontmatter: {

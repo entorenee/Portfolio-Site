@@ -36,20 +36,20 @@ const buttonWrapper = css`
   justify-content: flex-end;
 `
 
-type State = {
+interface State {
   timer: number
 }
 
-class Thanks extends React.Component<{}, State> {
+class Thanks extends Component<never, State> {
   state = {
     timer: 7000,
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     setInterval(() => this.timerCountdown(), 1000)
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(): void {
     const { timer } = this.state
 
     if (timer === 0) {
@@ -57,11 +57,11 @@ class Thanks extends React.Component<{}, State> {
     }
   }
 
-  timerCountdown = () => {
+  timerCountdown = (): void => {
     this.setState((prevState) => ({ timer: prevState.timer - 1000 }))
   }
 
-  render() {
+  render(): JSX.Element {
     const { timer } = this.state
 
     return (
