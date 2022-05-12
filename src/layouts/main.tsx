@@ -33,9 +33,9 @@ const styles = css`
 `
 
 const description =
-  'Daniel Lemay is a full stack JavaScript developer, based out of Portland Oregon, specializing in responsive web applications using cutting edge technologies.'
+  'Skyler Lemay is a full stack JavaScript developer, based out of Portland Oregon, specializing in responsive web applications using cutting edge technologies.'
 const url = typeof window !== 'undefined' ? window.location.href : undefined
-const title = 'Daniel Lemay | JavaScript Developer'
+const title = 'Skyler Lemay | JavaScript Developer'
 
 const TemplateWrapper = ({ children }: TemplateWrapperProps): JSX.Element => (
   <>

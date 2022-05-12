@@ -17,7 +17,7 @@ GraphQL is the response to growing REST endpoints which often don't match up to 
 - [GraphQL Weekly](https://graphqlweekly.com/): A weekly newsletter about GraphQL
 
 ## Media
-- [Build Better and More Discoverable APIs with GraphQL - Daniel Lemay](https://www.youtube.com/watch?v=A5GvnU1JxdQ&t=3s): Discover the problems GraphQL solves compared to REST, the impact of network latency, as well as an introduction to Schema, Resolvers, and Queries. A good introduction into Why GraphQL.
+- [Build Better and More Discoverable APIs with GraphQL - Skyler Lemay](https://www.youtube.com/watch?v=A5GvnU1JxdQ&t=3s): Discover the problems GraphQL solves compared to REST, the impact of network latency, as well as an introduction to Schema, Resolvers, and Queries. A good introduction into Why GraphQL.
 - [Everything you Need to Know about GraphQL in 3 Components - Eve Porcello](https://www.youtube.com/watch?v=F_M8v6MK0Sc): An excellent walkthrough of using GraphQL Queries, Mutations, and Subscriptions complete with an amazing live demo
 - [JS Party - REST easy, GraphQL is here](https://changelog.com/jsparty/38): Hear from a John Resig and how Khan Academy has been using GraphQL
 - [Testing GraphQL - Jake Dawkins](https://youtu.be/loA3FwbVt90): Jake gives an excellent introduction to various levels of testing GraphQL clients and servers

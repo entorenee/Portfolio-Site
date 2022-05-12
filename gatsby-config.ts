@@ -13,9 +13,9 @@ const config: GatsbyConfig = {
     DEV_SSR: false,
   },
   siteMetadata: {
-    title: 'Daniel Lemay Blog',
+    title: 'Skyler Lemay Blog',
     description:
-      'Daniel Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
+      'Skyler Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
     siteUrl: 'https://www.dslemay.com',
   },
   plugins: [
@@ -127,7 +127,7 @@ const config: GatsbyConfig = {
               }
             `,
             output: '/feed.xml',
-            title: 'Daniel Lemay Blog RSS Feed',
+            title: 'Skyler Lemay Blog RSS Feed',
           },
         ],
       },

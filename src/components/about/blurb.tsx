@@ -17,7 +17,7 @@ const Blurb = (): JSX.Element => (
   <div css={wrapper}>
     <p>
       <strong>
-        My name is Daniel Lemay, and I am a JavaScript developer specializing in
+        My name is Skyler Lemay, and I am a JavaScript developer specializing in
         React.
         {/* eslint-disable-next-line react/jsx-curly-brace-presence */}
       </strong>{' '}
