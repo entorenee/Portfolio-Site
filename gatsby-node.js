@@ -165,21 +165,6 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage } = actions
-  const pageExport = page
-
-  return new Promise(resolve => {
-    if (page.path.match(/^\/projects/)) {
-      pageExport.layout = 'projects'
-
-      createPage(pageExport)
-    }
-
-    resolve()
-  })
-}
-
 exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions
 
