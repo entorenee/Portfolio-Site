@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-type Props = {
+interface Props {
   test: boolean
   text: string
   url: string

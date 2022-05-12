@@ -21,15 +21,15 @@ const attribution = css`
   margin-left: 1rem;
 `
 
-type Quote = {
+interface Quote {
   attribution: string
   quote: string
 }
 
-type Props = {
+interface Props {
   data: {
     contentfulSlideshow: {
-      slides: Array<Quote>
+      slides: Quote[]
     }
   }
 }
@@ -38,7 +38,7 @@ export const PureRandomQuote = ({
   data: {
     contentfulSlideshow: { slides },
   },
-}: Props) => {
+}: Props): JSX.Element => {
   const { currIndex } = useSlideshow(slides)
   const quote = slides[currIndex]
 
@@ -68,7 +68,7 @@ const query = graphql`
 const RandomQuote = (): JSX.Element => (
   <StaticQuery
     query={query}
-    render={(data) => <PureRandomQuote data={data} />}
+    render={(data): JSX.Element => <PureRandomQuote data={data} />}
   />
 )
 

@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { FaChevronRight } from 'react-icons/fa'
 
-import type { PostNode as Props } from './types'
+import { PostNode as Props } from './types'
 import themeUtils from '../../components/theme-utils'
 
 const postHeaderTitle = css`

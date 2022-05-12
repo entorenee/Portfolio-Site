@@ -44,7 +44,7 @@ const MenuLine = css`
 const Line1 = styled('span')<LineProps>`
   ${MenuLine};
   top: 0;
-  transform: ${({ isOpen }) =>
+  transform: ${({ isOpen }): string =>
     isOpen ? 'translateY(10px) translateY(-50%) rotate(-135deg)' : ''};
 `
 
@@ -53,13 +53,13 @@ const Line2 = styled('span')<LineProps>`
   top: 0;
   bottom: 0;
   margin: auto;
-  opacity: ${({ isOpen }) => (isOpen ? '0' : '')};
+  opacity: ${({ isOpen }): string => (isOpen ? '0' : '')};
 `
 
 const Line3 = styled('span')<LineProps>`
   ${MenuLine};
   bottom: 0;
-  transform: ${({ isOpen }) =>
+  transform: ${({ isOpen }): string =>
     isOpen ? 'translateY(-10px) translateY(50%) rotate(135deg)' : ''};
 `
 
@@ -68,7 +68,7 @@ const MenuIcon = ({ isOpen, toggleOpen }: MenuIconProps): JSX.Element => (
     aria-label='menu'
     aria-expanded={isOpen}
     css={iconContainer}
-    onClick={() => toggleOpen()}
+    onClick={():void => toggleOpen()}
     type='button'
   >
     <div css={icon}>

@@ -33,13 +33,13 @@ const tags = css`
   }
 `
 
-type Tag = {
+interface Tag {
   tag: string
   slug: string
 }
 
 // Meta Props which exist at top level
-export type TopMetaProps = {
+export interface TopMetaProps {
   postCategory: {
     category: string
     slug: string
@@ -50,7 +50,7 @@ export type TopMetaProps = {
 
 type Props = TopMetaProps & { timeToRead: number }
 
-const PostMeta = ({ postCategory, postDate, postTags, timeToRead }: Props) => (
+const PostMeta = ({ postCategory, postDate, postTags, timeToRead }: Props): JSX.Element => (
   <div css={wrapper}>
     <p>{`${timeToRead} min read · ${postDate}`}</p>
     <div css={categoryTagContainer}>

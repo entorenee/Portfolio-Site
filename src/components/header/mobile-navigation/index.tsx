@@ -12,7 +12,7 @@ const iconContainer = css`
 const MobileNavigation = (): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const toggleOpen = () => setIsOpen(!isOpen)
+  const toggleOpen = (): void => setIsOpen(!isOpen)
 
   return (
     <div css={iconContainer}>

@@ -37,7 +37,7 @@ const description =
 const url = typeof window !== 'undefined' ? window.location.href : undefined
 const title = 'Daniel Lemay | JavaScript Developer'
 
-const TemplateWrapper = ({ children }: TemplateWrapperProps) => (
+const TemplateWrapper = ({ children }: TemplateWrapperProps): JSX.Element => (
   <>
     <Helmet htmlAttributes={{ lang: 'en' }}>
       <meta charSet='utf-8' />

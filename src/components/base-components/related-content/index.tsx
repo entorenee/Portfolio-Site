@@ -5,13 +5,13 @@ import { Link } from 'gatsby'
 import type { LinkType } from '../../types'
 import Card from '../card'
 
-type CardProps = {
+interface CardProps {
   excerptText: string
   headlineText: string
   link: LinkType
 }
 
-export type Props = {
+export interface Props {
   cards: CardProps[]
   className?: string
 }
@@ -32,7 +32,7 @@ const excerptCard = css`
   padding: 1rem 0.75rem;
 `
 
-const RelatedContent = ({ cards, className }: Props) => (
+const RelatedContent = ({ cards, className }: Props): JSX.Element => (
   <div className={className} css={wrapper}>
     {cards.map(({ excerptText, headlineText, link }) => (
       <Card key={headlineText} css={excerptCard}>

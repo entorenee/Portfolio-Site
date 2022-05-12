@@ -1,4 +1,4 @@
-type PostExcerpt = {
+interface PostExcerpt {
   body: {
     childMarkdownRemark: {
       excerpt: string
@@ -18,7 +18,7 @@ type PostExcerpt = {
   title: string
 }
 
-export type PostNode = {
+export interface PostNode {
   node: PostExcerpt
 }
 

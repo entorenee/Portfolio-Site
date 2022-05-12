@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 
 import themeUtils from '../theme-utils'
 
-type IconProps = {
+interface IconProps {
   children: ReactNode
   link: string
 }

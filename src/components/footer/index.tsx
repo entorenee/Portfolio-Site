@@ -14,7 +14,7 @@ const wrapper = css`
   color: ${themeUtils.lightAccent};
 `
 
-const getCurrentYear = () => {
+const getCurrentYear = (): number => {
   const today = new Date(Date.now())
   return today.getFullYear()
 }

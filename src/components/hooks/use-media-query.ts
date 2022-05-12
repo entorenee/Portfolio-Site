@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-type HookReturn = {
+interface HookReturn {
   isMobile: boolean
 }
 
@@ -9,7 +9,7 @@ function useMediaQuery(): HookReturn {
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
-    const handleSizeChange = ({ matches }: MediaQueryListEvent) =>
+    const handleSizeChange = ({ matches }: MediaQueryListEvent): void =>
       setIsMobile(matches)
 
     // Window does not exist on SSR
@@ -18,7 +18,7 @@ function useMediaQuery(): HookReturn {
       mql.addListener(handleSizeChange)
       setIsMobile(mql.matches) // Set initial state in DOM
 
-      return () => mql.removeListener(handleSizeChange)
+      return (): void => mql.removeListener(handleSizeChange)
     }
   }, [])
 
