@@ -9,8 +9,7 @@
   },
   "main": "n/a",
   "keywords": [
-    "gatsby",
-    "flow"
+    "gatsby"
   ],
   "scripts": {
     "build": "gatsby build",
@@ -39,7 +38,6 @@
     "gatsby-image": "^3.0.0",
     "gatsby-paginate": "^1.1.1",
     "gatsby-plugin-feed": "^4.14.0",
-    "gatsby-plugin-flow": "^3.14.0",
     "gatsby-plugin-google-analytics": "^4.14.0",
     "gatsby-plugin-image": "^2.14.0",
     "gatsby-plugin-offline": "^5.14.0",
@@ -68,7 +66,6 @@
     "@babel/eslint-parser": "^7.17.0",
     "@babel/plugin-proposal-class-properties": "^7.16.7",
     "@babel/preset-env": "^7.17.10",
-    "@babel/preset-flow": "^7.16.7",
     "@babel/preset-react": "^7.16.7",
     "@emotion/eslint-plugin": "^11.7.0",
     "@emotion/jest": "^11.9.1",
@@ -84,9 +81,6 @@
     "eslint": "^8.14.0",
     "eslint-config-dslemay": "^4.1.2",
     "eslint-plugin-emotion": "^11.0.0",
-    "eslint-plugin-flowtype": "^8.0.3",
-    "flow-bin": "^0.136.0",
-    "flow-typed": "^2.6.2",
     "husky": "^7.0.0",
     "is-ci-cli": "^2.2.0",
     "jest": "^28.0.3",

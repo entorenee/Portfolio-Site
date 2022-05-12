@@ -29,7 +29,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-offline',
     'gatsby-plugin-sitemap',
-    'gatsby-plugin-flow',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
