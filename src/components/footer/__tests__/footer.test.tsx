@@ -5,7 +5,7 @@ import Footer from '..'
 
 describe('<Footer />', () => {
   it('renders correctly', () => {
-    const year = new Date().getFullYear()
+    const year = new Date().getFullYear().toString();
     const { getByLabelText, getByText } = render(<Footer />)
 
     getByLabelText('copyright')

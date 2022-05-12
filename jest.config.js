@@ -1,6 +1,6 @@
 module.exports = {
   verbose: true,
-  transform: { '^.+\\.js$': 'babel-jest' },
+  transform: { '^.+\\.(js|ts|tsx)$': 'babel-jest' },
   transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
   setupFilesAfterEnv: ['<rootDir>/testUtils/setupTests.js'],
   moduleNameMapper: {

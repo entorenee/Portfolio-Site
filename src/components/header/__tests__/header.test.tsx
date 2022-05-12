@@ -3,10 +3,7 @@ import { fireEvent, render } from '@testing-library/react'
 
 import Header from '..'
 
-const location = {
-  pathname: '/',
-}
-
+// @ts-ignore
 window.___navigate = jest.fn()
 
 describe('<Header /> mobile view', () => {
@@ -21,14 +18,14 @@ describe('<Header /> mobile view', () => {
   })
 
   it('renders correctly', () => {
-    const { container, getByLabelText } = render(<Header location={location} />)
+    const { container, getByLabelText } = render(<Header />)
 
     expect(container).toBeTruthy()
     getByLabelText('menu')
   })
 
   it('the mobile icon toggles open states on click', () => {
-    const { getByLabelText } = render(<Header location={location} />)
+    const { getByLabelText } = render(<Header />)
 
     const menu = getByLabelText('menu')
     expect(menu).toHaveAttribute('aria-expanded', 'false')
@@ -49,7 +46,7 @@ describe('<Header /> non-mobile view', () => {
   })
 
   it('renders correctly', () => {
-    const { container, getByAltText } = render(<Header location={location} />)
+    const { container, getByAltText } = render(<Header />)
 
     const logo = getByAltText('Logo')
     fireEvent.click(logo)
