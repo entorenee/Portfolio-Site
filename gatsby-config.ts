@@ -1,11 +1,14 @@
-const postSlug = require('./src/utils/post-slug')
+import type { GatsbyConfig } from 'gatsby'
+import dotenv from 'dotenv'
 
-require('dotenv').config()
+import postSlug from './src/utils/post-slug'
+
+dotenv.config()
 
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN, CONTENTFUL_HOST } =
   process.env
 
-module.exports = {
+const config: GatsbyConfig = {
   flags: {
     DEV_SSR: false,
   },
@@ -86,7 +89,9 @@ module.exports = {
         `,
         feeds: [
           {
+        // @ts-ignore
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
+        // @ts-ignore
               allContentfulBlogPost.edges.map((edge) => {
                 const { title, postDate } = edge.node
                 const { html } = edge.node.body.childMarkdownRemark
@@ -129,3 +134,5 @@ module.exports = {
     },
   ],
 }
+
+export default config
