@@ -36,9 +36,7 @@ const query = graphql`
         }
         image: headlineImage {
           description
-          fluid {
-            ...GatsbyContentfulFluid
-          }
+          gatsbyImage(layout: CONSTRAINED, width: 600)
         }
         title
         body {

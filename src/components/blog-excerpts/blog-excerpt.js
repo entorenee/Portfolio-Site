@@ -1,6 +1,6 @@
 // @flow
 import React from 'react'
-import Image from 'gatsby-image'
+import { GatsbyImage } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
 
 import type { HeadlineImage } from '../types'
@@ -17,10 +17,10 @@ type Props = {
 const BlogExcerpt = ({ className, excerpt, headline, image, url }: Props) => (
   <Card css={{ padding: '1rem' }} className={className}>
     {image && (
-      <Image
+      <GatsbyImage
         css={{ marginBottom: '1rem' }}
         alt={image.description}
-        fluid={image.fluid}
+        image={image.gatsbyImage}
       />
     )}
     <Link to={url} css={{ textDecoration: 'none' }}>
