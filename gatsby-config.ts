@@ -16,7 +16,7 @@ const config: GatsbyConfig = {
     title: 'Skyler Lemay Blog',
     description:
       'Skyler Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
-    siteUrl: 'https://www.dslemay.com',
+    siteUrl: 'https://www.skylerlemay.com',
   },
   plugins: [
     {
@@ -89,9 +89,9 @@ const config: GatsbyConfig = {
         `,
         feeds: [
           {
-        // @ts-ignore
+            // @ts-ignore
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
-        // @ts-ignore
+              // @ts-ignore
               allContentfulBlogPost.edges.map((edge) => {
                 const { title, postDate } = edge.node
                 const { html } = edge.node.body.childMarkdownRemark

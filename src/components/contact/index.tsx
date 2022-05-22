@@ -95,7 +95,7 @@ const Contact = (): JSX.Element => (
     <div>
       <h2 css={h1}>Contact</h2>
       <Card css={cardStyles}>
-        <form action='https://formspree.io/daniel@dslemay.com' method='POST'>
+        <form action='https://formspree.io/skyler@skylerlemay.com' method='POST'>
           <label css={formLabel} htmlFor='name'>
             <span>Name:</span>
             <input type='text' name='name' placeholder='Your name' />
