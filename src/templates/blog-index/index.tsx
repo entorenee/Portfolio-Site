@@ -68,7 +68,7 @@ const BlogIndex = ({ pageContext }: Props): JSX.Element => {
   return (
     <Layout>
       <div css={container}>
-        <Helmet title={`${headline} | Daniel Lemay`} />
+        <Helmet title={`${headline} | Skyler Lemay`} />
         <div css={rssContainer}>
           <a href='/feed.xml'>Subscribe to RSS</a>
         </div>

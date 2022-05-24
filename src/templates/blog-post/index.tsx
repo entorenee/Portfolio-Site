@@ -187,7 +187,7 @@ const BlogPost = ({ data: { contentfulBlogPost } }: Props): JSX.Element => {
     ? headlineImageCaption.childMarkdownRemark.html
     : ''
   const keyQuoteHtml = keyQuote ? keyQuote.childMarkdownRemark.html : ''
-  const metaTitle = `${title} - Daniel Lemay`
+  const metaTitle = `${title} - Skyler Lemay`
   const cards = !relatedPosts
     ? null
     : relatedPosts.map((post) => ({

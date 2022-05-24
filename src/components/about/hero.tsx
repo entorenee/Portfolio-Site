@@ -64,7 +64,7 @@ const Hero = (): JSX.Element => (
     <div css={heroText}>
       <h1>
         <span css={{ display: 'block', marginBottom: '0.5rem' }}>
-          Daniel Lemay
+          Skyler Lemay
         </span>
         <hr />
         JavaScript Developer

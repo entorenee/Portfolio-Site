@@ -13,10 +13,10 @@ const config: GatsbyConfig = {
     DEV_SSR: false,
   },
   siteMetadata: {
-    title: 'Daniel Lemay Blog',
+    title: 'Skyler Lemay Blog',
     description:
-      'Daniel Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
-    siteUrl: 'https://www.dslemay.com',
+      'Skyler Lemay is a full stack JavaScript developer based in Portland, OR and concentrating on cutting edge technologies.',
+    siteUrl: 'https://www.skylerlemay.com',
   },
   plugins: [
     {
@@ -89,9 +89,9 @@ const config: GatsbyConfig = {
         `,
         feeds: [
           {
-        // @ts-ignore
+            // @ts-ignore
             serialize: ({ query: { site, allContentfulBlogPost } }) =>
-        // @ts-ignore
+              // @ts-ignore
               allContentfulBlogPost.edges.map((edge) => {
                 const { title, postDate } = edge.node
                 const { html } = edge.node.body.childMarkdownRemark
@@ -127,7 +127,7 @@ const config: GatsbyConfig = {
               }
             `,
             output: '/feed.xml',
-            title: 'Daniel Lemay Blog RSS Feed',
+            title: 'Skyler Lemay Blog RSS Feed',
           },
         ],
       },

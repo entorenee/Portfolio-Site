@@ -26,7 +26,7 @@ const Footer = (): JSX.Element => (
       css={{ marginRight: '0.5rem' }}
       size={18}
     />{' '}
-    {getCurrentYear()} Daniel Lemay. All Rights Reserved.
+    {getCurrentYear()} Skyler Lemay. All Rights Reserved.
   </footer>
 )
 

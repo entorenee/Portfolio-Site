@@ -68,7 +68,7 @@ const ResourcePage = ({
   return (
     <Layout>
       <div css={wrapper}>
-        <Helmet title={`${title} - Daniel Lemay`} />
+        <Helmet title={`${title} - Skyler Lemay`} />
         <ArticleHeader keyQuote={keyQuote} />
         <div css={content}>
           <h1 css={pageTitle}>{title}</h1>

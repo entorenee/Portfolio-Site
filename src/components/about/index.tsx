@@ -61,7 +61,7 @@ const About = (): JSX.Element => (
   <section id='about'>
     <Hero />
     <div css={wrapper}>
-      <img css={avatar} src={headshot} alt='Profile of Daniel Lemay' />
+      <img css={avatar} src={headshot} alt='Profile of Skyler Lemay' />
       <h2 css={header}>About</h2>
       <RandomQuote />
       <Skills />

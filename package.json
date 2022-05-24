@@ -1,8 +1,8 @@
 {
-  "name": "daniel-lemay-portfolio",
-  "description": "Portfolio Site for Daniel Lemay",
+  "name": "skyler-lemay-portfolio",
+  "description": "Portfolio Site for Skyler Lemay",
   "version": "1.0.0",
-  "author": "Daniel Lemay",
+  "author": "Skyler Lemay",
   "repository": {
     "type": "git",
     "url": "git@github.com:dslemay/Portfolio-Site.git"
