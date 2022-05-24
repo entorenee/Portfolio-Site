@@ -2,8 +2,8 @@ module.exports = {
   presets: [
     '@babel/preset-env',
     '@babel/preset-react',
-    '@babel/flow',
     '@emotion/babel-preset-css-prop',
+    '@babel/preset-typescript',
   ],
   plugins: [
     '@babel/plugin-proposal-class-properties',
