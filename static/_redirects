@@ -1,4 +1,4 @@
 http://dslemay.com/test-redirect http://skylerlemay.com 302
 https://dslemay.com/test-redirect https://skylerlemay.com 302
-http://dslemay.com/blog/tag/* http://skylerlemay.com/blog/:splat 302
-https://dslemay.com/blog/tag/* https://skylerlemay.com/blog/:splat 302
+http://www.dslemay.com/blog/tag/* http://www.skylerlemay.com/blog/:splat 302
+https://www.dslemay.com/blog/tag/* https://www.skylerlemay.com/blog/:splat 302
