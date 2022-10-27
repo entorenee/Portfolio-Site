@@ -80,7 +80,7 @@ const socialData = [
   {
     'aria-label': 'GitHub',
     service: 'github',
-    link: 'https://github.com/dslemay',
+    link: 'https://github.com/entorenee',
     component: (
       <>
         <FaGithub size={30} />
